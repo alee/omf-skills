@@ -6,11 +6,36 @@ This repository hosts a curated collection of [Agent Skills](https://agentskills
 
 ## Quick Start
 
+### Accessing a Coding Agent
+
+These skills are designed for coding-capable AI agents that can:
+
+- read skill instructions from `SKILL.md`
+- execute shell commands
+- inspect and modify repositories
+- run local tools such as Python, Git, and Docker
+
+Compatible environments include:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [VSCodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)  
+- [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
+- [Claude Code](https://code.claude.com/docs/en/overview)
+- [Cursor Agent](https://cursor.com/)
+- (contributions welcome, this is a rapidly evolving space)
+
+At minimum, your agent should support:
+- filesystem access
+- terminal execution
+- multi-file editing
+
 ### Install Node.js LTS with nvm (WSL, macOS, Linux)
 
-`npx skills ...` requires Node.js. Use the node version manager `nvm` to install and manage Node versions without `sudo`.
+After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are simply a set of files installed into a local directory managed by `npx skills` (either globally for use across all of your projects or into a specific project).
 
-Security best practices:
+We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
+
+**Security best practices:**
 
 - Install only from the official [nvm-sh/nvm](https://github.com/nvm-sh/nvm/releases) repository.
 - Pin the installer to a specific release tag instead of running an unpinned command.
@@ -69,39 +94,77 @@ npm -v
 npx -v
 ```
 
-6. Keep Node LTS current
+6. Continue with skills installation
+
+```bash
+npx skills add comses/skills 
+# alternatively, install from github directly
+npx skills add https://github.com/comses/skills
+```
+
+7. Keep Node LTS current (maintenance)
 
 ```bash
 nvm install --lts --reinstall-packages-from=current
 nvm use --lts
 ```
 
-7. Continue with skills installation
+### Try the skills out
 
-```bash
-npx skills add comses/skills
+#### Open your modeling project in a coding agent
+
+Examples: 
+
+- Cursor: open the project folder and enable Agent mode
+- Claude Code: run `claude` in the project root
+- ChatGPT: open the repository in a coding-enabled workspace
+
+#### Verify the agent can discover installed skills
+
+Try:
+
+```text
+What skills are available from the comses/skills collection?
+```
+or:
+
+```text
+Read the installed skills and summarize when each should be used.
 ```
 
-### Install a Skill
+#### Run a small task
 
-```bash
-npx skills add comses/skills
+Generally the skills will always be triggered if you reference them by name, or you can use their associated slash command, e.g., 
+
+Examples:
+
+```text
+/document generate ODD+2 documentation for this model.
 ```
 
-Or install from GitHub directly:
+or
 
-```bash
-npx skills add https://github.com/comses/skills
+```text
+Use the document skill to generate ODD+2 documentation for this model.
 ```
 
-### Use a Skill in Your Coding Agent
+```text
+/peer-review evaluate this repository for reproducibility readiness
+```
 
-Once installed, mention the skill by name in your conversation:
-- *"Use the document skill to generate ODD+2 documentation for my ABM"*
+or
+
+```text
+Use the peer-review skill to evaluate this repository for reproducibility readiness.
+```
+
+etc.
+
+Other examples:
+
 - *"Set up an OSPool batch scaffolder for my sensitivity analysis"*
-- *"Generate a FAIR4RS publication checklist for my model outputs"*
-
-See the Agent Skills documentation for your platform for details on skill usage.
+- *"Generate a FAIR4RS publication checklist for this model"*
+- *"Generate a FAIR publication checklist for my model's output data"*
 
 ## Skills Overview
 
