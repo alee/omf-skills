@@ -6,7 +6,7 @@ This repository hosts a curated collection of [Agent Skills](https://agentskills
 
 ## Quick Start
 
-## Accessing a Coding Agent
+### Accessing a Coding Agent
 
 These skills are designed for coding-capable AI agents that can:
 
@@ -18,7 +18,7 @@ These skills are designed for coding-capable AI agents that can:
 Compatible environments include:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [vscodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)  
+- [VSCodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)  
 - [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
 - [Claude Code](https://code.claude.com/docs/en/overview)
 - [Cursor Agent](https://cursor.com/)
@@ -31,11 +31,11 @@ At minimum, your agent should support:
 
 ### Install Node.js LTS with nvm (WSL, macOS, Linux)
 
-After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are just a pile of files on your filesystem at the end of the day.
+After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are simply a set of files installed into a local directory managed by `npx skills` (either globally for use across all of your projects or into a specific project).
 
-`npx skills ...` requires Node.js. We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
+We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
 
-Security best practices:
+**Security best practices:**
 
 - Install only from the official [nvm-sh/nvm](https://github.com/nvm-sh/nvm/releases) repository.
 - Pin the installer to a specific release tag instead of running an unpinned command.
@@ -94,29 +94,19 @@ npm -v
 npx -v
 ```
 
-6. Keep Node LTS current
+6. Continue with skills installation
+
+```bash
+npx skills add comses/skills 
+# alternatively, install from github directly
+npx skills add https://github.com/comses/skills
+```
+
+7. Keep Node LTS current (maintenance)
 
 ```bash
 nvm install --lts --reinstall-packages-from=current
 nvm use --lts
-```
-
-7. Continue with skills installation
-
-```bash
-npx skills add comses/skills
-```
-
-### Install a Skill
-
-```bash
-npx skills add comses/skills
-```
-
-Or install from GitHub directly:
-
-```bash
-npx skills add https://github.com/comses/skills
 ```
 
 ### Try the skills out
