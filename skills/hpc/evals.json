@@ -1,141 +1,277 @@
 {
+  "schema_version": "1.0.0",
   "skill_name": "hpc",
   "description": "Evaluation cases for HPC Slurm job scaffolding skill",
   "evals": [
     {
       "id": 1,
       "type": "core",
-      "prompt": "I have a multi-node MPI model and want to run on an HPC cluster. Generate a Slurm job script.",
+      "prompt": "I want to run my ABM on a university HPC cluster using Slurm. Generate a job script for me.",
       "should_trigger": true,
-      "expected_output": "Slurm batch script with MPI launch"
-    },
-    {
-      "id": 2,
-      "type": "core",
-      "prompt": "Submit a job to OSPool",
-      "should_trigger": false,
-      "expected_output": "Does not activate (HTCondor/OSPool domain)"
+      "behavior": [
+        "Generates a Slurm batch script with resource requests and a model execution command"
+      ],
+      "output": {
+        "description": "Slurm batch script with resource requests and model execution command",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 3,
       "type": "core",
       "prompt": "Set up a job array for 500 parameter combinations on a Slurm cluster.",
       "should_trigger": true,
-      "expected_output": "Slurm array script with parameter indexing"
+      "behavior": [
+        "Generates a Slurm array script with parameter indexing"
+      ],
+      "output": {
+        "description": "Slurm array script with parameter indexing",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 4,
       "type": "core",
       "prompt": "I need a GPU accelerated job on HPC. Generate Slurm script with CUDA support.",
       "should_trigger": true,
-      "expected_output": "GPU-enabled Slurm script"
+      "behavior": [
+        "Generates a GPU-enabled Slurm script"
+      ],
+      "output": {
+        "description": "GPU-enabled Slurm script",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 5,
       "type": "core",
       "prompt": "Generate HTCondor configuration for parameter sweeps",
       "should_trigger": false,
-      "expected_output": "Does not activate"
+      "behavior": [
+        "Does not activate"
+      ],
+      "output": {
+        "description": "Does not activate",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 6,
       "type": "core",
       "prompt": "How do I run my simulation efficiently on a Slurm cluster?",
       "should_trigger": true,
-      "expected_output": "Guidance plus Slurm script scaffold"
+      "behavior": [
+        "Provides guidance plus a Slurm script scaffold"
+      ],
+      "output": {
+        "description": "Guidance plus Slurm script scaffold",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 7,
       "type": "core",
       "prompt": "Fix my Slurm script that is failing with node allocation errors",
       "should_trigger": true,
-      "expected_output": "Debugged Slurm script with corrected directives"
+      "behavior": [
+        "Debugs Slurm script with corrected directives"
+      ],
+      "output": {
+        "description": "Debugged Slurm script with corrected directives",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 8,
       "type": "core",
       "prompt": "Validate whether my Slurm job script is configured correctly",
       "should_trigger": true,
-      "expected_output": "Validation report with suggested fixes"
+      "behavior": [
+        "Validates Slurm job script and suggests fixes"
+      ],
+      "output": {
+        "description": "Validation report with suggested fixes",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 9,
       "type": "core",
       "prompt": "Write a bash script to run my simulation locally",
       "should_trigger": false,
-      "expected_output": "Does not activate; not HPC-specific"
+      "behavior": [
+        "Does not activate; not HPC-specific"
+      ],
+      "output": {
+        "description": "Does not activate; not HPC-specific",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 10,
       "type": "core",
       "prompt": "Package my simulation into a Docker container",
       "should_trigger": false,
-      "expected_output": "Does not activate; containerization task"
+      "behavior": [
+        "Does not activate; containerization task"
+      ],
+      "output": {
+        "description": "Does not activate; containerization task",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
-
     {
       "id": 101,
       "type": "adversarial",
       "prompt": "Explain what Slurm is",
       "should_trigger": false,
-      "expected_output": "Informational only",
-      "failure_modes": ["keyword_trap", "over_trigger"]
+      "behavior": [
+        "Informational only"
+      ],
+      "output": {
+        "description": "Informational only",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "under_trigger",
+        "missing_step"
+      ]
     },
     {
       "id": 102,
       "type": "adversarial",
       "prompt": "Run my job on a cluster",
       "should_trigger": true,
-      "expected_output": "Clarifies scheduler and produces Slurm solution",
-      "failure_modes": ["under_trigger", "no_planning"]
+      "behavior": [
+        "Clarifies scheduler and produces a Slurm solution"
+      ],
+      "output": {
+        "description": "Clarifies scheduler and produces a Slurm solution",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "under_trigger",
+        "no_planning"
+      ]
     },
     {
       "id": 103,
       "type": "adversarial",
       "prompt": "Generate a PBS job script for my simulation",
       "should_trigger": false,
-      "expected_output": "Does not trigger; different scheduler",
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "behavior": [
+        "Does not trigger; different scheduler"
+      ],
+      "output": {
+        "description": "Does not trigger; different scheduler",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 104,
       "type": "adversarial",
       "prompt": "Optimize my Slurm job to reduce runtime and queue wait",
       "should_trigger": true,
-      "expected_output": "Improved resource configuration and scheduling guidance",
-      "failure_modes": ["under_trigger", "incomplete_execution"]
+      "behavior": [
+        "Improves resource configuration and scheduling guidance"
+      ],
+      "output": {
+        "description": "Improved resource configuration and scheduling guidance",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "under_trigger",
+        "incomplete_execution"
+      ]
     },
     {
       "id": 105,
       "type": "adversarial",
       "prompt": "Fix formatting in my Slurm script",
       "should_trigger": false,
-      "expected_output": "Does not trigger; superficial edit",
-      "failure_modes": ["over_trigger", "scope_creep"]
+      "behavior": [
+        "Does not trigger; superficial edit"
+      ],
+      "output": {
+        "description": "Does not trigger; superficial edit",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
     },
     {
       "id": 106,
       "type": "adversarial",
       "prompt": "Run my simulation on Kubernetes",
       "should_trigger": false,
-      "expected_output": "Does not trigger; different infrastructure",
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "behavior": [
+        "Does not trigger; different infrastructure"
+      ],
+      "output": {
+        "description": "Does not trigger; different infrastructure",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 107,
       "type": "adversarial",
       "prompt": "Create a Slurm job script but also prepare FAIR metadata for publication",
       "should_trigger": true,
-      "expected_output": "Handles Slurm portion; does not overreach into FAIR",
-      "failure_modes": ["scope_creep", "boundary_violation"]
+      "behavior": [
+        "Handles the Slurm portion; does not overreach into FAIR"
+      ],
+      "output": {
+        "description": "Handles the Slurm portion; does not overreach into FAIR",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "scope_creep",
+        "boundary_violation"
+      ]
     },
     {
       "id": 108,
       "type": "adversarial",
       "prompt": "I need to run 10,000 simulations with different parameters efficiently",
       "should_trigger": true,
-      "expected_output": "Suggests job arrays or batching strategy",
-      "failure_modes": ["under_trigger", "missing_step"]
+      "behavior": [
+        "Suggests job arrays or a batching strategy"
+      ],
+      "output": {
+        "description": "Suggests job arrays or a batching strategy",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "under_trigger",
+        "missing_step"
+      ]
     }
   ]
 }

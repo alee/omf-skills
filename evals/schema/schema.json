@@ -1,10 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Skill Evaluation Schema",
+  "description": "Schema for evaluating agent skill routing, behavior, outputs, and boundary conditions.",
   "type": "object",
   "required": [
+    "schema_version",
     "evals"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Semantic version of the eval schema.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
     "skill_name": {
       "type": "string"
     },
@@ -21,11 +29,14 @@
         "type": "object",
         "required": [
           "id",
-          "prompt"
+          "type",
+          "prompt",
+          "should_trigger"
         ],
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1
           },
           "type": {
             "type": "string",
@@ -41,22 +52,61 @@
             "minLength": 5
           },
           "should_trigger": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the skill under evaluation should activate for this prompt."
           },
-          "expected_behavior": {
-            "type": "string"
+          "routing_target": {
+            "type": "string",
+            "description": "Expected target skill or subsystem for routing decisions."
           },
-          "expected_output": {
-            "type": "string"
+          "behavior": {
+            "type": "array",
+            "description": "Observable process-level assertions: routing decisions, skill invocations, and actions taken before output is produced.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output": {
+            "type": "object",
+            "description": "Expected response-level properties.",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "must_include": {
+                "type": "array",
+                "description": "Terms, concepts, or behaviors that must appear in the response.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
+              "must_not_include": {
+                "type": "array",
+                "description": "Terms, concepts, or behaviors that must not appear in the response.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "description",
+              "must_include",
+              "must_not_include"
+            ],
+            "additionalProperties": false
           },
           "success_criteria": {
             "type": "array",
+            "description": "Evaluable conditions spanning both process and output, used when checkable assertions alone are insufficient.",
             "items": {
               "type": "string"
             }
           },
           "skills_expected": {
             "type": "array",
+            "description": "Skills expected to participate in routing or orchestration.",
             "items": {
               "type": "string"
             }
@@ -77,7 +127,10 @@
                 "boundary_violation",
                 "incomplete_execution",
                 "missing_step",
+                "missing_evidence",
+                "insufficient_uncertainty",
                 "invalid_output",
+                "invalid_publication_claim",
                 "no_planning",
                 "redundant_actions"
               ]
@@ -103,23 +156,6 @@
             "then": {
               "required": [
                 "failure_modes"
-              ]
-            }
-          },
-          {
-            "if": {
-              "properties": {
-                "type": {
-                  "enum": [
-                    "core",
-                    "adversarial"
-                  ]
-                }
-              }
-            },
-            "then": {
-              "required": [
-                "should_trigger"
               ]
             }
           },

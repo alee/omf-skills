@@ -14,26 +14,40 @@ def load_schema():
 
 
 def validate_file(path, schema):
-    data = json.loads(path.read_text())
+    try:
+        data = json.loads(path.read_text())
+    except json.JSONDecodeError as e:
+        print(f"❌ {path} invalid JSON")
+        print(f"   → {e.msg} (line {e.lineno}, column {e.colno})")
+        return False
+
     try:
         jsonschema.validate(instance=data, schema=schema)
         print(f"✅ {path} valid")
     except jsonschema.ValidationError as e:
         print(f"❌ {path} invalid")
         print(f"   → {e.message}")
-        sys.exit(1)
+        return False
+
+    return True
 
 
 def main():
     schema = load_schema()
+    has_errors = False
 
     # validate all evals.json in skills/
     for path in Path("skills").rglob("evals.json"):
-        validate_file(path, schema)
+        if not validate_file(path, schema):
+            has_errors = True
 
     # validate cross-skill evals
     for path in Path("evals").glob("*.json"):
-        validate_file(path, schema)
+        if not validate_file(path, schema):
+            has_errors = True
+
+    if has_errors:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

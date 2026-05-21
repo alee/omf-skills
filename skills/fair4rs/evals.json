@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0.0",
   "skill_name": "fair4rs",
   "description": "Evaluation cases for FAIR4RS publication readiness skill",
   "evals": [
@@ -7,84 +8,144 @@
       "type": "core",
       "prompt": "I'm preparing my Python ABM for publication on Zenodo. What metadata and files do I need?",
       "should_trigger": true,
-      "expected_output": "FAIR4RS checklist, codemeta.json, CITATION.cff, and deposit guidance"
+      "behavior": ["Returns FAIR4RS checklist, codemeta.json, CITATION.cff, and deposit guidance"],
+      "output": {
+        "description": "FAIR4RS checklist, codemeta.json, CITATION.cff, and deposit guidance",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 2,
       "type": "core",
       "prompt": "Create a timeline for my project",
       "should_trigger": false,
-      "expected_output": "Skill does not activate"
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 3,
       "type": "core",
       "prompt": "I have a model on GitHub and I want to make it citable. Generate CITATION.cff.",
       "should_trigger": true,
-      "expected_output": "codemeta.json plus CITATION.cff"
+      "behavior": ["Returns codemeta.json plus CITATION.cff"],
+      "output": {
+        "description": "codemeta.json plus CITATION.cff",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 4,
       "type": "core",
       "prompt": "Prepare both a data management plan and a software management plan for my published model",
       "should_trigger": true,
-      "expected_output": "DMP + SMP aligned with FAIR4RS"
+      "behavior": ["Returns DMP + SMP aligned with FAIR4RS"],
+      "output": {
+        "description": "DMP + SMP aligned with FAIR4RS",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 5,
       "type": "core",
       "prompt": "Write a README for my code",
       "should_trigger": false,
-      "expected_output": "Skill does not activate"
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 6,
       "type": "core",
       "prompt": "Use EVERSE guidance to draft a software management plan for my reusable research software package.",
       "should_trigger": true,
-      "expected_output": "Structured SMP"
+      "behavior": ["Returns structured SMP"],
+      "output": {
+        "description": "Structured SMP",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 7,
       "type": "core",
       "prompt": "Create a codemeta.json for my model repository and then derive a matching CITATION.cff.",
       "should_trigger": true,
-      "expected_output": "Consistent codemeta.json + CITATION.cff"
+      "behavior": ["Returns consistent codemeta.json + CITATION.cff"],
+      "output": {
+        "description": "Consistent codemeta.json + CITATION.cff",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 8,
       "type": "core",
       "prompt": "How do I make my research software reusable and properly archived for long-term access?",
       "should_trigger": true,
-      "expected_output": "FAIR4RS-aligned guidance (archival, metadata, licensing)"
+      "behavior": ["Returns FAIR4RS-aligned guidance (archival, metadata, licensing)"],
+      "output": {
+        "description": "FAIR4RS-aligned guidance (archival, metadata, licensing)",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 9,
       "type": "core",
       "prompt": "Improve my existing CITATION.cff to meet best practices and align with my repository metadata",
       "should_trigger": true,
-      "expected_output": "Refined CITATION.cff with consistency checks"
+      "behavior": ["Returns refined CITATION.cff with consistency checks"],
+      "output": {
+        "description": "Refined CITATION.cff with consistency checks",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 10,
       "type": "core",
       "prompt": "Validate whether my repository metadata meets FAIR principles",
       "should_trigger": true,
-      "expected_output": "FAIR compliance assessment with gaps identified"
+      "behavior": ["Returns FAIR compliance assessment with gaps identified"],
+      "output": {
+        "description": "FAIR compliance assessment with gaps identified",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 11,
       "type": "core",
       "prompt": "Package my code for PyPI distribution",
       "should_trigger": false,
-      "expected_output": "Skill does not activate"
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
     {
       "id": 12,
       "type": "core",
       "prompt": "Write documentation for my scientific software",
       "should_trigger": false,
-      "expected_output": "Skill does not activate"
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      }
     },
 
     {
@@ -92,7 +153,12 @@
       "type": "adversarial",
       "prompt": "Explain what FAIR principles are",
       "should_trigger": false,
-      "expected_output": "Informational only",
+      "behavior": ["Informational only"],
+      "output": {
+        "description": "Informational only",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["keyword_trap", "over_trigger"]
     },
     {
@@ -100,7 +166,12 @@
       "type": "adversarial",
       "prompt": "Make my project FAIR",
       "should_trigger": true,
-      "expected_output": "Clarifies scope and applies FAIR4RS workflow",
+      "behavior": ["Clarifies scope and applies FAIR4RS workflow"],
+      "output": {
+        "description": "Clarifies scope and applies FAIR4RS workflow",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["under_trigger", "no_planning"]
     },
     {
@@ -108,7 +179,12 @@
       "type": "adversarial",
       "prompt": "Generate metadata for my dataset",
       "should_trigger": false,
-      "expected_output": "Does not trigger; data ≠ software",
+      "behavior": ["Does not trigger; data ≠ software"],
+      "output": {
+        "description": "Does not trigger; data ≠ software",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["wrong_skill", "boundary_violation"]
     },
     {
@@ -116,7 +192,12 @@
       "type": "adversarial",
       "prompt": "I need my code to be cited properly and archived with a DOI",
       "should_trigger": true,
-      "expected_output": "Triggers FAIR4RS workflow",
+      "behavior": ["Triggers FAIR4RS workflow"],
+      "output": {
+        "description": "Triggers FAIR4RS workflow",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["under_trigger"]
     },
     {
@@ -124,7 +205,12 @@
       "type": "adversarial",
       "prompt": "Fix formatting issues in my CITATION.cff",
       "should_trigger": false,
-      "expected_output": "Does not trigger; editing only",
+      "behavior": ["Does not trigger; editing only"],
+      "output": {
+        "description": "Does not trigger; editing only",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["over_trigger", "scope_creep"]
     },
     {
@@ -132,7 +218,12 @@
       "type": "adversarial",
       "prompt": "Write an ODD protocol description for my model and prepare it for publication",
       "should_trigger": false,
-      "expected_output": "Should defer to document skill first",
+      "behavior": ["Should defer to document skill first"],
+      "output": {
+        "description": "Should defer to document skill first",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["wrong_skill", "boundary_violation"]
     },
     {
@@ -140,16 +231,26 @@
       "type": "adversarial",
       "prompt": "Summarize my repository for a blog post",
       "should_trigger": false,
-      "expected_output": "Does not trigger",
+      "behavior": ["Does not trigger"],
+      "output": {
+        "description": "Does not trigger",
+        "must_include": [],
+        "must_not_include": []
+      },
       "failure_modes": ["over_trigger", "scope_creep"]
     },
     {
-      "id": 108,
-      "type": "adversarial",
-      "prompt": "Ensure my software release is reproducible, citable, and archived with proper metadata",
-      "should_trigger": true,
-      "expected_output": "Triggers FAIR4RS workflow",
-      "failure_modes": ["under_trigger", "no_planning"]
-    }
+  "id": 108,
+  "type": "adversarial",
+  "prompt": "Ensure my software release is reproducible, citable, and archived with proper metadata",
+  "should_trigger": true,
+  "behavior": ["Triggers FAIR4RS workflow and checks release metadata consistency"],
+  "output": {
+    "description": "FAIR4RS workflow with reproducibility, citation, and archival guidance",
+    "must_include": ["CITATION.cff", "codemeta.json", "archival", "reproducibility"],
+    "must_not_include": ["dataset-only guidance", "generic README-only advice"]
+  },
+  "failure_modes": ["under_trigger", "no_planning"]
+}
   ]
 }
