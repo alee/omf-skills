@@ -8,7 +8,9 @@
       "type": "core",
       "prompt": "I am starting a new agent-based model of household evacuation behavior. What should I do first?",
       "should_trigger": true,
-      "behavior": ["Begins with problem framing and stakeholder analysis, then identifies early modeling artifacts and review questions"],
+      "behavior": [
+        "Begins with problem framing and stakeholder analysis, then identifies early modeling artifacts and review questions"
+      ],
       "output": {
         "description": "Begins with problem framing and stakeholder analysis, then identifies early modeling artifacts and review questions",
         "must_include": [],
@@ -20,7 +22,9 @@
       "type": "core",
       "prompt": "Can you review my model for reproducibility and tell me what is missing?",
       "should_trigger": true,
-      "behavior": ["Assesses reproducibility requirements and identifies missing dependencies, provenance, workflow steps, and archive artifacts"],
+      "behavior": [
+        "Assesses reproducibility requirements and identifies missing dependencies, provenance, workflow steps, and archive artifacts"
+      ],
       "output": {
         "description": "Assesses reproducibility requirements and identifies missing dependencies, provenance, workflow steps, and archive artifacts",
         "must_include": [],
@@ -32,7 +36,9 @@
       "type": "core",
       "prompt": "My ABM has uncertainty and I need to document it properly before review.",
       "should_trigger": true,
-      "behavior": ["Routes to uncertainty-focused guidance and requests parameter, structural, scenario, and calibration ambiguity disclosures"],
+      "behavior": [
+        "Routes to uncertainty-focused guidance and requests parameter, structural, scenario, and calibration ambiguity disclosures"
+      ],
       "output": {
         "description": "Routes to uncertainty-focused guidance and requests parameter, structural, scenario, and calibration ambiguity disclosures",
         "must_include": [],
@@ -44,7 +50,9 @@
       "type": "core",
       "prompt": "I’m preparing a computational model and journal article for publication. Provide a checklist or to-do list to follow best practices.",
       "should_trigger": true,
-      "behavior": ["Returns the required deliverables list including ABM-specific ODD documentation"],
+      "behavior": [
+        "Returns the required deliverables list including ABM-specific ODD documentation"
+      ],
       "output": {
         "description": "Returns the required deliverables list including ABM-specific ODD documentation",
         "must_include": [],
@@ -56,7 +64,9 @@
       "type": "core",
       "prompt": "This model will inform policy. What governance and participation issues should I check?",
       "should_trigger": true,
-      "behavior": ["Identifies stakeholder documentation, participation quality, exclusion risks, harms, vulnerable populations, and unresolved disagreements"],
+      "behavior": [
+        "Identifies stakeholder documentation, participation quality, exclusion risks, harms, vulnerable populations, and unresolved disagreements"
+      ],
       "output": {
         "description": "Identifies stakeholder documentation, participation quality, exclusion risks, harms, vulnerable populations, and unresolved disagreements",
         "must_include": [],
@@ -68,7 +78,9 @@
       "type": "core",
       "prompt": "How do / should I validate my model?",
       "should_trigger": true,
-      "behavior": ["Warns against overclaiming, distinguishes calibration from validation, and asks for evaluation context plus robustness evidence"],
+      "behavior": [
+        "Warns against overclaiming, distinguishes calibration from validation, and asks for evaluation context plus robustness evidence"
+      ],
       "output": {
         "description": "Warns against overclaiming, distinguishes calibration from validation, and asks for evaluation context plus robustness evidence",
         "must_include": [],
@@ -80,7 +92,9 @@
       "type": "core",
       "prompt": "Help me structure a full modeling workflow so assumptions, uncertainty, and review criteria are documented from the start.",
       "should_trigger": true,
-      "behavior": ["Provides lifecycle-oriented modeling guidance with staged objectives, assumptions, uncertainties, artifacts, and review criteria"],
+      "behavior": [
+        "Provides lifecycle-oriented modeling guidance with staged objectives, assumptions, uncertainties, artifacts, and review criteria"
+      ],
       "output": {
         "description": "Provides lifecycle-oriented modeling guidance with staged objectives, assumptions, uncertainties, artifacts, and review criteria",
         "must_include": [],
@@ -92,7 +106,9 @@
       "type": "core",
       "prompt": "I have an existing simulation model and want a self-assessment against good modeling practice before sharing it.",
       "should_trigger": true,
-      "behavior": ["Runs a structured self-assessment against documented assumptions, uncertainty, provenance, evaluation, and governance expectations"],
+      "behavior": [
+        "Runs a structured self-assessment against documented assumptions, uncertainty, provenance, evaluation, and governance expectations"
+      ],
       "output": {
         "description": "Runs a structured self-assessment against documented assumptions, uncertainty, provenance, evaluation, and governance expectations",
         "must_include": [],
@@ -104,104 +120,144 @@
       "type": "adversarial",
       "prompt": "Is my model ready for publication?",
       "should_trigger": false,
-      "behavior": ["Does not trigger; publication readiness should route to peer-review"],
+      "behavior": [
+        "Does not trigger; publication readiness should route to peer-review"
+      ],
       "output": {
         "description": "Does not trigger; publication readiness should route to peer-review",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 102,
       "type": "adversarial",
       "prompt": "I need archival metadata and repository packaging for my software release.",
       "should_trigger": false,
-      "behavior": ["Does not trigger; archival metadata and repository packaging belong to fair4rs"],
+      "behavior": [
+        "Does not trigger; archival metadata and repository packaging belong to fair4rs"
+      ],
       "output": {
         "description": "Does not trigger; archival metadata and repository packaging belong to fair4rs",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 103,
       "type": "adversarial",
       "prompt": "Explain what good modeling practice is in one paragraph.",
       "should_trigger": false,
-      "behavior": ["Informational only"],
+      "behavior": [
+        "Informational only"
+      ],
       "output": {
         "description": "Informational only",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["keyword_trap", "over_trigger"]
+      "failure_modes": [
+        "keyword_trap",
+        "over_trigger"
+      ]
     },
     {
       "id": 104,
       "type": "adversarial",
       "prompt": "Write a README for my simulation repository.",
       "should_trigger": false,
-      "behavior": ["Does not trigger; generic documentation task"],
+      "behavior": [
+        "Does not trigger; generic documentation task"
+      ],
       "output": {
         "description": "Does not trigger; generic documentation task",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "scope_creep"]
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
     },
     {
       "id": 105,
       "type": "adversarial",
       "prompt": "Generate an ODD protocol document for my ABM.",
       "should_trigger": false,
-      "behavior": ["Does not trigger; formal ODD narrative generation belongs to the document skill"],
+      "behavior": [
+        "Does not trigger; formal ODD narrative generation belongs to the document skill"
+      ],
       "output": {
         "description": "Does not trigger; formal ODD narrative generation belongs to the document skill",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 106,
       "type": "adversarial",
       "prompt": "Help me make my simulation more accurate.",
       "should_trigger": true,
-      "behavior": ["Clarifies purpose, assumptions, evaluation context, and uncertainty before giving modeling-practice guidance"],
+      "behavior": [
+        "Clarifies purpose, assumptions, evaluation context, and uncertainty before giving modeling-practice guidance"
+      ],
       "output": {
         "description": "Clarifies purpose, assumptions, evaluation context, and uncertainty before giving modeling-practice guidance",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger", "no_planning"]
+      "failure_modes": [
+        "under_trigger",
+        "no_planning"
+      ]
     },
     {
       "id": 107,
       "type": "adversarial",
       "prompt": "Fix grammar in my assumptions document.",
       "should_trigger": false,
-      "behavior": ["Does not trigger; editing-only task"],
+      "behavior": [
+        "Does not trigger; editing-only task"
+      ],
       "output": {
         "description": "Does not trigger; editing-only task",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "scope_creep"]
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
     },
     {
       "id": 108,
       "type": "adversarial",
       "prompt": "My model has no uncertainty analysis or stakeholder record, but I want to claim it supports policy decisions.",
       "should_trigger": true,
-      "behavior": ["Triggers and flags missing uncertainty and governance requirements as serious deficiencies"],
+      "behavior": [
+        "Triggers and flags missing uncertainty and governance requirements as serious deficiencies"
+      ],
       "output": {
         "description": "Triggers and flags missing uncertainty and governance requirements as serious deficiencies",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["invalid_output", "missing_step"]
+      "failure_modes": [
+        "invalid_output",
+        "missing_step"
+      ]
     }
   ]
 }

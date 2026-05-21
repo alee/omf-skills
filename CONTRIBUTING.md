@@ -36,6 +36,7 @@ Answer these questions:
 Run `/create-skill <name> — <one-sentence description>` in your coding agent if that command is available. It should scaffold `skills/<name>/SKILL.md` from [docs/SKILL-TEMPLATE.md](docs/SKILL-TEMPLATE.md) and create a starter `skills/<name>/evals.json`.
 
 Alternatively, copy manually:
+
 ```bash
 mkdir -p skills/your-skill-name
 cp docs/SKILL-TEMPLATE.md skills/your-skill-name/SKILL.md
@@ -84,6 +85,7 @@ python scripts/validate_cross_skills.py evals/cross-skills.json
 ### 6. Submit a Pull Request
 
 Include:
+
 - Your skill folder with SKILL.md and any bundled resources
 - A description of what the skill does and when it triggers
 - Results of your test runs (include prompts you tested against)
@@ -141,7 +143,7 @@ A typical SKILL.md body includes:
 ## Step-by-Step Instructions
 
 1. Read the model code
-2. Extract metadata (scicodes/somef-core,  google/langextract)
+2. Extract metadata (scicodes/somef-core, google/langextract)
 3. Generate narrative following references/TEMPLATE.md
 4. Validate against references/CHECKLIST.md
 
@@ -165,14 +167,14 @@ A typical SKILL.md body includes:
 
 ### Dos and Don'ts
 
-| Do | Don't |
-|---|---|
-| Include specific CLI examples | Use vague instructions like "use the tool" |
-| Reference scripts/resources as `scripts/name.py` (one level deep) | Create nested utility folders that bury important files |
-| Use YAML for config templates | Use INI or custom formats without strong justification |
-| Link to authoritative specs (arXiv, OSG docs, FAIR4RS) | Reproduce entire external specs verbatim |
-| Point out when a step might take time (e.g., "Docker build ~5 min") | Leave latency expectations to chance |
-| Ask clarifying questions before guessing | Make unsupported assumptions (e.g., "all models use Python") |
+| Do                                                                  | Don't                                                        |
+| ------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Include specific CLI examples                                       | Use vague instructions like "use the tool"                   |
+| Reference scripts/resources as `scripts/name.py` (one level deep)   | Create nested utility folders that bury important files      |
+| Use YAML for config templates                                       | Use INI or custom formats without strong justification       |
+| Link to authoritative specs (arXiv, OSG docs, FAIR4RS)              | Reproduce entire external specs verbatim                     |
+| Point out when a step might take time (e.g., "Docker build ~5 min") | Leave latency expectations to chance                         |
+| Ask clarifying questions before guessing                            | Make unsupported assumptions (e.g., "all models use Python") |
 
 ## Frontmatter Specification
 
@@ -222,6 +224,7 @@ The description is your **primary triggering mechanism**. Make it:
 ### Manual Testing
 
 1. **Should-trigger cases** (5–10 prompts that SHOULD activate your skill):
+
    ```
    - "I need to document my ABM following ODD+2"
    - "Generate an ODD narrative for my model"
@@ -229,6 +232,7 @@ The description is your **primary triggering mechanism**. Make it:
    ```
 
 2. **Should-NOT-trigger cases** (3–5 negative prompts):
+
    ```
    - "Write a timeline for my project"
    - "Document my API endpoints"

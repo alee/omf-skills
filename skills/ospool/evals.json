@@ -8,7 +8,9 @@
       "type": "core",
       "prompt": "I want to run a parameter sweep for my model on the Open Science Grid. Generate an HTCondor submit file.",
       "should_trigger": true,
-      "behavior": ["Generates HTCondor submit file with parameter sweep configuration"],
+      "behavior": [
+        "Generates HTCondor submit file with parameter sweep configuration"
+      ],
       "output": {
         "description": "HTCondor submit file with parameter sweep configuration",
         "must_include": [],
@@ -20,7 +22,9 @@
       "type": "core",
       "prompt": "I'm running a large sensitivity analysis with 50 agents × 10 patches × 5 random seeds on OSG. Generate HTCondor configuration.",
       "should_trigger": true,
-      "behavior": ["Generates HTCondor submit + job expansion logic"],
+      "behavior": [
+        "Generates HTCondor submit + job expansion logic"
+      ],
       "output": {
         "description": "HTCondor submit + job expansion logic",
         "must_include": [],
@@ -32,7 +36,9 @@
       "type": "core",
       "prompt": "My model has large input files (100 MB each). Set up HTCondor with proper file staging.",
       "should_trigger": true,
-      "behavior": ["Generates submit file with staging + data access strategy"],
+      "behavior": [
+        "Generates submit file with staging + data access strategy"
+      ],
       "output": {
         "description": "Submit file with staging + data access strategy",
         "must_include": [],
@@ -44,7 +50,9 @@
       "type": "core",
       "prompt": "Generate a Slurm batch script for my HPC cluster",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Does not activate",
         "must_include": [],
@@ -56,7 +64,9 @@
       "type": "core",
       "prompt": "How can I run thousands of independent simulations efficiently across distributed resources?",
       "should_trigger": true,
-      "behavior": ["Suggests HTCondor-based high-throughput strategy"],
+      "behavior": [
+        "Suggests HTCondor-based high-throughput strategy"
+      ],
       "output": {
         "description": "HTCondor-based high-throughput strategy",
         "must_include": [],
@@ -68,7 +78,9 @@
       "type": "core",
       "prompt": "Fix my HTCondor submit file that is failing to transfer input files",
       "should_trigger": true,
-      "behavior": ["Debugs submit file with corrected transfer directives"],
+      "behavior": [
+        "Debugs submit file with corrected transfer directives"
+      ],
       "output": {
         "description": "Debugged submit file with corrected transfer directives",
         "must_include": [],
@@ -80,7 +92,9 @@
       "type": "core",
       "prompt": "Validate whether my HTCondor workflow is configured correctly",
       "should_trigger": true,
-      "behavior": ["Validates HTCondor workflow and suggests fixes"],
+      "behavior": [
+        "Validates HTCondor workflow and suggests fixes"
+      ],
       "output": {
         "description": "Validation report with configuration issues and fixes",
         "must_include": [],
@@ -92,7 +106,9 @@
       "type": "core",
       "prompt": "Run my simulation script locally with bash",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Does not activate",
         "must_include": [],
@@ -104,117 +120,158 @@
       "type": "core",
       "prompt": "Optimize my Slurm job for faster execution",
       "should_trigger": false,
-      "behavior": ["Does not activate; HPC domain"],
+      "behavior": [
+        "Does not activate; HPC domain"
+      ],
       "output": {
         "description": "Does not activate; HPC domain",
         "must_include": [],
         "must_not_include": []
       }
     },
-
     {
       "id": 101,
       "type": "adversarial",
       "prompt": "Explain what HTCondor is",
       "should_trigger": false,
-      "behavior": ["Informational only"],
+      "behavior": [
+        "Informational only"
+      ],
       "output": {
         "description": "Informational only",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["keyword_trap", "over_trigger"]
+      "failure_modes": [
+        "keyword_trap",
+        "over_trigger"
+      ]
     },
     {
       "id": 102,
       "type": "adversarial",
       "prompt": "Run my simulation on OSG",
       "should_trigger": true,
-      "behavior": ["Clarifies workflow and produces HTCondor solution"],
+      "behavior": [
+        "Clarifies workflow and produces HTCondor solution"
+      ],
       "output": {
         "description": "Clarifies workflow and produces HTCondor solution",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger", "no_planning"]
+      "failure_modes": [
+        "under_trigger",
+        "no_planning"
+      ]
     },
     {
       "id": 103,
       "type": "adversarial",
       "prompt": "Generate a PBS job script for my distributed simulation",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Does not activate",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 104,
       "type": "adversarial",
       "prompt": "I need to run 20,000 independent jobs with different parameters",
       "should_trigger": true,
-      "behavior": ["Suggests HTCondor parameter sweep or DAG strategy"],
+      "behavior": [
+        "Suggests HTCondor parameter sweep or DAG strategy"
+      ],
       "output": {
         "description": "HTCondor parameter sweep or DAG strategy",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger", "missing_step"]
+      "failure_modes": [
+        "under_trigger",
+        "missing_step"
+      ]
     },
     {
       "id": 105,
       "type": "adversarial",
       "prompt": "Fix formatting issues in my HTCondor submit file",
       "should_trigger": false,
-      "behavior": ["Does not activate; superficial edit"],
+      "behavior": [
+        "Does not activate; superficial edit"
+      ],
       "output": {
         "description": "Does not activate; superficial edit",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "scope_creep"]
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
     },
     {
       "id": 106,
       "type": "adversarial",
       "prompt": "Run my simulation on a Kubernetes cluster",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Does not activate",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     },
     {
       "id": 107,
       "type": "adversarial",
       "prompt": "Prepare my simulation for publication and also generate HTCondor jobs",
       "should_trigger": true,
-      "behavior": ["Handles HTCondor part only; does not overreach into FAIR"],
+      "behavior": [
+        "Handles HTCondor part only; does not overreach into FAIR"
+      ],
       "output": {
         "description": "Handles HTCondor part only; does not overreach into FAIR",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["scope_creep", "boundary_violation"]
+      "failure_modes": [
+        "scope_creep",
+        "boundary_violation"
+      ]
     },
     {
       "id": 108,
       "type": "adversarial",
       "prompt": "My jobs keep getting evicted on OSPool. How should I handle this?",
       "should_trigger": true,
-      "behavior": ["Suggests checkpointing/restart strategy and job robustness guidance"],
+      "behavior": [
+        "Suggests checkpointing/restart strategy and job robustness guidance"
+      ],
       "output": {
         "description": "Checkpointing/restart strategy and job robustness guidance",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger", "incomplete_execution"]
+      "failure_modes": [
+        "under_trigger",
+        "incomplete_execution"
+      ]
     }
   ]
 }

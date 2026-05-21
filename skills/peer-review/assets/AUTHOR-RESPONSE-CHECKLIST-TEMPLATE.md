@@ -7,21 +7,25 @@ Use this template to convert a peer-review report into a concise action plan for
 # Author Response Checklist
 
 ## Blockers to Pass
+
 - [ ] Action item
   - Evidence to provide:
   - Done when:
 
 ## Major Revisions
+
 - [ ] Action item
   - Evidence to provide:
   - Done when:
 
 ## Minor Revisions
+
 - [ ] Action item
   - Evidence to provide:
   - Done when:
 
 ## Resubmission Readiness Check
+
 - [ ] Ease of Execution passes
 - [ ] Documentation Thoroughness passes
 - [ ] Code Quality passes

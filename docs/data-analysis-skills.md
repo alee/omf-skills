@@ -184,14 +184,14 @@ workflow:
 
 ### 5.3 Error Handling
 
-| Condition | Behavior |
-|---|---|
-| `status: "failed"` | Halt pipeline; surface error with remediation hint |
-| `status: "partial"` | Notify user; continue with downstream steps marked provisional |
-| Warning severity `"critical"` | Pause; require user confirmation before proceeding |
-| Warning severity `"caution"` | Log and continue; include in final report |
-| Routing confidence < 0.60 | Present routing options to user; do not auto-route |
-| Environment spec conflict | Fail fast before any execution |
+| Condition                     | Behavior                                                       |
+| ----------------------------- | -------------------------------------------------------------- |
+| `status: "failed"`            | Halt pipeline; surface error with remediation hint             |
+| `status: "partial"`           | Notify user; continue with downstream steps marked provisional |
+| Warning severity `"critical"` | Pause; require user confirmation before proceeding             |
+| Warning severity `"caution"`  | Log and continue; include in final report                      |
+| Routing confidence < 0.60     | Present routing options to user; do not auto-route             |
+| Environment spec conflict     | Fail fast before any execution                                 |
 
 ### 5.4 Provenance Coordination
 
@@ -215,14 +215,14 @@ The orchestrator assembles the final RO-Crate bundle from individual skill `Prov
 
 **Methods:**
 
-| Method | Library | Notes |
-|---|---|---|
-| Morris screening | SALib | First-pass parameter ranking; low sample cost |
-| Sobol indices | SALib | Variance decomposition; requires larger sample budget |
-| Monte Carlo | SALib | General uncertainty propagation |
-| Latin hypercube sampling | SALib | Space-filling alternative to Monte Carlo |
-| Exploratory modeling | ema_workbench | Deep uncertainty; scenario discovery |
-| Surrogate modeling | ema_workbench | Emulator-based analysis for expensive models |
+| Method                   | Library       | Notes                                                 |
+| ------------------------ | ------------- | ----------------------------------------------------- |
+| Morris screening         | SALib         | First-pass parameter ranking; low sample cost         |
+| Sobol indices            | SALib         | Variance decomposition; requires larger sample budget |
+| Monte Carlo              | SALib         | General uncertainty propagation                       |
+| Latin hypercube sampling | SALib         | Space-filling alternative to Monte Carlo              |
+| Exploratory modeling     | ema_workbench | Deep uncertainty; scenario discovery                  |
+| Surrogate modeling       | ema_workbench | Emulator-based analysis for expensive models          |
 
 **Required inputs:** parameter bounds file (JSON or CSV), model callable or output ensemble
 
@@ -231,6 +231,7 @@ The orchestrator assembles the final RO-Crate bundle from individual skill `Prov
 **Human confirmation required:** when sample size N is auto-selected — surface proposed N to user before generating samples.
 
 **Warnings:**
+
 - `insufficient-samples` (caution) — N below recommended minimum for chosen method
 - `non-convergence` (critical) — bootstrap confidence intervals on indices exceed 20% of index value
 
@@ -244,18 +245,19 @@ The orchestrator assembles the final RO-Crate bundle from individual skill `Prov
 
 **Submodules and methods:**
 
-| Submodule | Methods |
-|---|---|
-| Descriptive | Summary statistics, correlation, covariance, distribution fitting |
-| Inequality metrics | Gini, Theil, Atkinson, Lorenz curve |
-| Inference | Linear/GLM regression, mixed models, Bayesian workflows, hypothesis testing |
-| Diagnostics | Residual analysis, assumption checks, bootstrap, cross-validation |
+| Submodule          | Methods                                                                     |
+| ------------------ | --------------------------------------------------------------------------- |
+| Descriptive        | Summary statistics, correlation, covariance, distribution fitting           |
+| Inequality metrics | Gini, Theil, Atkinson, Lorenz curve                                         |
+| Inference          | Linear/GLM regression, mixed models, Bayesian workflows, hypothesis testing |
+| Diagnostics        | Residual analysis, assumption checks, bootstrap, cross-validation           |
 
 **Libraries:** pandas, scipy, statsmodels, pymc, numpy, pysal
 
 **Outputs:** results table (machine-readable), diagnostic figures, methods summary, uncertainty bounds where applicable
 
 **Warnings:**
+
 - `assumption-violation` (caution or critical depending on severity) — normality, homoscedasticity, independence
 - `small-sample` (caution) — N below method-specific threshold
 - `convergence-failure` (critical) — Bayesian sampler R-hat > 1.01
@@ -279,6 +281,7 @@ The orchestrator assembles the final RO-Crate bundle from individual skill `Prov
 **Outputs:** GeoJSON or GeoParquet results, figures (static + interactive), CRS and validation report
 
 **Warnings:**
+
 - `crs-mismatch` (critical) — inputs in different CRS, reprojection required
 - `geometry-repair` (caution) — geometries auto-repaired; list affected feature IDs
 - `projection-distortion` (caution) — chosen CRS introduces >1% area distortion for analysis extent
@@ -291,15 +294,16 @@ The orchestrator assembles the final RO-Crate bundle from individual skill `Prov
 
 **Submodules and methods:**
 
-| Submodule | Methods |
-|---|---|
-| Sentiment | VADER, transformer classification, lexicon analysis, temporal sentiment |
+| Submodule | Methods                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------- |
+| Sentiment | VADER, transformer classification, lexicon analysis, temporal sentiment                   |
 | Discourse | Topic modeling (LDA, BERTopic), semantic similarity, embedding analysis, stance detection |
-| Corpus | Tokenization, n-gram analysis, frequency analysis, metadata linking |
+| Corpus    | Tokenization, n-gram analysis, frequency analysis, metadata linking                       |
 
 **Libraries:** transformers, spaCy, sentence-transformers, vaderSentiment, NLTK
 
 **Warnings:**
+
 - `domain-mismatch` (caution) — model trained on different domain than input corpus
 - `cultural-bias` (caution) — model known to underperform on non-Western cultural content
 - `multilingual-limitation` (caution) — corpus contains languages outside model training distribution
@@ -320,6 +324,7 @@ All warnings include `affected_output` and `remediation` fields per §4.4.
 **Outputs:** node/edge attribute tables, community assignment file, centrality rankings, summary figures
 
 **Warnings:**
+
 - `giant-component` (info) — graph disconnected; analysis run on largest component only
 - `self-loops` (caution) — self-loops present; note impact on chosen centrality measure
 
@@ -331,13 +336,13 @@ All warnings include `affected_output` and `remediation` fields per §4.4.
 
 **Outputs:**
 
-| Type | Format | When |
-|---|---|---|
-| Publication figures | PNG/SVG at 300 dpi | Any workflow producing quantitative results |
-| Interactive dashboard | Plotly/Altair HTML | Explicitly requested, or geospatial output |
-| Markdown report | `.md` | Default for all workflows |
-| Quarto report | `.qmd` + rendered PDF/HTML | Explicitly requested |
-| Provenance bundle | RO-Crate `.zip` | Always |
+| Type                  | Format                     | When                                        |
+| --------------------- | -------------------------- | ------------------------------------------- |
+| Publication figures   | PNG/SVG at 300 dpi         | Any workflow producing quantitative results |
+| Interactive dashboard | Plotly/Altair HTML         | Explicitly requested, or geospatial output  |
+| Markdown report       | `.md`                      | Default for all workflows                   |
+| Quarto report         | `.qmd` + rendered PDF/HTML | Explicitly requested                        |
+| Provenance bundle     | RO-Crate `.zip`            | Always                                      |
 
 **Libraries:** matplotlib, Plotly, Altair, Quarto
 
@@ -501,14 +506,14 @@ Anticipated requirements: ensemble output ingestion (NetCDF, HDF5), parameter sw
 
 ## 14. Deferred Items
 
-| Item | Target | Reason |
-|---|---|---|
-| Agent-based model analysis | Phase 3 (priority) | Requires dedicated design (ADR) |
-| OpenMOLE integration | Phase 3 | JVM runtime dependency |
-| Causal inference | Phase 3 | Significant methodological scope |
-| FAIR assessment tooling | Phase 3 | Awaiting OMF assessment framework |
-| Streaming / distributed compute | Phase 4 | Infrastructure dependency |
-| Multimodal analysis | Phase 4 | Scope |
+| Item                            | Target             | Reason                            |
+| ------------------------------- | ------------------ | --------------------------------- |
+| Agent-based model analysis      | Phase 3 (priority) | Requires dedicated design (ADR)   |
+| OpenMOLE integration            | Phase 3            | JVM runtime dependency            |
+| Causal inference                | Phase 3            | Significant methodological scope  |
+| FAIR assessment tooling         | Phase 3            | Awaiting OMF assessment framework |
+| Streaming / distributed compute | Phase 4            | Infrastructure dependency         |
+| Multimodal analysis             | Phase 4            | Scope                             |
 
 ---
 
@@ -558,4 +563,4 @@ Anticipated requirements: ensemble output ingestion (NetCDF, HDF5), parameter sw
 
 ---
 
-*Open questions in §15 should be resolved or explicitly deferred before Phase 1 sprint planning begins.*
+_Open questions in §15 should be resolved or explicitly deferred before Phase 1 sprint planning begins._

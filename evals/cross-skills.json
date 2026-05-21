@@ -6,9 +6,15 @@
       "id": 201,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "peer-review"],
+      "skills_expected": [
+        "document",
+        "peer-review"
+      ],
       "prompt": "Generate an ODD description for my ABM and then assess if it is ready for CoMSES submission.",
-      "behavior": ["document", "peer-review"],
+      "behavior": [
+        "document",
+        "peer-review"
+      ],
       "output": {
         "description": "ODD description generated and readiness assessed for CoMSES submission",
         "must_include": [],
@@ -24,9 +30,15 @@
       "id": 202,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["fair4rs", "peer-review"],
+      "skills_expected": [
+        "fair4rs",
+        "peer-review"
+      ],
       "prompt": "Prepare my model for publication and tell me if it passes CoMSES review.",
-      "behavior": ["fair4rs", "peer-review"],
+      "behavior": [
+        "fair4rs",
+        "peer-review"
+      ],
       "output": {
         "description": "Model prepared for publication and CoMSES review completed",
         "must_include": [],
@@ -42,9 +54,15 @@
       "id": 203,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["hpc", "ospool"],
+      "skills_expected": [
+        "hpc",
+        "ospool"
+      ],
       "prompt": "I need to run large parameter sweeps. Should I use Slurm or OSPool, and generate the appropriate scripts?",
-      "behavior": ["select one of hpc or ospool", "justify the choice"],
+      "behavior": [
+        "select one of hpc or ospool",
+        "justify the choice"
+      ],
       "output": {
         "description": "Appropriate system selected and scripts generated",
         "must_include": [],
@@ -60,9 +78,15 @@
       "id": 204,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "fair4rs"],
+      "skills_expected": [
+        "document",
+        "fair4rs"
+      ],
       "prompt": "Document my model using ODD and prepare it for archival with proper metadata.",
-      "behavior": ["document", "fair4rs"],
+      "behavior": [
+        "document",
+        "fair4rs"
+      ],
       "output": {
         "description": "Model documented and archived with metadata",
         "must_include": [],
@@ -78,9 +102,15 @@
       "id": 205,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["peer-review", "hpc"],
+      "skills_expected": [
+        "peer-review",
+        "hpc"
+      ],
       "prompt": "Review my model and suggest how to run it efficiently on an HPC cluster.",
-      "behavior": ["peer-review", "hpc"],
+      "behavior": [
+        "peer-review",
+        "hpc"
+      ],
       "output": {
         "description": "Model reviewed and HPC execution guidance provided",
         "must_include": [],
@@ -96,9 +126,15 @@
       "id": 206,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["ospool", "fair4rs"],
+      "skills_expected": [
+        "ospool",
+        "fair4rs"
+      ],
       "prompt": "Run my model at scale and make sure it's properly archived and citable.",
-      "behavior": ["ospool", "fair4rs"],
+      "behavior": [
+        "ospool",
+        "fair4rs"
+      ],
       "output": {
         "description": "Model run at scale and archived for citation",
         "must_include": [],
@@ -114,9 +150,17 @@
       "id": 207,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "hpc", "peer-review"],
+      "skills_expected": [
+        "document",
+        "hpc",
+        "peer-review"
+      ],
       "prompt": "Create ODD documentation, run the model on HPC, and evaluate whether it's ready for submission.",
-      "behavior": ["document", "hpc", "peer-review"],
+      "behavior": [
+        "document",
+        "hpc",
+        "peer-review"
+      ],
       "output": {
         "description": "Model documented, run on HPC, and submission readiness evaluated",
         "must_include": [],
@@ -132,9 +176,17 @@
       "id": 208,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "fair4rs", "peer-review"],
+      "skills_expected": [
+        "document",
+        "fair4rs",
+        "peer-review"
+      ],
       "prompt": "Prepare my model for publication including documentation, metadata, and readiness assessment.",
-      "behavior": ["document", "fair4rs", "peer-review"],
+      "behavior": [
+        "document",
+        "fair4rs",
+        "peer-review"
+      ],
       "output": {
         "description": "Model prepared for publication with documentation, metadata, and review",
         "must_include": [],
@@ -150,9 +202,15 @@
       "id": 209,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["hpc", "ospool"],
+      "skills_expected": [
+        "hpc",
+        "ospool"
+      ],
       "prompt": "I have 10,000 independent simulations. I might use Slurm or OSPool—what's better and how do I set it up?",
-      "behavior": ["select one system", "justify the choice"],
+      "behavior": [
+        "select one system",
+        "justify the choice"
+      ],
       "output": {
         "description": "System selected and setup guidance provided",
         "must_include": [],
@@ -168,9 +226,15 @@
       "id": 210,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["peer-review", "fair4rs"],
+      "skills_expected": [
+        "peer-review",
+        "fair4rs"
+      ],
       "prompt": "Does my repository meet CoMSES criteria, and if not, what FAIR improvements are needed?",
-      "behavior": ["peer-review", "fair4rs"],
+      "behavior": [
+        "peer-review",
+        "fair4rs"
+      ],
       "output": {
         "description": "Repository reviewed and FAIR improvements identified",
         "must_include": [],
@@ -186,9 +250,18 @@
       "id": 211,
       "type": "cross-adversarial",
       "should_trigger": true,
-      "skills_expected": ["document", "fair4rs", "hpc", "ospool", "peer-review"],
+      "skills_expected": [
+        "document",
+        "fair4rs",
+        "hpc",
+        "ospool",
+        "peer-review"
+      ],
       "prompt": "Do everything needed to make my model complete, scalable, publishable, and reviewed.",
-      "behavior": ["multi-stage plan", "coordinated execution"],
+      "behavior": [
+        "multi-stage plan",
+        "coordinated execution"
+      ],
       "output": {
         "description": "Model made complete, scalable, publishable, and reviewed",
         "must_include": [],
@@ -205,7 +278,9 @@
       "type": "adversarial",
       "should_trigger": false,
       "prompt": "Explain how to run simulations and publish them in general terms",
-      "behavior": ["no skill activation"],
+      "behavior": [
+        "no skill activation"
+      ],
       "output": {
         "description": "No skill activation for general explanation",
         "must_include": [],

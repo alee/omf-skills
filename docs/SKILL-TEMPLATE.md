@@ -12,24 +12,29 @@
   • Gotchas must be in SKILL.md, not buried in references/
   • Every skill needs evals.json (≥3 should-trigger + ≥3 should-not-trigger)
 -->
+
 ---
-name: <kebab-case-name>          # must match the folder name exactly
+
+name: <kebab-case-name> # must match the folder name exactly
 description: |
-  <One sentence summary of the concrete task this skill performs.>
+<One sentence summary of the concrete task this skill performs.>
 
-  Use this skill when <specific scenario — e.g., "you have model code and need
-  publication-ready ODD+2 documentation" — not just "you need documentation">.
-  Triggers: "<phrase 1>", "<phrase 2>", "<phrase 3>".
+Use this skill when <specific scenario — e.g., "you have model code and need
+publication-ready ODD+2 documentation" — not just "you need documentation">.
+Triggers: "<phrase 1>", "<phrase 2>", "<phrase 3>".
 
-  Expected output: <specific deliverables — e.g., "Markdown ODD sections,
-  23-point checklist report, and completion percentage">.
+Expected output: <specific deliverables — e.g., "Markdown ODD sections,
+23-point checklist report, and completion percentage">.
 license: MIT
+
 # compatibility: <e.g., "Python 3.10+, Git repository required">
+
 metadata:
-  domain: <computational-modeling | publication | execution | analysis>
-  maturity: <alpha | beta | stable>
-  audience: <modelers | researchers | data-scientists | operators>
-  category: <documentation | quality-assurance | execution | publication>
+domain: <computational-modeling | publication | execution | analysis>
+maturity: <alpha | beta | stable>
+audience: <modelers | researchers | data-scientists | operators>
+category: <documentation | quality-assurance | execution | publication>
+
 ---
 
 # <Skill Display Name>
@@ -69,6 +74,7 @@ Gather these before starting:
 <Instructions.>
 
 If validation fails at this step:
+
 1. Review the error output.
 2. Fix the issue.
 3. Re-run before proceeding.
@@ -117,6 +123,7 @@ with something real when refining the skill.>
 ```
 
 ---
+
 <!--
   CHECKLIST — delete this section before submitting a PR
   ──────────────────────────────────────────────────────

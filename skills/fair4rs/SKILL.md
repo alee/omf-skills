@@ -3,11 +3,11 @@ name: fair4rs
 description: |
   Create FAIR4RS-compliant metadata, publication checklists, and citation files
   for computational models of social-ecological systems to prepare them for publication, sharing, and reuse.
-  
+
   Use this skill when preparing models for Zenodo, arXiv, discipline-specific repositories, 
   or journal supplementary materials. Triggers: "prepare for publication", "create FAIR metadata", 
   "generate publication checklist", "archive my model", "submit to Zenodo", "make my code citable".
-  
+
   Expected output: codemeta.json (canonical metadata source), CITATION.cff generated from codemeta.json,
   data management plan (DMP), software management plan (SMP), publication checklist, and metadata JSON-LD
   suitable for Zenodo, arXiv, or disciplinary repositories.
@@ -193,11 +193,13 @@ Collect structured metadata for the computational model:
 - **Funding sources**
 
 SES-specific additions:
+
 - **System components** (actors, institutions, ecological units)
 - **Core processes** (feedbacks, adaptation, learning, disturbance)
 - **Data dependencies** (empirical inputs, calibration datasets)
 
 FAIR4RS intent:
+
 - **Findable:** rich, domain-relevant descriptors
 - **Accessible:** clear repository and access conditions
 - **Interoperable:** standard identifiers (ORCID, DOI, SPDX)
@@ -210,12 +212,14 @@ FAIR4RS intent:
 Generate `codemeta.json` as the **single machine-readable source of truth**.
 
 Minimum fields:
+
 - `@context`, `@type` = SoftwareSourceCode
 - `name`, `description`, `codeRepository`
 - `version`, `license`
 - `author`, `keywords`
 
 Recommended SES extensions:
+
 - `applicationCategory`: "ComputationalModel"
 - `additionalType`: "AgentBasedModel" (or other type)
 - `temporalCoverage`, `spatialCoverage`
@@ -224,6 +228,7 @@ Recommended SES extensions:
 - `softwareRequirements` (simulation frameworks, runtimes)
 
 Guidance:
+
 - Align dataset references with DMP (DOIs, formats)
 - Reflect execution environment from SMP (containers, workflows)
 - Prefer resolvable identifiers for all linked resources
@@ -235,15 +240,18 @@ Guidance:
 Generate `CITATION.cff` **from `codemeta.json`**.
 
 Ensure:
+
 - Full author list with affiliations
 - Versioned citation (matches release)
 - Repository and license included
 
 SES considerations:
+
 - If a canonical paper exists, include it alongside software citation
 - Ensure consistency between model name, paper title, and repository
 
 Rules:
+
 - Treat `codemeta.json` as authoritative
 - Regenerate on metadata changes
 - Preserve author order and attribution
@@ -255,6 +263,7 @@ Rules:
 Review against publication checklist (`references/PUBLICATION-CHECKLIST.md`):
 
 Core checks:
+
 - [ ] Version-controlled repository with history
 - [ ] README with installation, execution, and purpose
 - [ ] LICENSE file (SPDX-aligned) - if missing: prompt user for license preference, suggest based on existing dependencies and SMP and DMP
@@ -264,6 +273,7 @@ Core checks:
 - [ ] Metadata complete (authors, version, identifiers)
 
 SES-specific checks:
+
 - [ ] Model description (ODD, ODD+D, or equivalent) included
 - [ ] State variables, entities, and scales documented
 - [ ] Process overview (scheduling, feedbacks) described
@@ -272,6 +282,7 @@ SES-specific checks:
 - [ ] Input datasets referenced with persistent identifiers
 
 FAIR4RS signals:
+
 - Reproducibility → executable workflows, environments
 - Reusability → documented assumptions and processes
 - Interoperability → standard formats and schemas
@@ -284,21 +295,25 @@ FAIR4RS signals:
 Prepare SES model artifacts for deposition:
 
 Required:
+
 - Versioned source code
 - Model documentation (ODD or equivalent)
 - Parameter sets and configuration files
 - Example inputs and outputs
 
 Metadata outputs:
+
 - Zenodo / InvenioRDM JSON
 - Dublin Core (institutional repositories)
 
 Ensure:
+
 - DOI minted for software release
 - Input datasets linked via DOIs (DMP alignment)
 - Model version ↔ DOI ↔ publication cross-referenced
 
 SES-specific guidance:
+
 - Archive representative simulation outputs where feasible
 - Include scenario definitions used in publications
 - Document stochastic elements and random seeds
@@ -310,22 +325,26 @@ SES-specific guidance:
 Determine user's project stage and respond accordingly:
 
 ### Planning stage
+
 Triggers: "start a new SES modeling project", "plan my research data", "create a software management plan"
 → Begin with joint DMP + SMP sketch
 → Establish data–model coupling assertions early
 → Recommend ODD protocol structure
 
 ### Active development
+
 Triggers: "set up my model metadata", "create codemeta"
 → Generate codemeta.json with SES extensions
 → Check for DMP/SMP; flag if missing, offer to create
 
 ### Pre-publication
+
 Triggers: "prepare for publication", "submit to Zenodo", "make my code citable", "prepare for CoMSES", "generate publication checklist", "archive my model"
 → Full pipeline: metadata → CITATION.cff → checklist → deposit preparation
 → Validate DMP/SMP consistency with artifacts
 
 ### Single artifact request
+
 Triggers: "create CITATION.cff", "generate codemeta", "make citable"
 → Produce requested artifact directly
 → Validate against existing metadata if available
@@ -340,7 +359,7 @@ Triggers: "create CITATION.cff", "generate codemeta", "make citable"
 
 - **Underspecified processes:** Missing scheduling, feedbacks, or adaptation rules reduces interpretability and reuse.
 
-- **Sensitivity analysis gaps:** 
+- **Sensitivity analysis gaps:**
   - Failing to explore parameter space (local or global sensitivity) limits confidence in results
   - Report which parameters drive outcomes and which are negligible
   - Document methods used (e.g., one-at-a-time, Sobol, Morris) and parameter ranges
@@ -406,13 +425,13 @@ Output artifacts:
 
 ## Quick Reference
 
-| Task | Resource |
-|------|----------|
-| Create codemeta.json | `assets/codemeta.json` |
-| Generate CITATION.cff | `assets/CITATION-TEMPLATE.cff` |
-| Document model (ODD) | domain standard |
-| Create SMP | `assets/SMP-TEMPLATE.md` |
-| Crosswalk FAIR4RS | `references/FAIR4RS-SMP-CROSSWALK.md` |
-| Prepare Zenodo deposit | `references/ZENODO-GUIDE.md` |
+| Task                   | Resource                              |
+| ---------------------- | ------------------------------------- |
+| Create codemeta.json   | `assets/codemeta.json`                |
+| Generate CITATION.cff  | `assets/CITATION-TEMPLATE.cff`        |
+| Document model (ODD)   | domain standard                       |
+| Create SMP             | `assets/SMP-TEMPLATE.md`              |
+| Crosswalk FAIR4RS      | `references/FAIR4RS-SMP-CROSSWALK.md` |
+| Prepare Zenodo deposit | `references/ZENODO-GUIDE.md`          |
 
 ---

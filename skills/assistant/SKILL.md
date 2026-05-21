@@ -29,22 +29,22 @@ Help modelers learn, adopt, and self-assess against established good modeling pr
 
 Use this skill to:
 
-* structure scientific and policy-oriented modeling workflows
-* improve transparency and reproducibility
-* document assumptions and uncertainties
-* support participatory and ethical modeling practices
-* standardize modeling deliverables
-* guide iterative improvement of model quality and documentation
-* support peer review and publication readiness
-* enable auditability and machine-assisted review
+- structure scientific and policy-oriented modeling workflows
+- improve transparency and reproducibility
+- document assumptions and uncertainties
+- support participatory and ethical modeling practices
+- standardize modeling deliverables
+- guide iterative improvement of model quality and documentation
+- support peer review and publication readiness
+- enable auditability and machine-assisted review
 
 Applicable model types:
 
-* agent-based models (ABM),
-* system dynamics models,
-* statistical and probabilistic models,
-* simulation workflows,
-* hybrid and ensemble modeling approaches.
+- agent-based models (ABM),
+- system dynamics models,
+- statistical and probabilistic models,
+- simulation workflows,
+- hybrid and ensemble modeling approaches.
 
 Applicable domains: research workflows, decision support, computational social science, environmental modeling, participatory simulation, policy exploration under uncertainty, complex adaptive systems analysis.
 
@@ -86,14 +86,14 @@ All modeling workflows MUST:
 
 The following are prohibited:
 
-* unsupported certainty claims
-* undocumented calibration tuning
-* hidden assumptions
-* irreproducible workflows
-* opaque preprocessing pipelines
-* overfitted evaluation claims
-* unqualified extrapolation beyond modeled conditions
-* superficial stakeholder participation (participation lacking meaningful influence on model design decisions and interpretation)
+- unsupported certainty claims
+- undocumented calibration tuning
+- hidden assumptions
+- irreproducible workflows
+- opaque preprocessing pipelines
+- overfitted evaluation claims
+- unqualified extrapolation beyond modeled conditions
+- superficial stakeholder participation (participation lacking meaningful influence on model design decisions and interpretation)
 
 ---
 
@@ -115,18 +115,18 @@ All projects SHOULD address the following stages:
 
 Each stage MUST:
 
-* define objectives,
-* document assumptions,
-* identify uncertainties,
-* specify outputs and artifacts,
-* record review criteria,
-* identify known limitations.
+- define objectives,
+- document assumptions,
+- identify uncertainties,
+- specify outputs and artifacts,
+- record review criteria,
+- identify known limitations.
 
 See:
 
-* `workflow.md`
-* `checks.md`
-* `deliverables.md`
+- `workflow.md`
+- `checks.md`
+- `deliverables.md`
 
 ---
 
@@ -145,11 +145,11 @@ Use specialized protocols when applicable.
 
 Protocols define:
 
-* minimum documentation requirements,
-* review procedures,
-* anti-patterns,
-* expected artifacts,
-* pass/fail checks.
+- minimum documentation requirements,
+- review procedures,
+- anti-patterns,
+- expected artifacts,
+- pass/fail checks.
 
 ---
 
@@ -157,27 +157,27 @@ Protocols define:
 
 The following artifacts are REQUIRED unless explicitly justified otherwise:
 
-* `model_card.md`
-* `conceptual_model.md`
-* `assumptions.md`
-* `uncertainty_register.md`
-* `stakeholder_register.md`
-* `evaluation_report.md`
-* `provenance_manifest.json`
-* `ethics_impact_statement.md`
-* `maintenance_plan.md`
+- `model_card.md`
+- `conceptual_model.md`
+- `assumptions.md`
+- `uncertainty_register.md`
+- `stakeholder_register.md`
+- `evaluation_report.md`
+- `provenance_manifest.json`
+- `ethics_impact_statement.md`
+- `maintenance_plan.md`
 
 ABMs additionally REQUIRE:
 
-* `abm_odd_spec.md`
+- `abm_odd_spec.md`
 
 All deliverables SHOULD:
 
-* use open formats,
-* support machine inspection,
-* include version information,
-* identify authorship and provenance,
-* document limitations and intended scope.
+- use open formats,
+- support machine inspection,
+- include version information,
+- identify authorship and provenance,
+- document limitations and intended scope.
 
 See templates in `templates/`.
 
@@ -187,21 +187,21 @@ See templates in `templates/`.
 
 All modeling projects MUST:
 
-* use version control,
-* declare dependencies and environments,
-* identify input datasets and provenance,
-* document workflow execution steps,
-* preserve parameterization and configuration,
-* support deterministic reruns where feasible,
-* archive release artifacts.
+- use version control,
+- declare dependencies and environments,
+- identify input datasets and provenance,
+- document workflow execution steps,
+- preserve parameterization and configuration,
+- support deterministic reruns where feasible,
+- archive release artifacts.
 
 Recommended practices:
 
-* semantic versioning,
-* CI-compatible validation,
-* automated testing,
-* containerized or pinned environments,
-* FAIR-aligned metadata.
+- semantic versioning,
+- CI-compatible validation,
+- automated testing,
+- containerized or pinned environments,
+- FAIR-aligned metadata.
 
 See `protocols/reproducibility.md`.
 
@@ -213,12 +213,12 @@ Uncertainty disclosure is mandatory.
 
 Projects MUST document:
 
-* parameter uncertainty,
-* structural uncertainty,
-* scenario uncertainty,
-* data limitations,
-* sensitivity to assumptions,
-* calibration ambiguity and equifinality.
+- parameter uncertainty,
+- structural uncertainty,
+- scenario uncertainty,
+- data limitations,
+- sensitivity to assumptions,
+- calibration ambiguity and equifinality.
 
 Claims MUST remain proportional to available evidence.
 
@@ -226,8 +226,8 @@ Predictive confidence MUST NOT be overstated.
 
 See:
 
-* `protocols/uncertainty.md`
-* `protocols/deep_uncertainty.md`
+- `protocols/uncertainty.md`
+- `protocols/deep_uncertainty.md`
 
 ---
 
@@ -235,12 +235,12 @@ See:
 
 Evaluation MUST:
 
-* align with model purpose,
-* specify evaluation context,
-* disclose evaluation limitations,
-* distinguish calibration from validation,
-* avoid metric-only performance claims,
-* include robustness or sensitivity evidence where relevant.
+- align with model purpose,
+- specify evaluation context,
+- disclose evaluation limitations,
+- distinguish calibration from validation,
+- avoid metric-only performance claims,
+- include robustness or sensitivity evidence where relevant.
 
 ABMs SHOULD incorporate TRACE-style evaluation guidance.
 
@@ -250,17 +250,17 @@ ABMs SHOULD incorporate TRACE-style evaluation guidance.
 
 Projects with governance, policy, or societal implications MUST:
 
-* identify affected stakeholders,
-* document participatory processes,
-* disclose exclusion and misuse risks,
-* assess representational harms,
-* identify vulnerable populations,
-* record unresolved disagreements.
+- identify affected stakeholders,
+- document participatory processes,
+- disclose exclusion and misuse risks,
+- assess representational harms,
+- identify vulnerable populations,
+- record unresolved disagreements.
 
 See:
 
-* `protocols/participatory.md`
-* `protocols/ethics.md`
+- `protocols/participatory.md`
+- `protocols/ethics.md`
 
 ---
 
@@ -268,26 +268,26 @@ See:
 
 Projects SHOULD fail review if:
 
-* assumptions are undocumented,
-* uncertainty is omitted,
-* workflows cannot be reproduced,
-* calibration lacks evaluation context,
-* ABMs lack ODD documentation,
-* stakeholder processes are undocumented,
-* provenance information is missing.
+- assumptions are undocumented,
+- uncertainty is omitted,
+- workflows cannot be reproduced,
+- calibration lacks evaluation context,
+- ABMs lack ODD documentation,
+- stakeholder processes are undocumented,
+- provenance information is missing.
 
 Review logic is defined in:
 
-* `checks.md`
-* `tools/review_checklist.md`
-* `tools/scoring_rubric.md`
-* `tools/red_flags.md`
+- `checks.md`
+- `tools/review_checklist.md`
+- `tools/scoring_rubric.md`
+- `tools/red_flags.md`
 
 ---
 
 ## Engineering Guidance
 
-See the `fair4rs` skill for detailed research software engineering practices. 
+See the `fair4rs` skill for detailed research software engineering practices.
 Key principles: prefer transparency over sophistication, robustness over overconfidence, and inspectable, modular, standards-based workflows.
 
 ---
@@ -297,6 +297,7 @@ Key principles: prefer transparency over sophistication, robustness over overcon
 Full citations maintained in `references/REFERENCES.md`.
 
 Key foundations:
+
 - Good Modeling Practice: Jakeman et al. (2024), Jakeman et al. (2006), Refsgaard & Henriksen (2004)
 - Model Documentation: Grimm et al. (2006, 2010, 2020) [ODD protocol], Grimm et al. (2014) [TRACE]
 - Model Evaluation: Augusiak et al. (2014), Hamilton et al. (2019)

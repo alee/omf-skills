@@ -73,6 +73,7 @@ Apply these rules before synthesizing any final decision:
 3. Record missing essentials up front (for example missing run instructions, missing docs, private dependencies).
 
 Decision point:
+
 - If core inputs are missing, continue with a constrained review and label all affected checks as not assessable.
 
 Use `references/PEER-REVIEW-CHECKLIST.md` as the default rubric and evidence tracker throughout the review.
@@ -88,6 +89,7 @@ Assess whether a third party can run the model with reasonable effort:
 - Output artifacts can be generated without undocumented steps
 
 Rate:
+
 - Pass: runnable with minor effort
 - Partial: runnable but requires interpretation or manual fixes
 - Fail: cannot run from provided materials
@@ -105,6 +107,7 @@ Assess narrative documentation quality:
 If ODD documentation is provided or expected, use the `document` skill to assess ODD structure and completeness against its checklist. If a non-ODD framework is used, evaluate it for equivalent coverage (purpose, entities/components, processes, assumptions, parameters, initialization, inputs/outputs, and stochasticity where relevant).
 
 Decision point:
+
 - If no narrative document exists, mark criterion as fail and provide a minimum documentation recovery plan.
 
 ### 4. Evaluate Code Quality
@@ -124,6 +127,7 @@ Report concrete evidence with file-level examples when possible.
 Use a focused indicator subset inspired by EVERSE guidance. Prefer evidence over assumptions.
 
 Core indicators:
+
 - Software has documentation
 - Software has license
 - Software has citation metadata
@@ -136,18 +140,21 @@ Core indicators:
 - Metadata is sufficiently descriptive and up to date
 
 Optional advanced indicators:
+
 - No critical vulnerabilities known
 - No leaked credentials
 - Lint/static-analysis hygiene
 - Functional correctness measures where appropriate
 
 For each indicator, mark:
+
 - Pass
 - Partial
 - Fail
 - Not assessable
 
 Policy note:
+
 - Tests and CI findings are **Major** quality signals but **nonblocking** for the binary pass/fail decision, unless they directly cause one of the three CoMSES required criteria to fail (for example, inability to execute reproducibly).
 
 ### 6. Synthesize Recommendation
@@ -164,6 +171,7 @@ Produce:
 - Explicit statement that scientific merit is out of scope unless reviewer chooses to add private concerns
 
 Decision logic:
+
 - Return **Pass** only when all three CoMSES criteria pass.
 - Return **Fail** if any CoMSES criterion is partial or fail.
 - Keep tests and CI as Major nonblocking findings unless they materially affect a required criterion.
@@ -202,9 +210,11 @@ When a user asks for an author revision plan or response checklist, convert find
 ## Example
 
 Input:
+
 - Public repository with Python model code, README, and sample data
 
 Output:
+
 - Structured report with criterion ratings
 - Indicator table (pass/partial/fail/not assessable)
 - Binary recommendation (Pass or Fail) with prioritized fixes

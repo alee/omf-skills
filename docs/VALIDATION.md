@@ -15,13 +15,13 @@ This document provides guidance for validating skills before submission and unde
 
 Skills undergo validation at multiple layers to ensure quality and reliability:
 
-| Layer | Who | When | Output |
-|-------|-----|------|--------|
-| **Structural** | Contributor | Before PR | Valid YAML, folder structure, required fields |
-| **Trigger Quality** | Contributor + Reviewer | During PR review | Should-trigger/should-not-trigger assessment |
-| **Output Contract** | Contributor | PR review | Expected deliverables checklist |
-| **Evaluation** | Contributor | Before/during PR | Test case results and grading rubric |
-| **Integration** | Maintainers | Post-merge | skills.sh listing, discoverability |
+| Layer               | Who                    | When             | Output                                        |
+| ------------------- | ---------------------- | ---------------- | --------------------------------------------- |
+| **Structural**      | Contributor            | Before PR        | Valid YAML, folder structure, required fields |
+| **Trigger Quality** | Contributor + Reviewer | During PR review | Should-trigger/should-not-trigger assessment  |
+| **Output Contract** | Contributor            | PR review        | Expected deliverables checklist               |
+| **Evaluation**      | Contributor            | Before/during PR | Test case results and grading rubric          |
+| **Integration**     | Maintainers            | Post-merge       | skills.sh listing, discoverability            |
 
 ## Best-Practice Alignment Checks
 
@@ -47,10 +47,10 @@ Every SKILL.md **must** include valid YAML frontmatter with required and optiona
 
 ```yaml
 ---
-name: kebab-case-skill-name         # (required) lowercase, hyphens, no spaces
-description: |                       # (required) complete trigger & outcome description
+name: kebab-case-skill-name # (required) lowercase, hyphens, no spaces
+description: | # (required) complete trigger & outcome description
   Use this skill when...
-license: MIT                         # (required)
+license: MIT # (required)
 ---
 ```
 
@@ -85,17 +85,18 @@ The `description` field is the primary mechanism for the coding agent to decide 
 ```yaml
 description: |
   Generates ODD+2 narrative documentation for agent-based models.
-  
+
   Use this skill when you have model code and need to create publication-ready ODD+2 documentation,
   validate against the 23-point ODD+2 checklist, or improve existing ODD narrative.
   Triggers: "document my ABM", "generate ODD", "write model narrative", "publish my model", 
   "create ODD for my code".
-  
+
   Expected output: Markdown ODD+2 sections, validation checklist with pass/fail items, 
   completion percentage report.
 ```
 
 **Why it works:**
+
 - Specific scenario ("agent-based models", not just "models")
 - Concrete trigger phrases (users would actually say these)
 - Clear output types (user knows what they'll get)
@@ -108,6 +109,7 @@ description: |
 ```
 
 **Why it fails:**
+
 - Too generic ("documentation" applies to many unrelated tasks)
 - No trigger phrases (the coding agent doesn't know when to use it)
 - No output expectations (user unsure what to expect)
@@ -116,12 +118,12 @@ description: |
 
 For each skill, verify:
 
-| Criterion | Check |
-|-----------|-------|
-| **Specificity** | Is the domain narrower than "documentation" or "modeling"? Does it target a concrete pain point? |
-| **Triggers** | Would a researcher actually type these phrases? (Test: would you Google these search terms?) |
-| **False positives** | Could this skill be mistakenly activated for tangentially related tasks? |
-| **Coverage** | Are both narrow and broad interpretations of the task handled correctly? |
+| Criterion           | Check                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| **Specificity**     | Is the domain narrower than "documentation" or "modeling"? Does it target a concrete pain point? |
+| **Triggers**        | Would a researcher actually type these phrases? (Test: would you Google these search terms?)     |
+| **False positives** | Could this skill be mistakenly activated for tangentially related tasks?                         |
+| **Coverage**        | Are both narrow and broad interpretations of the task handled correctly?                         |
 
 ### Should-Trigger Examples
 
@@ -166,21 +168,25 @@ For each skill, complete:
 When activated, this skill produces:
 
 ### Primary Deliverables
+
 - [ ] **Artifact 1:** Description, format (Markdown/JSON/script), typical size
 - [ ] **Artifact 2:** Description, format, typical size
 - [ ] **Artifact 3:** ...
 
 ### Secondary Artifacts
+
 - [ ] Validation report or checklist (if applicable)
 - [ ] Example output (if applicable)
 - [ ] Estimated time to completion
 
 ### Success Criteria
+
 - [ ] Criterion 1 (e.g., "Output includes all 23 ODD+2 checklist items")
 - [ ] Criterion 2 (e.g., "Markdown is valid and renders without errors")
 - [ ] Criterion 3 (e.g., "Script runs without environment errors")
 
 ### Failure Modes
+
 - [ ] How does the skill handle missing inputs? (Error message? Graceful degradation?)
 - [ ] What if the model code has no docstrings? (Does it ask? Infer?)
 - [ ] What if parameters are incomplete? (Partial output? Request clarification?)

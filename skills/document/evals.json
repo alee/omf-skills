@@ -8,7 +8,9 @@
       "type": "core",
       "prompt": "I have a Python ABM with simple Agent and Environment classes. Generate an ODD+2 narrative for my model.",
       "should_trigger": true,
-      "behavior": ["Generates ODD+2 narrative"],
+      "behavior": [
+        "Generates ODD+2 narrative"
+      ],
       "output": {
         "description": "ODD sections covering entities, state variables, processes, stochasticity (if any), parameters, and initialization logic",
         "must_include": [],
@@ -20,7 +22,9 @@
       "type": "core",
       "prompt": "Create a timeline for documenting my project milestones",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
@@ -32,7 +36,9 @@
       "type": "core",
       "prompt": "I'm preparing a paper on an agent-based forest fire model. I need publication-ready ODD narrative.",
       "should_trigger": true,
-      "behavior": ["Generates complete ODD+2 structured narrative"],
+      "behavior": [
+        "Generates complete ODD+2 structured narrative"
+      ],
       "output": {
         "description": "Complete ODD+2 structured narrative",
         "must_include": [],
@@ -44,7 +50,9 @@
       "type": "core",
       "prompt": "My model code has no docstrings. Can the ODD skill still help?",
       "should_trigger": true,
-      "behavior": ["Asks clarifying questions about model structure"],
+      "behavior": [
+        "Asks clarifying questions about model structure"
+      ],
       "output": {
         "description": "Asks clarifying questions",
         "must_include": [],
@@ -56,7 +64,9 @@
       "type": "core",
       "prompt": "Generate documentation for my API endpoints",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
@@ -68,7 +78,9 @@
       "type": "core",
       "prompt": "I have a NetLogo predator-prey model. Can you structure it using the ODD protocol for a paper?",
       "should_trigger": true,
-      "behavior": ["Generates ODD+2 narrative adapted to NetLogo"],
+      "behavior": [
+        "Generates ODD+2 narrative adapted to NetLogo"
+      ],
       "output": {
         "description": "ODD+2 narrative adapted to NetLogo",
         "must_include": [],
@@ -80,7 +92,9 @@
       "type": "core",
       "prompt": "Help me formalize my simulation model description using standard ABM documentation practices",
       "should_trigger": true,
-      "behavior": ["Generates ODD-style structured narrative"],
+      "behavior": [
+        "Generates ODD-style structured narrative"
+      ],
       "output": {
         "description": "ODD-style structured narrative",
         "must_include": [],
@@ -92,7 +106,9 @@
       "type": "core",
       "prompt": "Write a README file for my GitHub repository",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
@@ -104,7 +120,9 @@
       "type": "core",
       "prompt": "Explain what the ODD protocol is and why it's used",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
@@ -116,7 +134,9 @@
       "type": "core",
       "prompt": "Here is my draft ODD description. Improve clarity, fix structure, and ensure it meets ODD+2 standards.",
       "should_trigger": true,
-      "behavior": ["Refines ODD+2 narrative for clarity and structure"],
+      "behavior": [
+        "Refines ODD+2 narrative for clarity and structure"
+      ],
       "output": {
         "description": "Refined ODD+2 narrative",
         "must_include": [],
@@ -128,7 +148,9 @@
       "type": "core",
       "prompt": "Validate this ODD description against the ODD+2 checklist and tell me what's missing.",
       "should_trigger": true,
-      "behavior": ["Validates ODD description against checklist"],
+      "behavior": [
+        "Validates ODD description against checklist"
+      ],
       "output": {
         "description": "Checklist-based validation report",
         "must_include": [],
@@ -140,7 +162,9 @@
       "type": "core",
       "prompt": "Document my system dynamics model using standard modeling documentation practices",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
@@ -152,169 +176,227 @@
       "type": "core",
       "prompt": "Summarize my simulation model in plain English for a blog post",
       "should_trigger": false,
-      "behavior": ["Does not activate"],
+      "behavior": [
+        "Does not activate"
+      ],
       "output": {
         "description": "Skill does not activate",
         "must_include": [],
         "must_not_include": []
       }
     },
-
     {
       "id": 101,
       "type": "adversarial",
       "prompt": "Explain the ODD protocol briefly for a presentation slide",
       "should_trigger": false,
-      "behavior": ["Does not activate; informational only"],
+      "behavior": [
+        "Does not activate; informational only"
+      ],
       "output": {
         "description": "Informational only",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["keyword_trap", "over_trigger"]
+      "failure_modes": [
+        "keyword_trap",
+        "over_trigger"
+      ]
     },
     {
       "id": 102,
       "type": "adversarial",
       "prompt": "Document my simulation model for a paper",
       "should_trigger": false,
-      "behavior": ["Does not trigger without ABM specificity"],
+      "behavior": [
+        "Does not trigger without ABM specificity"
+      ],
       "output": {
         "description": "Does not trigger without ABM specificity",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "wrong_skill"]
+      "failure_modes": [
+        "over_trigger",
+        "wrong_skill"
+      ]
     },
     {
       "id": 103,
       "type": "adversarial",
       "prompt": "I need a structured description of agents, their behaviors, and environment interactions for publication",
       "should_trigger": true,
-      "behavior": ["Triggers ODD structuring implicitly"],
+      "behavior": [
+        "Triggers ODD structuring implicitly"
+      ],
       "output": {
         "description": "Triggers ODD structuring implicitly",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger"]
+      "failure_modes": [
+        "under_trigger"
+      ]
     },
     {
       "id": 104,
       "type": "adversarial",
       "prompt": "Write documentation for my discrete-event simulation model",
       "should_trigger": false,
-      "behavior": ["Does not trigger"],
+      "behavior": [
+        "Does not trigger"
+      ],
       "output": {
         "description": "Does not trigger",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "boundary_violation"]
+      "failure_modes": [
+        "over_trigger",
+        "boundary_violation"
+      ]
     },
     {
       "id": 105,
       "type": "adversarial",
       "prompt": "Generate an ODD description for my model (details not provided)",
       "should_trigger": true,
-      "behavior": ["Requests clarification, no hallucination"],
+      "behavior": [
+        "Requests clarification, no hallucination"
+      ],
       "output": {
         "description": "Requests clarification, no hallucination",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["hallucination"]
+      "failure_modes": [
+        "hallucination"
+      ]
     },
     {
       "id": 106,
       "type": "adversarial",
       "prompt": "Convert my model description into a README with sections",
       "should_trigger": false,
-      "behavior": ["Does not trigger"],
+      "behavior": [
+        "Does not trigger"
+      ],
       "output": {
         "description": "Does not trigger",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "boundary_violation"]
+      "failure_modes": [
+        "over_trigger",
+        "boundary_violation"
+      ]
     },
     {
       "id": 107,
       "type": "adversarial",
       "prompt": "List the entities and variables in my agent-based model",
       "should_trigger": false,
-      "behavior": ["Partial task, should not trigger"],
+      "behavior": [
+        "Partial task, should not trigger"
+      ],
       "output": {
         "description": "Partial task, should not trigger",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "incomplete_execution"]
+      "failure_modes": [
+        "over_trigger",
+        "incomplete_execution"
+      ]
     },
     {
       "id": 108,
       "type": "adversarial",
       "prompt": "Fix grammar in my ODD description",
       "should_trigger": false,
-      "behavior": ["Editing task only"],
+      "behavior": [
+        "Editing task only"
+      ],
       "output": {
         "description": "Editing task only",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "scope_creep"]
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
     },
     {
       "id": 109,
       "type": "adversarial",
       "prompt": "Summarize my ABM and optionally format it using ODD if useful",
       "should_trigger": true,
-      "behavior": ["Triggers and prefers ODD structuring"],
+      "behavior": [
+        "Triggers and prefers ODD structuring"
+      ],
       "output": {
         "description": "Triggers and prefers ODD structuring",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_order", "incomplete_execution"]
+      "failure_modes": [
+        "wrong_order",
+        "incomplete_execution"
+      ]
     },
     {
       "id": 110,
       "type": "adversarial",
       "prompt": "Help me structure a formal agent-based model description using standard protocols",
       "should_trigger": true,
-      "behavior": ["Triggers despite missing keyword"],
+      "behavior": [
+        "Triggers despite missing keyword"
+      ],
       "output": {
         "description": "Triggers despite missing keyword",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["under_trigger"]
+      "failure_modes": [
+        "under_trigger"
+      ]
     },
     {
       "id": 111,
       "type": "adversarial",
       "prompt": "Write a UML diagram description for my agent-based model",
       "should_trigger": false,
-      "behavior": ["Different formalism"],
+      "behavior": [
+        "Different formalism"
+      ],
       "output": {
         "description": "Different formalism",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["over_trigger", "boundary_violation"]
+      "failure_modes": [
+        "over_trigger",
+        "boundary_violation"
+      ]
     },
     {
       "id": 112,
       "type": "adversarial",
       "prompt": "Generate FAIR metadata for my model repository",
       "should_trigger": false,
-      "behavior": ["Different skill domain"],
+      "behavior": [
+        "Different skill domain"
+      ],
       "output": {
         "description": "Different skill domain",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": ["wrong_skill", "boundary_violation"]
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
     }
   ]
 }

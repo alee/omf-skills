@@ -1,0 +1,8 @@
+services:
+  formatter:
+    image: comses.skills/formatter
+    build: .
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "npm install -g prettier && make format"

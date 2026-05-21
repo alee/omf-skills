@@ -3,16 +3,19 @@
 Use this policy to keep local SMP guidance aligned with evergreen recommendations from EVERSE RSQKit.
 
 Primary source:
+
 - https://everse.software/RSQKit/software_management_planning
 
 ## Refresh Cadence
 
 Event-driven review when one of the following occurs:
+
 - Material changes in EVERSE SMP guidance
 - New institutional/funder SMP requirements
 - Significant updates to FAIR4RS interpretation in this repository
 
 Recommended schedule fields:
+
 - Last reviewed:
 - Next scheduled review:
 - Reviewer:
@@ -28,6 +31,7 @@ Recommended schedule fields:
 ## What to Validate During Review
 
 Validate that local guidance still covers:
+
 - SMP as a living document across the software lifecycle
 - Stakeholder participation and shared responsibilities
 - Core lifecycle areas:

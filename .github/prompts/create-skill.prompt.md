@@ -21,6 +21,7 @@ The user's request: {{input}}
    - Do **not** invent skill instructions — fill structural placeholders only. Leave step bodies as clear `<TODO>` stubs so the author knows what to write.
 
 3. Create a minimal `skills/<skill-name>/evals.json`:
+
    ```json
    {
      "skill_name": "<skill-name>",
@@ -67,6 +68,7 @@ The user's request: {{input}}
      ]
    }
    ```
+
    Fill the `<placeholders>` with realistic prompts for the skill's domain.
 
 4. Print a short summary:

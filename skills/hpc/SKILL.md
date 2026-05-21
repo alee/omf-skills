@@ -3,11 +3,11 @@ name: hpc
 description: |
   Generate Slurm job scripts, job arrays, and resource allocation templates for running 
   computational models on HPC (High-Performance Computing) clusters.
-  
+
   Use this skill when you need multi-node execution, high-memory jobs, GPU/accelerator access, 
   or direct Slurm cluster submission. Triggers: "run on HPC", "generate Slurm script", 
   "set up batch array job", "submit to cluster", "create Slurm job array".
-  
+
   Expected output: Slurm batch scripts (.slurm), job array configurations, resource allocation 
   templates, and submission validation checklist.
 license: MIT
@@ -152,6 +152,7 @@ scancel $JOBID                # Cancel job
 **Output:**
 
 1. **Slurm batch script** (`param_sweep.slurm`):
+
    ```bash
    #!/bin/bash
    #SBATCH --job-name=param_sweep
@@ -163,15 +164,16 @@ scancel $JOBID                # Cancel job
    #SBATCH --time=00:30:00
    #SBATCH --output=logs/sweep_%a.out
    #SBATCH --error=logs/sweep_%a.err
-   
+
    module load python/3.10
    cd $SLURM_SUBMIT_DIR
-   
+
    params=$(sed -n "${SLURM_ARRAY_TASK_ID}p" params.txt)
    python model.py $params --output results_${SLURM_ARRAY_TASK_ID}.csv
    ```
 
 2. **Parameter list** (`params.txt`, 100 lines):
+
    ```
    --pop 10 --patches 5 --seed 1001
    --pop 10 --patches 5 --seed 1002
@@ -181,10 +183,11 @@ scancel $JOBID                # Cancel job
    ```
 
 3. **Submission & monitoring:**
+
    ```bash
    $ sbatch --array=1-100%20 param_sweep.slurm
    Submitted batch job 12345
-   
+
    $ squeue -u $USER
    JOBID  PARTITION  NAME  USER  ST  TIME  NODES  NODELIST(REASON)
    12345_1  standard  param_sweep  user  R  00:05  1  node01
@@ -197,13 +200,13 @@ scancel $JOBID                # Cancel job
 
 ## Quick Reference
 
-| Task | Command/Reference |
-|------|---|
-| Validate Slurm script | `python scripts/validate_slurm.py` |
-| Slurm quickstart | See `references/SLURM-QUICKSTART.md` |
-| Slurm vs HTCondor | See `references/CONDOR-VS-SLURM.md` |
-| Job array examples | See `examples/slurm-array-template.slurm` |
-| MPI examples | See `examples/mpi-job.slurm` |
+| Task                  | Command/Reference                         |
+| --------------------- | ----------------------------------------- |
+| Validate Slurm script | `python scripts/validate_slurm.py`        |
+| Slurm quickstart      | See `references/SLURM-QUICKSTART.md`      |
+| Slurm vs HTCondor     | See `references/CONDOR-VS-SLURM.md`       |
+| Job array examples    | See `examples/slurm-array-template.slurm` |
+| MPI examples          | See `examples/mpi-job.slurm`              |
 
 ---
 

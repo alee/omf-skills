@@ -2,10 +2,9 @@
 
 ## 0. Core model
 
-* A **skill = folder + SKILL.md + optional resources** ([Agent Skills][1])
-* Purpose: inject **domain-specific procedures + context** into an agent
-* Loading uses **progressive disclosure**:
-
+- A **skill = folder + SKILL.md + optional resources** ([Agent Skills][1])
+- Purpose: inject **domain-specific procedures + context** into an agent
+- Loading uses **progressive disclosure**:
   1. name + description (discovery)
   2. full instructions (activation)
   3. referenced files (on demand) ([Agent Skills][1])
@@ -16,21 +15,21 @@
 
 ### 1.1 Start from real expertise
 
-* Derive from **actual tasks, failures, fixes, and workflows**
-* Prefer:
+- Derive from **actual tasks, failures, fixes, and workflows**
+- Prefer:
+  - runbooks, code reviews, incident logs
+  - real I/O formats and constraints
 
-  * runbooks, code reviews, incident logs
-  * real I/O formats and constraints
-* Avoid generic “best practices” summaries ([Agent Skills][2])
+- Avoid generic “best practices” summaries ([Agent Skills][2])
 
 ### 1.2 Extract reusable patterns
 
 Capture:
 
-* successful step sequences
-* corrections you applied
-* edge cases encountered
-* concrete inputs/outputs ([Agent Skills][2])
+- successful step sequences
+- corrections you applied
+- edge cases encountered
+- concrete inputs/outputs ([Agent Skills][2])
 
 ---
 
@@ -38,18 +37,18 @@ Capture:
 
 ### 2.1 Coherent unit of work
 
-* Like a function: **one composable responsibility**
-* Too small → fragmentation
-* Too large → bloated context
+- Like a function: **one composable responsibility**
+- Too small → fragmentation
+- Too large → bloated context
 
 ### 2.2 Progressive disclosure design
 
-* Keep `SKILL.md` focused (< ~500 lines recommended) ([Agent Skills][3])
-* Move detail into:
+- Keep `SKILL.md` focused (< ~500 lines recommended) ([Agent Skills][3])
+- Move detail into:
+  - `references/` (docs)
+  - `scripts/` (execution)
 
-  * `references/` (docs)
-  * `scripts/` (execution)
-* Explicitly instruct when to load them
+- Explicitly instruct when to load them
 
 Example:
 
@@ -78,9 +77,9 @@ metadata:
 
 Include:
 
-* step-by-step instructions
-* input/output examples
-* edge cases and failure handling ([Agent Skills][3])
+- step-by-step instructions
+- input/output examples
+- edge cases and failure handling ([Agent Skills][3])
 
 ---
 
@@ -88,33 +87,31 @@ Include:
 
 ### 4.1 Add only what the agent lacks
 
-* Include:
+- Include:
+  - domain conventions
+  - specific tools/APIs
+  - non-obvious pitfalls
 
-  * domain conventions
-  * specific tools/APIs
-  * non-obvious pitfalls
-* Exclude:
-
-  * general knowledge (HTTP, PDFs, etc.) ([Agent Skills][2])
+- Exclude:
+  - general knowledge (HTTP, PDFs, etc.) ([Agent Skills][2])
 
 ### 4.2 Be concrete and opinionated
 
-* Prefer:
+- Prefer:
+  - “Use library X”
+  - “Check condition Y”
 
-  * “Use library X”
-  * “Check condition Y”
-* Avoid:
-
-  * vague guidance
-  * multiple equivalent options without default
+- Avoid:
+  - vague guidance
+  - multiple equivalent options without default
 
 ### 4.3 Optimize for execution traces
 
 If the agent:
 
-* hesitates → instructions too vague
-* tries many paths → missing defaults
-* wastes steps → irrelevant instructions
+- hesitates → instructions too vague
+- tries many paths → missing defaults
+- wastes steps → irrelevant instructions
 
 Refine accordingly ([Agent Skills][2])
 
@@ -122,23 +119,23 @@ Refine accordingly ([Agent Skills][2])
 
 ## 5. Description (activation-critical)
 
-* Format: **imperative trigger**
+- Format: **imperative trigger**
+  - “Use this skill when…”
 
-  * “Use this skill when…”
-* Focus on **user intent**, not implementation
-* Include implicit cases (not just explicit keywords)
-* Keep concise but specific ([Agent Skills][4])
+- Focus on **user intent**, not implementation
+- Include implicit cases (not just explicit keywords)
+- Keep concise but specific ([Agent Skills][4])
 
 ---
 
 ## 6. Context efficiency
 
-* Every token competes with:
+- Every token competes with:
+  - conversation
+  - system prompt
+  - other skills
 
-  * conversation
-  * system prompt
-  * other skills
-* Rule:
+- Rule:
 
   > If the agent would succeed without it, remove it ([Agent Skills][2])
 
@@ -148,14 +145,14 @@ Refine accordingly ([Agent Skills][2])
 
 Use `scripts/` when:
 
-* commands are complex or error-prone
+- commands are complex or error-prone
 
 Guidelines:
 
-* self-contained or declare dependencies
-* deterministic outputs
-* clear stdout/stderr for agent decisions
-* prefer version-pinned tools ([Agent Skills][5])
+- self-contained or declare dependencies
+- deterministic outputs
+- clear stdout/stderr for agent decisions
+- prefer version-pinned tools ([Agent Skills][5])
 
 ---
 
@@ -163,14 +160,14 @@ Guidelines:
 
 Use `references/` for:
 
-* large documentation
-* schemas, formats, domain rules
+- large documentation
+- schemas, formats, domain rules
 
 Guidelines:
 
-* small, focused files
-* shallow linking (avoid deep chains)
-* load only when needed ([Agent Skills][3])
+- small, focused files
+- shallow linking (avoid deep chains)
+- load only when needed ([Agent Skills][3])
 
 ---
 
@@ -180,44 +177,43 @@ Guidelines:
 
 Each test:
 
-* prompt (realistic)
-* expected outcome
-* optional files ([Agent Skills][6])
+- prompt (realistic)
+- expected outcome
+- optional files ([Agent Skills][6])
 
 ### 9.2 Method
 
 Run:
 
-* with skill
-* without skill
+- with skill
+- without skill
 
 Compare:
 
-* correctness
-* efficiency
-* failure modes
+- correctness
+- efficiency
+- failure modes
 
 ### 9.3 Iterate
 
 Refine based on:
 
-* false positives
-* missed cases
-* unnecessary steps ([Agent Skills][2])
+- false positives
+- missed cases
+- unnecessary steps ([Agent Skills][2])
 
 ---
 
 ## 10. Trigger evaluation (description testing)
 
-* Build ~20 queries:
+- Build ~20 queries:
+  - should trigger
+  - should not trigger
 
-  * should trigger
-  * should not trigger
-* Include:
-
-  * vague phrasing
-  * realistic context
-  * near-miss negatives ([Agent Skills][4])
+- Include:
+  - vague phrasing
+  - realistic context
+  - near-miss negatives ([Agent Skills][4])
 
 ---
 
@@ -240,25 +236,25 @@ my-skill/
 
 **Good skill:**
 
-* grounded in real workflows
-* scoped to one task
-* minimal but specific
-* has clear trigger conditions
-* tested against realistic prompts
+- grounded in real workflows
+- scoped to one task
+- minimal but specific
+- has clear trigger conditions
+- tested against realistic prompts
 
 **Bad skill:**
 
-* generic advice
-* redundant with base model ability
-* overly verbose
-* ambiguous activation
-* untested
+- generic advice
+- redundant with base model ability
+- overly verbose
+- ambiguous activation
+- untested
 
 ---
 
 ## 13. Design mantra
 
-Encode *how experts actually do the task*, not how documentation describes it.
+Encode _how experts actually do the task_, not how documentation describes it.
 
 ## References
 

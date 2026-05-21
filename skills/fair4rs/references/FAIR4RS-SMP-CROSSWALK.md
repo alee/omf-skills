@@ -11,17 +11,17 @@ This crosswalk helps teams avoid duplicate effort when producing publication-rea
 
 ## Crosswalk Table
 
-| FAIR4RS / Publication Deliverable | SMP Section(s) | Consistency Checks |
-|---|---|---|
-| codemeta.json (canonical machine-readable source) | Project Overview; Collaboration and Licensing; Versioning and Releases | codemeta.json is the authoritative source for software metadata; other metadata artifacts are synchronized from it. |
-| Repository metadata (title, version, license, URL, keywords) | Project Overview; Collaboration and Licensing; Versioning and Releases | Title/version/license are identical in metadata, CITATION.cff, and SMP. |
-| CITATION.cff + ORCID attribution | Collaboration, Governance, and Licensing | Contributor roles and credit policy in SMP match citation authorship and attribution rules. |
-| Data Management Plan (DMP) | Deployment/Delivery; Discoverability/Preservation; Sustainability | DMP storage/access/archival commitments match SMP preservation and maintenance plans. |
-| Publication checklist | Testing and QA; Versioning/Releases; Deployment/Delivery | Checklist pass criteria map to explicit SMP quality gates and release steps. |
-| Dependency and environment documentation | Analysis/Design/Implementation; Testing and QA; Deployment/Delivery | Dependency strategy and compatibility policies are consistent across docs and release artifacts. |
-| Archival target (Zenodo, institutional repository, Software Heritage) | Versioning/Releases; Discoverability/Preservation | DOI and archival strategy in SMP align with publication deposit workflow. |
-| Governance and onboarding statements | Stakeholders/Roles; Governance; Sustainability | Maintainer responsibilities and succession plan are explicit and actionable. |
-| Reproducibility claims | Testing and QA; Software-Type-Aware Priorities | Reproducibility methods (tests, CI, provenance) are concrete and software-type appropriate. |
+| FAIR4RS / Publication Deliverable                                     | SMP Section(s)                                                         | Consistency Checks                                                                                                  |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| codemeta.json (canonical machine-readable source)                     | Project Overview; Collaboration and Licensing; Versioning and Releases | codemeta.json is the authoritative source for software metadata; other metadata artifacts are synchronized from it. |
+| Repository metadata (title, version, license, URL, keywords)          | Project Overview; Collaboration and Licensing; Versioning and Releases | Title/version/license are identical in metadata, CITATION.cff, and SMP.                                             |
+| CITATION.cff + ORCID attribution                                      | Collaboration, Governance, and Licensing                               | Contributor roles and credit policy in SMP match citation authorship and attribution rules.                         |
+| Data Management Plan (DMP)                                            | Deployment/Delivery; Discoverability/Preservation; Sustainability      | DMP storage/access/archival commitments match SMP preservation and maintenance plans.                               |
+| Publication checklist                                                 | Testing and QA; Versioning/Releases; Deployment/Delivery               | Checklist pass criteria map to explicit SMP quality gates and release steps.                                        |
+| Dependency and environment documentation                              | Analysis/Design/Implementation; Testing and QA; Deployment/Delivery    | Dependency strategy and compatibility policies are consistent across docs and release artifacts.                    |
+| Archival target (Zenodo, institutional repository, Software Heritage) | Versioning/Releases; Discoverability/Preservation                      | DOI and archival strategy in SMP align with publication deposit workflow.                                           |
+| Governance and onboarding statements                                  | Stakeholders/Roles; Governance; Sustainability                         | Maintainer responsibilities and succession plan are explicit and actionable.                                        |
+| Reproducibility claims                                                | Testing and QA; Software-Type-Aware Priorities                         | Reproducibility methods (tests, CI, provenance) are concrete and software-type appropriate.                         |
 
 ## Minimal Coherence Checklist
 

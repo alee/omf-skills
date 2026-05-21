@@ -18,13 +18,14 @@ These skills are designed for coding-capable AI agents that can:
 Compatible environments include:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [VSCodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)  
+- [VSCodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)
 - [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
 - [Claude Code](https://code.claude.com/docs/en/overview)
 - [Cursor Agent](https://cursor.com/)
 - (contributions welcome, this is a rapidly evolving space)
 
 At minimum, your agent should support:
+
 - filesystem access
 - terminal execution
 - multi-file editing
@@ -97,7 +98,7 @@ npx -v
 6. Continue with skills installation
 
 ```bash
-npx skills add comses/skills 
+npx skills add comses/skills
 # alternatively, install from github directly
 npx skills add https://github.com/comses/skills
 ```
@@ -113,7 +114,7 @@ nvm use --lts
 
 #### Open your modeling project in a coding agent
 
-Examples: 
+Examples:
 
 - Cursor: open the project folder and enable Agent mode
 - Claude Code: run `claude` in the project root
@@ -126,6 +127,7 @@ Try:
 ```text
 What skills are available from the comses/skills collection?
 ```
+
 or:
 
 ```text
@@ -134,7 +136,7 @@ Read the installed skills and summarize when each should be used.
 
 #### Run a small task
 
-Generally the skills will always be triggered if you reference them by name, or you can use their associated slash command, e.g., 
+Generally the skills will always be triggered if you reference them by name, or you can use their associated slash command, e.g.,
 
 Examples:
 
@@ -162,35 +164,40 @@ etc.
 
 Other examples:
 
-- *"Set up an OSPool batch scaffolder for my sensitivity analysis"*
-- *"Generate a FAIR4RS publication checklist for this model"*
-- *"Generate a FAIR publication checklist for my model's output data"*
+- _"Set up an OSPool batch scaffolder for my sensitivity analysis"_
+- _"Generate a FAIR4RS publication checklist for this model"_
+- _"Generate a FAIR publication checklist for my model's output data"_
 
 ## Skills Overview
 
 This repository currently includes five skills covering core computational modeling needs:
 
 ### 1. **document**
+
 Generates and iteratively improves ODD+2 (Overview, Design Concepts, Details) documentation for agent-based models. Use when you have model code and need publication-ready narrative documentation that satisfies the 23-point ODD+2 checklist.
 
 **Triggers:** "Document my model", "Generate ODD", "Write model narrative"
 
 ### 2. **fair4rs**
+
 Creates FAIR4RS metadata with codemeta.json as canonical machine-readable metadata, citation files derived from codemeta.json, publication checklists, and EVERSE-aligned software management plans to ensure your computational artifacts are ready for archival and publication. Use when preparing models for Zenodo, arXiv, or disciplinary repositories.
 
 **Triggers:** "Prepare for publication", "Generate publication checklist", "Create FAIR metadata"
 
 ### 3. **ospool**
+
 Generates HTCondor job submission scripts and parameter sweep configurations for running models on the Open Science Grid (OSPool). Use for batch processing, large parameter sweeps, or distributed sensitivity analysis.
 
 **Triggers:** "Run on OSPool", "Generate HTCondor batch script", "Set up parameter sweep"
 
 ### 4. **hpc**
+
 Generates Slurm job scripts, job arrays, and resource allocation templates for running models on HPC systems. Use for multi-node simulations or large-scale experiments requiring direct HPC cluster access.
 
 **Triggers:** "Run on HPC", "Generate Slurm script", "Set up batch array job"
 
 ### 5. **peer-review**
+
 Evaluates computational model submissions for peer review readiness using required CoMSES criteria (ease of execution, documentation thoroughness, and code quality) plus supporting research software quality indicators inspired by EVERSE.
 
 **Triggers:** "Peer review my model", "Is this model submission ready", "Review codebase quality", "Check reproducibility"
@@ -200,9 +207,11 @@ Evaluates computational model submissions for peer review readiness using requir
 This repository also includes a local-only maintainer skill that is not part of the published `skills/` catalog:
 
 ### **update-skill** (`.github/skills/update-skill`)
+
 Maintainer workflow for refreshing compressed artifacts, references, and eval expectations when upstream standards evolve.
 
 Use cases:
+
 - Refreshing rubric/indicator snapshots after upstream changes
 - Keeping `SKILL.md`, `references`, `assets`, and `evals.json` synchronized in one PR
 - Standardizing refresh PR notes for traceability
@@ -261,22 +270,22 @@ Use cases:
 6. **Prefer defaults over menus**: choose one default tool or approach and use alternatives only as fallbacks.
 7. **Create the skill folder** with `/create-skill` if your agent supports it, or scaffold manually:
 
-  ```bash
-  mkdir -p skills/your-skill-name
-  cp docs/SKILL-TEMPLATE.md skills/your-skill-name/SKILL.md
-  cp skills/document/evals.json skills/your-skill-name/evals.json
-  ```
+```bash
+mkdir -p skills/your-skill-name
+cp docs/SKILL-TEMPLATE.md skills/your-skill-name/SKILL.md
+cp skills/document/evals.json skills/your-skill-name/evals.json
+```
 
 8. **Fill in** the YAML frontmatter and markdown instructions, then immediately rename `skill_name`, replace the copied prompts, and ensure `name:` matches the folder exactly.
 9. **Include optional resources** (`assets/`, `references/`, `scripts/`) as the workflow needs them.
 10. **Refine with real execution**: test should-trigger and should-not-trigger prompts, review execution traces, and iterate.
 11. **Run the repository validators** before opening a PR:
 
-  ```bash
-  python scripts/validate_individual_skills.py
-  python scripts/validate_evals_schema.py
-  python scripts/validate_cross_skills.py evals/cross-skills.json
-  ```
+```bash
+python scripts/validate_individual_skills.py
+python scripts/validate_evals_schema.py
+python scripts/validate_cross_skills.py evals/cross-skills.json
+```
 
 12. **Submit** a pull request with the skill folder, its `evals.json`, and the prompts or checks you used to validate it.
 
@@ -306,6 +315,7 @@ Authoring guidance:
 - Put standards and rule-oriented material in `references/`.
 
 **Frontmatter (required fields):**
+
 ```yaml
 ---
 name: your-skill-name
@@ -318,6 +328,7 @@ license: MIT
 ```
 
 **Optional fields:**
+
 ```yaml
 compatibility: Tool/version requirements
 metadata:
@@ -333,6 +344,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md), and [docs/VALIDA
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md) for planned skills expanding into:
+
 - **Reproducibility & containerization** (Docker, environment capture, snapshot verification)
 - **Data & lineage tracking** (DVC integration, provenance metadata, parameter tracking)
 - **Analysis & validation** (sensitivity analysis frameworks, unit testing templates, notebooks-to-workflows)
@@ -349,6 +361,7 @@ See [docs/roadmap.md](docs/roadmap.md) for planned skills expanding into:
 ## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+
 - Contribution workflow
 - Naming conventions and style guidance
 - Review checklist

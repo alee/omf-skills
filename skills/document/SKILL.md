@@ -2,12 +2,12 @@
 name: document
 description: |
   Generate and validate ODD+2 (Overview, Design Concepts, Details) documentation for agent-based models.
-  
+
   Use this skill whenever you have model code and need to create publication-ready ODD+2 narrative 
   documentation, validate existing ODD against the 23-point checklist, or guide iterative improvement 
   of model documentation. Triggers: "document my ABM", "generate ODD", "write model narrative", 
   "publish my model", "create ODD for my code".
-  
+
   Expected output: Markdown ODD+2 sections covering entities, state variables, processes, 
   validation checklist feedback, and completion report.
 license: MIT
@@ -102,6 +102,7 @@ Revise model documentation or code comments as needed, then re-run validation.
 ## Example
 
 **Input:** Python ABM with Agent and Environment classes:
+
 ```python
 class Agent:
     def __init__(self, energy):
@@ -121,8 +122,10 @@ class Environment:
 ```
 
 **Output:** ODD narrative sections:
+
 ```markdown
 ## Entities
+
 - **Agent:** Individual organisms in the simulation
   - energy (integer, 0-100): Current energy reserve
   - x (integer, 0-100): Position in environment
@@ -133,6 +136,7 @@ class Environment:
   - resources (float): Replenishment rate per step
 
 ## Processes
+
 1. **Agent move (every step):** Random walk with energy cost
    - If energy > 10, move with 50% probability in random direction
    - Energy cost: 1 unit per step
@@ -146,12 +150,12 @@ class Environment:
 
 ## Quick Reference
 
-| Task | Command/Reference |
-|------|---|
-| View full ODD checklist | See `references/ODD-CHECKLIST.md` |
-| Validate your draft | `python scripts/validate_odd.py my_odd.md` |
-| See a minimal example | See `examples/minimal-abm-odd.md` |
-| Read methodology | See `references/ODD-METHODOLOGY.md` |
+| Task                    | Command/Reference                          |
+| ----------------------- | ------------------------------------------ |
+| View full ODD checklist | See `references/ODD-CHECKLIST.md`          |
+| Validate your draft     | `python scripts/validate_odd.py my_odd.md` |
+| See a minimal example   | See `examples/minimal-abm-odd.md`          |
+| Read methodology        | See `references/ODD-METHODOLOGY.md`        |
 
 ---
 

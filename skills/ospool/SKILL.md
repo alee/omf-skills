@@ -3,11 +3,11 @@ name: ospool
 description: |
   Generate HTCondor job submission scripts, parameter sweep configurations, and batch job templates 
   for running computational models on the Open Science Grid (OSPool).
-  
+
   Use this skill when you need to run parameter sweeps, large ensembles, or distributed sensitivity 
   analysis on OSPool infrastructure. Triggers: "run on OSPool", "generate HTCondor script", 
   "set up batch parameter sweep", "submit to OSG", "create HTCondor DAG".
-  
+
   Expected output: HTCondor submit files (.submit), DAG specification files, parameter sweep 
   configuration, and submission checklist.
 license: MIT
@@ -60,12 +60,12 @@ Specify parameters to sweep:
 
 ```yaml
 # Example sweep configuration (YAML)
-sweep_type: factorial  # or: one-at-a-time, latin-hypercube
+sweep_type: factorial # or: one-at-a-time, latin-hypercube
 parameters:
   population_size: [10, 50, 100]
   patch_count: [5, 10, 20]
   mutation_rate: [0.01, 0.05, 0.1]
-replicas: 3  # replicate runs per parameter combination
+replicas: 3 # replicate runs per parameter combination
 ```
 
 The skill will generate all combinations (or use a design-of-experiments strategy).
@@ -131,6 +131,7 @@ condor_submit my_job.submit
 **Output:**
 
 1. **HTCondor submit file** (`sim_sweep.submit`):
+
    ```
    universe = vanilla
    executable = scripts/run_wrapper.sh
@@ -146,6 +147,7 @@ condor_submit my_job.submit
    ```
 
 2. **Parameter sweep file** (swept combinations):
+
    ```csv
    population,patches,seed
    10,5,1001
@@ -168,11 +170,11 @@ condor_submit my_job.submit
 
 ## Quick Reference
 
-| Task | Command/Reference |
-|------|---|
-| Validate HTCondor config | `python scripts/validate_htcondor.py` |
-| OSPool quickstart | See `references/OSPOOL-QUICKSTART.md` |
-| Condor vs Slurm | See `references/CONDOR-VS-SLURM.md` |
+| Task                     | Command/Reference                          |
+| ------------------------ | ------------------------------------------ |
+| Validate HTCondor config | `python scripts/validate_htcondor.py`      |
+| OSPool quickstart        | See `references/OSPOOL-QUICKSTART.md`      |
+| Condor vs Slurm          | See `references/CONDOR-VS-SLURM.md`        |
 | Parameter sweep template | See `examples/parameter-sweep-config.yaml` |
 
 ---

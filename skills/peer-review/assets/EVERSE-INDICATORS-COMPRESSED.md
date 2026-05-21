@@ -12,6 +12,7 @@ EVERSE indicators define measurable software quality signals across FAIRness, ma
 Use this subset for practical review support (non-gating unless explicitly elevated by policy):
 
 ### Metadata and FAIRness
+
 - Descriptive metadata present and up to date
 - License present
 - Citation metadata present (for example CFF)
@@ -21,12 +22,14 @@ Use this subset for practical review support (non-gating unless explicitly eleva
 - Registry/archive presence where relevant
 
 ### Reproducibility and Execution
+
 - Requirements/dependencies specified
 - Version control used
 - Documentation available
 - Downloadable/reusable package form where applicable
 
 ### Quality Assurance
+
 - Tests present
 - CI workflows present
 - Sufficient test coverage evidence where available
@@ -34,11 +37,13 @@ Use this subset for practical review support (non-gating unless explicitly eleva
 - Lint/static checks or warning tools in use
 
 ### Security and Risk
+
 - No leaked credentials
 - No known critical vulnerabilities
 - Static analysis for common vulnerabilities where applicable
 
 ### Maintainability and Support
+
 - Issue tracking available
 - Repository activity/maintenance signal
 - Code complexity/cohesion/coupling indicators within acceptable bounds when measured

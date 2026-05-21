@@ -20,8 +20,8 @@ Do not treat this as a rigid form. If a design concept does not apply, say so br
 
 Describe the empirical or theoretical patterns used to assess whether the model is realistic or useful enough for its purpose.
 
-| Pattern | Scale | Source | Role in model design or evaluation |
-| --- | --- | --- | --- |
+| Pattern        | Scale                                | Source                | Role in model design or evaluation               |
+| -------------- | ------------------------------------ | --------------------- | ------------------------------------------------ |
 | [Pattern name] | [individual/system/spatial/temporal] | [citation or dataset] | [selection, calibration, evaluation, comparison] |
 
 ### Rationale (optional)
@@ -34,9 +34,9 @@ Explain why this purpose was chosen and why these patterns are the right fit-for
 
 List every entity type that matters to model execution.
 
-| Entity type | Description | Key state variables | Notes |
-| --- | --- | --- | --- |
-| [Agent type] | [What it represents] | [variable, meaning, units/range] | [constraints or remarks] |
+| Entity type                   | Description          | Key state variables              | Notes                    |
+| ----------------------------- | -------------------- | -------------------------------- | ------------------------ |
+| [Agent type]                  | [What it represents] | [variable, meaning, units/range] | [constraints or remarks] |
 | [Environment or spatial unit] | [What it represents] | [variable, meaning, units/range] | [constraints or remarks] |
 
 State variables should be variables that differ among entities of the same type or change over time. Do not confuse them with fixed parameters.
@@ -65,9 +65,9 @@ Summarize the main processes at a high level before giving full submodel detail.
 
 ### Scheduling
 
-| Step / phase | Acting entities | Trigger | Order / update mode | Outputs or state changes |
-| --- | --- | --- | --- | --- |
-| [Phase 1] | [who acts] | [every tick / event / condition] | [sync / async / random order / fixed order] | [what changes] |
+| Step / phase | Acting entities | Trigger                          | Order / update mode                         | Outputs or state changes |
+| ------------ | --------------- | -------------------------------- | ------------------------------------------- | ------------------------ |
+| [Phase 1]    | [who acts]      | [every tick / event / condition] | [sync / async / random order / fixed order] | [what changes]           |
 
 Clarify when the model starts, when it stops, and when outputs are recorded.
 
@@ -144,9 +144,9 @@ Explain why these initial conditions were chosen.
 
 Describe any external data used while the model runs.
 
-| Input dataset or driver | When used | Variables used | Preprocessing | Effect on model |
-| --- | --- | --- | --- | --- |
-| [Dataset or scenario input] | [initialization / each step / event-driven] | [fields] | [cleaning, interpolation, aggregation] | [how it changes the run] |
+| Input dataset or driver     | When used                                   | Variables used | Preprocessing                          | Effect on model          |
+| --------------------------- | ------------------------------------------- | -------------- | -------------------------------------- | ------------------------ |
+| [Dataset or scenario input] | [initialization / each step / event-driven] | [fields]       | [cleaning, interpolation, aggregation] | [how it changes the run] |
 
 If there is no runtime input data, say so explicitly.
 
@@ -174,8 +174,8 @@ Describe the algorithm in clear prose, pseudocode, equations, or both.
 
 #### Inputs and parameters
 
-| Name | Type | Meaning | Units / range | Source |
-| --- | --- | --- | --- | --- |
+| Name   | Type                    | Meaning   | Units / range | Source                    |
+| ------ | ----------------------- | --------- | ------------- | ------------------------- |
 | [name] | [parameter/state/input] | [meaning] | [units/range] | [citation or code source] |
 
 #### Stochastic elements

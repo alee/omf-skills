@@ -10,16 +10,19 @@ CoMSES peer review checks whether a computational model is reusable and publisha
 ## Core Criteria (Compressed)
 
 1. Ease of Execution
+
 - A third party should be able to run the model with reasonable effort.
 - Dependencies, data inputs, build/compile steps, and execution commands should be clearly documented.
 
 2. Thorough Documentation
+
 - Narrative documentation must exist as a standalone artifact (inline comments alone are insufficient).
 - ODD is preferred, but equivalent frameworks are acceptable when they provide comparable model explanation depth.
 - Documentation should enable another modeler to understand and replicate the model without reverse-engineering source code.
 - Flowcharts, equations, and diagrams are encouraged.
 
 3. Code Quality
+
 - Code should be readable, organized, and maintainable.
 - Variable/function names should be meaningful.
 - Comments should clarify non-obvious methods, functions, and parameters.

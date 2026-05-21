@@ -15,11 +15,13 @@ Published skills live in `skills/`. A local, maintainer-only skill for updating 
 ## Required authoring reference (load when editing skills)
 
 When you are:
+
 - creating a new skill
 - modifying an existing skill
 - reviewing or debugging a skill
 
 **You must read:**
+
 ```
 
 docs/agent-skills-creation-reference.md
@@ -27,6 +29,7 @@ docs/agent-skills-creation-reference.md
 ```
 
 Use it as the canonical guide for:
+
 - SKILL.md structure and constraints
 - description (trigger) optimization
 - scoping and decomposition
@@ -47,9 +50,10 @@ skills/<kebab-case-name>/
 ├── references/       ← normative checklists, standards, compressed artifacts
 └── scripts/          ← deterministic automation helpers
 
-````
+```
 
 Rules:
+
 - Folder name **must** match the `name:` frontmatter field exactly.
 - `SKILL.md` should stay under **500 lines / 5 000 tokens**.
 - Move deep detail to `references/` and explicitly instruct when to load each file.
@@ -69,7 +73,7 @@ description: |
   Expected output: ...
 license: MIT
 ---
-````
+```
 
 Optional: `compatibility`, `metadata.domain`, `metadata.maturity`, `metadata.audience`.
 
@@ -85,9 +89,9 @@ Agents load skills in stages:
 
 Implications:
 
-* If the description is weak, the skill will never activate
-* `SKILL.md` must work without references unless explicitly invoked
-* References must include **clear load conditions**
+- If the description is weak, the skill will never activate
+- `SKILL.md` must work without references unless explicitly invoked
+- References must include **clear load conditions**
 
 ---
 
@@ -121,8 +125,8 @@ Document real failure patterns the agent will hit.
 
 ### Use templates and validation
 
-* Templates for outputs
-* Validation loops for correctness
+- Templates for outputs
+- Validation loops for correctness
 
 ### Prefer scripts for repeated logic
 
@@ -132,9 +136,9 @@ Move complex or repeated steps into `scripts/`.
 
 Fix:
 
-* indecision → unclear instructions
-* branching → too many options
-* inefficiency → irrelevant content
+- indecision → unclear instructions
+- branching → too many options
+- inefficiency → irrelevant content
 
 ---
 
@@ -154,10 +158,10 @@ Fix:
 
 ## Skill semantic roles
 
-* `SKILL.md` → orchestration, decisions, constraints
-* `assets/` → templates to fill
-* `references/` → standards and rules (load on demand)
-* `scripts/` → deterministic execution
+- `SKILL.md` → orchestration, decisions, constraints
+- `assets/` → templates to fill
+- `references/` → standards and rules (load on demand)
+- `scripts/` → deterministic execution
 
 Do not duplicate logic across layers.
 
@@ -189,14 +193,14 @@ Each skill must include:
 
 Test:
 
-* with the skill
-* without the skill
+- with the skill
+- without the skill
 
 Compare:
 
-* correctness
-* efficiency
-* failure modes
+- correctness
+- efficiency
+- failure modes
 
 ---
 
@@ -214,8 +218,8 @@ Compare:
 
 ## Gotchas
 
-* No `template/` directory exists. Copy an existing skill.
-* `name:` must exactly match folder name.
-* Weak descriptions prevent triggering.
-* Do not publish `.github/skills/update-skill/`.
-* Do not duplicate large guidance into `SKILL.md`; use references instead.
+- No `template/` directory exists. Copy an existing skill.
+- `name:` must exactly match folder name.
+- Weak descriptions prevent triggering.
+- Do not publish `.github/skills/update-skill/`.
+- Do not duplicate large guidance into `SKILL.md`; use references instead.
