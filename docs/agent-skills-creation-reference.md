@@ -1,66 +1,119 @@
-# Agent Skills: Unified Reference (Condensed)
+# Computational Modeling Agent Skills: Unified Reference
 
-## 0. Core model
+## Core model
 
-- A **skill = folder + SKILL.md + optional resources** ([Agent Skills][1])
+- A **skill = folder + SKILL.md + optional resources**
 - Purpose: inject **domain-specific procedures + context** into an agent
 - Loading uses **progressive disclosure**:
   1. name + description (discovery)
   2. full instructions (activation)
-  3. referenced files (on demand) ([Agent Skills][1])
+  3. referenced files (on demand)
 
 ---
 
-## 1. Skill design principles
+## Skill design principles
 
-### 1.1 Start from real expertise
+### Encode expert workflows
 
-- Derive from **actual tasks, failures, fixes, and workflows**
-- Prefer:
-  - runbooks, code reviews, incident logs
-  - real I/O formats and constraints
+Capture knowledge that is difficult to infer from general training:
 
-- Avoid generic “best practices” summaries ([Agent Skills][2])
+- methodological tradeoffs
+- scientific and community standards
+- threats to validity and reproducibility
+- consequential analytical choices
 
-### 1.2 Extract reusable patterns
+Include demonstrably effective criteria to select methods, evaluate assumptions, interpret results, and maintain transparency and provenance.
+
+Avoid generic best-practice summaries.
+
+### Transparency and provenance
+
+Skills should surface consequential decisions, assumptions, and transformations.
+
+Where applicable:
+
+- document selected methods and their rationale
+- record assumptions and defaults
+- identify inferred or missing information
+- expose analytical choices requiring user review
+- preserve provenance sufficient for reproduction and audit
+
+Avoid silently making consequential scientific decisions on behalf of the user.
+
+### Intermediate artifacts
+
+Skills should emit intermediate artifacts at important staging points rather than hiding the full workflow inside a single large output.
+
+Capture the steps that matter for review, validation, or reuse, including:
+- extracted inputs
+- selected frameworks or methods
+- inferred assumptions
+- validation checks
+- draft outputs before finalization
+
+Avoid opaque one-shot outputs when the intermediate decisions affect transparency, provenance, or downstream use.
+
+### Extract reusable patterns
 
 Capture:
 
 - successful step sequences
 - corrections you applied
 - edge cases encountered
-- concrete inputs/outputs ([Agent Skills][2])
+- concrete inputs/outputs
 
 ---
 
-## 2. Scope and structure
+## Scope and structure
 
-### 2.1 Coherent unit of work
+### Coherent unit of work
 
 - Like a function: **one composable responsibility**
 - Too small → fragmentation
 - Too large → bloated context
 
-### 2.2 Progressive disclosure design
+### Progressive disclosure design
 
-- Keep `SKILL.md` focused (< ~500 lines recommended) ([Agent Skills][3])
+- Keep `SKILL.md` focused
 - Move detail into:
-  - `references/` (docs)
-  - `scripts/` (execution)
+  - `references/` — reasoning guidance, standards, and examples
+  - `scripts/` — executable logic
+  - `assets/` — reusable output materials and templates
 
-- Explicitly instruct when to load them
+Rule of thumb:
+teaches → `references/`, executes → `scripts/`, outputs → `assets`
+
+- Explicitly instruct when to load additional resources
 
 Example:
 
-```
-If API returns non-200 → read references/api-errors.md
+```text
+If documenting an agent-based model → read references/odd-protocol.md
+
+If generating a CodeMeta record → load assets/codemeta-template.json
+
+If validating metadata completeness → run scripts/validate_metadata.py
 ```
 
 ---
 
-## 3. SKILL.md structure (canonical)
+## Composability
 
-### 3.1 Frontmatter (required + optional)
+Skills should be designed as reusable units.
+
+Good skills:
+
+- have clear inputs
+- have clear outputs
+- avoid hidden state
+- can participate in larger workflows
+
+A skill should behave like a function:
+predictable inputs, predictable outputs.
+
+## SKILL.md structure (canonical)
+
+### Frontmatter (required + optional)
 
 ```yaml
 name: short-identifier
@@ -71,31 +124,29 @@ metadata:
   key: value
 ```
 
-([Agent Skills][3])
-
-### 3.2 Body (no strict schema, but recommended)
+### Body (no strict schema, but recommended)
 
 Include:
 
 - step-by-step instructions
-- input/output examples
-- edge cases and failure handling ([Agent Skills][3])
+- input/output examples and contracts
+- edge cases and failure handling
 
 ---
 
-## 4. Writing effective instructions
+## Writing effective instructions
 
-### 4.1 Add only what the agent lacks
+### Add only what the agent lacks
 
 - Include:
-  - domain conventions
-  - specific tools/APIs
+  - methodological assumptions
+  - domain-specific standards, tools, and methods
   - non-obvious pitfalls
 
 - Exclude:
-  - general knowledge (HTTP, PDFs, etc.) ([Agent Skills][2])
+  - general knowledge (HTTP, PDFs, etc.)
 
-### 4.2 Be concrete and opinionated
+### Be concrete and opinionated
 
 - Prefer:
   - “Use library X”
@@ -105,7 +156,7 @@ Include:
   - vague guidance
   - multiple equivalent options without default
 
-### 4.3 Optimize for execution traces
+### Optimize for execution traces
 
 If the agent:
 
@@ -113,22 +164,68 @@ If the agent:
 - tries many paths → missing defaults
 - wastes steps → irrelevant instructions
 
-Refine accordingly ([Agent Skills][2])
+Refine accordingly
 
 ---
 
-## 5. Description (activation-critical)
+## Output Contracts
+
+Skills should define:
+
+- expected outputs
+- output structure
+- success criteria
+- failure conditions
+- consequential analytical choices (method selection, priors, exclusions, calibration strategies)
+
+Prefer structured outputs when downstream skills may consume results.
+
+A skill should be predictable to both users and other skills.
+
+---
+
+## Missing information
+
+Skills should explicitly state:
+
+- what may be inferred
+- what must not be inferred
+
+When information is unavailable:
+
+- identify the gap
+- explain limitations
+- request clarification if necessary
+
+Prefer incomplete but accurate outputs over fabricated details.
+
+## Description (activation-critical)
 
 - Format: **imperative trigger**
   - “Use this skill when…”
 
 - Focus on **user intent**, not implementation
 - Include implicit cases (not just explicit keywords)
-- Keep concise but specific ([Agent Skills][4])
+- Keep concise but specific
+
+### Optimize for user intent
+
+Descriptions should describe:
+
+- what the user is trying to accomplish
+- when the skill is appropriate
+- expected inputs and outputs
+
+Avoid keyword lists unless they clarify ambiguous cases.
+
+Prefer: "Use when a user wants to document a computational model."
+
+Over: "Triggers: document model, generate ODD, write narrative."
+
 
 ---
 
-## 6. Context efficiency
+## Context efficiency
 
 - Every token competes with:
   - conversation
@@ -137,11 +234,11 @@ Refine accordingly ([Agent Skills][2])
 
 - Rule:
 
-  > If the agent would succeed without it, remove it ([Agent Skills][2])
+  > If the agent would succeed without it, remove it
 
 ---
 
-## 7. Scripts (optional)
+## Scripts (optional)
 
 Use `scripts/` when:
 
@@ -152,11 +249,11 @@ Guidelines:
 - self-contained or declare dependencies
 - deterministic outputs
 - clear stdout/stderr for agent decisions
-- prefer version-pinned tools ([Agent Skills][5])
+- prefer version-pinned tools
 
 ---
 
-## 8. References (optional)
+## References (optional)
 
 Use `references/` for:
 
@@ -167,21 +264,21 @@ Guidelines:
 
 - small, focused files
 - shallow linking (avoid deep chains)
-- load only when needed ([Agent Skills][3])
+- load only when needed
 
 ---
 
-## 9. Evaluation loop (required for quality)
+## Evaluation loop (required for quality)
 
-### 9.1 Test structure
+### Test structure
 
 Each test:
 
-- prompt (realistic)
-- expected outcome
-- optional files ([Agent Skills][6])
+- representative prompt (realistic)
+- representative artifacts
+- expected outcomes
 
-### 9.2 Method
+### Method
 
 Run:
 
@@ -194,17 +291,17 @@ Compare:
 - efficiency
 - failure modes
 
-### 9.3 Iterate
+### Iterate
 
 Refine based on:
 
 - false positives
 - missed cases
-- unnecessary steps ([Agent Skills][2])
+- unnecessary steps
 
 ---
 
-## 10. Trigger evaluation (description testing)
+## Trigger evaluation (description testing)
 
 - Build ~20 queries:
   - should trigger
@@ -213,11 +310,12 @@ Refine based on:
 - Include:
   - vague phrasing
   - realistic context
-  - near-miss negatives ([Agent Skills][4])
+  - near-miss negatives
+  - prompts intended for neighboring skills
 
 ---
 
-## 11. Directory layout (reference)
+## Directory layout (reference)
 
 ```
 my-skill/
@@ -228,19 +326,19 @@ my-skill/
 └── evals/          # tests
 ```
 
-([Agent Skills][1])
-
 ---
 
-## 12. Heuristics checklist
+## Heuristics checklist
 
 **Good skill:**
 
 - grounded in real workflows
-- scoped to one task
+- scoped to one composable responsibility
 - minimal but specific
 - has clear trigger conditions
-- tested against realistic prompts
+- surfaces consequential decisions and assumptions
+- produces predictable outputs
+- tested against realistic prompts and artifacts
 
 **Bad skill:**
 
@@ -248,15 +346,19 @@ my-skill/
 - redundant with base model ability
 - overly verbose
 - ambiguous activation
+- hides important decisions or transformations
+- produces inconsistent outputs
 - untested
 
 ---
 
-## 13. Design mantra
+## Design mantra
 
-Encode _how experts actually do the task_, not how documentation describes it.
+Encode how experienced practitioners make, justify, and document consequential decisions.
 
 ## References
+
+This document was heavily influenced by the following:
 
 [1]: https://agentskills.io/home "Agent Skills Overview - Agent Skills"
 [2]: https://agentskills.io/skill-creation/best-practices "Best practices for skill creators - Agent Skills"
