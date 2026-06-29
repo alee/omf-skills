@@ -137,9 +137,9 @@ See:
 
 ---
 
-## Guidance Routing
+## Methodological Guidance
 
-Use specialized guidance when applicable.
+Use specialized guidance when applicable. Load only the guidance modules necessary to answer the user's methodological question. Guidance modules are composable and may be combined when their scopes are complementary.
 
 | Context                                | Required Guidance               |
 | -------------------------------------- | ------------------------------- |
@@ -150,13 +150,13 @@ Use specialized guidance when applicable.
 | Ethics and governance review           | `references/guidance/ethics.md`           |
 | Deep uncertainty and adaptive planning | `references/guidance/deep-uncertainty.md` |
 
-Guidance define:
+Guidance modules encode expert methodological reasoning by helping agents:
 
-- minimum documentation requirements,
-- review procedures,
-- anti-patterns,
-- expected artifacts,
-- pass/fail checks.
+- recognize when a methodology applies
+- make consequential analytical choices
+- select appropriate methods
+- identify reviewable intermediate artifacts
+- avoid common methodological failure patterns
 
 ---
 
