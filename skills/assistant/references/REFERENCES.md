@@ -51,6 +51,16 @@ Provides an evaluation-oriented framework for assessing environmental modeling e
 
 ---
 
+## Robinson (2008)
+
+Robinson, S. (2008). Conceptual modelling for simulation: Issues and research requirements. In *Proceedings of the 2008 Winter Simulation Conference* (pp. 281–290).
+
+https://doi.org/10.1109/WSC.2008.4736059
+
+Widely cited treatment of conceptual modeling as the central design activity in simulation studies. Emphasizes abstraction, model purpose, stakeholder communication, and iterative refinement independent of implementation.
+
+---
+
 # Model Documentation and Agent-Based Modeling
 
 ## Gilbert (2019)
@@ -206,15 +216,6 @@ Foundational paper introducing the GLUE methodology and equifinality-oriented un
 
 ---
 
-## Beven (2006)
-
-Beven, K. (2006). A manifesto for the equifinality thesis. _Journal of Hydrology_, 320(1–2), 18–36.
-[https://doi.org/10.1016/j.jhydrol.2005.07.007](https://doi.org/10.1016/j.jhydrol.2005.07.007)
-
-Influential discussion of equifinality, uncertainty, and limits of calibration-based certainty claims.
-
----
-
 ## Saltelli et al. (2008)
 
 Saltelli, A., Ratto, M., Andres, T., Campolongo, F., Cariboni, J., Gatelli, D., Saisana, M., & Tarantola, S. (2008). _Global Sensitivity Analysis: The Primer_. John Wiley & Sons.
@@ -239,15 +240,6 @@ Pianosi, F., Beven, K., Freer, J., Hall, J.W., Rougier, J., Stephenson, D.B., & 
 [https://doi.org/10.1016/j.envsoft.2016.02.008](https://doi.org/10.1016/j.envsoft.2016.02.008)
 
 Comprehensive review and workflow-oriented guide to sensitivity analysis methods.
-
----
-
-## Walker et al. (2003)
-
-Walker, W.E., Harremoës, P., Rotmans, J., van der Sluijs, J.P., van Asselt, M.B.A., Janssen, P., & Krayer von Krauss, M.P. (2003). Defining uncertainty: A conceptual basis for uncertainty management in model-based decision support. _Integrated Assessment_, 4(1), 5–17.
-[https://doi.org/10.1076/iaij.4.1.5.16466](https://doi.org/10.1076/iaij.4.1.5.16466)
-
-Widely cited taxonomy and conceptual framing of uncertainty in decision-support modeling.
 
 ---
 
@@ -342,15 +334,6 @@ Lempert, R.J., Popper, S.W., & Bankes, S.C. (2003). _Shaping the Next One Hundre
 [https://doi.org/10.7249/MR1626](https://doi.org/10.7249/MR1626)
 
 Foundational text for Robust Decision Making under deep uncertainty.
-
----
-
-## Bankes (1993)
-
-Bankes, S.C. (1993). Exploratory modeling for policy analysis. _Operations Research_, 41(3), 435–449.
-[https://doi.org/10.1287/opre.41.3.435](https://doi.org/10.1287/opre.41.3.435)
-
-Foundational paper on exploratory modeling for policy analysis under uncertainty.
 
 ---
 

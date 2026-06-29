@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use this guidance when determining whether agent-based modeling (ABM) is an appropriate modeling paradigm and when making consequential methodological decisions about conceptual model design, abstraction, mechanisms, and representation.
+Use this guidance when determining whether agent-based modeling (ABM) is an appropriate modeling paradigm for the given conceptual model and when making consequential methodological decisions about conceptual model design, abstraction, mechanisms, and representation.
 
 This guidance supports scientific reasoning throughout model development. It is not an implementation guide, documentation template, or evaluation protocol.
 

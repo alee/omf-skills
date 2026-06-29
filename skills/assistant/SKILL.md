@@ -57,7 +57,7 @@ Primary responsibilities:
 - recommend specialist skills
 - synthesize results
 
-- If user is starting a new modeling project → begin with Problem Framing and Stakeholder Analysis
+- If user is starting a new modeling project → begin with Problem Framing and Conceptual Modeling
 - If user has an existing model and wants quality feedback → route to Review and Enforcement
 - If user asks about a specific concern (uncertainty, ethics, reproducibility) → route to the relevant guidance
 - If user wants to produce deliverables → route to Required Deliverables and templates
@@ -143,6 +143,7 @@ Use specialized guidance when applicable. Load only the guidance modules necessa
 
 | Context                                | Required Guidance               |
 | -------------------------------------- | ------------------------------- |
+| Conceptual modeling | `references/guidance/conceptual-modeling.md` |
 | Uncertainty analysis                   | `references/guidance/uncertainty.md`      |
 | Agent-based modeling                   | `references/guidance/abm.md`              |
 | Participatory modeling                 | `references/guidance/participatory.md`    |
