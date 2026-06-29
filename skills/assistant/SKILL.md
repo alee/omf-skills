@@ -21,7 +21,7 @@ metadata:
 
 # Good Modeling Practice
 
-A modular skill framework for computational socio-environmental and complex adaptive systems modeling.
+A modular guidance and skill framework for transparent, reviewable, computational modeling.
 
 ## Purpose and Scope
 
@@ -52,16 +52,11 @@ Applicable domains: research workflows, decision support, computational social s
 
 Primary responsibilities:
 - classify request
-- identify lifecycle stage
+- determine whether lifecycle guidance is required
+- identify current lifecycle state
 - determine applicable guidance
 - recommend specialist skills
 - synthesize results
-
-- If user is starting a new modeling project → begin with Problem Framing and Conceptual Modeling
-- If user has an existing model and wants quality feedback → route to Review and Enforcement
-- If user asks about a specific concern (uncertainty, ethics, reproducibility) → route to the relevant guidance
-- If user wants to produce deliverables → route to Required Deliverables and templates
-- If user asks "is my model ready for publication" → use the peer-review skill instead
 
 ## Skill Boundaries
 
@@ -87,7 +82,7 @@ All modeling workflows MUST:
 5. Justify abstraction and simplification choices.
 6. Maintain provenance and reproducibility.
 7. Document stakeholder and governance context.
-8. Support inspection, review, and revision.
+8. Produce reviewable artifacts that support inspection, revision, and reuse
 9. Use transparent and auditable workflows.
 10. Communicate limitations and appropriate use.
 
@@ -104,45 +99,27 @@ The following are prohibited:
 
 ---
 
-## Required Workflow Stages
+## Lifecycle Coordination
 
-All projects SHOULD address the following stages:
+The computational modeling lifecycle is defined by `references/guidance/lifecycle.md`
 
-1. Problem framing
-2. Stakeholder analysis
-3. Conceptual modeling
-4. Data and evidence management
-5. Model formalization
-6. Implementation
-7. Calibration
-8. Validation and evaluation
-9. Uncertainty analysis
-10. Communication and interpretation
-11. Governance, maintenance, and stewardship
+The assistant is responsible for:
 
-Each stage MUST:
-
-- define objectives,
-- document assumptions,
-- identify uncertainties,
-- specify outputs and artifacts,
-- record review criteria,
-- identify known limitations.
-
-See:
-
-- `workflow.md`
-- `checks.md`
-- `deliverables.md`
+- identifying the current lifecycle state
+- loading `references/guidance/lifecycle.md` when lifecycle reasoning is required
+- following its routing recommendations to load additional guidance as needed
+- identifying missing artifacts
+- recommending downstream specialist skills
 
 ---
 
-## Methodological Guidance
+## Guidance Library
 
 Use specialized guidance when applicable. Load only the guidance modules necessary to answer the user's methodological question. Guidance modules are composable and may be combined when their scopes are complementary.
 
 | Context                                | Required Guidance               |
 | -------------------------------------- | ------------------------------- |
+| Lifecycle coordination | `references/guidance/lifecycle.md` |
 | Conceptual modeling | `references/guidance/conceptual-modeling.md` |
 | Uncertainty analysis                   | `references/guidance/uncertainty.md`      |
 | Agent-based modeling                   | `references/guidance/abm.md`              |

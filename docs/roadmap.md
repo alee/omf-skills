@@ -1,6 +1,8 @@
 # Skills Roadmap
 
-This document outlines planned expansions to the COMSES skills repository, organized by domain and priority tier.
+This document outlines planned expansions to this computational modeling skills repository.
+
+The repository is evolving from a collection of standalone agent skills into a coherent framework for learning and practicing computational modeling. Its architecture separates lifecycle coordination, methodological guidance, and specialist execution skills so that agent-assisted scientific reasoning remains explicit, reusable, and reviewable.
 
 ## Tracking Issues
 
@@ -11,9 +13,14 @@ This document outlines planned expansions to the COMSES skills repository, organ
 
 **Status:** Active development; starter skills available
 
+This roadmap is a living document and will be updated regularly.
+
+**Last updated:** 2026-06-29
+
 ### Current Skills
 
-- **document** (alpha): ODD+2 documentation for ABMs
+- **assistant** (beta): guide modelers in applying good modeling practice across the full computational modeling lifecycle
+- **document** (alpha): narrative documentation for a computational model
 - **fair4rs** (alpha): Publication metadata and archival readiness
 - **ospool** (alpha): OSPool batch and parameter sweep scaffolding
 - **hpc** (alpha): HPC cluster job submission and arrays
@@ -21,14 +28,22 @@ This document outlines planned expansions to the COMSES skills repository, organ
 
 ### Outcomes
 
-- Researchers can document models following ODD+2 protocol
-- Models are publication-ready with FAIR4RS metadata
-- Parameter sweeps can be executed on OSPool or HPC infrastructure at scale
-- Model submissions can be assessed for peer-review readiness with standardized required criteria and evidence reporting
+### Outcomes
+
+The repository enables researchers to:
+
+- apply established good modeling practices throughout the computational modeling lifecycle
+- develop transparent, reviewable, and reproducible computational models
+- document models using established reporting protocols (e.g., ODD+2)
+- produce publication-ready metadata and research software artifacts aligned with FAIR4RS principles
+- assess models against established methodological and peer-review criteria
+- execute computational experiments on local, HPC, and distributed computing infrastructure
+- reuse community-developed guidance and specialist skills across modeling projects
+- contribute new methodological guidance and execution skills to an open ecosystem for computational modeling
 
 ---
 
-## Tier 2: Reproducibility & Containerization (Q3-Q4 2026)
+## Reproducibility & Containerization
 
 **Status:** In planning
 
@@ -168,7 +183,7 @@ Treat ReproZip as a **low-friction onboarding layer**: capture first, then progr
 
 - Integration with reproducibility artifact archival workflows
 
-## Analysis & Validation (est: Q2-Q3 2027)
+## Analysis & Validation
 
 **Status:** In planning
 
@@ -222,7 +237,7 @@ Convert Jupyter/Quarto notebooks into containerized, version-controlled, reprodu
 
 ---
 
-## Tier 4: Advanced Integration & Domain Extensions (Q4 2027+)
+## Advanced Integration & Domain Extensions
 
 **Status:** Conceptual
 
@@ -262,6 +277,224 @@ Orchestrate ensembles of models (different implementations, parameters, or struc
 
 ---
 
+# Guidance Library Roadmap
+
+This document captures architectural decisions and prioritized future work for the computational modeling guidance library.
+
+## Architectural Principles
+
+The repository is organized into four conceptual layers:
+
+```text
+Assistant
+    ↓
+Lifecycle guidance
+    ↓
+Methodological guidance
+    ↓
+Specialist execution skills
+```
+
+Each layer has a distinct responsibility:
+
+| Layer                       | Responsibility                                                                                                                                                |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Assistant                   | Classify requests, identify the current lifecycle state, load appropriate guidance, and recommend specialist skills.                                          |
+| Lifecycle guidance          | Coordinate the modeling lifecycle, identify lifecycle readiness, manage artifact dependencies, detect regression triggers, and route to specialized guidance. |
+| Methodological guidance     | Encode expert reasoning for specific methodological domains.                                                                                                  |
+| Specialist execution skills | Execute analyses and produce artifacts using the applicable methodological guidance.                                                                          |
+
+Guidance documents should answer **methodological questions**, not implement workflows or execute analyses.
+
+Specialist skills should implement analyses and generate artifacts while remaining guided by the applicable methodological reasoning.
+
+---
+
+## Guiding Principles
+
+Future additions should preserve the following design principles:
+
+* Prefer explicit, reviewable artifacts over implicit conversational state.
+* Encode methodological reasoning rather than implementation procedures.
+* Route to the smallest applicable set of guidance documents.
+* Produce reusable intermediate artifacts for downstream skills.
+* Treat analytical dependencies explicitly and identify regression triggers when consequential decisions change.
+* Keep guidance modular, composable, and domain independent whenever practical.
+
+---
+
+# Priority Backlog
+
+## High Priority
+
+### Planning Guidance
+
+Bridge conceptual modeling and implementation planning.
+
+Topics:
+
+* implementation planning
+* task decomposition
+* implementation milestones
+* delegation boundaries
+* review checkpoints
+* iterative planning
+
+Key question:
+
+> What work should be delegated, and in what order?
+
+---
+
+### Agent Collaboration Guidance
+
+Methodological guidance for effective collaboration with coding agents.
+
+Topics:
+
+* human versus agent responsibilities
+* review and oversight
+* preserving scientific judgment
+* iterative refinement
+* maintaining project context
+* avoiding deskilling
+
+Focus on collaboration methodology rather than prompt engineering.
+
+---
+
+## Medium Priority
+
+### Experimentation Guidance
+
+Methodological guidance for experimental design.
+
+Topics:
+
+* experimental objectives
+* factors and responses
+* replication
+* stochastic experiments
+* computational budgets
+* analysis planning
+
+---
+
+### Calibration Guidance
+
+Topics:
+
+* parameter estimation
+* identifiability
+* equifinality
+* optimization objectives
+* reporting standards
+
+---
+
+### Validation Guidance
+
+Clarify methodological distinctions among:
+
+* verification
+* calibration
+* validation
+* evaluation
+
+---
+
+### Visualization Guidance
+
+Topics:
+
+* behavioral diagnostics
+* uncertainty visualization
+* emergent behavior
+* communication for decision support
+* visualization failure modes
+
+---
+
+### Documentation Guidance
+
+Extend reproducibility guidance with documentation methodology.
+
+Topics:
+
+* model documentation
+* assumptions
+* provenance
+* model cards
+* publication artifacts
+
+---
+
+## Future Architectural Directions
+
+### Context Engineering Guidance
+
+Potential future guidance describing how modeling artifacts become reusable context throughout the computational modeling lifecycle.
+
+Possible topics:
+
+* persistent project context
+* reusable artifacts
+* selective context loading
+* summary versus source artifacts
+* dependency-aware updates
+* maintaining consistency
+
+This guidance should treat context engineering as an extension of computational modeling practice rather than prompt engineering.
+
+---
+
+### Scaffolding Library
+
+Consider introducing a repository-level distinction between methodological guidance and agent scaffolding.
+
+```text
+guidance/
+```
+
+Methodological reasoning.
+
+```text
+scaffolding/
+```
+
+Agent workflow organization.
+
+Potential scaffolding topics:
+
+* project organization
+* context management
+* conversation management
+* repository conventions
+
+Scaffolding should organize agent behavior without duplicating methodological reasoning already captured by the guidance library.
+
+---
+
+## Design Heuristics
+
+When adding new guidance documents:
+
+* Start from a consequential methodological question.
+* Define clear routing boundaries with existing guidance.
+* Require reviewable intermediate artifacts where appropriate.
+* Identify consequential analytical choices rather than procedural steps.
+* Document common methodological failure patterns.
+* Route execution to specialist skills instead of embedding implementation details.
+
+When adding new specialist skills:
+
+* Consume existing guidance rather than replacing it.
+* Reuse lifecycle artifacts whenever possible.
+* Keep implementation concerns separate from methodological reasoning.
+* Produce artifacts that remain useful to downstream skills.
+
+---
+
 ## Sustainability & Governance
 
 ### Community Contributions
@@ -271,7 +504,6 @@ All skills are open to community contributions. See [CONTRIBUTING.md](../CONTRIB
 ### Review & Acceptance
 
 - Skills undergo community review before merge (GitHub PR workflow)
-- Merged skills are tracked on skills.sh leaderboard
 - Feedback and issues are tracked on the repository
 
 ### Version & Support
@@ -289,5 +521,3 @@ We welcome feedback on the roadmap! Please:
 1. Open an issue to discuss a planned skill or propose a new skill
 2. Share use cases or pain points your research encounters
 3. Contribute implementations (see CONTRIBUTING.md)
-
-This roadmap is a living document and will be updated quarterly. Last updated: April 28, 2026.
