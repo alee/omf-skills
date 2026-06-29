@@ -1,14 +1,12 @@
-# uncertainty.md
-
 # Uncertainty Guidance
 
-Use this guidance whenever a computational model is developed, calibrated, evaluated, or interpreted.
+## Purpose
 
-The objective is not to eliminate uncertainty but to characterize, communicate, and reason about it appropriately.
+Use this guidance whenever uncertainty materially affects the development, calibration, evaluation, interpretation, or communication of a computational model.
+
+The objective is not to eliminate uncertainty, but to characterize it, communicate its implications, and prevent unwarranted certainty claims.
 
 This guidance assumes uncertainty can be meaningfully characterized, analyzed, or bounded using scientific evidence and appropriate methods.
-
-If important uncertainties cannot be credibly characterized or assigned defensible probabilities, use `deep-uncertainty.md` instead.
 
 ---
 
@@ -16,9 +14,27 @@ If important uncertainties cannot be credibly characterized or assigned defensib
 
 Uncertainty is an inherent property of scientific modeling.
 
-Treat uncertainty as information to be documented rather than a deficiency to be hidden.
+Treat uncertainty as information to be characterized and documented rather than a deficiency to be hidden.
 
-Avoid overstating confidence.
+Avoid overstating confidence, and ensure claims remain proportional to available evidence.
+
+---
+
+## Decision Context
+
+**Use this guidance when:**
+
+* uncertainty can be credibly characterized using evidence and established methods
+* uncertainty materially affects explanation, prediction, inference, or decision support
+* appropriate analytical methods can be selected to characterize or propagate uncertainty
+
+**Do not use this guidance when:**
+
+* important uncertainties cannot be adequately characterized
+* defensible probability distributions cannot be assigned
+* the primary objective is supporting robust decisions across many plausible futures
+
+Use `deep-uncertainty.md` in those situations.
 
 ---
 
@@ -28,58 +44,42 @@ Explicitly distinguish among:
 
 * parameter uncertainty
 * structural uncertainty
+* conceptual uncertainty
+* model-form uncertainty
 * input data uncertainty
 * observational uncertainty
-* scenario uncertainty
 * implementation uncertainty
+* scenario uncertainty
 
-Different uncertainty sources require different methods.
-
----
-
-## Decision Context
-
-Determine whether uncertainty primarily affects:
-
-- explanation
-- prediction
-- inference
-- decision support
-
-Different scientific objectives require different uncertainty analyses.
+Different uncertainty sources require different analytical methods.
 
 ---
 
-## Consequential Analytical Choices
+## Consequential Analytical Choices <!-- [MUST] -->
 
 Document and justify:
 
-* sensitivity analysis methods
-* calibration approaches
+* uncertainty sources considered
+* uncertainty sources omitted
+* sensitivity analysis strategy
+* calibration approach
 * parameter ranges
 * prior assumptions
 * stochastic treatment
 * replication strategy
 
-Surface alternatives when multiple defensible choices exist.
+Document the rationale for each consequential choice and generate reviewable intermediate artifacts where appropriate.
 
 ---
 
-## Evaluation
+## Transparency <!-- [MUST] -->
 
-Do not evaluate uncertainty using a single metric.
+Clearly distinguish:
 
-Prefer complementary evidence such as:
-
-* local or global sensitivity analysis
-* uncertainty propagation
-* robustness analysis
-* calibration diagnostics
-* predictive intervals where appropriate
-
----
-
-## Transparency
+* observed evidence
+* inferred conclusions
+* expert judgment
+* unresolved uncertainty
 
 Explicitly document:
 
@@ -87,20 +87,23 @@ Explicitly document:
 * omitted uncertainty sources
 * known limitations
 * confidence bounds
-* unresolved ambiguity
+* uncertainty that remains uncharacterized
 
-Separate observed evidence from inferred conclusions.
+Avoid presenting uncertainty estimates as evidence of predictive certainty.
 
 ---
 
 ## Intermediate Artifacts
 
-Generate when appropriate:
+Generate or maintain, as appropriate:
 
 * `uncertainty-register.md`
 * `assumptions.md`
 * `sensitivity-plan.md`
 * `calibration-notes.md`
+* `method-selection.md`
+
+Use predictable, semantic filenames. These artifacts should support downstream review, documentation, and reproducibility.
 
 ---
 
@@ -111,34 +114,37 @@ Watch for:
 * deterministic conclusions from uncertain inputs
 * calibration presented as validation
 * undocumented parameter ranges
-* ignored structural uncertainty
+* ignored structural or conceptual uncertainty
 * confidence claims unsupported by evidence
 * sensitivity analysis performed after interpretation instead of informing it
+* treating parameter uncertainty as the only important uncertainty
 
 ---
 
 ## Routing
 
-If users need:
+Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
-* implementation of sensitivity methods → `sensitivity-analysis`
-* statistical uncertainty estimation → `statistical-analysis`
-* publication documentation → `document`
-* software publication → `fair4rs`
+* **Primary entry point** — This guidance and `deep-uncertainty.md` are mutually exclusive entry points. Use this guidance when uncertainty can be credibly characterized using evidence and established methods; use `deep-uncertainty.md` when important uncertainties cannot be adequately characterized or assigned defensible probabilities.
+* **Specialist execution skills** — `sensitivity-analysis`, `statistical-analysis`, and future uncertainty propagation or calibration skills.
+* **Downstream consumer skills** — `document`, `peer-review`, and `fair4rs`, which should communicate assumptions, uncertainty characterization, and analytical limitations.
 
 ---
 
-# Primary References
+## Primary References
 
-## Characterizing and Managing Uncertainty
+### Foundational Concepts
 
 * Walker et al. (2003)
 * Beven (2006)
 
-## Sensitivity Analysis
+### Operational Guidance
 
 * Saltelli et al. (2008)
 * Pianosi et al. (2016)
+
+### Applied Practice
+
 * Saltelli et al. (2019)
 
 See `references/REFERENCES.md` for complete citations.

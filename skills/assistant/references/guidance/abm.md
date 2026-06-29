@@ -1,97 +1,69 @@
 # Agent-Based Modeling Guidance
 
-This guidance supports agent-based modeling (ABM) throughout the modeling lifecycle, from selecting an appropriate modeling paradigm through conceptual design, implementation, experimentation, evaluation, documentation, and publication.
+## Purpose
 
-It complements the `document`, `peer-review`, `fair4rs`, `uncertainty`, and `deep-uncertainty` skills by helping determine when an ABM is appropriate, what methodological choices require explicit justification, what artifacts should be produced, and how to communicate model assumptions transparently.
+Use this guidance when determining whether agent-based modeling (ABM) is an appropriate modeling paradigm and when making consequential methodological decisions about conceptual model design, abstraction, mechanisms, and representation.
 
-Use this guidance only after the research problem has been clearly framed.
-
----
-
-# Purpose
-
-Help the agent reason about:
-
-* whether agent-based modeling is appropriate
-* how to develop a scientifically defensible conceptual model
-* how to select mechanisms and abstractions
-* what assumptions require documentation
-* common methodological pitfalls
-* transparency, reproducibility, and evaluation expectations
-
-This guidance is not an ODD template or implementation guide. It focuses on scientific reasoning and modeling decisions.
+This guidance supports scientific reasoning throughout model development. It is not an implementation guide, documentation template, or evaluation protocol.
 
 ---
 
-# Model Selection
+## Core Principle
 
-Before recommending an ABM, determine whether the research question fundamentally depends on one or more of the following:
+Agent-based models explain system behavior through explicitly represented entities, interactions, and mechanisms.
 
-* heterogeneous individuals
-* local interactions
-* adaptation or learning
-* decentralized decision making
-* emergence
-* spatial interactions
-* network interactions
-* path dependence
-* non-equilibrium dynamics
-* feedback between agents and their environment
+Use the simplest mechanistic representation capable of answering the research question. Introduce complexity only when it improves explanatory or decision-support value.
 
-If these characteristics are not central to the research question, another modeling framework may provide a simpler or more appropriate representation.
+---
 
-Alternative approaches may include:
+## Decision Context
+
+**Use this guidance when:**
+
+* the research question depends on heterogeneous individuals or entities
+* interactions between entities influence system behavior
+* emergence from micro-level processes is of interest
+* adaptation, learning, or decentralized decision-making is important
+* spatial, network, or path-dependent processes matter
+
+**Do not use this guidance when:**
+
+* aggregate behavior can be represented without explicit agents
+* empirical or statistical models adequately address the research question
+* system dynamics, differential equations, optimization, or discrete event simulation provide simpler representations
+
+ABM is one modeling paradigm among several. Document why it is the most appropriate choice for the scientific question.
+
+---
+
+## Consequential Analytical Choices <!-- [MUST] -->
+
+### Why Agent-Based Modeling?
+
+Document why an ABM was selected instead of:
 
 * statistical analysis
-* differential equation models
 * system dynamics
+* differential equation models
 * discrete event simulation
 * optimization
 * network analysis
 
-Recommend the simplest modeling approach capable of addressing the scientific question.
+The rationale should reference the research question rather than implementation convenience.
 
----
+### Abstraction
 
-# Modeling Philosophy
-
-Agent-based models explain system behavior by explicitly representing the behaviors and interactions of individual entities rather than prescribing aggregate system dynamics.
-
-Prefer mechanistic explanations over empirical curve fitting.
-
-Introduce complexity only when it contributes to answering the research question.
-
-Continually ask:
-
-* What mechanisms are hypothesized to generate the observed phenomena?
-* Which mechanisms are supported by empirical evidence or established theory?
-* Which mechanisms can reasonably be omitted?
-* What level of abstraction is appropriate?
-
-Avoid introducing complexity solely because it can be implemented.
-
----
-
-# Conceptual Modeling
-
-Develop a conceptual model before considering implementation details.
-
-Clearly identify:
+Document and justify:
 
 * system boundaries
-* entities and agent types
-* environment
-* interactions
+* abstraction level
 * spatial representation
 * temporal resolution
-* scales
-* outputs of interest
+* omitted processes
 
-The conceptual model should remain understandable independently of any programming language or modeling framework.
+Explain why important processes were excluded.
 
----
-
-# Mechanism Selection
+### Mechanism Choice
 
 Include mechanisms because they contribute to explaining observed patterns, not because they are convenient to implement.
 
@@ -103,81 +75,31 @@ Prefer mechanisms that are:
 
 Avoid unnecessary behavioral complexity.
 
-Whenever possible, prefer models capable of reproducing multiple independent empirical or qualitative patterns over models tuned to reproduce a single outcome.
+### Agent Representation
 
----
-
-# Consequential Modeling Decisions
-
-The following decisions should always be documented and justified.
-
-## Why an Agent-Based Model?
-
-Document why an ABM was selected instead of another modeling framework.
-
-The rationale should reference the scientific question rather than software preference.
-
----
-
-## Abstraction
-
-Document decisions regarding:
-
-* aggregation
-* behavioral realism
-* spatial resolution
-* temporal resolution
-* omitted processes
-
-Explain why important processes were excluded.
-
----
-
-## Agent Definition
-
-Explicitly identify:
+Document:
 
 * agent types
-* state variables
-* behaviors
-* interactions
 * environment
+* interactions
+* behaviors
+* state variables
 * boundaries
 
-Avoid introducing agents merely because software frameworks encourage them.
+Avoid introducing agents solely because the software framework supports them.
 
----
-
-## State Variables
-
-Clearly distinguish:
-
-* state variables
-* parameters
-* constants
-
-State variables belong to agents.
-
-Parameters belong to the model.
-
-Constants represent fixed assumptions.
-
----
-
-## Scheduling
+### Scheduling
 
 Document:
 
 * synchronous or asynchronous updates
 * update ordering
-* stochastic scheduling
 * event timing
+* stochastic scheduling
 
 Scheduling assumptions frequently influence model behavior and reproducibility.
 
----
-
-## Stochasticity
+### Stochasticity
 
 Document:
 
@@ -185,77 +107,46 @@ Document:
 * stochastic processes
 * probability distributions
 * seed policy
-* replicate strategy
+* replication strategy
 
 Randomness should never remain implicit.
 
----
-
-## Evidence
-
-Explicitly distinguish between:
-
-* empirical evidence
-* theoretical assumptions
-* expert judgement
-* convenience assumptions
-
-Do not invent behavioral rules without identifying their justification.
-
----
-
-## Calibration
+### Evidence
 
 Clearly distinguish:
 
-* calibration
+* empirical evidence
+* theoretical assumptions
+* expert judgment
+* convenience assumptions
+
+Do not invent behavioral mechanisms without identifying their justification.
+
+### Calibration
+
+Clearly distinguish:
+
 * parameter estimation
+* calibration
 * parameter tuning
 * validation
 
 Avoid presenting calibration as validation.
 
----
-
-# Experimental Design
-
-Separate the model itself from the experiments performed with the model.
-
-Document:
-
-* manipulated variables
-* response variables
-* experimental factors
-* replication strategy
-* stopping conditions
-* statistical analyses
-
-Model design and experimental design should be independently reproducible.
+Document the rationale for each consequential choice and generate reviewable intermediate artifacts where appropriate.
 
 ---
 
-# Evaluation
+## Transparency <!-- [MUST] -->
 
-Evaluate models using multiple complementary approaches.
+Clearly distinguish:
 
-Possible forms of evaluation include:
-
-* conceptual validation
-* implementation verification
-* behavioral validation
-* calibration assessment
-* sensitivity analysis
-* robustness analysis
-* uncertainty characterization
-* fit for purpose
-
-Prefer evaluation frameworks such as TRACE that explicitly document model development, testing, limitations, and credibility.
-
-Avoid relying on a single performance metric.
-
----
-
-# Transparency Requirements
+* implemented behavior
+* intended behavior
+* empirical evidence
+* theoretical assumptions
+* modeling assumptions
+* expert judgment
 
 Document:
 
@@ -265,21 +156,13 @@ Document:
 * intended scope
 * known limitations
 
-Explicitly distinguish between:
-
-* implemented behavior
-* intended behavior
-* empirical evidence
-* theoretical assumptions
-* modeling assumptions
-
-Describe any differences between the conceptual design and the implemented model.
+Describe important differences between the conceptual model and the implemented model.
 
 ---
 
-# Intermediate Artifacts
+## Intermediate Artifacts
 
-Generate or maintain artifacts such as:
+Generate or maintain, as appropriate:
 
 * `conceptual-model.md`
 * `model-rationale.md`
@@ -287,99 +170,59 @@ Generate or maintain artifacts such as:
 * `assumptions.md`
 * `agent-inventory.md`
 * `process-schedule.md`
-* `experiment-design.md`
-* `evaluation-plan.md`
-* `validation-report.md`
-* `odd.md`
-* `trace.md`
 
-These artifacts improve transparency, reviewability, reproducibility, and publication readiness.
+Use predictable, semantic filenames. These artifacts should support downstream documentation, review, and reproducibility.
 
 ---
 
-# Common Failure Patterns
+## Common Failure Patterns
 
 Watch for:
 
 * recommending ABMs when simpler models suffice
 * undocumented abstraction decisions
+* unsupported behavioral mechanisms
 * parameters documented as state variables
 * undocumented stochasticity
 * hidden scheduling assumptions
-* unsupported behavioral mechanisms
 * overfitted calibration
-* excessive implementation detail replacing conceptual description
+* implementation complexity replacing conceptual clarity
 * unsupported claims of validation
 * vague research objectives
-* confusing implementation complexity with explanatory power
 
 ---
 
-# Agent Guidance
+## Routing
 
-Never:
+Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
-* invent behavioral mechanisms without clearly identifying assumptions
-* recommend unnecessary complexity
-* introduce additional agent types solely to match a software framework
-* confuse calibration with explanation
-* claim validation without supporting evidence
-* ignore uncertainty or stochasticity
-* prioritize implementation details over scientific reasoning
-
-Prefer:
-
-* explicit assumptions
-* simple mechanistic explanations
-* transparent abstractions
-* reproducible experiments
-* scientifically defensible modeling decisions
+* **Primary entry point** — This guidance is complementary to `uncertainty.md` and `deep-uncertainty.md`. Use this guidance to determine whether and how an ABM should represent the system. Apply uncertainty guidance after the conceptual model has been established.
+* **Specialist execution skills** — `document` (ODD/ODD+2 generation), `document-review`, future `abm-design`, and future analysis skills for calibration, sensitivity analysis, and experimentation.
+* **Downstream consumer skills** — `peer-review`, `fair4rs`, and `document`, which should communicate the modeling rationale, assumptions, abstractions, and limitations established here.
 
 ---
 
-# Routing Guidance
+## Primary References
 
-If the user wants to:
-
-* determine whether ABM is appropriate, use this guidance
-* generate ODD or ODD+2 documentation, use `document` or the `comses/odder` suite
-* assess documentation quality, use `document-review` or the `comses/odder` suite
-* evaluate publication readiness, use `peer-review`
-* prepare research software for publication, use `fair4rs`
-* perform sensitivity analysis, calibration, or uncertainty characterization, use `uncertainty`
-* perform exploratory modeling or robust decision analysis under deep uncertainty, use `deep-uncertainty`
-
-This guidance complements those skills but does not replace them.
-
----
-
-# References
-
-## Foundational Agent-Based Modeling
+### Foundational Concepts
 
 * Railsback & Grimm (2019)
 * Gilbert (2019)
 * Epstein & Axtell (1996)
 * Epstein (1999)
+* Miller & Page (2007)
 
-## Model Design
+### Operational Guidance
 
-* Grimm et al. (2005) Pattern-Oriented Modelling
-
-## Documentation
-
+* Grimm et al. (2005) Pattern-Oriented Modeling
 * Grimm et al. (2006) ODD
 * Grimm et al. (2010) ODD Update
 * Grimm et al. (2020) ODD+2
 * Müller et al. (2013) ODD+D
 
-## Evaluation
+### Applied Practice
 
 * Grimm et al. (2014) TRACE
 * Windrum et al. (2007)
-
-## Complex Systems
-
-* Miller & Page (2007)
 
 See `references/REFERENCES.md` for complete citations.

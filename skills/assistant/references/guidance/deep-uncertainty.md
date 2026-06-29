@@ -1,42 +1,55 @@
-# deep-uncertainty.md
-
 # Deep Uncertainty Guidance
 
-Use this guidance when computational models are intended to support decisions under conditions where important uncertainties cannot be adequately characterized, agreed upon, or assigned defensible probabilities.
+## Purpose
+
+Use this guidance when computational models support decisions under conditions where important uncertainties cannot be adequately characterized, agreed upon, or assigned defensible probabilities.
 
 The objective is not to predict a single future, but to evaluate the robustness and adaptability of decisions across many plausible futures.
 
-For example when stakeholders cannot agree on:
+---
 
-* the appropriate model
-* probability distributions
-* system dynamics
-* objectives
-# Primary References
+## Core Principle
 
-## Foundational Concepts
-
-* Bankes (1993)
-* Walker et al. (2013)
-
-## Decision Support Under Deep Uncertainty
-
-* Lempert et al. (2003)
-* Haasnoot et al. (2013)
-
-## Modern Synthesis
-
-* Marchau et al. (2019)
-* Kwakkel & Haasnoot (2019)
-- assumptions intentionally left unresolved
-
-These choices substantially influence policy recommendations and should be visible for review.
+Deep uncertainty changes how computational models should support decisions. Rather than optimizing for a single predicted future, use models to explore plausible futures, identify vulnerabilities, compare robust alternatives, and inform adaptive decision-making.
 
 ---
 
-## Decision Support Approaches
+## Decision Context
 
-Depending on context, consider:
+**Use this guidance when:**
+
+* uncertainties cannot be credibly characterized using defensible probability distributions
+* stakeholders disagree on appropriate models, objectives, or system dynamics
+* decisions must remain robust across many plausible futures rather than optimized for one
+* surprise, adaptation, and changing conditions are expected
+
+**Do not use this guidance when:**
+
+* uncertainty can be credibly characterized using evidence and established methods
+* the primary objective is estimating uncertainty rather than supporting robust decisions
+
+Use `uncertainty.md` in those situations.
+
+---
+
+## Consequential Analytical Choices <!-- [MUST] -->
+
+Document and justify:
+
+* why deep uncertainty applies
+* which uncertainties are treated as deep rather than characterizable
+* which futures or scenarios are included in the exploratory ensemble
+* which robustness or adaptability criteria are used to compare candidate decisions
+* how competing stakeholder objectives are represented rather than resolved
+* which uncertainties are intentionally left unresolved
+
+Document the rationale for each consequential choice and generate reviewable intermediate artifacts where appropriate.
+
+---
+
+## Method Selection <!-- optional -->
+
+Depending on the decision context, consider:
 
 * exploratory modeling
 * Robust Decision Making (RDM)
@@ -45,34 +58,39 @@ Depending on context, consider:
 * scenario discovery
 * exploratory ensembles
 
-Document why the selected approach fits the decision context.
+Describe the candidate approaches, the conditions under which each is appropriate, and the tradeoffs between them. Recommend a default where one exists, justify that recommendation, and identify when another approach would be preferable.
 
 ---
 
-## Transparency
+## Transparency <!-- [MUST] -->
 
-Explicitly distinguish:
+Clearly distinguish:
 
-- uncertainty that can be characterized
-- uncertainty that cannot
-- competing stakeholder values
-- competing conceptual models
+* uncertainty that can be characterized
+* uncertainty that cannot
+* competing stakeholder values
+* competing conceptual models
+* observed evidence
+* expert judgment
+* unresolved uncertainty
 
 Do not collapse disagreement into a single "best" model without justification.
 
-Identify which uncertainties are reducible and which are not.
+Identify which uncertainties are reducible, which are irreducible, and which remain unresolved because of competing assumptions or stakeholder perspectives.
 
 ---
 
 ## Intermediate Artifacts
 
-Generate when appropriate:
+Generate or maintain, as appropriate:
 
 * `decision-objectives.md`
 * `scenario-register.md`
 * `robustness-criteria.md`
 * `adaptation-pathways.md`
 * `stakeholder-assumptions.md`
+
+Use predictable, semantic filenames. These artifacts should support downstream review, documentation, and reproducibility.
 
 ---
 
@@ -81,41 +99,40 @@ Generate when appropriate:
 Watch for:
 
 * optimizing under unjustified probabilities
-* presenting one future as most likely
-* collapsing stakeholder disagreement into one objective
-* excessive confidence in long-term forecasts
+* presenting one future as "most likely"
 * treating exploratory scenarios as predictions
+* collapsing stakeholder disagreement into a single objective
+* selecting decision-support approaches without explaining why
+* excessive confidence in long-term forecasts
+* failing to distinguish reducible uncertainty from deep uncertainty
 
 ---
 
 ## Routing
 
-If probabilistic characterization becomes feasible,
-prefer the uncertainty guidance rather than DMDU methods.
+Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
-If users need:
-
-* conventional uncertainty analysis → `uncertainty.md`
-* sensitivity methods → `sensitivity-analysis`
-* participatory decision support → `participatory.md`
+* **Primary entry point** — This guidance and `uncertainty.md` are mutually exclusive entry points. Use this guidance when probabilistic characterization is not credible; use `uncertainty.md` when uncertainty can be meaningfully characterized using evidence and established methods.
+* **Specialist execution skills** — `sensitivity-analysis` (when uncertainty becomes characterizable), `participatory` (for stakeholder engagement and collaborative decision processes).
+* **Downstream consumer skills** — `document`, `peer-review`, and `fair4rs`, which should explicitly communicate assumptions, robustness rationale, and limitations derived from this guidance.
 
 ---
 
-# Primary References
+## Primary References
 
-## Foundational Concepts
+### Foundational Concepts
 
 * Bankes (1993)
 * Walker et al. (2013)
 
-## Decision Support Under Deep Uncertainty
+### Operational Guidance
 
 * Lempert et al. (2003)
 * Haasnoot et al. (2013)
+* Kwakkel & Haasnoot (2019)
 
-## Modern Synthesis
+### Applied Practice
 
 * Marchau et al. (2019)
-* Kwakkel & Haasnoot (2019)
 
 See `references/REFERENCES.md` for complete citations.
