@@ -2,6 +2,8 @@
 
 ## Purpose
 
+Project planning helps researchers choose an appropriate level of planning and organize work into modular, reviewable increments that remain traceable to the conceptual model and research questions. This preserves flexibility as evidence, insights, and requirements evolve without losing scientific accountability for what changed and why.
+
 Use this guidance after a reviewable conceptual model has been developed and before substantial implementation or experimentation begins. It coordinates project planning by translating conceptual models into implementation and analysis plans while preserving traceability between scientific objectives, implementation decisions, and evaluation activities.
 
 This guidance helps answer the methodological question:
@@ -12,7 +14,7 @@ This guidance helps answer the methodological question:
 
 ## Core Principle
 
-Project planning translates a conceptual model into coordinated implementation and scientific analysis while preserving explicit traceability between research questions, conceptual assumptions, implementation activities, evaluation strategies, and project artifacts. Planning should organize scientific work rather than merely schedule software development.
+Planning coordinates scientific work by making consequential decisions explicit before implementation and analysis embed them in software, experiments, and documentation.
 
 ---
 
@@ -42,9 +44,11 @@ This guidance coordinates project-level planning and delegates detailed planning
 
 Define the minimum scientifically useful model needed to address the research questions. [MUST]
 
+Document scope boundaries and justify exclusions. [MUST]
+
 Clearly distinguish core project objectives from optional future extensions. [SHOULD]
 
-Document scope boundaries and justify exclusions. [MUST]
+Planning effort should be proportional to project scope, expected lifetime, collaboration needs, and anticipated reuse. [SHOULD]
 
 ### Planning Strategy
 
@@ -65,6 +69,8 @@ Identify activities appropriate for:
 
 Document review checkpoints before consequential scientific decisions are accepted. [MUST]
 
+Explicitly identify activities requiring human review before downstream work proceeds. [MUST]
+
 ### Traceability
 
 Maintain explicit links among:
@@ -79,7 +85,7 @@ Ensure planning decisions remain traceable to the conceptual model rather than i
 
 ---
 
-## Method Selection
+## Planning Artifacts
 
 Project planning should produce two complementary planning artifacts.
 
