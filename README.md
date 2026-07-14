@@ -15,10 +15,11 @@ These skills are designed for coding-capable AI agents that can:
 - inspect and modify repositories
 - run local tools such as Python, Git, and Docker
 
-Compatible environments include:
+For details on how to provide an AI agent access to skills, view [the Agent Skills client documentation](https://agentskills.io/client-implementation/adding-skills-support). 
+
+Compatible agent environments include:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [VSCodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)
 - [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
 - [Claude Code](https://code.claude.com/docs/en/overview)
 - [Cursor Agent](https://cursor.com/)
@@ -35,13 +36,6 @@ At minimum, your agent should support:
 After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are simply a set of files installed into a local directory managed by `npx skills` (either globally for use across all of your projects or into a specific project).
 
 We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
-
-**Security best practices:**
-
-- Install only from the official [nvm-sh/nvm](https://github.com/nvm-sh/nvm/releases) repository.
-- Pin the installer to a specific release tag instead of running an unpinned command.
-- Review the installer script before executing it.
-- Avoid `sudo npm -g ...`; use user-level installs with `nvm`.
 
 1. Install prerequisites
 
@@ -134,33 +128,35 @@ or:
 Read the installed skills and summarize when each should be used.
 ```
 
-#### Run a small task
+#### Use the skills
 
-Generally the skills will always be triggered if you reference them by name, or you can use their associated slash command, e.g.,
-
-Examples:
+Skills can be triggered if you reference them by name, or you can use their associated slash command, e.g.,
 
 ```text
-/document generate ODD+2 documentation for this model.
+/document generate ODD documentation for this model
 ```
 
 or
 
 ```text
-Use the document skill to generate ODD+2 documentation for this model.
+generate ODD documentation for this model
 ```
 
 ```text
-/peer-review evaluate this repository for reproducibility readiness
+/peer-review evaluate this repository
 ```
 
-or
+#### Complex tasks
 
+Develop a conceptual model:
 ```text
-Use the peer-review skill to evaluate this repository for reproducibility readiness.
+/omfa Help me develop a conceptual model for how agricultural land use affects watershed nutrient loading in the Loire River Basin. Identify the major entities, processes, assumptions, and system boundaries before discussing implementation.
 ```
 
-etc.
+Project planning:
+```text
+/omfa Create a modular project plan for implementing this conceptual model, including milestones, risks, validation activities, and documentation artifacts.
+```
 
 Other examples:
 

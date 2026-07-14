@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "skill_name": "assistant",
+  "skill_name": "omfa",
   "description": "Evaluation cases for good modeling practice guidance, routing, and boundary behavior",
   "evals": [
     {

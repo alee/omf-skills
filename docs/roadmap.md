@@ -19,7 +19,7 @@ This roadmap is a living document and will be updated regularly.
 
 ### Current Skills
 
-- **assistant** (beta): guide modelers in applying good modeling practice across the full computational modeling lifecycle
+- **omfa** (beta): guide modelers in applying good modeling practice across the full computational modeling lifecycle
 - **document** (alpha): narrative documentation for a computational model
 - **fair4rs** (alpha): Publication metadata and archival readiness
 - **ospool** (alpha): OSPool batch and parameter sweep scaffolding
@@ -286,7 +286,7 @@ This document captures architectural decisions and prioritized future work for t
 The repository is organized into four conceptual layers:
 
 ```text
-Assistant
+OMFA
     ↓
 Lifecycle guidance
     ↓
@@ -299,7 +299,7 @@ Each layer has a distinct responsibility:
 
 | Layer                       | Responsibility                                                                                                                                                |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Assistant                   | Classify requests, identify the current lifecycle state, load appropriate guidance, and recommend specialist skills.                                          |
+| OMFA                        | Classify requests, identify the current lifecycle state, load appropriate guidance, and recommend specialist skills.                                          |
 | Lifecycle guidance          | Coordinate the modeling lifecycle, identify lifecycle readiness, manage artifact dependencies, detect regression triggers, and route to specialized guidance. |
 | Methodological guidance     | Encode expert reasoning for specific methodological domains.                                                                                                  |
 | Specialist execution skills | Execute analyses and produce artifacts using the applicable methodological guidance.                                                                          |

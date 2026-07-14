@@ -1,5 +1,5 @@
 ---
-name: assistant
+name: omfa
 description: |
   Guide modelers in applying good modeling practice across the full computational modeling lifecycle,
   from problem framing through evaluation, uncertainty disclosure, governance, and maintenance.
@@ -103,7 +103,7 @@ The following are prohibited:
 
 The computational modeling lifecycle is defined by `references/guidance/lifecycle.md`
 
-The assistant is responsible for:
+The omfa skill is responsible for:
 
 - identifying the current lifecycle state
 - loading `references/guidance/lifecycle.md` when lifecycle reasoning is required

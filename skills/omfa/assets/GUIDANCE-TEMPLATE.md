@@ -12,7 +12,7 @@ of flattening into separate `##` sections, which is what caused
 abm.md's structure to drift from this template).
 
 Conformance language: this guidance inherits MUST / SHOULD from the parent
-assistant SKILL.md. Use MUST when absence should be flagged as a deficiency
+omfa SKILL.md. Use MUST when absence should be flagged as a deficiency
 requiring justification, SHOULD when omission can be reasoned and accepted.
 Tag each requirement inline (e.g. "Document the seed policy. [MUST]") rather
 than leaving conformance level implicit — this was an open gap identified
