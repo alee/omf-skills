@@ -4,12 +4,9 @@ description: |
   Guide modelers in applying good modeling practice across the full computational modeling lifecycle,
   from problem framing through evaluation, uncertainty disclosure, governance, and maintenance.
 
-  Use this skill when users want lifecycle guidance, quality self-assessment, required modeling
-  deliverables, or protocol-specific checks for ABM, uncertainty, reproducibility, ethics,
-  participatory modeling, and deep uncertainty.
+  Use this skill when users want lifecycle guidance, quality self-assessment, required modeling deliverables, or protocol-specific checks for ABM, uncertainty, reproducibility, ethics, participatory modeling, and deep uncertainty.
 
-  Expected output: staged modeling guidance, identified deficiencies against required practices,
-  and a concrete set of required artifacts and review checks.
+  Expected output: staged modeling guidance, identified deficiencies against required practices, and a concrete set of required artifacts and review checks.
 license: MIT
 compatibility: Works with agent-based, system dynamics, statistical, simulation, and hybrid models
 metadata:

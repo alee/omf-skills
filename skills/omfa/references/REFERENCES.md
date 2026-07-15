@@ -419,6 +419,32 @@ Defines principles for knowledge co-production and collaborative sustainability 
 
 ---
 
+## Vennix (1996)
+
+Vennix, J.A.M. (1996). _Group Model Building: Facilitating Team Learning Using System Dynamics_. Chichester, UK: John Wiley & Sons. ISBN 978-0-471-95355-0.
+
+Canonical text establishing group model building as a structured, facilitated method for collaboratively developing system dynamics models with stakeholders. Foundational reference for group model building as a participatory method.
+
+---
+
+## Barreteau et al. (2003)
+
+Barreteau, O., Antona, M., d'Aquino, P., Aubert, S., Boissau, S., Bousquet, F., Daré, W., Étienne, M., Le Page, C., Mathevet, R., Trébuil, G., & Weber, J. (2003). Our companion modelling approach. _Journal of Artificial Societies and Social Simulation_, 6(2), 1.
+[https://www.jasss.org/6/2/1.html](https://www.jasss.org/6/2/1.html)
+
+Founding charter of the ComMod (Companion Modelling) collective. Establishes companion modelling as an iterative, field-embedded scientific posture combining agent-based models and role-playing games to support learning and collective decision making with stakeholders.
+
+---
+
+## Étienne (2014)
+
+Étienne, M. (Ed.). (2014). _Companion Modelling: A Participatory Approach to Support Sustainable Development_. Dordrecht: Springer Netherlands.
+[https://doi.org/10.1007/978-94-017-8557-0](https://doi.org/10.1007/978-94-017-8557-0)
+
+Comprehensive edited synthesis of the companion modelling approach, consolidating methods, case studies, and theoretical foundations developed by the ComMod collective since Barreteau et al. (2003).
+
+---
+
 # Ethics, Governance, and Responsible Modeling
 
 ## Saltelli et al. (2020a)
