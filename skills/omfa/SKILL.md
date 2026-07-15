@@ -22,7 +22,7 @@ A modular guidance and skill framework for transparent, reviewable, computationa
 
 ## Purpose and Scope
 
-Help modelers learn, adopt, and self-assess against established good modeling practices. Covers transparent, reviewable, and reproducible computational modeling across the full modeling lifecycle.
+Help modelers learn, adopt, and self-assess against established good modeling practices. Covers reviewable and transparent computational modeling across the full modeling lifecycle.
 
 Use this skill to:
 
@@ -73,13 +73,13 @@ This skill provides the foundational framework that the other skills assess agai
 All modeling workflows MUST:
 
 1. Be fit-for-purpose.
-2. Explicitly document assumptions.
-3. Treat uncertainty as inherent, requiring explicit management, and disclosed transparently.
-4. Prioritize contextual validity over universal claims (models are valid for specific purposes and conditions, not universally).
-5. Justify abstraction and simplification choices.
-6. Maintain provenance and reproducibility.
-7. Document stakeholder and governance context.
-8. Produce reviewable artifacts that support inspection, revision, and reuse
+2. Produce reviewable artifacts that support inspection, revision, and reuse
+3. Explicitly document all consequential assumptions.
+4. Treat uncertainty as inherent, requiring explicit management, and disclosed transparently.
+5. Prioritize contextual validity over universal claims (models are valid for specific purposes and conditions, not universally).
+6. Justify abstraction and simplification choices.
+7. Maintain provenance and reproducibility.
+8. Document stakeholder and governance context.
 9. Use transparent and auditable workflows.
 10. Communicate limitations and appropriate use.
 
@@ -128,16 +128,16 @@ Use specialized guidance when applicable. Load only the guidance modules necessa
 Guidance modules encode expert methodological reasoning by helping agents:
 
 - recognize when a methodology applies
+- produce reviewable intermediate artifacts that preserve scientific reasoning across the entire modeling lifecycle
 - make consequential analytical choices
 - select appropriate methods
-- identify reviewable intermediate artifacts
 - avoid common methodological failure patterns
 
 ---
 
 ## Required Deliverables
 
-The following artifacts are REQUIRED unless explicitly justified otherwise:
+Required deliverables are reviewable scientific artifacts that externalize assumptions, decisions, evidence, and evaluation for downstream collaborators, tools, and reviewers. The following artifacts are REQUIRED unless explicitly justified otherwise:
 
 - `model_card.md`: summarize model design, performance, and limitations (domain-specific)
 - `conceptual_model.md`: describe model purpose, scope, and assumptions
@@ -160,8 +160,6 @@ All deliverables SHOULD:
 - include version information,
 - identify authorship and provenance,
 - document limitations and intended scope.
-
-See templates in `templates/`.
 
 ---
 
@@ -270,7 +268,7 @@ Review logic is defined in:
 ## Engineering Guidance
 
 See the `fair4rs` skill for detailed research software engineering practices.
-Key principles: prefer transparency over sophistication, robustness over overconfidence, and inspectable, modular, standards-based workflows.
+Key principles: prefer transparency over sophistication, robustness over overconfidence, and reviewable, modular, standards-based workflows.
 
 ---
 
@@ -278,9 +276,7 @@ Key principles: prefer transparency over sophistication, robustness over overcon
 
 Full citations maintained in `references/REFERENCES.md`.
 
-Key foundations:
-
-- Good Modeling Practice: Jakeman et al. (2024), Jakeman et al. (2006), Refsgaard & Henriksen (2004)
+- Good Modeling Practice: Sun et al. (2026), Swannack et al. (2025), Jakeman et al. (2024), Hamilton et al. (2022), Elsawah et al. (2017), Jakeman et al. (2006), Refsgaard & Henriksen (2004)
 - Model Documentation: Grimm et al. (2006, 2010, 2020) [ODD protocol], Grimm et al. (2014) [TRACE]
 - Model Evaluation: Augusiak et al. (2014), Hamilton et al. (2019)
 - Uncertainty: Beven (2006)

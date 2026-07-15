@@ -15,6 +15,42 @@ This bibliography emphasizes:
 
 # Good Modeling Practice
 
+## Sun et al. (2026)
+
+Sun, X., Jakeman, A., Hamilton, S.H., Grimm, V., Hunt, R.J., El Sawah, S., Wang, H.-H., Croke, B., & Chen, M. (2026). A catalogue of Do's and Don'ts in the modeling of environmental systems. _Environmental Modelling & Software_, 198, 106893.
+[https://doi.org/10.1016/j.envsoft.2026.106893](https://doi.org/10.1016/j.envsoft.2026.106893)
+
+Presents a practical, consolidated catalogue of recommended and discouraged practices for environmental systems modeling, reinforcing fit-for-purpose, transparency, and lifecycle-aware quality standards.
+
+---
+
+## Swannack et al. (2025)
+
+Swannack, T.M., Cushway, K.C., Carrillo, C.C., Calvo, C., Determan, K.R., Mierzejewski, C.M., Quintana, V.M., Riggins, C.L., Sams, M.D., & Wadsworth, W.E. (2025). Cracking the code: Linking good modeling and coding practices for new ecological modelers. _Ecological Modelling_, 499, 110926.
+[https://doi.org/10.1016/j.ecolmodel.2024.110926](https://doi.org/10.1016/j.ecolmodel.2024.110926)
+
+Connects modeling quality with coding quality, emphasizing practical habits that improve transparency, maintainability, and reproducibility for early-career ecological modelers.
+
+---
+
+## Hamilton et al. (2022)
+
+Hamilton, S.H., Pollino, C.A., Stratford, D.S., Fu, B., & Jakeman, A.J. (2022). Fit-for-purpose environmental modeling: Targeting the intersection of usability, reliability and feasibility. _Environmental Modelling & Software_, 148, 105278.
+[https://doi.org/10.1016/j.envsoft.2021.105278](https://doi.org/10.1016/j.envsoft.2021.105278)
+
+Defines a fit-for-purpose framing that balances usability, reliability, and feasibility, supporting context-aware method selection and defensible model claims.
+
+---
+
+## Elsawah et al. (2017)
+
+Elsawah, S., Pierce, S.A., Hamilton, S.H., van Delden, H., Haase, D., Elmahdi, A., & Jakeman, A.J. (2017). An overview of the system dynamics process for integrated modelling of socio-ecological systems: Lessons on good modelling practice from five case studies. _Environmental Modelling & Software_, 93, 127-145.
+[https://doi.org/10.1016/j.envsoft.2017.03.001](https://doi.org/10.1016/j.envsoft.2017.03.001)
+
+Synthesizes lessons from case studies to outline practical system dynamics workflow guidance for integrated socio-ecological modeling, with strong focus on good practice and participatory context.
+
+---
+
 ## Jakeman et al. (2024)
 
 Jakeman, A.J., Barreteau, O., Hunt, R.J., Riber, J.-D., Ross, A., Arshad, M., & Hamilton, S. (2024). Towards normalizing good practice across the whole modeling cycle: its instrumentation and future research topics. _Socio-Environmental Systems Modelling_, 6, 18755.
