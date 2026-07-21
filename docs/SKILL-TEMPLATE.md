@@ -1,5 +1,5 @@
 <!--
-  COMSES SKILL TEMPLATE
+  OMF SKILL TEMPLATE
   ─────────────────────
   Copy this file to skills/<your-skill-name>/SKILL.md and fill in every
   placeholder marked with < >. Delete these HTML comments before submitting.

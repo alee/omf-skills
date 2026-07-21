@@ -4,7 +4,7 @@ Use this template to produce standardized peer-review outputs for computational 
 
 The final recommendation must follow required-criteria logic:
 
-- Pass only if all three CoMSES criteria pass.
+- Pass only if all three baseline review criteria pass.
 - Fail if any required criterion is Partial or Fail.
 
 ---

@@ -1,7 +1,7 @@
 ---
 name: peer-review
 description: |
-  Evaluate computational model submissions for CoMSES-style peer review readiness using
+  Evaluate computational model submissions for OMF peer review readiness using
   reproducibility, documentation, code quality, and research software engineering criteria.
 
   Use this skill whenever a user asks to review a computational model, codebase, model release,
@@ -10,7 +10,7 @@ description: |
   "check reproducibility", "review ODD documentation", "assess FAIR/research software quality".
 
   Expected output: structured peer review report with binary pass/fail recommendation,
-  criterion-by-criterion findings, prioritized fixes, and an evidence-based checklist mapped to CoMSES review criteria and
+  criterion-by-criterion findings, prioritized fixes, and an evidence-based checklist mapped to the baseline review criteria and
   key EVERSE research software quality indicators.
 license: MIT
 compatibility: Works with Python, R, NetLogo, Julia, C/C++, and mixed-language model repositories
@@ -52,13 +52,13 @@ Gather as many of these as available:
 
 Apply these rules before synthesizing any final decision:
 
-- The three CoMSES criteria are equally weighted and each is required:
+- The three baseline review criteria are equally weighted and each is required:
   - Ease of Execution
   - Documentation Thoroughness
   - Code Quality
 - Final decision is binary:
-  - **Pass:** all three CoMSES criteria are rated Pass
-  - **Fail:** any one of the three CoMSES criteria is rated Partial or Fail
+  - **Pass:** all three baseline review criteria are rated Pass
+  - **Fail:** any one of the three baseline review criteria is rated Partial or Fail
 - Research software quality indicators support evidence and prioritization, but do not override required-criteria failures.
 
 ### 1. Scope and Submission Triage
@@ -68,7 +68,7 @@ Apply these rules before synthesizing any final decision:
    - Repository plus release package
    - Repository plus manuscript supplement
 2. Confirm review scope:
-   - Baseline CoMSES peer review readiness
+  - Baseline OMF peer review readiness
    - Expanded RSE quality assessment
 3. Record missing essentials up front (for example missing run instructions, missing docs, private dependencies).
 
@@ -155,7 +155,7 @@ For each indicator, mark:
 
 Policy note:
 
-- Tests and CI findings are **Major** quality signals but **nonblocking** for the binary pass/fail decision, unless they directly cause one of the three CoMSES required criteria to fail (for example, inability to execute reproducibly).
+- Tests and CI findings are **Major** quality signals but **nonblocking** for the binary pass/fail decision, unless they directly cause one of the three baseline review criteria to fail (for example, inability to execute reproducibly).
 
 ### 6. Synthesize Recommendation
 
@@ -172,8 +172,8 @@ Produce:
 
 Decision logic:
 
-- Return **Pass** only when all three CoMSES criteria pass.
-- Return **Fail** if any CoMSES criterion is partial or fail.
+- Return **Pass** only when all three baseline review criteria pass.
+- Return **Fail** if any baseline review criterion is partial or fail.
 - Keep tests and CI as Major nonblocking findings unless they materially affect a required criterion.
 
 ## Required Output Format
@@ -200,11 +200,11 @@ When a user asks for an author revision plan or response checklist, convert find
 - References companion guide: `references/README.md`
 - Standard review report template: `assets/PEER-REVIEW-REPORT-TEMPLATE.md`
 - Author response checklist template: `assets/AUTHOR-RESPONSE-CHECKLIST-TEMPLATE.md`
-- Compressed CoMSES rubric snapshot: `assets/COMSES-REVIEWS-COMPRESSED.md`
+- Compressed review rubric snapshot: `assets/COMSES-REVIEWS-COMPRESSED.md`
 - Compressed EVERSE indicator snapshot: `assets/EVERSE-INDICATORS-COMPRESSED.md`
 - Repository-local refresh workflow: `.github/skills/update-skill/SKILL.md`
 - ODD completeness checks: `../document/references/ODD-CHECKLIST.md` via the `document` skill when ODD is in scope
-- CoMSES review criteria reference: https://www.comses.net/reviews/
+- Review criteria reference: https://www.comses.net/reviews/
 - EVERSE indicators reference: https://everse.software/indicators/website/indicators.html
 
 ## Example

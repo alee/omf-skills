@@ -1,8 +1,8 @@
-# COMSES Skills Repository
+# OMF Skills Repository
 
-Agent Skills for computational modelers: documentation, reproducibility, publication, and execution.
+Agent skills for computational modelers: lifecycle guidance, documentation, reproducibility, publication, and execution.
 
-This repository hosts a curated collection of [Agent Skills](https://agentskills.io) designed to help researchers and developers develop and share computational models in the social and ecological sciences. Skills are reusable procedural workflows that enhance AI agents to accomplish specialized tasks.
+This repository hosts a curated collection of [Agent Skills](https://agentskills.io) designed to help researchers and developers develop and share computational models with transparent lifecycle guidance. Skills are reusable procedural workflows that enhance AI agents to accomplish specialized tasks.
 
 ## Quick Start
 
@@ -92,9 +92,9 @@ npx -v
 6. Continue with skills installation
 
 ```bash
-npx skills add comses/skills
+npx skills add omf/skills
 # alternatively, install from github directly
-npx skills add https://github.com/comses/skills
+npx skills add https://github.com/omf/skills
 ```
 
 7. Keep Node LTS current (maintenance)
@@ -119,7 +119,7 @@ Examples:
 Try:
 
 ```text
-What skills are available from the comses/skills collection?
+What skills are available from the omf/skills collection?
 ```
 
 or:
@@ -166,7 +166,7 @@ Other examples:
 
 ## Skills Overview
 
-This repository currently includes five skills covering core computational modeling needs:
+This repository currently includes five skills covering core computational modeling needs, with `omfa` as the primary entry point for lifecycle coordination:
 
 ### 1. **document**
 
@@ -194,7 +194,7 @@ Generates Slurm job scripts, job arrays, and resource allocation templates for r
 
 ### 5. **peer-review**
 
-Evaluates computational model submissions for peer review readiness using required CoMSES criteria (ease of execution, documentation thoroughness, and code quality) plus supporting research software quality indicators inspired by EVERSE.
+Evaluates computational model submissions for peer review readiness using required review criteria (ease of execution, documentation thoroughness, and code quality) plus supporting research software quality indicators inspired by EVERSE.
 
 **Triggers:** "Peer review my model", "Is this model submission ready", "Review codebase quality", "Check reproducibility"
 

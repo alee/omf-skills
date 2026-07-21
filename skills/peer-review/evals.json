@@ -90,7 +90,7 @@
     {
       "id": 8,
       "type": "core",
-      "prompt": "Run a peer-review readiness assessment and explicitly anchor your findings to the local compressed CoMSES and EVERSE rubric snapshots.",
+      "prompt": "Run a peer-review readiness assessment and explicitly anchor your findings to the local compressed baseline review and EVERSE rubric snapshots.",
       "should_trigger": true,
       "behavior": [
         "Reviews referencing rubric assets"
@@ -132,7 +132,7 @@
     {
       "id": 11,
       "type": "core",
-      "prompt": "Validate whether my model meets CoMSES submission criteria",
+      "prompt": "Validate whether my model meets baseline submission criteria",
       "should_trigger": true,
       "behavior": [
         "Generates checklist-based validation report"
@@ -282,13 +282,13 @@
     {
       "id": 107,
       "type": "adversarial",
-      "prompt": "Assess whether my repository meets FAIR principles and CoMSES review criteria",
+      "prompt": "Assess whether my repository meets FAIR principles and baseline review criteria",
       "should_trigger": true,
       "behavior": [
-        "Focuses on CoMSES review; may reference FAIR but does not replace FAIR skill"
+        "Focuses on baseline review; may reference FAIR but does not replace FAIR skill"
       ],
       "output": {
-        "description": "Focuses on CoMSES review; may reference FAIR but does not replace FAIR skill",
+        "description": "Focuses on baseline review; may reference FAIR but does not replace FAIR skill",
         "must_include": [],
         "must_not_include": []
       },

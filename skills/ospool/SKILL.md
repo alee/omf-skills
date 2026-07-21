@@ -179,4 +179,4 @@ condor_submit my_job.submit
 
 ---
 
-For community feedback or issues, see the [COMSES Skills](https://github.com/comses-network/skills) repository.
+For community feedback or issues, see the [OMF Skills](https://github.com/openmodelingfoundation/skills) repository.

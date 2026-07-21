@@ -1,6 +1,6 @@
-# Contributing Skills to CoMSES
+# Contributing Skills to OMF
 
-Thank you for contributing to this skills repository! This guide walks you through the process of creating, testing, and submitting skills for our community.
+Thank you for contributing to this skills repository! This guide walks you through the process of creating, testing, and submitting skills for the OMF modeling guidance collection.
 
 ## Table of Contents
 

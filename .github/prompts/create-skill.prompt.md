@@ -1,10 +1,10 @@
 ---
-description: "Scaffold a new COMSES skill folder from the SKILL-TEMPLATE. Provide the skill name and a brief description of what it does."
+description: "Scaffold a new OMF skill folder from the SKILL-TEMPLATE. Provide the skill name and a brief description of what it does."
 argument-hint: "skill name + what it does (e.g. 'reproduce — verify a model run produces identical outputs')"
 agent: agent
 ---
 
-Scaffold a new COMSES skill using the template at [docs/SKILL-TEMPLATE.md](../../docs/SKILL-TEMPLATE.md).
+Scaffold a new OMF skill using the template at [docs/SKILL-TEMPLATE.md](../../docs/SKILL-TEMPLATE.md).
 
 The user's request: {{input}}
 

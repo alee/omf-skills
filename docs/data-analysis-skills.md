@@ -521,7 +521,7 @@ Anticipated requirements: ensemble output ingestion (NetCDF, HDF5), parameter sw
 
 ### Architecture
 
-- Initial deployment is as [Agent Skills](https://agentskills.io/) similar to comses/odder
+- Initial deployment is as [Agent Skills](https://agentskills.io/) similar to omf/odder
 - Unified orchestration schema — workflow DSL vs. JSON? Recommendation needed before Phase 1 begins.
 - Runtime abstraction layer — required for local + remote execution parity?
 - LLM routing model — agent skills are inherently BYOK / BYOM but future work may provide a paid / tokens based UI and agent layer that supports other LLM providers

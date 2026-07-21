@@ -2,11 +2,11 @@
 name: fair4rs
 description: |
   Create FAIR4RS-compliant metadata, publication checklists, and citation files
-  for computational models of social-ecological systems to prepare them for publication, sharing, and reuse.
+  for computational models to prepare them for publication, sharing, and reuse.
 
   Use this skill when preparing models for Zenodo, arXiv, discipline-specific repositories, 
   or journal supplementary materials. Triggers: "prepare for publication", "create FAIR metadata", 
-  "generate publication checklist", "archive my model", "submit to Zenodo", "make my code citable".
+  "generate publication checklist", "archive my model", "submit to Zenodo", "make my code citable", "prepare for OMF".
 
   Expected output: codemeta.json (canonical metadata source), CITATION.cff generated from codemeta.json,
   data management plan (DMP), software management plan (SMP), publication checklist, and metadata JSON-LD
@@ -339,7 +339,7 @@ Triggers: "set up my model metadata", "create codemeta"
 
 ### Pre-publication
 
-Triggers: "prepare for publication", "submit to Zenodo", "make my code citable", "prepare for CoMSES", "generate publication checklist", "archive my model"
+Triggers: "prepare for publication", "submit to Zenodo", "make my code citable", "prepare for OMF", "generate publication checklist", "archive my model"
 → Full pipeline: metadata → CITATION.cff → checklist → deposit preparation
 → Validate DMP/SMP consistency with artifacts
 

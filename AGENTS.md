@@ -1,4 +1,4 @@
-# AGENTS.md — COMSES Skills Repository
+# AGENTS.md — OMF Skills Repository
 
 Agent instructions for working in this repository. Every AI agent should read this file before creating, editing, or reviewing skills.
 
@@ -6,7 +6,7 @@ Agent instructions for working in this repository. Every AI agent should read th
 
 ## What this repo is
 
-A curated collection of [Agent Skills](https://agentskills.io) targeting computational modelers: provides agentic support for model documentation, publication, execution on HPC / HTC / cloud compute, and peer review.
+A curated collection of [Agent Skills](https://agentskills.io) targeting computational modelers: provides agentic support for model lifecycle guidance, documentation, publication, execution on HPC / HTC / cloud compute, and peer review.
 
 Published skills live in `skills/`. A local, maintainer-only skill for updating / refreshing skill content and references lives in `.github/skills/update-skill/` and is **not** part of the published catalog.
 
@@ -142,7 +142,7 @@ Fix:
 
 ---
 
-## COMSES-specific conventions
+## OMF-specific conventions
 
 | Convention       | Rule                                           |
 | ---------------- | ---------------------------------------------- |

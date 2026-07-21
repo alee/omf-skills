@@ -51,7 +51,7 @@ Use this subset for practical review support (non-gating unless explicitly eleva
 ## Practical Mapping for This Repository
 
 - Treat indicators as evidence amplifiers for review findings.
-- Do not override required CoMSES criteria with indicator-only strength.
+- Do not override required baseline review criteria with indicator-only strength.
 - Tests and CI remain Major but nonblocking unless they undermine a required criterion (for example reproducible execution claims).
 
 ## Refresh Guidance

@@ -10,13 +10,13 @@
         "document",
         "peer-review"
       ],
-      "prompt": "Generate an ODD description for my ABM and then assess if it is ready for CoMSES submission.",
+      "prompt": "Generate an ODD description for my ABM and then assess if it is ready for OMF submission.",
       "behavior": [
         "document",
         "peer-review"
       ],
       "output": {
-        "description": "ODD description generated and readiness assessed for CoMSES submission",
+        "description": "ODD description generated and readiness assessed for OMF submission",
         "must_include": [],
         "must_not_include": []
       },
@@ -34,13 +34,13 @@
         "fair4rs",
         "peer-review"
       ],
-      "prompt": "Prepare my model for publication and tell me if it passes CoMSES review.",
+      "prompt": "Prepare my model for publication and tell me if it passes baseline review.",
       "behavior": [
         "fair4rs",
         "peer-review"
       ],
       "output": {
-        "description": "Model prepared for publication and CoMSES review completed",
+        "description": "Model prepared for publication and baseline review completed",
         "must_include": [],
         "must_not_include": []
       },
@@ -230,7 +230,7 @@
         "peer-review",
         "fair4rs"
       ],
-      "prompt": "Does my repository meet CoMSES criteria, and if not, what FAIR improvements are needed?",
+      "prompt": "Does my repository meet the baseline review criteria, and if not, what FAIR improvements are needed?",
       "behavior": [
         "peer-review",
         "fair4rs"

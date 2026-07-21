@@ -1,11 +1,11 @@
-# CoMSES Peer Review Rubric (Compressed)
+# Baseline Peer Review Rubric (Compressed)
 
 Source: https://www.comses.net/reviews/
 Last reviewed: 2026-04-28
 
 ## Purpose
 
-CoMSES peer review checks whether a computational model is reusable and publishable with baseline software engineering and documentation quality, aligned with FAIR4RS and frictionless reuse goals.
+This review rubric checks whether a computational model is reusable and publishable with baseline software engineering and documentation quality, aligned with FAIR4RS and frictionless reuse goals.
 
 ## Core Criteria (Compressed)
 

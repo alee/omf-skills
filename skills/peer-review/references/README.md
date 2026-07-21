@@ -22,7 +22,7 @@ External rubric and indicator sources evolve over time. This directory provides 
 
 Treat these references and related compressed artifacts as living resources:
 
-- Review after substantive CoMSES review criteria changes
+- Review after substantive baseline review criteria changes
 - Review after major EVERSE indicator updates
 - Record changes in pull requests with date and rationale
 

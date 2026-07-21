@@ -63,6 +63,8 @@ Primary responsibilities:
 
 This skill provides the foundational framework that the other skills assess against.
 
+This skill is the primary entry point for the repository. Route here first when the user is trying to understand what to do next, what modeling stage they are in, or which specialist skill should run.
+
 ## Conformance Language
 
 - **MUST / REQUIRED:** Flag absence as a deficiency; request justification.
