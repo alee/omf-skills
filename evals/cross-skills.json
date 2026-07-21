@@ -6,245 +6,141 @@
       "id": 201,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "document",
-        "peer-review"
-      ],
+      "skills_expected": ["document", "peer-review"],
       "prompt": "Generate an ODD description for my ABM and then assess if it is ready for OMF submission.",
-      "behavior": [
-        "document",
-        "peer-review"
-      ],
+      "behavior": ["document", "peer-review"],
       "output": {
         "description": "ODD description generated and readiness assessed for OMF submission",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 202,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "fair4rs",
-        "peer-review"
-      ],
+      "skills_expected": ["fair4rs", "peer-review"],
       "prompt": "Prepare my model for publication and tell me if it passes baseline review.",
-      "behavior": [
-        "fair4rs",
-        "peer-review"
-      ],
+      "behavior": ["fair4rs", "peer-review"],
       "output": {
         "description": "Model prepared for publication and baseline review completed",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 203,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "hpc",
-        "ospool"
-      ],
+      "skills_expected": ["hpc", "ospool"],
       "prompt": "I need to run large parameter sweeps. Should I use Slurm or OSPool, and generate the appropriate scripts?",
-      "behavior": [
-        "select one of hpc or ospool",
-        "justify the choice"
-      ],
+      "behavior": ["select one of hpc or ospool", "justify the choice"],
       "output": {
         "description": "Appropriate system selected and scripts generated",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "wrong_skill",
-        "boundary_violation",
-        "no_planning"
-      ]
+      "failure_modes": ["wrong_skill", "boundary_violation", "no_planning"]
     },
     {
       "id": 204,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "document",
-        "fair4rs"
-      ],
+      "skills_expected": ["document", "fair4rs"],
       "prompt": "Document my model using ODD and prepare it for archival with proper metadata.",
-      "behavior": [
-        "document",
-        "fair4rs"
-      ],
+      "behavior": ["document", "fair4rs"],
       "output": {
         "description": "Model documented and archived with metadata",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 205,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "peer-review",
-        "hpc"
-      ],
+      "skills_expected": ["peer-review", "hpc"],
       "prompt": "Review my model and suggest how to run it efficiently on an HPC cluster.",
-      "behavior": [
-        "peer-review",
-        "hpc"
-      ],
+      "behavior": ["peer-review", "hpc"],
       "output": {
         "description": "Model reviewed and HPC execution guidance provided",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "scope_creep"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "scope_creep"]
     },
     {
       "id": 206,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "ospool",
-        "fair4rs"
-      ],
+      "skills_expected": ["ospool", "fair4rs"],
       "prompt": "Run my model at scale and make sure it's properly archived and citable.",
-      "behavior": [
-        "ospool",
-        "fair4rs"
-      ],
+      "behavior": ["ospool", "fair4rs"],
       "output": {
         "description": "Model run at scale and archived for citation",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 207,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "document",
-        "hpc",
-        "peer-review"
-      ],
+      "skills_expected": ["document", "hpc", "peer-review"],
       "prompt": "Create ODD documentation, run the model on HPC, and evaluate whether it's ready for submission.",
-      "behavior": [
-        "document",
-        "hpc",
-        "peer-review"
-      ],
+      "behavior": ["document", "hpc", "peer-review"],
       "output": {
         "description": "Model documented, run on HPC, and submission readiness evaluated",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 208,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "document",
-        "fair4rs",
-        "peer-review"
-      ],
+      "skills_expected": ["document", "fair4rs", "peer-review"],
       "prompt": "Prepare my model for publication including documentation, metadata, and readiness assessment.",
-      "behavior": [
-        "document",
-        "fair4rs",
-        "peer-review"
-      ],
+      "behavior": ["document", "fair4rs", "peer-review"],
       "output": {
         "description": "Model prepared for publication with documentation, metadata, and review",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "no_planning"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "no_planning"]
     },
     {
       "id": 209,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "hpc",
-        "ospool"
-      ],
+      "skills_expected": ["hpc", "ospool"],
       "prompt": "I have 10,000 independent simulations. I might use Slurm or OSPool—what's better and how do I set it up?",
-      "behavior": [
-        "select one system",
-        "justify the choice"
-      ],
+      "behavior": ["select one system", "justify the choice"],
       "output": {
         "description": "System selected and setup guidance provided",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "wrong_skill",
-        "boundary_violation",
-        "no_planning"
-      ]
+      "failure_modes": ["wrong_skill", "boundary_violation", "no_planning"]
     },
     {
       "id": 210,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": [
-        "peer-review",
-        "fair4rs"
-      ],
+      "skills_expected": ["peer-review", "fair4rs"],
       "prompt": "Does my repository meet the baseline review criteria, and if not, what FAIR improvements are needed?",
-      "behavior": [
-        "peer-review",
-        "fair4rs"
-      ],
+      "behavior": ["peer-review", "fair4rs"],
       "output": {
         "description": "Repository reviewed and FAIR improvements identified",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "missing_step",
-        "wrong_order",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["missing_step", "wrong_order", "incomplete_execution"]
     },
     {
       "id": 211,
@@ -258,38 +154,26 @@
         "peer-review"
       ],
       "prompt": "Do everything needed to make my model complete, scalable, publishable, and reviewed.",
-      "behavior": [
-        "multi-stage plan",
-        "coordinated execution"
-      ],
+      "behavior": ["multi-stage plan", "coordinated execution"],
       "output": {
         "description": "Model made complete, scalable, publishable, and reviewed",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "no_planning",
-        "missing_step",
-        "incomplete_execution"
-      ]
+      "failure_modes": ["no_planning", "missing_step", "incomplete_execution"]
     },
     {
       "id": 212,
       "type": "adversarial",
       "should_trigger": false,
       "prompt": "Explain how to run simulations and publish them in general terms",
-      "behavior": [
-        "no skill activation"
-      ],
+      "behavior": ["no skill activation"],
       "output": {
         "description": "No skill activation for general explanation",
         "must_include": [],
         "must_not_include": []
       },
-      "failure_modes": [
-        "over_trigger",
-        "redundant_actions"
-      ]
+      "failure_modes": ["over_trigger", "redundant_actions"]
     }
   ]
 }

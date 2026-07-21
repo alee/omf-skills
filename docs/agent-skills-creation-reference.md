@@ -45,6 +45,7 @@ Avoid silently making consequential scientific decisions on behalf of the user.
 Skills should emit intermediate artifacts at important staging points rather than hiding the full workflow inside a single large output.
 
 Capture the steps that matter for review, validation, or reuse, including:
+
 - extracted inputs
 - selected frameworks or methods
 - inferred assumptions
@@ -221,7 +222,6 @@ Avoid keyword lists unless they clarify ambiguous cases.
 Prefer: "Use when a user wants to document a computational model."
 
 Over: "Triggers: document model, generate ODD, write narrative."
-
 
 ---
 

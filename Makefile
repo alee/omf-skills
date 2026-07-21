@@ -54,32 +54,10 @@ ci:
 	$(MAKE) report
 	@echo "=== CI completed ==="
 
-# ---- format JSON files ----
-format-json:
-	@find . -type f -name "*.json" \
-		-not -path "./node_modules/*" \
-		-not -path "./.git/*" | while read -r file; do \
-			tmp="$$(mktemp)"; \
-			if jq . "$$file" > "$$tmp"; then \
-				mv "$$tmp" "$$file"; \
-				echo "formatted $$file"; \
-			else \
-				echo "invalid json: $$file"; \
-				rm -f "$$tmp"; \
-				exit 1; \
-			fi; \
-		done
+format:
+	docker compose run --rm tools \
+		'prettier --write **/*.{md,json}'
 
-# ---- format Markdown files ----
-.PHONY: format-md
-format-md:
-	find . -type f -name "*.md" -exec prettier --write {} \; -exec echo "Formatted {}" \;
-
-# ---- format all ----
-.PHONY: format
-format: format-json format-md
-
-# ---- run formatter in container ----
-.PHONY: dc-format
-dc-format:
-	docker compose run --rm formatter
+lint:
+	docker compose run --rm tools \
+		'markdownlint-cli2 **/*.md'

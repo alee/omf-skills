@@ -314,12 +314,12 @@ Specialist skills should implement analyses and generate artifacts while remaini
 
 Future additions should preserve the following design principles:
 
-* Prefer explicit, reviewable artifacts over implicit conversational state.
-* Encode methodological reasoning rather than implementation procedures.
-* Route to the smallest applicable set of guidance documents.
-* Produce reusable intermediate artifacts for downstream skills.
-* Treat analytical dependencies explicitly and identify regression triggers when consequential decisions change.
-* Keep guidance modular, composable, and domain independent whenever practical.
+- Prefer explicit, reviewable artifacts over implicit conversational state.
+- Encode methodological reasoning rather than implementation procedures.
+- Route to the smallest applicable set of guidance documents.
+- Produce reusable intermediate artifacts for downstream skills.
+- Treat analytical dependencies explicitly and identify regression triggers when consequential decisions change.
+- Keep guidance modular, composable, and domain independent whenever practical.
 
 ---
 
@@ -333,12 +333,12 @@ Bridge conceptual modeling and implementation planning.
 
 Topics:
 
-* implementation planning
-* task decomposition
-* implementation milestones
-* delegation boundaries
-* review checkpoints
-* iterative planning
+- implementation planning
+- task decomposition
+- implementation milestones
+- delegation boundaries
+- review checkpoints
+- iterative planning
 
 Key question:
 
@@ -352,12 +352,12 @@ Methodological guidance for effective collaboration with coding agents.
 
 Topics:
 
-* human versus agent responsibilities
-* review and oversight
-* preserving scientific judgment
-* iterative refinement
-* maintaining project context
-* avoiding deskilling
+- human versus agent responsibilities
+- review and oversight
+- preserving scientific judgment
+- iterative refinement
+- maintaining project context
+- avoiding deskilling
 
 Focus on collaboration methodology rather than prompt engineering.
 
@@ -371,12 +371,12 @@ Methodological guidance for experimental design.
 
 Topics:
 
-* experimental objectives
-* factors and responses
-* replication
-* stochastic experiments
-* computational budgets
-* analysis planning
+- experimental objectives
+- factors and responses
+- replication
+- stochastic experiments
+- computational budgets
+- analysis planning
 
 ---
 
@@ -384,11 +384,11 @@ Topics:
 
 Topics:
 
-* parameter estimation
-* identifiability
-* equifinality
-* optimization objectives
-* reporting standards
+- parameter estimation
+- identifiability
+- equifinality
+- optimization objectives
+- reporting standards
 
 ---
 
@@ -396,10 +396,10 @@ Topics:
 
 Clarify methodological distinctions among:
 
-* verification
-* calibration
-* validation
-* evaluation
+- verification
+- calibration
+- validation
+- evaluation
 
 ---
 
@@ -407,11 +407,11 @@ Clarify methodological distinctions among:
 
 Topics:
 
-* behavioral diagnostics
-* uncertainty visualization
-* emergent behavior
-* communication for decision support
-* visualization failure modes
+- behavioral diagnostics
+- uncertainty visualization
+- emergent behavior
+- communication for decision support
+- visualization failure modes
 
 ---
 
@@ -421,11 +421,11 @@ Extend reproducibility guidance with documentation methodology.
 
 Topics:
 
-* model documentation
-* assumptions
-* provenance
-* model cards
-* publication artifacts
+- model documentation
+- assumptions
+- provenance
+- model cards
+- publication artifacts
 
 ---
 
@@ -437,12 +437,12 @@ Potential future guidance describing how modeling artifacts become reusable cont
 
 Possible topics:
 
-* persistent project context
-* reusable artifacts
-* selective context loading
-* summary versus source artifacts
-* dependency-aware updates
-* maintaining consistency
+- persistent project context
+- reusable artifacts
+- selective context loading
+- summary versus source artifacts
+- dependency-aware updates
+- maintaining consistency
 
 This guidance should treat context engineering as an extension of computational modeling practice rather than prompt engineering.
 
@@ -466,10 +466,10 @@ Agent workflow organization.
 
 Potential scaffolding topics:
 
-* project organization
-* context management
-* conversation management
-* repository conventions
+- project organization
+- context management
+- conversation management
+- repository conventions
 
 Scaffolding should organize agent behavior without duplicating methodological reasoning already captured by the guidance library.
 
@@ -479,19 +479,19 @@ Scaffolding should organize agent behavior without duplicating methodological re
 
 When adding new guidance documents:
 
-* Start from a consequential methodological question.
-* Define clear routing boundaries with existing guidance.
-* Require reviewable intermediate artifacts where appropriate.
-* Identify consequential analytical choices rather than procedural steps.
-* Document common methodological failure patterns.
-* Route execution to specialist skills instead of embedding implementation details.
+- Start from a consequential methodological question.
+- Define clear routing boundaries with existing guidance.
+- Require reviewable intermediate artifacts where appropriate.
+- Identify consequential analytical choices rather than procedural steps.
+- Document common methodological failure patterns.
+- Route execution to specialist skills instead of embedding implementation details.
 
 When adding new specialist skills:
 
-* Consume existing guidance rather than replacing it.
-* Reuse lifecycle artifacts whenever possible.
-* Keep implementation concerns separate from methodological reasoning.
-* Produce artifacts that remain useful to downstream skills.
+- Consume existing guidance rather than replacing it.
+- Reuse lifecycle artifacts whenever possible.
+- Keep implementation concerns separate from methodological reasoning.
+- Produce artifacts that remain useful to downstream skills.
 
 ---
 
