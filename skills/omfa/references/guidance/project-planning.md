@@ -143,14 +143,14 @@ Record when planning decisions are driven by software engineering constraints ra
 
 Expected intermediate artifacts include:
 
-- `project_plan.md`
-- `implementation_plan.md`
-- `analysis_plan.md`
+- `project-plan.md`
+- `implementation-plan.md`
+- `analysis-plan.md`
 
 Optional supporting artifacts:
 
-- `decision_log.md`
-- `risk_register.md`
+- `decision-log.md`
+- `risk-register.md`
 - `milestones.md`
 
 These artifacts should remain synchronized with the conceptual model and evolve throughout the modeling lifecycle.

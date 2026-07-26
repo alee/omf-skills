@@ -147,7 +147,7 @@ Fix:
 | Convention       | Rule                                           |
 | ---------------- | ---------------------------------------------- |
 | Naming           | `kebab-case`; folder name = `name:`; ≤48 chars |
-| Scripts          | `snake_case.py`, `kebab.sh`                    |
+| Scripts          | `kebab-case.py`, `kebab.sh`                    |
 | References       | `UPPERCASE-TOPIC.md`                           |
 | Config/templates | YAML or JSON only                              |
 | Maturity         | `alpha`, `beta`, `stable`                      |

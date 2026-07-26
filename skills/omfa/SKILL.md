@@ -1,8 +1,7 @@
 ---
 name: omfa
 description: |
-  Guide modelers in applying good modeling practice across the full computational modeling lifecycle,
-  from problem framing through evaluation, uncertainty disclosure, governance, and maintenance.
+  Guide modelers in applying good modeling practice across the full computational modeling lifecycle, from problem framing through evaluation, uncertainty disclosure, governance, and maintenance.
 
   Use this skill when users want lifecycle guidance, quality self-assessment, required modeling deliverables, or protocol-specific checks for ABM, uncertainty, reproducibility, ethics, participatory modeling, and deep uncertainty.
 
@@ -12,7 +11,7 @@ compatibility: Works with agent-based, system dynamics, statistical, simulation,
 metadata:
   domain: computational-modeling
   maturity: beta
-  audience: researchers who code, research software engineers
+  audience: anyone interested in computational modeling
   category: methodology
 ---
 
@@ -37,11 +36,11 @@ Use this skill to:
 
 Applicable model types:
 
-- agent-based models (ABM),
-- system dynamics models,
-- statistical and probabilistic models,
-- simulation workflows,
-- hybrid and ensemble modeling approaches.
+- agent-based models (ABM)
+- system dynamics models
+- statistical and probabilistic models
+- simulation workflows
+- hybrid and ensemble modeling approaches
 
 Applicable domains: research workflows, decision support, computational social science, environmental modeling, participatory simulation, policy exploration under uncertainty, complex adaptive systems analysis.
 
@@ -57,8 +56,9 @@ Primary responsibilities:
 
 ## Skill Boundaries
 
+- For narrative documentation (model write-ups, methods narratives, publication-ready descriptions, README-style overviews) requiring sustained prose and rubric-driven fidelity to OMF standards and structure: use the `document` skill
 - For publication-readiness metadata and archival: use the `fair4rs` skill
-- For formal peer review assessment with pass/fail criteria: use the `peer-review` skill
+- For peer review assessment with pass/fail criteria: use the `peer-review` skill
 - For ongoing modeling practice guidance throughout the lifecycle: use this skill
 
 This skill provides the foundational framework that the other skills assess against.
@@ -149,19 +149,19 @@ When `artifacts/` is first created, add `artifacts/README.md` that states:
 - artifacts are created early and revised throughout the project lifecycle,
 - downstream use is gated by explicit status/review triggers.
 
-- `artifacts/model_card.md`: summarize model design, performance, and limitations (domain-specific)
-- `artifacts/conceptual_model.md`: describe model purpose, scope, and assumptions
+- `artifacts/model-card.md`: summarize model design, performance, and limitations (domain-specific)
+- `artifacts/conceptual-model.md`: describe model purpose, scope, and assumptions
 - `artifacts/assumptions.md`: make assumptions explicit for later review
-- `artifacts/uncertainty_register.md`: document parameter, structural, and scenario uncertainty
-- `artifacts/stakeholder_register.md`: identify affected stakeholders and participatory processes
-- `artifacts/evaluation_report.md`: summarize evaluation context, methods, and results
-- `artifacts/provenance_manifest.json`: record data, code, and workflow provenance
-- `artifacts/ethics_impact_statement.md`: document ethical considerations, representational harms, and vulnerable populations
-- `artifacts/maintenance_plan.md`: (optional) describe stewardship, versioning, and plans for long-term maintenance
+- `artifacts/uncertainty-register.md`: document parameter, structural, and scenario uncertainty
+- `artifacts/stakeholder-register.md`: identify affected stakeholders and participatory processes
+- `artifacts/evaluation-report.md`: summarize evaluation context, methods, and results
+- `artifacts/provenance-manifest.json`: record data, code, and workflow provenance
+- `artifacts/ethics-impact-statement.md`: document ethical considerations, representational harms, and vulnerable populations
+- `artifacts/maintenance-plan.md`: (optional) describe stewardship, versioning, and plans for long-term maintenance
 
 ABMs additionally REQUIRE:
 
-- `artifacts/abm_spec.md`
+- `artifacts/abm-spec.md`
 
 All deliverables SHOULD:
 
@@ -269,9 +269,9 @@ Projects SHOULD fail review if:
 Review logic is defined in:
 
 - `checks.md`
-- `tools/review_checklist.md`
-- `tools/scoring_rubric.md`
-- `tools/red_flags.md`
+- `tools/review-checklist.md`
+- `tools/scoring-rubric.md`
+- `tools/red-flags.md`
 
 ---
 

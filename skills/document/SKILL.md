@@ -58,9 +58,13 @@ When generating documentation:
 
 Use this skill to **generate or draft** documentation: new narratives, ODD/ODD+2 write-ups, model cards, mathematical specifications, workflow descriptions, or improvements to existing prose.
 
+This skill is commonly invoked downstream of `omfa`, which owns lifecycle guidance and required structured artifacts; `document` owns substantive narrative generation according to the OMF rubric. When invoked this way, use the model type, lifecycle stage, and target audience `omfa` provides rather than re-deriving them independently (see Workflow step 2 below).
+
 Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `document-review` skill, which is intended to share this skill's `references/odd2.md` and `references/odd2-checklist.md` but does not rewrite prose.
 
 Also out of scope: model calibration, sensitivity analysis, statistical analysis, software testing, code generation, peer review, FAIR assessment, and metadata validation.
+
+Do not draft `omfa`'s required lifecycle artifacts — `artifacts/model-card.md`, `artifacts/abm-spec.md`, or any other file under `omfa`'s `artifacts/` directory. These are template-driven and owned by the `omfa` skill even when high prose quality is requested, and even though ODD+2 (this skill's default ABM framework) covers similar ground to `abm-spec.md`. If a user asks for one of these artifacts by name in the context of an `omfa`-governed project, defer to `omfa` rather than drafting it directly. Model-card-style documentation for non-`omfa` projects (e.g. the machine learning framework row below) is unaffected.
 
 ---
 
@@ -100,13 +104,15 @@ Classify the model, then pick a framework. Defaults below; deviate when the mode
 
 Works from any combination of: source code, pseudocode, notebooks, scripts; READMEs, manuals, publications, technical reports, architecture diagrams; parameter/experiment descriptions and repository metadata.
 
+When operating downstream of the `omfa` skill, also check for an `artifacts/` directory at the project root and treat completed files there (`conceptual-model.md`, `assumptions.md`, `uncertainty-register.md`, etc.) as authoritative source material — draw model purpose, assumptions, and uncertainty framing from these rather than re-extracting or re-inferring them from source code alone.
+
 ---
 
 # Workflow
 
 1. **Identify the goal.** New documentation, or improvement of an existing draft. (For assessment instead of generation, redirect to `document-review`.)
-2. **Classify the model type** using the table above. If uncertain, explain alternatives, why one was selected, and identify any assumptions made rather than forcing a fit.
-3. **Select the framework** and record the rationale as an intermediate artifact before drafting.
+2. **Classify the model type** using the table above. If a model type has already been supplied by an upstream skill (e.g. `omfa`), use it directly rather than reclassifying, unless the source materials clearly contradict it — in which case flag the discrepancy rather than silently overriding it. Otherwise, if uncertain, explain alternatives, why one was selected, and identify any assumptions made rather than forcing a fit.
+3. **Select the framework** and record the rationale as an intermediate artifact in `artifacts/` before drafting.
 4. **Inventory the implemented structure before writing prose.** Extract entity types, state variables (per entity type), parameters/constants, spatial and temporal scales, main processes and update order, outputs, input data, and stochastic elements — directly from the source materials, not from the modeler's narrative description of them. This step exists specifically to catch the "narrative describes intended mechanisms, not implemented ones" gotcha above.
 5. **Draft in this order for ODD+2:** purpose and patterns → entities/state variables/scales → process overview and scheduling → design concepts (all eleven, explicitly, including "not applicable" where true) → initialization → input data → submodels. This mirrors the order in `references/odd2.md` and lets a reader understand the model at a glance before hitting submodel detail. For non-ODD frameworks, draft overview-level content before algorithmic detail using the same overview-before-details principle.
 6. **Add rationale where a design choice is non-obvious** — why this scale, why this update order, why this parameterization, why an omitted process was excluded. Keep it brief; if it grows into design history, that belongs in supplementary material, not the core narrative.

@@ -94,15 +94,15 @@ The computational modeling lifecycle is inherently iterative, not a waterfall. T
 
 | Phase | Focus | Primary artifacts |
 | --- | --- | --- |
-| Problem formulation | Objectives, scope, research questions | `problem_statement.md`, `research_questions.md` |
-| Conceptual modeling | Abstractions, boundaries, stakeholder framing | `conceptual_model.md`, `stakeholder_register.md`, `assumptions.md` |
+| Problem formulation | Objectives, scope, research questions | `problem-statement.md`, `research-questions.md` |
+| Conceptual modeling | Abstractions, boundaries, stakeholder framing | `conceptual-model.md`, `stakeholder-register.md`, `assumptions.md` |
 | Data and evidence assessment | Provenance, quality, sufficiency | `assumptions.md` (data-sourcing entries) |
-| Model implementation | Faithful realization of the conceptual model | `implementation_plan.md` |
-| Verification | Does the implementation match the conceptual model/spec? | `verification_report.md` |
-| Calibration | Parameter fitting against the model's intended purpose | `calibration_report.md` |
-| Validation and evaluation | Does the model perform adequately for its stated purpose? | `validation_report.md` |
-| Sensitivity and uncertainty analysis | Parameter, structural, and scenario uncertainty | `uncertainty_register.md`, `sensitivity_analysis.md` |
-| Experimental analysis | Designed runs answering the research questions | `experiment_plan.md`, `results.md` |
+| Model implementation | Faithful realization of the conceptual model | `implementation-plan.md` |
+| Verification | Does the implementation match the conceptual model/spec? | `verification-report.md` |
+| Calibration | Parameter fitting against the model's intended purpose | `calibration-report.md` |
+| Validation and evaluation | Does the model perform adequately for its stated purpose? | `validation-report.md` |
+| Sensitivity and uncertainty analysis | Parameter, structural, and scenario uncertainty | `uncertainty-register.md`, `sensitivity-analysis.md` |
+| Experimental analysis | Designed runs answering the research questions | `experiment-plan.md`, `results.md` |
 | Communication and stewardship | Limitations, appropriate use, provenance | `limitations.md` |
 
 **Regression is expected, not exceptional.** A substantive change discovered in a later phase SHOULD prompt the agent to flag the earlier phases it depends on for re-check — this is a flag for review, not an automatic edit. For example: a calibration result (Phase 6) that requires implausible parameter values SHOULD prompt the agent to flag the conceptual model (Phase 2) and data assessment (Phase 3) for re-examination, rather than proceeding to validation as though the conceptual model still holds. The agent should surface this regression explicitly to the user rather than silently revising upstream artifacts on their behalf.
@@ -140,31 +140,31 @@ Maintain traceability between scientific objectives, conceptual assumptions, imp
 
 Expected intermediate artifacts include:
 
-* `problem_statement.md`
-* `research_questions.md`
-* `stakeholder_register.md`
-* `conceptual_model.md`
+* `problem-statement.md`
+* `research-questions.md`
+* `stakeholder-register.md`
+* `conceptual-model.md`
 * `assumptions.md`
-* `implementation_plan.md`
-* `verification_report.md`
-* `calibration_report.md`
-* `validation_report.md`
-* `uncertainty_register.md`
-* `sensitivity_analysis.md`
-* `experiment_plan.md`
+* `implementation-plan.md`
+* `verification-report.md`
+* `calibration-report.md`
+* `validation-report.md`
+* `uncertainty-register.md`
+* `sensitivity-analysis.md`
+* `experiment-plan.md`
 * `results.md`
 * `limitations.md`
 
-These artifacts should evolve throughout the project and remain available for downstream specialist skills. `conceptual_model.md`, `assumptions.md`, and `uncertainty_register.md` are shared with the parent `SKILL.md` Required Deliverables list — this guidance does not introduce separate copies; it tracks the same files across lifecycle phases.
+These artifacts should evolve throughout the project and remain available for downstream specialist skills. `conceptual-model.md`, `assumptions.md`, and `uncertainty-register.md` are shared with the parent `SKILL.md` Required Deliverables list — this guidance does not introduce separate copies; it tracks the same files across lifecycle phases.
 
 Store these artifacts in `artifacts/` at the project root, and keep `artifacts/README.md` current with artifact status and review-trigger conventions.
 
 **Dependency edges.** These artifacts are not independent; a change to one frequently invalidates claims in another. Dependency edges are intentionally sparse. Only record dependencies that are consequential and likely to invalidate downstream reasoning. At minimum, track:
 
-* A change to `assumptions.md` MUST trigger a review of `validation_report.md` and `uncertainty_register.md` for continued consistency.
-* A change to `conceptual_model.md` MUST trigger a review of `implementation_plan.md`, `verification_report.md`, and any completed `calibration_report.md` or `validation_report.md`.
-* A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration_report.md`, `uncertainty_register.md`, and `sensitivity_analysis.md`.
-* A change to `calibration_report.md` MUST trigger a review of `validation_report.md`.
+* A change to `assumptions.md` MUST trigger a review of `validation-report.md` and `uncertainty-register.md` for continued consistency.
+* A change to `conceptual-model.md` MUST trigger a review of `implementation-plan.md`, `verification-report.md`, and any completed `calibration-report.md` or `validation-report.md`.
+* A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis.md`.
+* A change to `calibration-report.md` MUST trigger a review of `validation-report.md`.
 
 When flagging a downstream review, name the specific artifact and the reason it may now be stale — do not flag broadly across all artifacts by default, as that erodes the signal value of the flag.
 

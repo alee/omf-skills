@@ -103,19 +103,19 @@ Include:
 
 ### Script Names in Bundled Resources
 
-- **Format:** `snake_case.py` for Python, `kebab.sh` or `word.sh` for shell scripts
-- **Examples:** `extract_metadata.py`, `validate-checklist.sh`, `generate-template.py`
+- **Format:** `snake_case.py` filenames for Python, `kebab-case.sh` or `word.sh` for shell scripts and intermediate reviewable artifacts
+- **Examples:** `extract_metadata.py`, `validate-checklist.sh`, `generate_template.py`
 
 ### Reference & Asset File Names
 
-- **Format:** `UPPERCASE_TOPIC.md` for detailed references, `topic-guide.md` for guides
+- **Format:** `UPPERCASE-TOPIC.md` for detailed references, `topic-guide.md` for guides
 - **Examples:** `ODD-CHECKLIST.md`, `FAIR4RS-HANDBOOK.md`, `hpc-quickstart.md`
 
 ## Writing Guidelines
 
 ### Principles
 
-1. **Imperative tone:** Use direct commands ("Generate the ODD narrative", not "The ODD narrative is generated")
+1. **Imperative tone:** Use concise, direct commands ("Generate the ODD narrative", not "The ODD narrative is generated")
 2. **Progressive disclosure:** Start with brief overview; reference bundled docs for deep dives
 3. **Progressive repetition:** If a step recurs, briefly repeat instructions rather than forcing the user to scroll back
 4. **Concrete examples:** Include at least one realistic input/output (even if brief)
@@ -156,8 +156,8 @@ A typical SKILL.md body includes:
 ## Templates & Resources
 
 - See `references/ODD-CHECKLIST.md` for the 23-point validation list
-- See `assets/odd_template.md` for narrative structure
-- Use `scripts/validate_odd.py` to check for completeness
+- See `assets/odd-template.md` for narrative structure
+- Use `scripts/validate-odd.py` to check for completeness
 
 ## Example
 

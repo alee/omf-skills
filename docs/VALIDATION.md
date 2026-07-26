@@ -275,7 +275,7 @@ After you've defined evals, run your skill manually against each test case:
    - ❌ Fail: Criterion not met (document why)
 5. **Iterate:** If failures occur, improve the skill and re-run
 
-Document results in a file `EVAL_RESULTS.md` at the root of your skill folder.
+Document results in a file `eval-results.md` at the root of your skill folder.
 
 ---
 
@@ -323,7 +323,7 @@ Log performance metrics:
 - **Context window usage:** Estimated tokens before/after skill invocation
 - **Parallelizable steps:** Which parts could be async?
 
-Document in `EVAL_RESULTS.md`:
+Document in `eval-results.md`:
 
 ```markdown
 ## Performance Metrics
