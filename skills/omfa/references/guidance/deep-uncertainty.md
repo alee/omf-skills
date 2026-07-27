@@ -114,7 +114,7 @@ Describe how this guidance relates to the rest of the guidance library and speci
 
 * **Primary entry point** — This guidance and `uncertainty.md` are mutually exclusive entry points. Use this guidance when probabilistic characterization is not credible; use `uncertainty.md` when uncertainty can be meaningfully characterized using evidence and established methods.
 * **Specialist execution skills** — `sensitivity-analysis` (when uncertainty becomes characterizable), `participatory` (for stakeholder engagement and collaborative decision processes).
-* **Downstream consumer skills** — `document`, `peer-review`, and `fair4rs`, which should explicitly communicate assumptions, robustness rationale, and limitations derived from this guidance.
+* **Downstream consumer skills** — `document`, `peer-review`, and `fair`, which should explicitly communicate assumptions, robustness rationale, and limitations derived from this guidance.
 
 ---
 

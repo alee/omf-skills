@@ -77,9 +77,7 @@ See [Testing Your Skill](#testing-your-skill).
 Before opening a PR, also run the repository validators:
 
 ```bash
-python scripts/validate_individual_skills.py
-python scripts/validate_evals_schema.py
-python scripts/validate_cross_skills.py evals/cross-skills.json
+make validate
 ```
 
 ### 6. Submit a Pull Request

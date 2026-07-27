@@ -198,7 +198,7 @@ Describe how this guidance relates to the rest of the guidance library and speci
 
 * **Primary entry point** — This guidance is complementary to `uncertainty.md` and `deep-uncertainty.md`. Use this guidance to determine whether and how an ABM should represent the system. Apply uncertainty guidance after the conceptual model has been established.
 * **Specialist execution skills** — `document` (ODD/ODD+2 generation), `document-review`, future `abm-design`, and future analysis skills for calibration, sensitivity analysis, and experimentation.
-* **Downstream consumer skills** — `peer-review`, `fair4rs`, and `document`, which should communicate the modeling rationale, assumptions, abstractions, and limitations established here.
+* **Downstream consumer skills** — `peer-review`, `fair`, and `document`, which should communicate the modeling rationale, assumptions, abstractions, and limitations established here.
 
 ---
 

@@ -4,29 +4,34 @@ SCRIPTS := scripts
 EVALS := evals
 
 CROSS_EVAL := $(EVALS)/cross-skills.json
+TOOLS_RUN := docker compose run --rm --entrypoint python3 tools
 
 # ---- default ----
 .PHONY: all
 all: validate-evals cross validate-skills
 
+# ---- combined validation ----
+.PHONY: validate
+validate: validate-skills validate-evals cross
+
 # ---- individual skills validation ----
 .PHONY: validate-skills
 validate-skills:
-	$(PYTHON) $(SCRIPTS)/validate_individual_skills.py
+	@$(TOOLS_RUN) $(SCRIPTS)/validate_individual_skills.py
 
 # ---- schema validation ----
 .PHONY: validate-evals
 validate-evals:
-	$(PYTHON) $(SCRIPTS)/validate_evals_schema.py
+	@$(TOOLS_RUN) $(SCRIPTS)/validate_evals_schema.py
 
 # ---- cross-skill evals ----
 .PHONY: cross
 cross:
-	$(PYTHON) $(SCRIPTS)/validate_cross_skills.py $(CROSS_EVAL)
+	@$(TOOLS_RUN) $(SCRIPTS)/validate_cross_skills.py $(CROSS_EVAL)
 
 # ---- per-skill evals (placeholder) ----
 # assumes future runner like: run_skill_evals.py <skill>
-SKILLS := document fair4rs hpc ospool peer-review
+SKILLS := document fair hpc ospool peer-review
 
 .PHONY: skills
 skills: $(SKILLS)
@@ -39,7 +44,7 @@ $(SKILLS):
 # ---- aggregate report ----
 .PHONY: report
 report:
-	$(PYTHON) $(SCRIPTS)/aggregate_failures.py
+	@$(TOOLS_RUN) $(SCRIPTS)/aggregate_failures.py
 
 # ---- full pipeline ----
 .PHONY: full

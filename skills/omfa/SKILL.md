@@ -57,7 +57,7 @@ Primary responsibilities:
 ## Skill Boundaries
 
 - For narrative documentation (model write-ups, methods narratives, publication-ready descriptions, README-style overviews) requiring sustained prose and rubric-driven fidelity to OMF standards and structure: use the `document` skill
-- For publication-readiness metadata and archival: use the `fair4rs` skill
+- For publication-readiness metadata, reproducibility, and archival: use the `fair` skill
 - For peer review assessment with pass/fail criteria: use the `peer-review` skill
 - For ongoing modeling practice guidance throughout the lifecycle: use this skill
 
@@ -277,7 +277,7 @@ Review logic is defined in:
 
 ## Engineering Guidance
 
-See the `fair4rs` skill for detailed research software engineering practices.
+See the `fair` skill for detailed research software engineering practices.
 Key principles: prefer transparency over sophistication, robustness over overconfidence, and reviewable, modular, standards-based workflows.
 
 ---

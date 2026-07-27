@@ -171,7 +171,7 @@ Describe how this guidance relates to the rest of the guidance library and speci
 
 - **Primary entry point** — Apply this guidance after `implementation-planning.md` and before computational experiments. It complements `uncertainty.md` and `evaluation.md` by defining how evidence will be generated and analyzed.
 - **Specialist execution skills** — `uncertainty`, `evaluation`, future `statistical-analysis`, `sensitivity-analysis`, `calibration`, and experiment execution skills.
-- **Downstream consumer skills** — `document`, `peer-review`, and `fair4rs`, which consume experiment designs, analytical methods, and supporting evidence.
+- **Downstream consumer skills** — `document`, `peer-review`, and `fair`, which consume experiment designs, analytical methods, and supporting evidence.
 
 ---
 

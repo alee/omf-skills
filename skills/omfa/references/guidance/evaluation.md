@@ -144,7 +144,7 @@ Describe how this guidance relates to the rest of the guidance library and speci
 
 * **Primary entry point** — This guidance is complementary to `abm.md`, `uncertainty.md`, and `deep-uncertainty.md`. Those guidance modules help determine what should be represented and how uncertainty should be treated; this guidance addresses how resulting claims should be evaluated.
 * **Specialist execution skills** — `peer-review`, `statistical-analysis`, `sensitivity-analysis`, and future verification or calibration skills.
-* **Downstream consumer skills** — `document`, `document-review`, and `fair4rs`, which should communicate evaluation strategy, supporting evidence, and model limitations.
+* **Downstream consumer skills** — `document`, `document-review`, and `fair`, which should communicate evaluation strategy, supporting evidence, and model limitations.
 
 ---
 

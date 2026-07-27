@@ -1,6 +1,6 @@
 # Software Management Plan (SMP) Template
 
-Use this template to create a living Software Management Plan aligned with EVERSE RSQKit guidance.
+Use this template to create a living Software Management Plan aligned with FAIR principles, research software engineering best practices, and EVERSE RSQKit guidance.
 
 Reference: https://everse.software/RSQKit/software_management_planning
 
@@ -94,7 +94,7 @@ Document explicit quality priorities based on software type.
 
 ## Appendix A: Compliance Mapping (Optional)
 
-- FAIR4RS alignment notes:
+- FAIR / RSE alignment notes:
 - Funder-specific requirements:
 - Institutional requirements:
 

@@ -153,7 +153,7 @@ Describe how this guidance relates to the rest of the guidance library and speci
 
 * **Primary entry point** — This is the primary entry point for new computational modeling projects. Apply this guidance before selecting a modeling paradigm or analytical methods.
 * **Specialist execution skills** — None directly. This guidance informs subsequent methodological choices rather than implementing analyses.
-* **Downstream consumer skills** — `abm.md` and future paradigm-specific guidance, `document`, `peer-review`, `fair4rs`, and future modeling execution skills.
+* **Downstream consumer skills** — `abm.md` and future paradigm-specific guidance, `document`, `peer-review`, `fair`, and future modeling execution skills.
 
 ---
 

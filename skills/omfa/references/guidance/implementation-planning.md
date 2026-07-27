@@ -30,7 +30,7 @@ The implementation plan should maximize traceability between the conceptual mode
 
 - defining the conceptual representation of the system (use `conceptual-modeling.md`)
 - selecting uncertainty or evaluation methods (use `uncertainty.md` or `evaluation.md`)
-- documenting or publishing completed software (use `fair4rs`)
+- documenting or publishing completed software (use `fair`)
 - implementing or reviewing code directly
 
 ---
@@ -163,8 +163,8 @@ Watch for:
 Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
 - **Primary entry point** — Apply this guidance after `conceptual-modeling.md` and before substantial software implementation. It complements paradigm-specific guidance (e.g. `abm.md`) by planning how the selected conceptual representation will be realized.
-- **Specialist execution skills** — `fair4rs` for research software engineering and publication, future implementation or coding skills, and future verification-oriented skills.
-- **Downstream consumer skills** — `document`, `peer-review`, `fair4rs`, and `analysis-planning`, which consume implementation decisions, software architecture, and verification plans.
+- **Specialist execution skills** — `fair` for research software engineering, reproducibility, and publication, future implementation or coding skills, and future verification-oriented skills.
+- **Downstream consumer skills** — `document`, `peer-review`, `fair`, and `analysis-planning`, which consume implementation decisions, software architecture, and verification plans.
 
 ---
 

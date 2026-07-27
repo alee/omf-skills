@@ -21,7 +21,7 @@ This roadmap is a living document and will be updated regularly.
 
 - **omfa** (beta): guide modelers in applying good modeling practice across the full computational modeling lifecycle
 - **document** (alpha): narrative documentation for a computational model
-- **fair4rs** (alpha): Publication metadata and archival readiness
+- **fair** (beta): Research software engineering, FAIR metadata, reproducibility, and archival readiness
 - **ospool** (alpha): OSPool batch and parameter sweep scaffolding
 - **hpc** (alpha): HPC cluster job submission and arrays
 - **peer-review** (alpha): Computational model peer-review readiness assessment using required criteria and supporting quality indicators
@@ -33,7 +33,7 @@ The repository enables researchers to:
 - apply established good modeling practices throughout the computational modeling lifecycle
 - develop transparent, reviewable, and reproducible computational models
 - document models using established reporting protocols (e.g., ODD+2)
-- produce publication-ready metadata and research software artifacts aligned with FAIR4RS principles
+- produce publication-ready metadata and research software artifacts aligned with FAIR principles, FAIR4RS recommendations, and research software engineering best practices
 - assess models against established methodological and peer-review criteria
 - execute computational experiments on local, HPC, and distributed computing infrastructure
 - reuse community-developed guidance and specialist skills across modeling projects

@@ -20,9 +20,9 @@
       "id": 202,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["fair4rs", "peer-review"],
+      "skills_expected": ["fair", "peer-review"],
       "prompt": "Prepare my model for publication and tell me if it passes baseline review.",
-      "behavior": ["fair4rs", "peer-review"],
+      "behavior": ["fair", "peer-review"],
       "output": {
         "description": "Model prepared for publication and baseline review completed",
         "must_include": [],
@@ -48,9 +48,9 @@
       "id": 204,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "fair4rs"],
+      "skills_expected": ["document", "fair"],
       "prompt": "Document my model using ODD and prepare it for archival with proper metadata.",
-      "behavior": ["document", "fair4rs"],
+      "behavior": ["document", "fair"],
       "output": {
         "description": "Model documented and archived with metadata",
         "must_include": [],
@@ -76,9 +76,9 @@
       "id": 206,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["ospool", "fair4rs"],
+      "skills_expected": ["ospool", "fair"],
       "prompt": "Run my model at scale and make sure it's properly archived and citable.",
-      "behavior": ["ospool", "fair4rs"],
+      "behavior": ["ospool", "fair"],
       "output": {
         "description": "Model run at scale and archived for citation",
         "must_include": [],
@@ -104,9 +104,9 @@
       "id": 208,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["document", "fair4rs", "peer-review"],
+      "skills_expected": ["document", "fair", "peer-review"],
       "prompt": "Prepare my model for publication including documentation, metadata, and readiness assessment.",
-      "behavior": ["document", "fair4rs", "peer-review"],
+      "behavior": ["document", "fair", "peer-review"],
       "output": {
         "description": "Model prepared for publication with documentation, metadata, and review",
         "must_include": [],
@@ -132,9 +132,9 @@
       "id": 210,
       "type": "cross",
       "should_trigger": true,
-      "skills_expected": ["peer-review", "fair4rs"],
+      "skills_expected": ["peer-review", "fair"],
       "prompt": "Does my repository meet the baseline review criteria, and if not, what FAIR improvements are needed?",
-      "behavior": ["peer-review", "fair4rs"],
+      "behavior": ["peer-review", "fair"],
       "output": {
         "description": "Repository reviewed and FAIR improvements identified",
         "must_include": [],
@@ -148,7 +148,7 @@
       "should_trigger": true,
       "skills_expected": [
         "document",
-        "fair4rs",
+        "fair",
         "hpc",
         "ospool",
         "peer-review"

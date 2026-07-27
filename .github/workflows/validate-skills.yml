@@ -13,11 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
+      - name: Build validation image
+        run: docker compose build tools
 
       - name: Run validation
-        run: |
-          python scripts/validate_individual_skills.py
+        run: make validate

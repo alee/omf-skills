@@ -161,7 +161,7 @@ Project planning:
 Other examples:
 
 - _"Set up an OSPool batch scaffolder for my sensitivity analysis"_
-- _"Generate a FAIR4RS publication checklist for this model"_
+- _"Generate a FAIR publication checklist for this model"_
 - _"Generate a FAIR publication checklist for my model's output data"_
 
 ## Skills Overview
@@ -174,11 +174,11 @@ Generates and iteratively improves ODD+2 (Overview, Design Concepts, Details) do
 
 **Triggers:** "Document my model", "Generate ODD", "Write model narrative"
 
-### 2. **fair4rs**
+### 2. **fair**
 
-Creates FAIR4RS metadata with codemeta.json as canonical machine-readable metadata, citation files derived from codemeta.json, publication checklists, and EVERSE-aligned software management plans to ensure your computational artifacts are ready for archival and publication. Use when preparing models for Zenodo, arXiv, or disciplinary repositories.
+Creates FAIR metadata with codemeta.json as canonical machine-readable metadata, citation files derived from codemeta.json, release-readiness guidance, and EVERSE-aligned software management plans to ensure your computational artifacts are reproducible, portable, citable, and ready for archival. Use when preparing models or research software for Zenodo, arXiv, or disciplinary repositories.
 
-**Triggers:** "Prepare for publication", "Generate publication checklist", "Create FAIR metadata"
+**Triggers:** "Prepare for publication", "Generate publication checklist", "Create FAIR metadata", "Package my repository"
 
 ### 3. **ospool**
 
@@ -240,7 +240,7 @@ Use cases:
     ├── document/
   │   ├── SKILL.md
   │   └── evals.json
-    ├── fair4rs/
+    ├── fair/
   │   ├── SKILL.md
   │   └── evals.json
     ├── ospool/
@@ -278,9 +278,7 @@ cp skills/document/evals.json skills/your-skill-name/evals.json
 11. **Run the repository validators** before opening a PR:
 
 ```bash
-python scripts/validate_individual_skills.py
-python scripts/validate_evals_schema.py
-python scripts/validate_cross_skills.py evals/cross-skills.json
+make validate
 ```
 
 12. **Submit** a pull request with the skill folder, its `evals.json`, and the prompts or checks you used to validate it.

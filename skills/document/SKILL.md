@@ -60,11 +60,13 @@ Use this skill to **generate or draft** documentation: new narratives, ODD/ODD+2
 
 This skill is commonly invoked downstream of `omfa`, which owns lifecycle guidance and required structured artifacts; `document` owns substantive narrative generation according to the OMF rubric. When invoked this way, use the model type, lifecycle stage, and target audience `omfa` provides rather than re-deriving them independently (see Workflow step 2 below).
 
-Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `document-review` skill, which is intended to share this skill's `references/odd2.md` and `references/odd2-checklist.md` but does not rewrite prose.
+Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `document-review` skill, which is intended to share this skill's `references/ODD-CHECKLIST.md` and `references/ODD-METHODOLOGY.md` but does not rewrite prose.
 
 Also out of scope: model calibration, sensitivity analysis, statistical analysis, software testing, code generation, peer review, FAIR assessment, and metadata validation.
 
-Do not draft `omfa`'s required lifecycle artifacts — `artifacts/model-card.md`, `artifacts/abm-spec.md`, or any other file under `omfa`'s `artifacts/` directory. These are template-driven and owned by the `omfa` skill even when high prose quality is requested, and even though ODD+2 (this skill's default ABM framework) covers similar ground to `abm-spec.md`. If a user asks for one of these artifacts by name in the context of an `omfa`-governed project, defer to `omfa` rather than drafting it directly. Model-card-style documentation for non-`omfa` projects (e.g. the machine learning framework row below) is unaffected.
+Do not draft omfa's required lifecycle artifacts — artifacts/model-card.md, artifacts/abm-spec.md, or any other file directly under the artifacts/ root. These are template-driven and owned by the omfa skill even when high prose quality is requested, and even though ODD+2 (this skill's default ABM framework) covers similar ground to abm-spec.md. If a user asks for one of these artifacts by name in the context of an omfa-governed project, defer to omfa rather than drafting it directly. Model-card-style documentation for non-omfa projects (e.g. the machine learning framework row below) is unaffected.
+
+This skill's own intermediate artifacts (see Workflow step 3 and Intermediate Artifacts below) live in artifacts/document/, a subdirectory this skill owns — distinct from omfa's files directly under artifacts/. Never write this skill's intermediate artifacts to the artifacts/ root itself.
 
 ---
 
@@ -112,9 +114,9 @@ When operating downstream of the `omfa` skill, also check for an `artifacts/` di
 
 1. **Identify the goal.** New documentation, or improvement of an existing draft. (For assessment instead of generation, redirect to `document-review`.)
 2. **Classify the model type** using the table above. If a model type has already been supplied by an upstream skill (e.g. `omfa`), use it directly rather than reclassifying, unless the source materials clearly contradict it — in which case flag the discrepancy rather than silently overriding it. Otherwise, if uncertain, explain alternatives, why one was selected, and identify any assumptions made rather than forcing a fit.
-3. **Select the framework** and record the rationale as an intermediate artifact in `artifacts/` before drafting.
+3. **Select the framework** and record the rationale as an intermediate artifact in `artifacts/document/` before drafting.
 4. **Inventory the implemented structure before writing prose.** Extract entity types, state variables (per entity type), parameters/constants, spatial and temporal scales, main processes and update order, outputs, input data, and stochastic elements — directly from the source materials, not from the modeler's narrative description of them. This step exists specifically to catch the "narrative describes intended mechanisms, not implemented ones" gotcha above.
-5. **Draft in this order for ODD+2:** purpose and patterns → entities/state variables/scales → process overview and scheduling → design concepts (all eleven, explicitly, including "not applicable" where true) → initialization → input data → submodels. This mirrors the order in `references/odd2.md` and lets a reader understand the model at a glance before hitting submodel detail. For non-ODD frameworks, draft overview-level content before algorithmic detail using the same overview-before-details principle.
+5. **Draft in this order for ODD+2:** purpose and patterns → entities/state variables/scales → process overview and scheduling → design concepts (all eleven, explicitly, including "not applicable" where true) → initialization → input data → submodels. This mirrors the order in `references/ODD-METHODOLOGY.md` and lets a reader understand the model at a glance before hitting submodel detail. For non-ODD frameworks, draft overview-level content before algorithmic detail using the same overview-before-details principle.
 6. **Add rationale where a design choice is non-obvious** — why this scale, why this update order, why this parameterization, why an omitted process was excluded. Keep it brief; if it grows into design history, that belongs in supplementary material, not the core narrative.
 7. **Link to code** where it reduces ambiguity: same names in prose and code, a file/function/procedure pointer under each submodel, software and library versions if they affect interpretation.
 8. **If a full ODD already exists and a summary is needed for publication**, draft the summary only after the full version, preserving its keywords so a reader can map back, and move long tables out of the summary prose.
@@ -132,11 +134,11 @@ Generate these before drafting documentation:
 - identified documentation gaps
 - inferred vs observed information summary
 
-These artifacts support transparency, review, and reuse and may be consumed by downstream skills like document-review or fair4rs. Prefer predictable, semantic names that describe the artifact's role in the workflow.
+These artifacts support transparency, review, and reuse and may be consumed by downstream skills like document-review or fair. Prefer predictable, semantic names that describe the artifact's role in the workflow.
 
 # Worked Example: Extraction Before Prose
 
-This shows step 4 above applied to a small agent-based model, to make "inventory before prose" concrete rather than abstract.
+This shows step 4 above applied to a small agent-based model, to make "inventory before prose" concrete.
 
 Suppose the source code contains:
 
@@ -160,7 +162,7 @@ Extraction, before any prose is written:
 - **Entity type:** `Forager`.
 - **State variables** (vary per agent / over time): `energy` (changes every step), `home_cell` (fixed at creation — actually a parameter-like value set once, but tied to the individual agent, so document it as an initialization detail rather than a global parameter), `strategy` (currently constant in this version, but flagged because the field name and comment suggest it's designed to vary later — document it as a state variable with a note that no learning process currently modifies it).
 - **Parameters** (fixed, shared, not per-agent): `METABOLISM_COST = 0.2`, `FORAGE_SUCCESS_PROB = 0.3`, `FORAGE_GAIN = 2.0`.
-- **Stochasticity:** one random draw per step, `rng.random() < FORAGE_SUCCESS_PROB`, governing foraging success. The seeding/replication policy isn't visible in this snippet — flag as `Unknown`, request clarification, rather than guessing it's seeded or unseeded.
+- **Stochasticity:** one random draw per step, `rng.random() < FORAGE_SUCCESS_PROB`, governing foraging success. The seeding/replication policy isn't visible in this snippet, flag as `Unknown`, request clarification, rather than guessing it's seeded or unseeded.
 - **Process note:** an agent with `energy <= 0` returns early and is skipped — this is a termination/death condition that belongs in the schedule and in submodel logic, not just in passing prose. It also means the order of the energy-depletion check relative to other agents' updates affects whether a dying agent forages on its last step; if the code update order matters here, the schedule must say so explicitly.
 
 Only after this extraction would the ODD draft state, for example, under *Entities, state variables, and scales*: "`Forager` agents have state variables `energy` (float, depletes by a fixed metabolism cost each step and increases stochastically via foraging) and `strategy` (currently fixed to `"random_walk"`; no learning process modifies it in this version)." That sentence is traceable line-by-line back to the extraction above — nothing in it was inferred beyond what the code shows.

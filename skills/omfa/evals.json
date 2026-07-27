@@ -139,10 +139,10 @@
       "prompt": "I need archival metadata and repository packaging for my software release.",
       "should_trigger": false,
       "behavior": [
-        "Does not trigger; archival metadata and repository packaging belong to fair4rs"
+        "Does not trigger; archival metadata and repository packaging belong to fair"
       ],
       "output": {
-        "description": "Does not trigger; archival metadata and repository packaging belong to fair4rs",
+        "description": "Does not trigger; archival metadata and repository packaging belong to fair",
         "must_include": [],
         "must_not_include": []
       },
