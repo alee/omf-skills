@@ -1,49 +1,159 @@
-# Software Management Plan (SMP) Template
+# Software Management Plan (SMP)
 
-Use this template to create a living Software Management Plan aligned with FAIR principles, research software engineering best practices, and EVERSE RSQKit guidance.
+> This document combines two kinds of content:
+>
+> - **Derived content** (Software Summary, FAIR Software, Provenance, Licensing) is disseminated from the project's FAIR Management Plan. It is **not** authored independently here — changes that affect these sections MUST first be incorporated into the FAIR Management Plan and then re-derived.
+> - **Primary content** (Governance and Collaboration, Design and Implementation, Testing and Quality Assurance, Sustainability and Maintenance, Software-Type-Aware Priorities, Review and Update Cadence) is software-management process detail that has no natural home in the FAIR Management Plan, which is generic across datasets, models, and workflows. This content is authored directly here and is this document's own source of truth.
+>
+> Aligned with FAIR principles, research software engineering best practices, and EVERSE RSQKit guidance (https://everse.software/RSQKit/software_management_planning).
+>
+> Derived from:
+>
+> - FAIR Management Plan version:
+> - FAIR Management Plan date:
+> - Generated on:
 
-Reference: https://everse.software/RSQKit/software_management_planning
+---
 
-## 1. Project Overview
+# Project Information
 
-- Software name:
-- Repository URL:
-- Project scope and scientific domain:
-- Software type:
-  - Exploratory analysis code
-  - Reusable research software
-  - Long-lived research software infrastructure
-- Planned project duration:
-- Planned longevity and maintenance horizon:
+| Field | Value |
+|-------|-------|
+| Project | |
+| Acronym | |
+| Grant / Award | |
+| Principal Investigator | |
+| Institution | |
+| Repository | |
+| License | |
+| Software type | Exploratory analysis code / Reusable research software / Long-lived infrastructure |
+| Planned project duration | |
+| Planned maintenance horizon | |
+| Version | |
+| Date | |
 
-## 2. Stakeholders, Roles, and Responsibilities
+---
 
-- Principal investigator / project lead:
+# Purpose
+
+Summarize the scope of this SMP.
+
+Describe:
+
+- project objectives
+- software components covered
+- what this SMP does not cover (e.g. dataset stewardship — see the companion DMP)
+
+---
+
+# Software Summary *(derived)*
+
+Summarize the software components managed by this project.
+
+For each component describe:
+
+- purpose
+- primary language(s)
+- origin (new development, fork, derived work)
+- relationship to project objectives
+- intended users and reuse context
+
+Reference the corresponding entries in the FAIR Management Plan Research Object Inventory.
+
+---
+
+# Stakeholders, Roles, and Responsibilities
+
+Reference the corresponding entries in the FAIR Management Plan Roles and Responsibilities section for project-level roles. Add software-specific roles not already captured there:
+
 - Maintainer(s):
-- Contributor roles:
-- Reviewer / QA roles:
 - Release manager:
+- Reviewer / QA role:
 - User support / community manager:
 - Succession plan for key roles:
 
-## 3. Collaboration, Governance, and Licensing
+---
+
+# Governance and Collaboration
 
 - Contribution workflow (issues, pull requests, reviews):
 - Governance model (single maintainer, core team, steering group):
 - Decision-making process:
 - Code of conduct:
-- Licensing strategy (software + documentation + data):
-- Citation and contributor crediting strategy (e.g., ORCID, CITATION.cff):
 
-## 4. Analysis, Design, and Implementation
+---
+
+# FAIR Software *(derived)*
+
+## Findability
+
+Describe:
+
+- persistent identifiers (e.g. SWHID, DOI via archival deposit)
+- canonical metadata (codemeta.json, CITATION.cff)
+- keywords
+- discovery mechanisms
+- repositories and registries
+
+Reference metadata maintained elsewhere where appropriate.
+
+## Accessibility
+
+Describe:
+
+- repository and hosting platform
+- access conditions
+- authentication requirements
+- long-term availability
+
+Explain any restrictions.
+
+## Interoperability
+
+Describe:
+
+- community standards followed (e.g. FAIR4RS, codemeta, SPDX)
+- APIs, data formats, and exchange formats supported
+- interoperability with other project software or datasets
+
+Document justified deviations.
+
+## Reusability
+
+Describe:
+
+- documentation (README, API docs, usage examples)
+- citation and contributor crediting strategy (e.g. ORCID, CITATION.cff)
+- intended reuse and extension points
+
+Document known limitations.
+
+---
+
+# Design and Implementation
 
 - Software architecture and rationale:
 - Core dependencies and compatibility policy:
 - Coding standards and style guidance:
 - Documentation strategy (user docs, developer docs, API docs):
-- Security practices and dependency management:
 
-## 5. Testing and Quality Assurance
+---
+
+# Dependencies and Environment
+
+Describe:
+
+- programming language(s) and required versions
+- dependency management approach (e.g. pinned versions, lockfiles)
+- containers or virtual environments
+- operating system and platform requirements
+- external services or APIs the software depends on
+
+Document the reproducibility strategy for the build and runtime environment.
+
+---
+
+# Testing and Quality Assurance
 
 - Testing strategy (unit, integration, regression, acceptance):
 - Continuous integration setup:
@@ -52,24 +162,79 @@ Reference: https://everse.software/RSQKit/software_management_planning
 - Reproducibility checks:
 - Quality metrics and monitoring:
 
-## 6. Deployment, Distribution, and Delivery
+---
 
-- Packaging and distribution channels:
+# Packaging, Distribution, and Deployment
+
+- Packaging format(s) and distribution channels:
 - Execution environments (local, HPC, cloud, containers):
 - Installation and onboarding path for users:
 - Registry/repository integration (GitHub/GitLab, package indexes):
 - User support channels:
 
-## 7. Versioning, Releases, and Archival
+---
 
-- Versioning scheme (e.g., semantic versioning):
+# Provenance *(derived)*
+
+Summarize provenance strategy for the software itself and for any artifacts it generates.
+
+Reference:
+
+- provenance manifests
+- version control history and tagging conventions
+- build and release automation
+
+---
+
+# Versioning, Releases, and Archival
+
+- Versioning scheme (e.g. SemVer, CalVer):
 - Release cadence:
 - Changelog policy:
 - Release automation:
-- DOI minting strategy (e.g., Zenodo):
-- Archival and preservation strategy (e.g., Software Heritage):
+- DOI minting strategy (e.g. Zenodo):
+- Archival and preservation strategy (e.g. Software Heritage):
 
-## 8. Sustainability and Maintenance
+---
+
+# Licensing *(derived)*
+
+Summarize licensing strategy.
+
+Document:
+
+- current license and SPDX identifier
+- copyright ownership
+- any license transitions in progress or under consideration
+- known compatibility concerns with dependencies
+- unresolved licensing questions
+
+Reference `license-inventory.md` for detail.
+
+---
+
+# Security
+
+- Vulnerability management and disclosure process:
+- Dependency update policy:
+- Access control for the repository and release process:
+- Handling of secrets or credentials:
+
+---
+
+# Ethics and Legal Considerations
+
+Describe:
+
+- export control considerations, if any
+- third-party code or data embedded in the software
+- legal constraints on distribution
+
+Reference additional ethics documentation where appropriate.
+
+---
+
+# Sustainability and Maintenance
 
 - Long-term maintenance plan:
 - Funding and resource assumptions:
@@ -77,29 +242,60 @@ Reference: https://everse.software/RSQKit/software_management_planning
 - Deprecation and end-of-life policy:
 - Risks and contingency plans:
 
-## 9. Software-Type-Aware Priorities
+---
 
-Document explicit quality priorities based on software type.
+# Software-Type-Aware Priorities
+
+Document explicit quality priorities based on the software type declared in Project Information.
 
 - Exploratory analysis code priorities:
 - Reusable research software priorities:
 - Long-lived infrastructure priorities:
 
-## 10. Review and Update Cadence
+---
+
+# Review and Update Cadence
 
 - SMP owner:
-- Review frequency (depends on project scope: annual, on each release, etc.):
+- Review frequency (e.g. annual, on each release):
 - Trigger events for updates (major architectural change, new funder requirements, role changes):
 - Last updated:
 
-## Appendix A: Compliance Mapping (Optional)
+---
+
+# Relationship to FAIR Management Plan
+
+The authoritative stewardship record remains:
+
+`artifacts/fair/fair-management-plan.md`
+
+Additional project artifacts may include:
+
+- `provenance-manifest.json`
+- `license-inventory.md`
+- `codemeta.json`
+- `CITATION.cff`
+
+---
+
+# Appendix A: Compliance Mapping (Optional)
 
 - FAIR / RSE alignment notes:
 - Funder-specific requirements:
 - Institutional requirements:
 
-## Appendix B: Machine-Actionable Hooks (Optional)
+---
+
+# Appendix B: Machine-Actionable Hooks (Optional)
 
 - Metadata files generated from this SMP:
 - CI checks linked to SMP sections:
 - Automation scripts and reporting outputs:
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|----------|------|---------|
+| | | |

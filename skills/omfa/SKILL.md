@@ -141,7 +141,7 @@ Guidance modules encode expert methodological reasoning by helping agents:
 
 Required deliverables are reviewable scientific artifacts that externalize assumptions, decisions, evidence, and evaluation for downstream collaborators, tools, and reviewers. The following artifacts are REQUIRED unless explicitly justified otherwise:
 
-All reviewable artifacts MUST be stored under an `artifacts/` directory at the project root.
+All reviewable artifacts MUST be stored under an `artifacts/` directory at the project root. The top level of `artifacts/` is reserved for the project's canonical scientific artifacts. Specialist skills SHOULD store their own reviewable outputs in namespaced subdirectories (e.g. `artifacts/fair/`, `artifacts/review/`, `artifacts/document/`) unless they are updating a canonical project artifact.
 
 When `artifacts/` is first created, add `artifacts/README.md` that states:
 

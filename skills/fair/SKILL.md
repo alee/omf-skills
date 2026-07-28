@@ -1,52 +1,62 @@
 ---
 name: fair
 description: |
-  Use this skill when you need research software engineering support for
-  computational models or other research software: reproducibility,
-  provenance, FAIR metadata, dependency and environment management,
-  packaging, portability, citation, release readiness, archival guidance,
-  and repository organization.
+  Use this skill when you need FAIR stewardship support for research
+  objects — computational models, research software, datasets, workflows,
+  and their metadata and documentation: findability, accessibility,
+  interoperability, reusability, provenance, dependency and environment
+  management, packaging, portability, citation, release readiness,
+  archival guidance, and repository organization.
 
   Triggers: "prepare for publication", "make my code citable",
   "create FAIR metadata", "package my repository", "prepare a release",
-  "archive my software", "write codemeta", "generate CITATION.cff",
-  "make this reproducible".
+  "archive my software", "archive my dataset", "write codemeta",
+  "generate CITATION.cff", "make this reproducible", "make my data FAIR",
+  "write a data management plan", "write a FAIR management plan",
+  "prepare my model for archival", "document my workflow for reuse".
 
-  Expected output: codemeta.json as canonical metadata, CITATION.cff derived
-  from codemeta.json, release-readiness guidance, packaging and environment
-  notes, provenance guidance, archival guidance, and a concise checklist for
-  reuse and maintenance.
+  Expected output: a FAIR Management Plan as the canonical stewardship
+  document, canonical metadata appropriate to each research object
+  (codemeta.json for software, CITATION.cff derived from it, DataCite
+  metadata for datasets, OMF metadata/model cards for models, RO-Crate for
+  workflows), release-readiness guidance, packaging and environment notes,
+  provenance guidance, archival guidance, and a concise checklist for reuse
+  and maintenance.
 license: MIT
-compatibility: Works with any research software or computational modeling project
+compatibility: Works with any project managing research software, datasets, computational models, or workflows
 metadata:
-  domain: computational-modeling
+  domain: fair-research-objects
   maturity: beta
-  audience: modelers, researchers who code, research software engineers
+  audience: modelers, researchers who code, research software engineers, data stewards
   category: publication
 ---
 
-# FAIR Research Software Readiness Skill
+# FAIR Research Objects Skill
 
-This skill applies FAIR principles, FAIR4RS recommendations, and modern
-research software engineering best practices to improve reproducibility,
-portability, provenance, software quality, and long-term reuse.
+This skill applies the FAIR principles across research software, computational models, datasets, workflows, metadata, and other digital research objects to improve discoverability, accessibility, interoperability, reproducibility, provenance, preservation, and long-term reuse.
 
-OMFA owns scientific knowledge and methodological reasoning.
-FAIR owns research software engineering, reproducibility, provenance,
-portability, release readiness, and archival guidance.
-Document consumes artifacts from both.
+The FAIR Management Plan is the project's canonical, primary stewardship document. It is not a funder deliverable itself — it is the source of truth that funder-facing documents are disseminated from. When a funder requires a Data Management Plan (DMP) or Software Management Plan (SMP), generate that document as a derived extract, populated from `assets/DMP-TEMPLATE.md` using the relevant sections of the FAIR Management Plan. The DMP is a dissemination artifact, not an independent source of stewardship decisions — if a DMP requirement surfaces new information (e.g. a funder-mandated retention period), record it back in the FAIR Management Plan first, then re-derive the DMP.
 
 ## What This Skill Owns
 
+This skill owns lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` owns scientific reasoning, this skill owns stewardship, `document` owns communication, and `peer-review` owns assessment. Keep that boundary intact when extending any of the four.
+
 Use this skill for:
 
-- reproducibility and provenance capture
+- stewardship of research software
+- FAIR metadata
+- persistent identifiers
+- provenance capture
+- reproducibility
+- repository organization
 - dependency and environment management
-- packaging and portability
-- software citation and metadata
-- release preparation and archival readiness
-- repository organization and maintainability
-- software sustainability and long-term reuse
+- data packaging
+- model packaging
+- workflow capture
+- archival preparation
+- citation
+- preservation
+- release and publication readiness where applicable
 
 Do not use this skill for:
 
@@ -60,6 +70,14 @@ Do not use this skill for:
 
 This skill works best with:
 
+- an existing FAIR Management Plan, when this is an update rather than a first draft
+- datasets and repositories
+- computational models
+- workflow descriptions
+- notebooks
+- simulation outputs
+- metadata records
+- persistent identifiers (DOIs, ORCID, ROR)
 - repository URL or local repository path
 - software title, version, and license
 - primary language and packaging format
@@ -69,119 +87,150 @@ This skill works best with:
 - data and model dependencies with identifiers when available
 - known provenance sources, build steps, and execution assumptions
 
-If OMFA has already classified the model or provided methodological context,
-reuse that information instead of re-deriving it.
+If OMFA has already classified the model or provided methodological context in `artifacts/`, reuse that information instead of re-deriving it.
 
 ## Workflow
 
-### 1. Determine the software task
+**Classify the stewardship task.** Classify the request as one or more of:
 
-Classify the request as one or more of:
-
-- planning a release or archival package
+- planning a release, archival package, or other stewardship milestone
 - refreshing metadata or citation files
 - improving reproducibility or provenance
 - organizing the repository for reuse
 - checking packaging, portability, or environment capture
+- disseminating a DMP or SMP from the FAIR Management Plan
 
-If the request is really about scientific reasoning, model structure, or
-method choice, route to `omfa` instead.
+If the request is really about scientific reasoning, model structure, or method choice, route to `omfa` instead.
 
-### 2. Inventory the implemented software facts
+**Inventory available FAIR research assets.** Inventory:
 
-Extract only what is observed from the repository or supplied materials:
+- software
+- models
+- datasets
+- workflows
+- documentation
+- metadata
+- provenance
+- identifiers
+- licenses
 
-- package name, repository, version, and license
-- source layout and entry points
-- build, test, and release commands
-- dependencies, container/runtime assumptions, and external services
-- metadata already present in `codemeta.json`, `CITATION.cff`, README, or release notes
-- provenance signals such as generated files, data sources, and workflow traces
+Separate observed facts from inferred assumptions. Mark missing information as `Unknown` rather than guessing. Write this inventory directly into the Research Object Inventory table in `fair-management-plan.md`, the table is the persisted form of this step, not a duplicate of it.
 
-Separate observed facts from inferred assumptions. Mark missing information as
-`Unknown` rather than guessing.
+The Research Object Inventory is the canonical inventory of all managed research objects in the project. Every other FAIR artifact (`fair-assessment.md`, `provenance-manifest.json`, `license-inventory.md`, and any metadata records) should reference inventory entries by name or identifier rather than re-listing or re-describing them. If an artifact needs to say something about a research object that isn't in the inventory, add it to the inventory first.
 
-### 3. Choose the canonical metadata path
+Every managed research object MUST appear exactly once in the Research Object Inventory. Other FAIR artifacts reference inventory entries rather than redefining them.
 
-Use `codemeta.json` as the canonical machine-readable software metadata source.
-Derive `CITATION.cff` from it and keep names, version, license, authorship, and
-repository identifiers synchronized.
+**Choose the canonical metadata path.** Choose canonical metadata appropriate for each artifact:
 
-When metadata fields conflict, prefer `codemeta.json` and call out the mismatch.
+- Software: codemeta.json
+- Citation: CITATION.cff
+- Datasets: DataCite metadata
+- Models: OMF metadata / model card
+- Workflows: RO-Crate, WorkflowHub metadata, CWL metadata
+- Repositories: README, LICENSE
 
-### 4. Draft the release-readiness package
+Prefer community-adopted metadata standards whenever they exist. Only introduce project-specific metadata when existing standards are insufficient, and document the gap it fills and the standard it extends.
 
-Produce the minimum set of artifacts needed for reuse and archival:
+When metadata overlap across representations, identify the canonical metadata record for each artifact type and synchronize derived metadata from it. Call out inconsistencies and request human review. Do not maintain two independently edited metadata records describing the same research object.
 
-- codemeta.json
-- CITATION.cff
-- dependency and environment notes
-- packaging and installation guidance
-- reproducibility and provenance notes
-- release checklist and archival guidance
-- optional Software Management Plan guidance when a project needs living process documentation
+**Produce FAIR stewardship artifacts.** Produce the minimum set of FAIR stewardship artifacts appropriate for the research objects present, whether or not the project has a release event.
 
-Shape the emphasis to the software type:
+- Software: codemeta.json, CITATION.cff, and optional Software Management Plan guidance when a project needs living process documentation
+- Datasets: DataCite metadata, README
+- Models: model card, OMF metadata, and a pointer to ODD/TRACE documentation where available
+- Workflows: RO-Crate
 
-- exploratory analysis: prioritize reproducibility and environment capture
-- reusable research software: prioritize packaging, documentation, and API stability
-- long-lived infrastructure: prioritize robustness, governance, and maintenance
+Shape the recommendations to the primary research objects and intended reuse:
 
-### 5. Make portability and preservation explicit
+- Exploratory research: prioritize reproducibility and environment capture
+- Reusable software or datasets: prioritize packaging, documentation, and API/format stability
+- Computational models: prioritize parameterization, calibration/validation data, and provenance of derived results, alongside model card and OMF metadata
+- Reference workflows: prioritize portability and machine-readable execution steps
+- Long-lived infrastructure: prioritize robustness, governance, and maintenance
 
-Document:
+**Make portability and preservation explicit.** Document:
 
-- how the software is installed
-- which dependencies are pinned or versioned
-- what is required for a clean rerun
-- how release artifacts are archived
-- how DOI, repository, and version references relate to one another
-- any limits on portability, external services, or platform support
+- installation
+- execution
+- workflows
+- data dependencies
+- model dependencies
+- provenance, expressed using a documented provenance model where practical (e.g. W3C PROV-O, the RO-Crate provenance profile, or another domain-standard scheme) rather than free text
+- identifiers
+- archival locations
+- preservation strategy
+- interoperability limitations
 
-### 6. Check coherence before finalizing
-
-Verify that:
+**Check coherence before finalizing.** Verify that:
 
 - names, versions, and licenses match across outputs
-- author order and credit are consistent
-- release artifacts link back to the repository and version tag
-- dependencies and environments are stated clearly enough to reproduce the release
+- author order and credit are consistent, and match the Roles and Responsibilities section of the FAIR Management Plan
+- published or archived artifacts link back to the repository and version tag
+- dependencies and environments are stated clearly enough for others to reproduce the work
 - provenance is preserved for generated or derived artifacts
 - unknowns are explicit and not silently filled in
+- every research object has persistent identifiers where appropriate
+- metadata are internally consistent
+- provenance links all derived artifacts
+- licenses are explicitly declared, use SPDX where possible, potential compatibility concerns are flagged, unresolved licensing questions are documented
+- citation metadata are complete
+- software, data, and models reference one another
+- repositories expose machine-readable metadata
+- any DMP or SMP in circulation still matches the FAIR Management Plan it was derived from
 
-### 7. Route adjacent work
+**Route adjacent work.**
 
-- If the user needs model narrative or ODD/ODD+2 prose, use `document`
-- If the user needs scientific framing, assumptions, or uncertainty reasoning, use `omfa`
-- If the user needs review-readiness assessment, use `peer-review`
-- If the user needs compute-scale execution, use `hpc` or `ospool`
+- Scientific reasoning, conceptual modeling, or methodological decisions → `omfa`
+- Narrative documentation, methods sections, OMF, or ODD documentation → `document`
+- Publication-quality assessment or compliance review → `peer-review`
+- Performance optimization or parallel execution → `hpc`
 
 ## When to Load References
 
-Load additional material only when needed:
+Load the reference map first, then pull specific sources as needed:
 
 - `references/README.md` for the reference map and file roles
-- `references/FAIR-RSE-CROSSWALK.md` when aligning metadata, citation, packaging, and release sections
+
+Core FAIR literature (via the reference map):
+
+- FAIR Principles: Wilkinson et al. (2016)
+- FAIR Research Software: Barker et al. (2022), Chue Hong et al. (2022)
+- Research Software Engineering: Wilson et al. (2014), Lemmen et al. (2024), Jiménez et al. (2017)
+- Data stewardship: DataCite, RO-Crate
+- Computational models: OMF, ODD, TRACE
+
+Load additional material only when needed:
+
+- `references/FAIR-RSE-CROSSWALK.md` when aligning FAIR4RS metadata, citation, packaging, and release sections
 - `references/FAIR-RELEASE-REFRESH-POLICY.md` when checking refresh cadence and maintenance expectations
-- `assets/SMP-TEMPLATE.md` when drafting or refreshing a living Software Management Plan
+- `assets/FAIR-MP-TEMPLATE.md` when drafting or refreshing the living FAIR Management Plan
+- `assets/DMP-TEMPLATE.md` when disseminating a funder-facing DMP from the FAIR Management Plan
+- `assets/SMP-TEMPLATE.md` when disseminating a funder-facing DMP from the FAIR Management Plan
 
 ## Practical Outputs
 
-Depending on the task, return one or more of the following:
+Unless explicitly requested otherwise, all reviewable outputs FAIR stewardship artifacts generated by this skill MUST be stored under `artifacts/fair`
 
-- a metadata draft centered on `codemeta.json`
-- a derived `CITATION.cff`
-- a release-readiness checklist
-- a packaging or portability note
-- a provenance summary
-- an archival or deposit recommendation
-- an SMP outline or update plan
+The FAIR Management Plan is the project's living stewardship document and MUST be maintained at `artifacts/fair/fair-management-plan.md`. Update it whenever research objects, metadata, repositories, identifiers, preservation strategies, or stewardship responsibilities change.
+
+A DMP or SMP, when required by a funder, is a secondary dissemination artifact derived from the FAIR Management Plan, never drafted independently. Store it separately and note the exact FAIR-MP version and date it was derived from, so drift is detectable.
+
+Depending on the task, generate or update one or more of the following under `artifacts/fair/`:
+
+- `fair-management-plan.md`: **REQUIRED**
+- FAIR metadata records appropriate to the research objects (e.g. `codemeta.json`, `CITATION.cff`, DataCite metadata, RO-Crate metadata)
+- `fair-assessment-report.md`: **REQUIRED** FAIR status assessed per research object, not per project; a single project routinely has FAIR software alongside non-FAIR datasets and draft workflows, and each needs its own status. Reflect the current status of each object in a status column on the Research Object Inventory table, and use this file for the backing detail (what's missing, what's planned) behind each status. Update both together.
+- `provenance-manifest.json`
+- `license-inventory.md`
+- `stewardship-checklist.md` — a general readiness checklist for whatever milestone applies (release, archival deposit, or ongoing curation); rename to `release-checklist.md` only for projects where a software release is specifically the milestone in question
+- `dmp.md` or `smp.md` — only when a funder requires it, derived from `assets/DMP-TEMPLATE.md`
 
 ## Gotchas
 
-- treating FAIR as only metadata rather than release readiness and reuse
+- treating FAIR as only metadata instead of stewardship, interoperability, preservation, and reuse
 - mixing scientific reasoning into software engineering guidance
 - letting `CITATION.cff` drift away from `codemeta.json`
 - omitting dependency pins, environment details, or external service assumptions
-- describing intended behavior instead of the implemented packaging or release path
-- leaving provenance implicit for generated files, data products, or release artifacts
+- describing intended behavior instead of the implemented packaging or dissemination path
+- leaving provenance implicit for generated files, data products, or archived artifacts
+- drafting a DMP or SMP directly instead of deriving it from the FAIR Management Plan, letting the two diverge

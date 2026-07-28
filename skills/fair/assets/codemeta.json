@@ -1,22 +1,55 @@
 {
   "@context": "https://w3id.org/codemeta/3.1",
   "@type": "SoftwareSourceCode",
+  "identifier": "replace-with-DOI-SWHID-or-other-persistent-identifier",
   "name": "replace-with-software-name",
   "description": "Replace with a concise software description.",
   "codeRepository": "https://github.com/owner/repository",
+  "url": "https://mymodel.github.io",
+  "downloadUrl": "https://github.com/owner/repository/archive/refs/tags/vX.Y.Z.zip",
+  "readme": "https://github.com/owner/repository/blob/main/README.md",
+  "relatedLink": [
+    "https://owner.github.io/repository/"
+  ],
+  "referencePublication": "https://doi.org/...",
   "version": "0.1.0",
+  "dateCreated": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "datePublished": "YYYY-MM-DD",
   "license": "https://spdx.org/licenses/MIT",
+  "copyrightYear": "YYYY",
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Replace with copyright holder"
+  },
   "keywords": [
     "computational-modeling",
     "research-software"
   ],
-  "programmingLanguage": "Python",
-  "developmentStatus": "active",
+  "programmingLanguage": [
+    "Python"
+  ],
+  "runtimePlatform": "Replace with e.g. Python 3.12, Julia 1.12.6, Rust 1.97.1, NetLogo 7.0.4, GAMA 2025-06",
+  "operatingSystem": [
+    "Linux",
+    "macOS",
+    "Windows"
+  ],
+  "softwareRequirements": [
+    "Python >=3.12",
+    "NumPy >=2.0"
+  ],
+  "developmentStatus": "https://www.repostatus.org/#active",
   "issueTracker": "https://github.com/owner/repository/issues",
   "continuousIntegration": "https://github.com/owner/repository/actions",
+  "funder": {
+    "@type": "Organization",
+    "name": "National Science Foundation"
+  },
+  "funding": "Replace with award number, e.g. NSF Award #0000000",
   "author": [
     {
-      "@id": "https://orcid.org/0000-0000-0000-0000",
+      "@id": "https://orcid.org/0001-1000-0001-1000",
       "@type": "Person",
       "givenName": "First",
       "familyName": "Last",
@@ -24,6 +57,12 @@
         "@type": "Organization",
         "name": "Replace with organization"
       }
+    }
+  ],
+  "maintainer": [
+    {
+      "@id": "https://orcid.org/0001-1000-0001-1000",
+      "@type": "Person",
     }
   ]
 }

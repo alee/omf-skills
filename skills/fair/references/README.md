@@ -1,26 +1,20 @@
-# FAIR + SMP Companion References
+# FAIR Reference Library
 
-This directory contains companion references for generating release-readiness outputs with explicit Software Management Plan (SMP) support.
+This directory contains the normative references, operational guidance, and templates used by the FAIR Research Objects skill.
 
-## Files
+## Structure
 
-- `../assets/codemeta.json`:
-  Starter CodeMeta JSON-LD artifact. Treat this as the canonical machine-readable software metadata source and keep citation outputs synchronized from it.
+- `REFERENCES.md` — canonical bibliography for FAIR principles, FAIR4RS, metadata standards, research software engineering, and stewardship.
+- `FAIR-RSE-CROSSWALK.md` — relationship between FAIR, FAIR4RS, and research software engineering practices.
+- `FAIR-RELEASE-REFRESH-POLICY.md` — maintenance guidance for this reference library.
 
-- `FAIR-RELEASE-REFRESH-POLICY.md`:
-  Defines a practical refresh cadence and review checklist to keep FAIR release guidance aligned with evolving research software engineering practice and EVERSE RSQKit recommendations.
+## Assets
 
-- `FAIR-RSE-CROSSWALK.md`:
-  Maps FAIR and research software engineering release-readiness deliverables to SMP lifecycle sections so teams can produce coherent, non-duplicative plans.
+- `assets/FAIR-MP-TEMPLATE.md`
+- `assets/DMP-TEMPLATE.md`
+- `assets/SMP-TEMPLATE.md`
+- `assets/codemeta.json`
 
-## Why this exists
+## Maintenance
 
-External guidance changes over time. These reference documents provide local, versioned guidance for contributors while preserving a clear process for periodic updates against authoritative sources.
-
-## Maintenance expectation
-
-Treat these references as a living resource:
-
-- review after major EVERSE RSQKit updates
-- review after major changes to packaging, citation, archival, or provenance practice
-- record changes in pull requests with date and rationale
+Treat this reference library as a living resource. Update `REFERENCES.md` and the operational guidance when community standards or authoritative references evolve.
