@@ -20,16 +20,16 @@ Represent only the complexity necessary to address the intended purpose.
 
 **Use this guidance when:**
 
-* framing a new modeling project
-* refining or revising a conceptual model
-* determining what should and should not be represented
-* selecting an appropriate modeling paradigm
+- framing a new modeling project
+- refining or revising a conceptual model
+- determining what should and should not be represented
+- selecting an appropriate modeling paradigm
 
 **Do not use this guidance when:**
 
-* designing implementation details
-* selecting analytical methods
-* evaluating model credibility
+- designing implementation details
+- selecting analytical methods
+- evaluating model credibility
 
 Use guidance such as `abm.md`, `uncertainty.md`, or `evaluation.md` after the conceptual model has been established.
 
@@ -41,29 +41,29 @@ Use guidance such as `abm.md`, `uncertainty.md`, or `evaluation.md` after the co
 
 Document:
 
-* the scientific or policy question
-* intended use of the model
-* intended users
-* decisions the model is expected to inform
+- the scientific or policy question
+- intended use of the model
+- intended users
+- decisions the model is expected to inform
 
 ### System Boundary
 
 Document and justify:
 
-* what is inside the model
-* what is outside the model
-* temporal boundaries
-* spatial boundaries
-* organizational or institutional boundaries
+- what is inside the model
+- what is outside the model
+- temporal boundaries
+- spatial boundaries
+- organizational or institutional boundaries
 
 ### Processes
 
 Document:
 
-* key system processes
-* causal relationships
-* feedback mechanisms
-* interactions
+- key system processes
+- causal relationships
+- feedback mechanisms
+- interactions
 
 Include only processes necessary to answer the research question.
 
@@ -71,10 +71,10 @@ Include only processes necessary to answer the research question.
 
 Identify and justify:
 
-* actors
-* organizations
-* physical components
-* environmental components
+- actors
+- organizations
+- physical components
+- environmental components
 
 Do not introduce entities without explanatory purpose.
 
@@ -82,10 +82,10 @@ Do not introduce entities without explanatory purpose.
 
 Document and justify:
 
-* simplifications
-* aggregation
-* omitted processes
-* assumptions
+- simplifications
+- aggregation
+- omitted processes
+- assumptions
 
 Prefer the simplest defensible representation.
 
@@ -93,10 +93,10 @@ Prefer the simplest defensible representation.
 
 Clearly distinguish:
 
-* empirical evidence
-* theoretical foundations
-* expert judgment
-* working assumptions
+- empirical evidence
+- theoretical foundations
+- expert judgment
+- working assumptions
 
 Document the rationale for each consequential choice and generate reviewable intermediate artifacts where appropriate.
 
@@ -106,10 +106,10 @@ Document the rationale for each consequential choice and generate reviewable int
 
 Clearly distinguish:
 
-* observed system behavior
-* hypothesized mechanisms
-* modeling assumptions
-* implementation constraints
+- observed system behavior
+- hypothesized mechanisms
+- modeling assumptions
+- implementation constraints
 
 Explicitly document known limitations and unresolved questions.
 
@@ -121,12 +121,12 @@ Avoid embedding implementation details in the conceptual model.
 
 Generate or maintain, as appropriate:
 
-* `problem-statement.md`
-* `research-questions.md`
-* `conceptual-model.md`
-* `system-boundary.md`
-* `assumptions.md`
-* `abstraction-decisions.md`
+- `problem-statement.md`
+- `research-questions.md`
+- `conceptual-model.md`
+- `system-boundary.md`
+- `assumptions.md`
+- `abstraction-decisions.md`
 
 Use predictable, semantic filenames under `artifacts/` at the project root. These artifacts should support downstream model design, documentation, review, and reproducibility. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
 
@@ -136,14 +136,14 @@ Use predictable, semantic filenames under `artifacts/` at the project root. Thes
 
 Watch for:
 
-* beginning implementation before developing a conceptual model
-* representing software architecture instead of the real system
-* introducing unnecessary complexity
-* unclear system boundaries
-* undocumented abstraction decisions
-* mixing empirical evidence with assumptions
-* selecting a modeling paradigm before defining the conceptual model
-* allowing available data to dictate the conceptual model
+- beginning implementation before developing a conceptual model
+- representing software architecture instead of the real system
+- introducing unnecessary complexity
+- unclear system boundaries
+- undocumented abstraction decisions
+- mixing empirical evidence with assumptions
+- selecting a modeling paradigm before defining the conceptual model
+- allowing available data to dictate the conceptual model
 
 ---
 
@@ -151,9 +151,9 @@ Watch for:
 
 Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
-* **Primary entry point** — This is the primary entry point for new computational modeling projects. Apply this guidance before selecting a modeling paradigm or analytical methods.
-* **Specialist execution skills** — None directly. This guidance informs subsequent methodological choices rather than implementing analyses.
-* **Downstream consumer skills** — `abm.md` and future paradigm-specific guidance, `document`, `peer-review`, `fair`, and future modeling execution skills.
+- **Primary entry point** — This is the primary entry point for new computational modeling projects. Apply this guidance before selecting a modeling paradigm or analytical methods.
+- **Specialist execution skills** — None directly. This guidance informs subsequent methodological choices rather than implementing analyses.
+- **Downstream consumer skills** — `abm.md` and future paradigm-specific guidance, `document`, `peer-review`, `fair`, and future modeling execution skills.
 
 ---
 

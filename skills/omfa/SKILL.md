@@ -123,7 +123,7 @@ Use specialized guidance when applicable. Load only the guidance modules necessa
 | Uncertainty analysis                   | `references/guidance/uncertainty.md`      |
 | Agent-based modeling                   | `references/guidance/abm.md`              |
 | Participatory modeling                 | `references/guidance/participatory.md`    |
-| Reproducibility and FAIR workflows     | `references/guidance/reproducibility.md`  |
+| Reproducibility and FAIR workflows     | `fair` skill                              |
 | Ethics and governance review           | `references/guidance/ethics.md`           |
 | Deep uncertainty and adaptive planning | `references/guidance/deep-uncertainty.md` |
 
@@ -193,7 +193,8 @@ Recommended practices:
 - containerized or pinned environments,
 - FAIR-aligned metadata.
 
-See `references/guidance/reproducibility.md`.
+For detailed reproducibility, metadata, packaging, citation, archival, and
+research software engineering practices, route to the `fair` skill.
 
 ---
 
@@ -254,6 +255,15 @@ See:
 
 ---
 
+## Gotchas
+
+- **Lifecycle guidance can become a substitute for artifacts.** Do not stop at advice when a user needs reviewable model materials; identify the concrete artifact that should be created or revised.
+- **Reproducibility work belongs in `fair`.** This skill should identify reproducibility deficiencies and route to `fair` for packaging, metadata, citation, release, and archival details.
+- **Participation is not automatically ethical review.** Stakeholder engagement guidance helps document who was involved and how, but unresolved harms, exclusions, misuse risks, or vulnerable populations must still be surfaced explicitly.
+- **Model-stage routing can over-trigger specialist skills.** Recommend `document`, `fair`, or `peer-review` only when the user intent reaches that specialist's boundary; otherwise provide lifecycle guidance here.
+
+---
+
 ## Review and Enforcement
 
 Projects SHOULD fail review if:
@@ -268,10 +278,8 @@ Projects SHOULD fail review if:
 
 Review logic is defined in:
 
-- `checks.md`
-- `tools/review-checklist.md`
-- `tools/scoring-rubric.md`
-- `tools/red-flags.md`
+- the lifecycle guidance in `references/guidance/lifecycle.md`
+- specialist readiness checks in the `peer-review` skill
 
 ---
 

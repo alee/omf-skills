@@ -84,13 +84,12 @@ The skill creates:
 Before submitting to OSPool:
 
 ```bash
-python scripts/validate_htcondor.py my_job.submit
-# Checks for:
-# - Valid HTCondor syntax
+# Inspect the generated submit file before submitting. At minimum, check:
+# - HTCondor syntax is valid
 # - Executable is present or accessible
-# - Input files are staged
+# - Input files are staged or remotely accessible
 # - Output directory is writable
-# - Resource requests are reasonable (not too large/small)
+# - Resource requests are reasonable
 ```
 
 Address any validation errors before proceeding.
@@ -117,12 +116,11 @@ condor_submit my_job.submit
 
 ## Templates & Resources
 
-- **HTCondor Basics:** See `references/OSPOOL-QUICKSTART.md` for OSPool setup and account creation
-- **HTCondor vs Slurm:** See `references/CONDOR-VS-SLURM.md` for environment comparison
-- **Validation script:** Use `scripts/validate_htcondor.py` to check your submit configuration
-- **Submit file template:** See `assets/htcondor-template.submit`
-- **Parameter sweep examples:** See `examples/parameter-sweep-config.yaml`
-- **DAG examples:** See `examples/simple-dag.dag` for job coordination
+This skill currently has no bundled `references/`, `assets/`, `examples/`, or
+`scripts/` files. Generate HTCondor submit files, DAGs, parameter sweep files,
+and wrapper scripts directly from the guidance and examples in this `SKILL.md`.
+If reusable validators or templates are added later, reference them here with
+explicit load conditions.
 
 ## Example
 
@@ -172,10 +170,10 @@ condor_submit my_job.submit
 
 | Task                     | Command/Reference                          |
 | ------------------------ | ------------------------------------------ |
-| Validate HTCondor config | `python scripts/validate_htcondor.py`      |
-| OSPool quickstart        | See `references/OSPOOL-QUICKSTART.md`      |
-| Condor vs Slurm          | See `references/CONDOR-VS-SLURM.md`        |
-| Parameter sweep template | See `examples/parameter-sweep-config.yaml` |
+| Validate HTCondor config | Review submit syntax, transfer directives, executable paths, and resource requests |
+| Submit jobs              | `condor_submit my_job.submit`              |
+| Monitor jobs             | `condor_q`                                 |
+| Review logs              | Check `.log`, `.out`, and `.err` files     |
 
 ---
 

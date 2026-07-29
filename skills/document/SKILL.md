@@ -6,11 +6,11 @@ description: |
   model type.
 
   Use this skill when a user wants to:
-    * document a computational model
-    * generate documentation from source code
-    * write an ODD or ODD+2 narrative for an agent-based model
-    * create model narratives for publication or reuse
-    * draft a model card, mathematical specification, or workflow description
+    - document a computational model
+    - generate documentation from source code
+    - write an ODD or ODD+2 narrative for an agent-based model
+    - create model narratives for publication or reuse
+    - draft a model card, mathematical specification, or workflow description
 
   The skill classifies the model type, selects a framework, extracts model
   structure from supplied materials, and drafts documentation. It does not

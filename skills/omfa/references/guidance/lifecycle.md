@@ -22,19 +22,19 @@ All reviewable artifacts SHOULD be placed under `artifacts/` at the project root
 
 **Use this guidance when:**
 
-* initiating a new modeling project
-* determining the current lifecycle stage
-* identifying missing analyses or deliverables
-* deciding what work should be performed next
-* coordinating multiple modeling activities
-* reviewing overall modeling practice
+- initiating a new modeling project
+- determining the current lifecycle stage
+- identifying missing analyses or deliverables
+- deciding what work should be performed next
+- coordinating multiple modeling activities
+- reviewing overall modeling practice
 
 **Do not use this guidance when:**
 
-* developing a conceptual representation of a system (`conceptual-modeling.md`)
-* selecting modeling paradigms or abstractions (`conceptual-modeling.md`)
-* evaluating uncertainty (`uncertainty.md` or `deep-uncertainty.md`)
-* performing methodology-specific analyses such as sensitivity analysis, calibration, or reproducibility assessment
+- developing a conceptual representation of a system (`conceptual-modeling.md`)
+- selecting modeling paradigms or abstractions (`conceptual-modeling.md`)
+- evaluating uncertainty (`uncertainty.md` or `deep-uncertainty.md`)
+- performing methodology-specific analyses such as sensitivity analysis, calibration, or reproducibility assessment
 
 This guidance serves as the primary entry point for coordinating the modeling lifecycle. It complements rather than replaces specialized methodological guidance.
 
@@ -124,11 +124,11 @@ A phase SHOULD be considered ready to hand off when:
 
 Explicitly distinguish:
 
-* observed evidence supporting model design
-* inferred conclusions
-* expert judgment
-* user-supplied assumptions
-* unresolved uncertainty
+- observed evidence supporting model design
+- inferred conclusions
+- expert judgment
+- user-supplied assumptions
+- unresolved uncertainty
 
 Document the current lifecycle stage, completed artifacts, outstanding methodological questions, and rationale for advancing or revisiting previous stages. [MUST]
 
@@ -140,20 +140,20 @@ Maintain traceability between scientific objectives, conceptual assumptions, imp
 
 Expected intermediate artifacts include:
 
-* `problem-statement.md`
-* `research-questions.md`
-* `stakeholder-register.md`
-* `conceptual-model.md`
-* `assumptions.md`
-* `implementation-plan.md`
-* `verification-report.md`
-* `calibration-report.md`
-* `validation-report.md`
-* `uncertainty-register.md`
-* `sensitivity-analysis.md`
-* `experiment-plan.md`
-* `results.md`
-* `limitations.md`
+- `problem-statement.md`
+- `research-questions.md`
+- `stakeholder-register.md`
+- `conceptual-model.md`
+- `assumptions.md`
+- `implementation-plan.md`
+- `verification-report.md`
+- `calibration-report.md`
+- `validation-report.md`
+- `uncertainty-register.md`
+- `sensitivity-analysis.md`
+- `experiment-plan.md`
+- `results.md`
+- `limitations.md`
 
 These artifacts should evolve throughout the project and remain available for downstream specialist skills. `conceptual-model.md`, `assumptions.md`, and `uncertainty-register.md` are shared with the parent `SKILL.md` Required Deliverables list — this guidance does not introduce separate copies; it tracks the same files across lifecycle phases.
 
@@ -161,10 +161,10 @@ Store these artifacts in `artifacts/` at the project root, and keep `artifacts/R
 
 **Dependency edges.** These artifacts are not independent; a change to one frequently invalidates claims in another. Dependency edges are intentionally sparse. Only record dependencies that are consequential and likely to invalidate downstream reasoning. At minimum, track:
 
-* A change to `assumptions.md` MUST trigger a review of `validation-report.md` and `uncertainty-register.md` for continued consistency.
-* A change to `conceptual-model.md` MUST trigger a review of `implementation-plan.md`, `verification-report.md`, and any completed `calibration-report.md` or `validation-report.md`.
-* A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis.md`.
-* A change to `calibration-report.md` MUST trigger a review of `validation-report.md`.
+- A change to `assumptions.md` MUST trigger a review of `validation-report.md` and `uncertainty-register.md` for continued consistency.
+- A change to `conceptual-model.md` MUST trigger a review of `implementation-plan.md`, `verification-report.md`, and any completed `calibration-report.md` or `validation-report.md`.
+- A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis.md`.
+- A change to `calibration-report.md` MUST trigger a review of `validation-report.md`.
 
 When flagging a downstream review, name the specific artifact and the reason it may now be stale — do not flag broadly across all artifacts by default, as that erodes the signal value of the flag.
 
@@ -172,17 +172,17 @@ When flagging a downstream review, name the specific artifact and the reason it 
 
 ## Common Failure Patterns
 
-* Beginning implementation before developing a conceptual model.
-* Treating code completion as evidence of scientific validity.
-* Allowing software constraints to determine scientific scope.
-* Confusing calibration with validation.
-* Omitting verification because model behavior appears plausible.
-* Treating uncertainty analysis as optional.
-* Failing to revisit conceptual assumptions after evaluation.
-* Losing traceability between research questions, assumptions, implementation, and conclusions.
-* Discarding intermediate reasoning artifacts that justify analytical decisions.
-* Treating the lifecycle phases as a strict waterfall and resisting return to an earlier phase when evidence warrants it.
-* Silently revising an upstream artifact after a downstream finding instead of flagging the inconsistency for user review.
+- Beginning implementation before developing a conceptual model.
+- Treating code completion as evidence of scientific validity.
+- Allowing software constraints to determine scientific scope.
+- Confusing calibration with validation.
+- Omitting verification because model behavior appears plausible.
+- Treating uncertainty analysis as optional.
+- Failing to revisit conceptual assumptions after evaluation.
+- Losing traceability between research questions, assumptions, implementation, and conclusions.
+- Discarding intermediate reasoning artifacts that justify analytical decisions.
+- Treating the lifecycle phases as a strict waterfall and resisting return to an earlier phase when evidence warrants it.
+- Silently revising an upstream artifact after a downstream finding instead of flagging the inconsistency for user review.
 
 ---
 
@@ -192,25 +192,25 @@ When flagging a downstream review, name the specific artifact and the reason it 
 
 Use this guidance to coordinate the overall computational modeling lifecycle and determine which specialized guidance should be applied next. Routing decisions below are conditional gates, not a fixed reading order. Evaluate the condition against the project's current state.
 
-* Route to `conceptual-modeling.md` IF the project has a problem statement but lacks a reviewable conceptual model, or IF abstraction, system boundaries, or modeling paradigm decisions need to be made or revisited.
-* Route to `uncertainty.md` IF uncertainty can be meaningfully characterized using probability distributions or standard sensitivity methods.
-* Route to `deep-uncertainty.md` IF key uncertainties cannot be meaningfully represented probabilistically due to structural uncertainty, contested assumptions, or multiple plausible futures. Note that `uncertainty.md` and `deep-uncertainty.md` are mutually exclusive entry points for a **particular uncertainty** under consideration, but multiple uncertainties of different types and characterizations can coexist within a project.
-* Route to `abm.md` IF the model represents autonomous, interacting agents and agent-based design decisions (entity definition, interaction rules, emergence) are under discussion.
-* Route to `participatory.md` IF stakeholders are intended to influence model design, framing, calibration, or interpretation.
-* Route to `reproducibility.md` IF reproducibility practices are being established or assessed.
-* Route to `ethics.md` IF the model has governance, policy, or societal implications, or affects vulnerable populations.
+- Route to `conceptual-modeling.md` IF the project has a problem statement but lacks a reviewable conceptual model, or IF abstraction, system boundaries, or modeling paradigm decisions need to be made or revisited.
+- Route to `uncertainty.md` IF uncertainty can be meaningfully characterized using probability distributions or standard sensitivity methods.
+- Route to `deep-uncertainty.md` IF key uncertainties cannot be meaningfully represented probabilistically due to structural uncertainty, contested assumptions, or multiple plausible futures. Note that `uncertainty.md` and `deep-uncertainty.md` are mutually exclusive entry points for a **particular uncertainty** under consideration, but multiple uncertainties of different types and characterizations can coexist within a project.
+- Route to `abm.md` IF the model represents autonomous, interacting agents and agent-based design decisions (entity definition, interaction rules, emergence) are under discussion.
+- Route to `participatory.md` IF stakeholders are intended to influence model design, framing, calibration, or interpretation.
+- Route to the `fair` skill IF reproducibility, metadata, packaging, citation, release, or archival practices are being established or assessed.
+- Route to `ethics.md` IF the model has governance, policy, or societal implications, or affects vulnerable populations.
 
 **Specialist execution skills**
 
 Specialist skills may implement:
 
-* implementation planning
-* calibration
-* sensitivity analysis
-* uncertainty analysis
-* visualization
-* model evaluation
-* peer review
+- implementation planning
+- calibration
+- sensitivity analysis
+- uncertainty analysis
+- visualization
+- model evaluation
+- peer review
 
 **Downstream consumer skills**
 
@@ -222,21 +222,21 @@ Nearly all modeling skills consume artifacts produced throughout the lifecycle, 
 
 ### Computational Modeling Lifecycle
 
-* Jakeman et al. (2006)
-* Jakeman et al. (2024)
-* Refsgaard & Henriksen (2004)
+- Jakeman et al. (2006)
+- Jakeman et al. (2024)
+- Refsgaard & Henriksen (2004)
 
 ### Model Development and Evaluation
 
-* Grimm et al. (2006, 2010, 2020)
-* Grimm et al. (2014)
-* Augusiak et al. (2014)
-* Hamilton et al. (2019)
-* Oberkampf & Roy (2010)
+- Grimm et al. (2006, 2010, 2020)
+- Grimm et al. (2014)
+- Augusiak et al. (2014)
+- Hamilton et al. (2019)
+- Oberkampf & Roy (2010)
 
 ### Computational Science Practice
 
-* Wilson (2006)
-* Lemmen et al. (2024)
+- Wilson (2006)
+- Lemmen et al. (2024)
 
 See `references/REFERENCES.md` for complete citations.

@@ -483,6 +483,24 @@ Comprehensive edited synthesis of the companion modelling approach, consolidatin
 
 # Ethics, Governance, and Responsible Modeling
 
+## Szetey et al. (2025)
+
+Szetey, K., Ward, D., Chakori, S., Douglas, D., Fulton, E. A., Grigg, N., Ligtermoet, E., Munera-Roldan, C., Onyango, E., Stirling, E., & Subramaniam, R. (2025). Applying an ethical lens for more responsible modelling practice. _Socio-Environmental Systems Modelling_, 7, 18753.
+[https://doi.org/10.18174/sesmo.18753](https://doi.org/10.18174/sesmo.18753)
+
+Develops ethical reflection for socio-environmental modeling practice, emphasizing credibility, legitimacy, salience, model repurposing, communication, and consequences for people and nature.
+
+---
+
+## Füchslin et al. (2023)
+
+Füchslin, R. M., Ambühl, J., Faggian, A., Fellermann, H. M., Flumini, D., Geller, A., Hanczyc, M. M., Klinkert, A., Krütli, P., Matuttis, H.-G., Ott, T., Scheidegger, S., Schmid, G. B., Smieszek, T., Schneider, J. J., Steiner, A., & Weyland, M. S. (2023). Ethical aspects of computational modelling in science, decision support and communication. In J. J. Schneider, M. S. Weyland, D. Flumini, & R. M. Füchslin (Eds.), _Artificial Life and Evolutionary Computation_ (Communications in Computer and Information Science, Vol. 1722, pp. 263-293). Springer, Cham.
+[https://doi.org/10.1007/978-3-031-23929-8_24](https://doi.org/10.1007/978-3-031-23929-8_24)
+
+Distinguishes computational models used for scientific inquiry from models used in decision support and communication, emphasizing responsibility in model construction, narrative interpretation, and model use.
+
+---
+
 ## Saltelli et al. (2020a)
 
 Saltelli, A., Bammer, G., Bruno, I., Charters, E., Di Fiore, M., Didier, E., Nelson Espeland, W., Kay, J., Lo Piano, S., Mayo, D., Pielke Jr., R., Portaluri, T., Porter, T.M., Puy, A., Ravetz, J.R., Reinert, E., Sarewitz, D., Stark, P.B., Stirling, A., van der Sluijs, J., & Vineis, P. (2020). Five ways to ensure that models serve society: a manifesto. _Nature_, 582, 482–484.
@@ -525,3 +543,21 @@ Stilgoe, J., Owen, R., & Macnaghten, P. (2013). Developing a framework for respo
 [https://doi.org/10.1016/j.respol.2013.05.008](https://doi.org/10.1016/j.respol.2013.05.008)
 
 Influential framework for responsible innovation and governance.
+
+---
+
+## Anzola Pinzon, Barbrook-Johnson, & Gilbert (2022)
+
+Anzola Pinzon, D. E., Barbrook-Johnson, P., & Gilbert, N. (2022). The ethics of agent-based social simulation. _Journal of Artificial Societies and Social Simulation_, 25(4), 1.
+[https://www.jasss.org/25/4/1.html](https://www.jasss.org/25/4/1.html)
+
+Applied ethics discussion for agent-based social simulation, including responsible practice, standardization, and a draft code of ethics for the ABM community.
+
+---
+
+## Carroll et al. (2020)
+
+Carroll, S. R., Garba, I., Figueroa-Rodriguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. _Data Science Journal_, 19(1), 43.
+[https://doi.org/10.5334/dsj-2020-043](https://doi.org/10.5334/dsj-2020-043)
+
+Defines Collective Benefit, Authority to Control, Responsibility, and Ethics as people- and purpose-oriented principles for Indigenous data governance, complementing FAIR data stewardship with authority, benefit, and accountability concerns.

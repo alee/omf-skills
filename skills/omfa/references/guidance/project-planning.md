@@ -189,7 +189,7 @@ Project planning delegates to:
 
 Additional guidance may be loaded as needed:
 
-- `reproducibility.md` for project infrastructure and provenance
+- the `fair` skill for project infrastructure, provenance, packaging, citation, release, or archival planning
 - `participatory.md` when stakeholder engagement influences project planning
 - `ethics.md` when governance or societal impacts influence project priorities
 

@@ -105,13 +105,12 @@ The skill generates:
 Check your job script:
 
 ```bash
-python scripts/validate_slurm.py my_job.slurm
-# Checks for:
-# - Valid Slurm directives
-# - Resource requests (not exceeding cluster limits)
-# - Module availability
-# - Executable and input files
-# - Output directory writeable
+# Inspect the generated script before submitting. At minimum, check:
+# - Slurm directives are valid for the user's cluster
+# - Resource requests do not exceed cluster limits
+# - Module names match `module avail` on the target cluster
+# - Executable and input files exist from the submit directory
+# - Output directories are writable
 ```
 
 Address warnings before submitting.
@@ -137,13 +136,10 @@ scancel $JOBID                # Cancel job
 
 ## Templates & Resources
 
-- **Slurm Basics:** See `references/SLURM-QUICKSTART.md` for cluster commands and job submission
-- **Slurm vs HTCondor:** See `references/CONDOR-VS-SLURM.md` for environment comparison
-- **Validation script:** Use `scripts/validate_slurm.py` to check your job configuration
-- **Batch script template:** See `assets/slurm-template.slurm` for basic structure
-- **Job array template:** See `assets/slurm-array-template.slurm` for parameter sweeps
-- **MPI job example:** See `examples/mpi-job.slurm` for multi-node execution
-- **GPU job example:** See `examples/gpu-job.slurm` for GPU-accelerated work
+This skill currently has no bundled `references/`, `assets/`, `examples/`, or
+`scripts/` files. Generate Slurm scripts directly from the guidance and examples
+in this `SKILL.md`. If reusable validators or templates are added later,
+reference them here with explicit load conditions.
 
 ## Example
 
@@ -202,11 +198,11 @@ scancel $JOBID                # Cancel job
 
 | Task                  | Command/Reference                         |
 | --------------------- | ----------------------------------------- |
-| Validate Slurm script | `python scripts/validate_slurm.py`        |
-| Slurm quickstart      | See `references/SLURM-QUICKSTART.md`      |
-| Slurm vs HTCondor     | See `references/CONDOR-VS-SLURM.md`       |
-| Job array examples    | See `examples/slurm-array-template.slurm` |
-| MPI examples          | See `examples/mpi-job.slurm`              |
+| Validate Slurm script | Review directives, modules, paths, and resource limits before `sbatch` |
+| Submit single job     | `sbatch my_job.slurm`                     |
+| Submit job array      | `sbatch --array=1-100%20 my_job.slurm`    |
+| Monitor jobs          | `squeue -u $USER`                         |
+| Cancel job            | `scancel $JOBID`                          |
 
 ---
 

@@ -41,6 +41,8 @@ The FAIR Management Plan is the project's canonical, primary stewardship documen
 
 This skill owns lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` owns scientific reasoning, this skill owns stewardship, `document` owns communication, and `peer-review` owns assessment. Keep that boundary intact when extending any of the four.
 
+Data or authority governance questions about populations whose data or knowledge a model draws on, including collective benefit, authority to control, accountability for use, or affected-population consent and legitimacy, are modeling ethics concerns. Route those to `omfa`'s `references/guidance/ethics.md`; do not treat them as resolved by FAIR packaging, metadata, or archival stewardship alone.
+
 Use this skill for:
 
 - stewardship of research software

@@ -45,8 +45,8 @@ different guidance file.
 
 Define both directions explicitly, not just the positive case:
 
-* **Use this guidance when:** [conditions under which it applies]
-* **Do not use this guidance when:** [conditions under which a sibling
+- **Use this guidance when:** [conditions under which it applies]
+- **Do not use this guidance when:** [conditions under which a sibling
   guidance file applies instead]
 
 If another guidance file addresses a closely related methodological question,
@@ -140,14 +140,14 @@ State:
 
 ### <Foundational Concepts>
 
-* Author (Year)
+- Author (Year)
 
 ### <Operational Guidance>
 
-* Author (Year)
+- Author (Year)
 
 ### <Applied Practice>
 
-* Author (Year)
+- Author (Year)
 
 See `references/REFERENCES.md` for complete citations.

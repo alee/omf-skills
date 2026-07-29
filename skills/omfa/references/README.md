@@ -44,6 +44,7 @@ Current guidance includes:
 - `deep-uncertainty.md`
 - `evaluation.md`
 - `participatory.md`
+- `ethics.md`
 
 ### `assets/`
 
