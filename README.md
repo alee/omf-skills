@@ -1,8 +1,10 @@
 # OMF Skills Repository
 
-Agent skills for computational modelers: lifecycle guidance, documentation, reproducibility, publication, and execution.
+Agent skills that operationalize evolving community standards and good modeling practices, enabling foundation models to support the full computational modeling lifecycle, from conceptual modeling and reproducible implementation to HPC/HTC execution and publication.
 
-This repository hosts a curated collection of [Agent Skills](https://agentskills.io) designed to help researchers and developers develop and share computational models with transparent lifecycle guidance. Skills are reusable procedural workflows that enhance AI agents to accomplish specialized tasks.
+This repository hosts a curated collection of [Agent Skills](https://agentskills.io) that augment foundation models with methodological knowledge, scientific workflows, and research software practices developed by the computational modeling community. We hope for these skills to help researchers and developers at every career stage produce transparent, reviewable computational models while preserving human scientific judgement and making it easier to adopt methodological and engineering best practices. Think of these skills as open source structured guidance that evolves alongside both the research community and foundation models. As foundation models improve, the skills should shrink, capturing only the frontier community knowledge, standards, and practices that models do not natively possess or consistently apply.
+
+**NOTE**: These skills are still under active development so behavior and guidance may change rapidly. Please check for updates periodically via `npx skills update` or `git pull` if you manually cloned them to your `.agents/skills/` directory (either in your home directory or in a specific project).
 
 ## Quick Start
 
