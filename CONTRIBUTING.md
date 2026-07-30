@@ -2,15 +2,18 @@
 
 Thank you for contributing to this skills repository! This guide walks you through the process of creating, testing, and submitting skills for the OMF modeling guidance collection.
 
+Reviewable artifacts are the interfaces between skills. Skills should communicate by creating and consuming well-defined artifacts rather than by duplicating reasoning or directly depending on one another.
+
 ## Table of Contents
 
 1. [Before You Start](#before-you-start)
-2. [Skill Creation Workflow](#skill-creation-workflow)
-3. [Naming Conventions](#naming-conventions)
-4. [Writing Guidelines](#writing-guidelines)
-5. [Frontmatter Specification](#frontmatter-specification)
-6. [Testing Your Skill](#testing-your-skill)
-7. [Submission Checklist](#submission-checklist)
+2. [When to Create a New Skill](#when-to-create-a-new-skill)
+3. [Skill Creation Workflow](#skill-creation-workflow)
+4. [Naming Conventions](#naming-conventions)
+5. [Writing Guidelines](#writing-guidelines)
+6. [Frontmatter Specification](#frontmatter-specification)
+7. [Testing Your Skill](#testing-your-skill)
+8. [Submission Checklist](#submission-checklist)
 
 ## Before You Start
 
@@ -19,19 +22,57 @@ Thank you for contributing to this skills repository! This guide walks you throu
 - Review existing skills in `skills/` to check for overlap and assess fit / appropriateness
 - Use `/create-skill` if your coding agent provides it, or manually copy [docs/SKILL-TEMPLATE.md](docs/SKILL-TEMPLATE.md) into a new skill directory
 
+## When to Create a New Skill
+
+**Prefer extending an existing skill.** Create a new skill only when the new capability introduces a distinct area of expertise with a clear set of responsibilities and reviewable artifacts that no existing skill should author or maintain. Work through this before scaffolding anything as it determines whether you run `/create-skill`, open a PR against an existing skill's guidance, or add a standalone tool.
+
+### Create a new skill only if it is responsible for one or more reviewable artifacts that no existing skill should author or maintain.
+
+In addition, the capability should satisfy most of the following:
+
+- represents an independent body of expert knowledge;
+- can evolve independently of existing skills without routinely requiring changes to them;
+- requires reasoning outside the expertise of existing skills and foundation models
+
+Otherwise:
+
+- **Add guidance** when the capability specializes reasoning within an existing skill substantively and without changing artifact responsibility.
+- **Create a tool** when the capability performs deterministic inspection, extraction, validation, or transformation. Tools are orthogonal to skills and may be shared across multiple skills.
+- **Extend the existing skill** when the capability falls within its existing artifact responsibilities.
+
+### Rule of Thumb
+
+- **Skills** are responsible for reviewable artifacts and the reasoning that produce and maintain them.
+- **Guidance** specializes reasoning within a skill.
+- **Tools** perform deterministic operations and produce structured outputs consumed by skills.
+
+Each reviewable artifact should have a single responsible skill, and each skill should have one primary responsibility.
+
+### Examples
+
+| Proposal | Classification | Reason |
+|---|---|---|
+| `participatory.md` | Guidance (OMFA) | Specializes modeling methodology without changing artifact responsibility. |
+| `model-extractor` | Tool | Deterministically produces a model inventory for multiple skills. |
+| `Document` | Skill | Responsible for detailed narrative documentation artifacts. |
+| `FAIR` | Skill | Responsible for research software engineering artifacts, provenance, and release readiness. |
+
 ## Skill Creation Workflow
 
-### 1. Plan Your Skill
+### Plan Your Skill
 
 Answer these questions:
 
 - **What problem does it solve?** (e.g., "Modelers struggle to document ODD+2 protocols manually")
 - **When should the coding agent use it?** (e.g., "When user has model code and needs narrative documentation")
 - **What does it take as input?** (e.g., Python/R model files, docstrings, parameter descriptions)
-- **What does it produce?** (e.g., Markdown ODD narrative, validation checklist, completed sections)
-- **Are there dependencies?** (e.g., Python 3.10+, git, Docker)
+- **What reviewable artifacts is it responsible for?** (e.g., conceptual model, fair management plan)
+- **What user-facing deliverables are derived from those artifacts?** (e.g., OMF standards-compliant narrative documentation, a reusable building block)
+- **Are there dependencies?** What prerequisites must already exist? (technical dependencies, required artifacts, prior methodological decisions, etc.)
 
-### 2. Create Your Skill Folder
+Confirm this belongs in a **new skill** rather than as guidance, a tool, or an extension of an existing skill — see [When to Create a New Skill](#when-to-create-a-new-skill).
+
+### Create Your Skill Folder
 
 Run `/create-skill <name> — <one-sentence description>` in your coding agent if that command is available. It should scaffold `skills/<name>/SKILL.md` from [docs/SKILL-TEMPLATE.md](docs/SKILL-TEMPLATE.md) and create a starter `skills/<name>/evals.json`.
 
@@ -45,11 +86,11 @@ cp skills/document/evals.json skills/your-skill-name/evals.json
 
 Then immediately rename `skill_name`, replace the copied prompts, and make sure the frontmatter `name:` matches the folder exactly.
 
-### 3. Write SKILL.md
+### Write SKILL.md
 
 See [Frontmatter Specification](#frontmatter-specification) and [Writing Guidelines](#writing-guidelines) below.
 
-### 4. Add Optional Resources
+### Add Optional Resources
 
 As your skill grows, you might find supporting files useful:
 
@@ -70,7 +111,7 @@ your-skill-name/
     └── example-output.md
 ```
 
-### 5. Test Your Skill
+### Test Your Skill
 
 See [Testing Your Skill](#testing-your-skill).
 
@@ -80,7 +121,7 @@ Before opening a PR, also run the repository validators:
 make validate
 ```
 
-### 6. Submit a Pull Request
+### Submit a Pull Request
 
 Include:
 
@@ -269,6 +310,7 @@ Notes:
 
 Before submitting, verify:
 
+- [ ] Confirmed the capability warrants a new skill (vs. guidance, a tool, or an extension) per [When to Create a New Skill](#when-to-create-a-new-skill)
 - [ ] Skill folder name matches `name:` field in frontmatter
 - [ ] Frontmatter includes `name`, `description`, and `license` (plus optional `compatibility` and `metadata`)
 - [ ] Description includes triggers (`Use this skill when ...`) and expected outputs

@@ -38,6 +38,8 @@ This guidance addresses competing values, societal consequences, responsible int
 
 ## Consequential Analytical Choices <!-- [MUST] -->
 
+(The categories below operationalize the draft code of ethics proposed by Anzola Pinzon, Barbrook-Johnson, & Gilbert (2022) without reproducing its structure.)
+
 ### Intended Use
 
 Document whether the model is intended for scientific explanation, projection, policy support, operational decisions, public communication, deliberation, training, or exploratory learning. [MUST]
@@ -167,7 +169,6 @@ Watch for:
 - technical transparency treated as sufficient for ethical use;
 - ethical review performed only after model results are known;
 - model reuse treated as valid because the code runs in a new context.
-- treating optimization objectives as objective properties of the system;
 
 ---
 
