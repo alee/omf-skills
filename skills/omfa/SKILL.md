@@ -46,6 +46,10 @@ Applicable domains: research workflows, decision support, computational social s
 
 ## Activation Logic
 
+If the request requires a more specific skill, emit only the handoff and stop.
+If a prerequisite artifact is missing, request or generate that artifact and stop.
+Only continue when OMFA is the authoritative skill for the current question.
+
 Primary responsibilities:
 - classify request
 - determine whether lifecycle guidance is required
@@ -104,11 +108,11 @@ The computational modeling lifecycle is defined by `references/guidance/lifecycl
 
 The omfa skill is responsible for:
 
-- identifying the current lifecycle state
-- loading `references/guidance/lifecycle.md` when lifecycle reasoning is required
-- following its routing recommendations to load additional guidance as needed
-- identifying missing artifacts
-- recommending downstream specialist skills
+- identifying the current lifecycle state [MUST]
+- loading `references/guidance/lifecycle.md` when lifecycle reasoning is required [MUST]
+- following its routing recommendations to load additional guidance as needed [MUST]
+- identifying missing artifacts [SHOULD]
+- recommending downstream specialist skills [SHOULD]
 
 ---
 
@@ -116,16 +120,17 @@ The omfa skill is responsible for:
 
 Use specialized guidance when applicable. Load only the guidance modules necessary to answer the user's methodological question. Guidance modules are composable and may be combined when their scopes are complementary.
 
-| Context                                | Required Guidance               |
-| -------------------------------------- | ------------------------------- |
-| Lifecycle coordination | `references/guidance/lifecycle.md` |
-| Conceptual modeling | `references/guidance/conceptual-modeling.md` |
-| Uncertainty analysis                   | `references/guidance/uncertainty.md`      |
-| Agent-based modeling                   | `references/guidance/abm.md`              |
-| Participatory modeling                 | `references/guidance/participatory.md`    |
-| Reproducibility and FAIR workflows     | `fair` skill                              |
-| Ethics and governance review           | `references/guidance/ethics.md`           |
-| Deep uncertainty and adaptive planning | `references/guidance/deep-uncertainty.md` |
+| Context                                | Required Guidance                            |
+| -------------------------------------- | -------------------------------------------- |
+| Lifecycle coordination                 | `references/guidance/lifecycle.md`           |
+| Conceptual modeling                    | `references/guidance/conceptual-modeling.md` |
+| Uncertainty analysis                   | `references/guidance/uncertainty.md`         |
+| Agent-based modeling                   | `references/guidance/abm.md`                 |
+| Participatory modeling                 | `references/guidance/participatory.md`       |
+| Reproducibility and FAIR workflows     | `fair` skill                                 |
+| Ethics and governance review           | `references/guidance/ethics.md`              |
+| Deep uncertainty and adaptive planning | `references/guidance/deep-uncertainty.md`    |
+| Model implementation and maintenance   | `omfb` skill (WIP)                           |
 
 Guidance modules encode expert methodological reasoning by helping agents:
 

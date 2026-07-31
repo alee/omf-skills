@@ -227,6 +227,39 @@ Depending on the task, generate or update one or more of the following under `ar
 - `stewardship-checklist.md` — a general readiness checklist for whatever milestone applies (release, archival deposit, or ongoing curation); rename to `release-checklist.md` only for projects where a software release is specifically the milestone in question
 - `dmp.md` or `smp.md` — only when a funder requires it, derived from `assets/DMP-TEMPLATE.md`
 
+## Citation
+
+### Research Object Citation
+- Cite each research object (e.g., software, data, models, workflows, publications) as a distinct scholarly output.
+- List only contributors to the cited object as its authors/creators.
+- Cite related research objects separately.
+- Explicitly describe relationships (e.g., "implements", "derived from", "extends", "replicates", "uses", or "documents").
+- Include a persistent identifier (DOI preferred), version, title, publisher/repository, and license where applicable.
+- Document provenance, including transformations, assumptions, and modifications.
+- Prefer community citation metadata standards (e.g., CITATION.cff, CodeMeta, DataCite).
+- Follow the applicable FORCE11 citation principles.
+
+### Software Citation
+- List only software contributors as software authors; direct metadata should be specific to the software itself.
+- Use `references` for prior work that the research object implements, derives from, extends, or depends on. Use `preferred-citation` only to redirect citation to an equivalent scholarly description of the same research object (for example, a software paper or data descriptor authored by the creators of that object).
+- Include version, repository, and commit hash, release, or SWHID.
+- Cite publications describing implemented methods, algorithms or models separately.
+- Explicitly state the relationship (e.g., "independent implementation of", "replication of", or "based on").
+- Include version, persistent identifier (DOI preferred), repository URL, and commit hash where applicable.
+- Follow the FORCE11 Software Citation Principles.
+
+### Data Citation
+- List only data contributors as dataset creators.
+- Include dataset version or snapshot and repository.
+- Cite publications describing or analyzing the dataset separately.
+- Record processing and derivation history.
+
+### Model Citation
+
+- If citing a computational model specification, credit the model authors.
+- If citing an implementation, credit the software authors separately.
+- State whether the implementation reproduces, extends, or deviates from the original model.
+
 ## Gotchas
 
 - treating FAIR as only metadata instead of stewardship, interoperability, preservation, and reuse
