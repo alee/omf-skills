@@ -8,23 +8,24 @@ Reviewable artifacts are the interfaces between skills. Skills should communicat
 
 1. [Before You Start](#before-you-start)
 2. [When to Create a New Skill](#when-to-create-a-new-skill)
-3. [Skill Creation Workflow](#skill-creation-workflow)
-4. [Naming Conventions](#naming-conventions)
-5. [Writing Guidelines](#writing-guidelines)
-6. [Frontmatter Specification](#frontmatter-specification)
-7. [Testing Your Skill](#testing-your-skill)
-8. [Submission Checklist](#submission-checklist)
+3. [Skill Anatomy](#skill-anatomy)
+4. [Skill Creation Workflow](#skill-creation-workflow)
+5. [Naming Conventions](#naming-conventions)
+6. [Writing Guidelines](#writing-guidelines)
+7. [Frontmatter Specification](#frontmatter-specification)
+8. [Testing Your Skill](#testing-your-skill)
+9. [Submission Checklist](#submission-checklist)
 
 ## Before You Start
 
-- Familiarize yourself with the [Agent Skills specification](https://agentskills.io)
-- Read [docs/agent-skills-creation-reference.md](docs/agent-skills-creation-reference.md). This is the canonical authoring guide for this repository.
+- Familiarize yourself with the [Agent Skills specification](https://agentskills.io) and its [best practices](https://agentskills.io/skill-creation/best-practices)
+- Read [docs/agent-skills-creation-reference.md](docs/agent-skills-creation-reference.md) — the canonical authoring guide for this repository — and [AGENTS.md](AGENTS.md)
 - Review existing skills in `skills/` to check for overlap and assess fit / appropriateness
 - Use `/create-skill` if your coding agent provides it, or manually copy [docs/SKILL-TEMPLATE.md](docs/SKILL-TEMPLATE.md) into a new skill directory
 
 ## When to Create a New Skill
 
-**Prefer extending an existing skill.** Create a new skill only when the new capability introduces a distinct area of expertise with a clear set of responsibilities and reviewable artifacts that no existing skill should author or maintain. Work through this before scaffolding anything as it determines whether you run `/create-skill`, open a PR against an existing skill's guidance, or add a standalone tool.
+**Prefer extending an existing skill.** Create a new skill only when the new capability introduces a distinct area of expertise with a clear set of responsibilities and reviewable artifacts that no existing skill should author or maintain. Work through this before scaffolding anything — it determines whether you run `/create-skill`, open a PR against an existing skill's guidance, or add a standalone tool.
 
 ### Create a new skill only if it is responsible for one or more reviewable artifacts that no existing skill should author or maintain.
 
@@ -32,7 +33,7 @@ In addition, the capability should satisfy most of the following:
 
 - represents an independent body of expert knowledge;
 - can evolve independently of existing skills without routinely requiring changes to them;
-- requires reasoning outside the expertise of existing skills and foundation models
+- requires methodological reasoning that existing skills or foundation models do not reliably provide
 
 Otherwise:
 
@@ -41,6 +42,13 @@ Otherwise:
 - **Extend the existing skill** when the capability falls within its existing artifact responsibilities.
 
 ### Rule of Thumb
+
+| If you're adding...      | Prefer... |
+| ------------------------ | --------- |
+| New methodology          | Guidance  |
+| New reviewable artifact  | Skill     |
+| Deterministic automation | Tool      |
+
 
 - **Skills** are responsible for reviewable artifacts and the reasoning that produce and maintain them.
 - **Guidance** specializes reasoning within a skill.
@@ -57,6 +65,33 @@ Each reviewable artifact should have a single responsible skill, and each skill 
 | `Document` | Skill | Responsible for detailed narrative documentation artifacts. |
 | `FAIR` | Skill | Responsible for research software engineering artifacts, provenance, and release readiness. |
 
+## Skill Anatomy
+
+Each skill lives in its own folder with a required `SKILL.md` file:
+
+```
+your-skill-name/
+├── SKILL.md                     (required: frontmatter + instructions)
+├── scripts/                     (optional: Python/shell scripts for automation)
+├── references/                  (optional: compressed, detailed docs, checklists, guides)
+└── assets/                      (optional: templates, icons, example files)
+```
+
+Recommended semantic purpose of each component:
+
+- `SKILL.md` → orchestration and enforcement language (when to trigger, required workflow steps, output constraints)
+- `assets/` → reusable output artifacts (templates, starter files, structured output skeletons)
+- `references/` → normative guidance / rules / compressed artifacts (checklists, standards mappings, policy summaries)
+- `scripts/` → deterministic automation helpers (validation, generation, extraction)
+
+Authoring guidance:
+
+- Keep operational decision logic in `SKILL.md`; do not duplicate it across assets.
+- Put reusable content the model can copy/fill into `assets/`.
+- Put standards and rule-oriented material in `references/`.
+
+See [AGENTS.md](AGENTS.md) and [docs/VALIDATION.md](docs/VALIDATION.md) for full guidance.
+
 ## Skill Creation Workflow
 
 ### Plan Your Skill
@@ -71,6 +106,13 @@ Answer these questions:
 - **Are there dependencies?** What prerequisites must already exist? (technical dependencies, required artifacts, prior methodological decisions, etc.)
 
 Confirm this belongs in a **new skill** rather than as guidance, a tool, or an extension of an existing skill — see [When to Create a New Skill](#when-to-create-a-new-skill).
+
+Keep these principles in mind while planning and drafting:
+
+- **Ground from real expertise**: start from real task runs, corrections, and project artifacts, not generic advice.
+- **Scope coherently**: define one composable unit of work and keep the boundary clear.
+- **Design for context efficiency**: keep `SKILL.md` concise, move deep detail into `references/`, and add explicit load conditions.
+- **Prefer defaults over menus**: choose one default tool or approach and use alternatives only as fallbacks.
 
 ### Create Your Skill Folder
 
@@ -88,28 +130,11 @@ Then immediately rename `skill_name`, replace the copied prompts, and make sure 
 
 ### Write SKILL.md
 
-See [Frontmatter Specification](#frontmatter-specification) and [Writing Guidelines](#writing-guidelines) below.
+See [Frontmatter Specification](#frontmatter-specification) and [Authoring Guidelines](#authoring-guidelines) below.
 
 ### Add Optional Resources
 
-As your skill grows, you might find supporting files useful:
-
-```
-your-skill-name/
-├── SKILL.md                     ← always required
-├── scripts/
-│   ├── setup.py
-│   ├── validate.py
-│   └── requirements.txt
-├── references/
-│   ├── METHODOLOGY.md
-│   ├── CHECKLIST.md
-│   └── EXAMPLES.md
-└── assets/
-    ├── template.md
-    ├── default-config.yaml
-    └── example-output.md
-```
+Add references/, assets/, and scripts/ as needed. Prefer keeping SKILL.md concise and moving reusable or detailed content into supporting resources.
 
 ### Test Your Skill
 
@@ -122,6 +147,8 @@ make validate
 ```
 
 ### Submit a Pull Request
+
+Make sure your new skill is on an up-to-date feature branch in your fork.
 
 Include:
 
@@ -150,7 +177,7 @@ Include:
 - **Format:** `UPPERCASE-TOPIC.md` for detailed references, `topic-guide.md` for guides
 - **Examples:** `ODD-CHECKLIST.md`, `FAIR4RS-HANDBOOK.md`, `hpc-quickstart.md`
 
-## Writing Guidelines
+## Authoring Guidelines
 
 ### Principles
 
@@ -323,10 +350,20 @@ Before submitting, verify:
 - [ ] No credentials, API keys, or personal data in examples
 - [ ] License field is present in frontmatter
 
+## [update-skill](.github/skills/update-skill)
+
+Maintainer workflow for refreshing compressed artifacts, references, and eval expectations when upstream standards evolve.
+
+Use cases:
+
+- Refreshing rubric/indicator snapshots after upstream changes
+- Keeping `SKILL.md`, `references`, `assets`, and `evals.json` synchronized in one PR
+- Standardizing refresh PR notes for traceability
+
 ## Questions?
 
-Open an issue or start a discussion in the repository. We're here to help!
+Please feel free to open an issue or start a discussion.
 
 ---
 
-**Thanks for contributing to computational modeling skills!** 🎉
+**Thanks for contributing to these OMF community computational modeling skills!** 🎉

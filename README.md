@@ -1,151 +1,61 @@
 # OMF Skills Repository
 
-Agent skills that operationalize evolving community standards and good modeling practices, enabling foundation models to support the full computational modeling lifecycle, from conceptual modeling and reproducible implementation to HPC/HTC execution and publication.
+Computational modeling involves hundreds of methodological decisions, but most AI coding agents only know general software engineering. OMF Skills augment coding agents with community-developed modeling guidance, research software practices, and scientific workflows so they can help produce transparent, reviewable computational models.
 
-This repository hosts a curated collection of [Agent Skills](https://agentskills.io) that augment foundation models with methodological knowledge, scientific workflows, and research software practices developed by the computational modeling community. We hope for these skills to help researchers and developers at every career stage produce transparent, reviewable computational models while preserving human scientific judgement and making it easier to adopt methodological and engineering best practices. Think of these skills as open source structured guidance that evolves alongside both the research community and foundation models. As foundation models improve, the skills should shrink, capturing only the frontier community knowledge, standards, and practices that models do not natively possess or consistently apply.
+These skills are open source, structured guidance designed to evolve alongside both the research community and foundation models. As foundation models improve, the skills should shrink, capturing only the frontier community knowledge, standards, and practices that models do not natively possess or consistently apply.
 
 **NOTE**: These skills are still under active development so behavior and guidance may change rapidly. Please check for updates periodically via `npx skills update` or `git pull` if you manually cloned them to your `.agents/skills/` directory (either in your home directory or in a specific project).
 
 ## Quick Start
 
-### Accessing a Coding Agent
+### Prerequisites
 
-These skills are designed for coding-capable AI agents that can:
+- A [coding-capable AI agent](https://agentskills.io/clients) (Cursor, Claude Code, ChatGPT Codex, VS Code, Warp, etc.)
+- Node.js LTS (see [docs/install.md](docs/install.md))
 
-- read skill instructions from `SKILL.md`
-- execute shell commands
-- inspect and modify repositories
-- run local tools such as Python, Git, and Docker
+### Install
 
-For details on how to provide an AI agent access to skills, view [the Agent Skills client documentation](https://agentskills.io/client-implementation/adding-skills-support). 
+OMF Skills require a coding-capable AI agent and Node.js LTS. See [docs/install.md](docs/install.md) for more detailed Node.js or manual git clone setup instructions.
 
-Compatible agent environments include:
-
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
-- [Claude Code](https://code.claude.com/docs/en/overview)
-- [Cursor Agent](https://cursor.com/)
-- (contributions welcome, this is a rapidly evolving space)
-
-At minimum, your agent should support:
-
-- filesystem access
-- terminal execution
-- multi-file editing
-
-### Install Node.js LTS with nvm (WSL, macOS, Linux)
-
-After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are simply a set of files installed into a local directory managed by `npx skills` (either globally for use across all of your projects or into a specific project).
-
-We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
-
-1. Install prerequisites
-
-WSL / Linux:
-
-```bash
-sudo apt update
-sudo apt install -y curl ca-certificates git
-```
-
-macOS (with Homebrew):
-
-```bash
-brew install curl ca-certificates git
-```
-
-2. Install `nvm` from an official tagged release
-
-Choose the latest release tag from: https://github.com/nvm-sh/nvm/releases
-
-```bash
-export NVM_VERSION="v0.40.4" # change to latest release
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh | bash
-```
-
-3. Load `nvm` in your current shell or close and restart your shell
-
-The following commands should be auto-appended to your shell profile (.bashrc / .zshrc / etc) but in case they aren't, make sure they are present:
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
-
-If needed, restart your terminal so your shell profile changes take effect.
-
-4. Install and use the latest Node LTS
-
-```bash
-nvm install --lts
-nvm alias default 'lts/*'
-nvm use --lts
-```
-
-5. Verify toolchain
-
-```bash
-node -v
-npm -v
-npx -v
-```
-
-6. Continue with skills installation
+#### Install with the Skills CLI (recommended)
 
 ```bash
 npx skills add omf/skills
-# alternatively, install from github directly
+# or
 npx skills add https://github.com/omf/skills
 ```
 
-7. Keep Node LTS current (maintenance)
+This installs the skills into your agent's managed skills directory and makes future updates easy via `npx skills update`.
 
-```bash
-nvm install --lts --reinstall-packages-from=current
-nvm use --lts
-```
+#### Install directly from your coding agent
 
-### Try the skills out
+Some coding agents are capable of installing skills through their chat interface. Ask them if they can install skills directly which would let you enter `install all skills from https://github.com/openmodelingfoundation/skills` into the chat interface to install all skills.
 
-#### Open your modeling project in a coding agent
+## Example Workflow
 
-Examples:
+User: `/omfa help me build a conceptual model of ...`
 
-- Cursor: open the project folder and enable Agent mode
-- Claude Code: run `claude` in the project root
-- ChatGPT: open the repository in a coding-enabled workspace
+or
+
+User: `/omfa build a spatially explicit ABM of wildfire evacuation`
+
+User request
+     │
+     ▼
+   /omfa
+     │
+     ├── develop conceptual model
+     ├── create implementation plan
+     ├── /document produce narrative documentation
+     ├── /fair prepare research objects for publication
+     └── /peer-review evaluate review readiness
 
 #### Verify the agent can discover installed skills
 
 Try:
 
 ```text
-What skills are available from the omf/skills collection?
-```
-
-or:
-
-```text
-Read the installed skills and summarize when each should be used.
-```
-
-#### Use the skills
-
-Skills can be triggered if you reference them by name, or you can use their associated slash command, e.g.,
-
-```text
-/document generate ODD documentation for this model
-```
-
-or
-
-```text
-generate ODD documentation for this model
-```
-
-```text
-/peer-review evaluate this repository
+List all installed skills and summarize when each should be used.
 ```
 
 #### Complex tasks
@@ -166,185 +76,42 @@ Other examples:
 - _"Generate a FAIR publication checklist for this model"_
 - _"Generate a FAIR publication checklist for my model's output data"_
 
-## Skills Overview
-
-This repository currently includes five skills covering core computational modeling needs, with `omfa` as the primary entry point for lifecycle coordination:
-
-### 1. **document**
-
-Generates and iteratively improves ODD+2 (Overview, Design Concepts, Details) documentation for agent-based models. Use when you have model code and need publication-ready narrative documentation that satisfies the 23-point ODD+2 checklist.
-
-**Triggers:** "Document my model", "Generate ODD", "Write model narrative"
-
-### 2. **fair**
-
-Creates FAIR metadata with codemeta.json as canonical machine-readable metadata, citation files derived from codemeta.json, release-readiness guidance, and EVERSE-aligned software management plans to ensure your computational artifacts are reproducible, portable, citable, and ready for archival. Use when preparing models or research software for Zenodo, arXiv, or disciplinary repositories.
-
-**Triggers:** "Prepare for publication", "Generate publication checklist", "Create FAIR metadata", "Package my repository"
-
-### 3. **ospool**
-
-Generates HTCondor job submission scripts and parameter sweep configurations for running models on the Open Science Grid (OSPool). Use for batch processing, large parameter sweeps, or distributed sensitivity analysis.
-
-**Triggers:** "Run on OSPool", "Generate HTCondor batch script", "Set up parameter sweep"
-
-### 4. **hpc**
-
-Generates Slurm job scripts, job arrays, and resource allocation templates for running models on HPC systems. Use for multi-node simulations or large-scale experiments requiring direct HPC cluster access.
-
-**Triggers:** "Run on HPC", "Generate Slurm script", "Set up batch array job"
-
-### 5. **peer-review**
-
-Evaluates computational model submissions for peer review readiness using required review criteria (ease of execution, documentation thoroughness, and code quality) plus supporting research software quality indicators inspired by EVERSE.
-
-**Triggers:** "Peer review my model", "Is this model submission ready", "Review codebase quality", "Check reproducibility"
-
-## Repository-Local Maintainer Skill
-
-This repository also includes a local-only maintainer skill that is not part of the published `skills/` catalog:
-
-### **update-skill** (`.github/skills/update-skill`)
-
-Maintainer workflow for refreshing compressed artifacts, references, and eval expectations when upstream standards evolve.
-
-Use cases:
-
-- Refreshing rubric/indicator snapshots after upstream changes
-- Keeping `SKILL.md`, `references`, `assets`, and `evals.json` synchronized in one PR
-- Standardizing refresh PR notes for traceability
-
 ## Repository Structure
 
-```
+```text
 .
-├── .github/
-│   └── skills/
-│       └── update-skill/        (repository-local maintainer skill)
-│           ├── SKILL.md
-│           ├── references/
-│           │   └── REFRESH-WORKFLOW.md
-│           └── assets/
-│               └── REFRESH-PR-NOTE-TEMPLATE.md
-├── AGENTS.md                    (repository-specific agent instructions)
-├── README.md                    (this file)
-├── CONTRIBUTING.md              (contribution guidelines)
-├── LICENSE                      (MIT)
-├── .gitignore
-├── Makefile                     (validation shortcuts)
-├── docs/                        (repository-level documentation)
-│   ├── agent-skills-creation-reference.md
-│   ├── roadmap.md
-│   └── SKILL-TEMPLATE.md        (copy/fill template for new skills)
-├── evals/                       (cross-skill evals and schema)
-├── scripts/                     (validation and reporting helpers)
-└── skills/                      (all skill folders)
-    ├── document/
-  │   ├── SKILL.md
-  │   └── evals.json
-    ├── fair/
-  │   ├── SKILL.md
-  │   └── evals.json
-    ├── ospool/
-  │   ├── SKILL.md
-  │   └── evals.json
-    ├── hpc/
-  │   ├── SKILL.md
-  │   └── evals.json
-    └── peer-review/
-    ├── SKILL.md
-    └── evals.json
+├── skills/            # published agent skills
+│   ├── omfa/
+│   ├── document/
+│   ├── fair/
+│   └── ...
+├── docs/              # contributor documentation
+├── evals/             # evaluation framework
+├── scripts/           # repository tooling
+├── README.md
+├── CONTRIBUTING.md
+└── AGENTS.md
 ```
 
-## For Skill Authors
+## Contributing
 
-### Adding a New Skill
+We welcome new skills, improvements to existing skills, documentation updates, and evaluation cases.
 
-1. **Read** [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [docs/agent-skills-creation-reference.md](docs/agent-skills-creation-reference.md) before drafting.
-2. **Review** [Agent Skills best practices](https://agentskills.io/skill-creation/best-practices) before drafting.
-3. **Ground from real expertise**: start from real task runs, corrections, and project artifacts, not generic advice.
-4. **Scope coherently**: define one composable unit of work and keep the boundary clear.
-5. **Design for context efficiency**: keep `SKILL.md` concise, move deep detail into `references/`, and add explicit load conditions.
-6. **Prefer defaults over menus**: choose one default tool or approach and use alternatives only as fallbacks.
-7. **Create the skill folder** with `/create-skill` if your agent supports it, or scaffold manually:
+See:
 
-```bash
-mkdir -p skills/your-skill-name
-cp docs/SKILL-TEMPLATE.md skills/your-skill-name/SKILL.md
-cp skills/document/evals.json skills/your-skill-name/evals.json
-```
-
-8. **Fill in** the YAML frontmatter and markdown instructions, then immediately rename `skill_name`, replace the copied prompts, and ensure `name:` matches the folder exactly.
-9. **Include optional resources** (`assets/`, `references/`, `scripts/`) as the workflow needs them.
-10. **Refine with real execution**: test should-trigger and should-not-trigger prompts, review execution traces, and iterate.
-11. **Run the repository validators** before opening a PR:
-
-```bash
-make validate
-```
-
-12. **Submit** a pull request with the skill folder, its `evals.json`, and the prompts or checks you used to validate it.
-
-### Skill Anatomy
-
-Each skill lives in its own folder with a required `SKILL.md` file:
-
-```
-your-skill-name/
-├── SKILL.md                     (required: frontmatter + instructions)
-├── scripts/                     (optional: Python/shell scripts for automation)
-├── references/                  (optional: compressed, detailed docs, checklists, guides)
-└── assets/                      (optional: templates, icons, example files)
-```
-
-Recommended semantic purpose of each component:
-
-- `SKILL.md` -> orchestration and enforcement language (when to trigger, required workflow steps, output constraints)
-- `assets/` -> reusable output artifacts (templates, starter files, structured output skeletons)
-- `references/` -> normative guidance / rules / compressed artifacts (checklists, standards mappings, policy summaries)
-- `scripts/` -> deterministic automation helpers (validation, generation, extraction)
-
-Authoring guidance:
-
-- Keep operational decision logic in `SKILL.md`; do not duplicate it across assets.
-- Put reusable content the model can copy/fill into `assets/`.
-- Put standards and rule-oriented material in `references/`.
-
-**Frontmatter (required fields):**
-
-```yaml
----
-name: your-skill-name
-description: |
-  Use this skill when...
-  Triggers: "phrase 1", "phrase 2"
-  Expected output: ...
-license: MIT
----
-```
-
-**Optional fields:**
-
-```yaml
-compatibility: Tool/version requirements
-metadata:
-  domain: computational-modeling | documentation | publication | execution
-  maturity: alpha | beta | stable
-  audience: modelers | researchers | data-scientists
-  category: documentation | quality-assurance | execution | publication
----
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md), and [docs/VALIDATION.md](docs/VALIDATION.md) for full guidance.
+- CONTRIBUTING.md for contribution workflow and repository conventions
+- docs/agent-skills-creation-reference.md for detailed skill authoring guidance
+- docs/SKILL-TEMPLATE.md to scaffold a new skill
 
 ## Roadmap
 
-See [docs/roadmap.md](docs/roadmap.md) for planned skills expanding into:
-
-- **Reproducibility & containerization** (Docker, environment capture, snapshot verification)
-- **Data & lineage tracking** (DVC integration, provenance metadata, parameter tracking)
-- **Analysis & validation** (sensitivity analysis frameworks, unit testing templates, notebooks-to-workflows)
-- **Integration & composability** (standard interchange formats, skill composition patterns)
+| Current              | Planned                  |
+| -------------------- | ------------------------ |
+| Modeling methodology | Statistical analysis     |
+| Documentation        | Calibration              |
+| FAIR                 | Reproducibility          |
+| HPC / HTC            | Visualization            |
+|                      | Domain-specific modeling |
 
 ## Links & References
 
@@ -353,15 +120,6 @@ See [docs/roadmap.md](docs/roadmap.md) for planned skills expanding into:
 - **Agent Skills documentation**: [agentskills.io](https://agentskills.io)
 - **Agent Skills CLI**: [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
 - **Example skills repository**: [github.com/anthropics/skills](https://github.com/anthropics/skills)
-
-## Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
-
-- Contribution workflow
-- Naming conventions and style guidance
-- Review checklist
-- Community contact
 
 ## License
 
