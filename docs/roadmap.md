@@ -6,9 +6,7 @@ OMF Skills augment AI coding agents with community-developed computational model
 
 This roadmap is intentionally lightweight and will evolve through community feedback, real-world use, and advances in foundation models.
 
----
-
-# Current Capabilities
+## Current Capabilities
 
 The current alpha release provides foundational support for computational modeling across much of the research lifecycle.
 
@@ -28,16 +26,14 @@ Future methodological guidance will expand to additional domains such as experim
 
 Current specialist skills support:
 
-* narrative model documentation
-* FAIR research software and publication assets
-* peer-review readiness
-* HPC and distributed computing workflows
+- narrative model documentation
+- FAIR research software and publication assets
+- peer-review readiness
+- HPC and distributed computing workflows
 
 Together these skills support computational modeling from conceptualization through implementation, documentation, publication, review, and computational execution.
 
----
-
-# Repository Architecture
+## Repository Architecture
 
 OMF Skills are organized into complementary architectural layers.
 
@@ -62,19 +58,15 @@ Each layer has a distinct responsibility.
 
 Future development should reinforce this architecture by favoring routing over duplication, modular guidance over monolithic skills, and explicit reviewable artifacts over implicit conversational state.
 
----
-
-# Terminology
+## Terminology
 
 Throughout this repository:
 
-* **Methodology** refers to the scientific reasoning, analytical choices, and community knowledge used to develop and evaluate computational models.
-* **Guidance** refers to the structured instructions that encode that methodology for AI agents.
-* **Practices** refers to established community conventions, standards, and research software workflows that support transparent and reproducible computational modeling.
+- **Methodology** refers to the scientific reasoning, analytical choices, and community knowledge used to develop and evaluate computational models.
+- **Guidance** refers to the structured instructions that encode that methodology for AI agents.
+- **Practices** refers to established community conventions, standards, and research software workflows that support transparent and reproducible computational modeling.
 
----
-
-# Near-Term Priorities
+## Near-Term Priorities
 
 The next phase focuses on expanding methodological coverage while strengthening specialist execution skills.
 
@@ -103,9 +95,7 @@ Planned execution skills include support for:
 
 These skills will consume the methodological guidance produced by OMFA and OMFB rather than duplicating it.
 
----
-
-# Domain Extensions
+## Domain Extensions
 
 Future domain-specific skills may include support for:
 
@@ -119,9 +109,7 @@ Future domain-specific skills may include support for:
 
 Domain skills should extend existing methodological guidance rather than introducing independent modeling workflows.
 
----
-
-# Community Priorities
+## Community Priorities
 
 We particularly welcome contributions involving:
 
@@ -136,9 +124,7 @@ We particularly welcome contributions involving:
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for contribution guidelines.
 
----
-
-# Roadmap Philosophy
+## Roadmap Philosophy
 
 As foundation models improve, OMF Skills should become smaller rather than larger.
 

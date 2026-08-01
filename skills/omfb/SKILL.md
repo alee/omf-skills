@@ -1,10 +1,11 @@
 ---
 name: omfb
 description: |
-  Guide implementation of computational models as research software while preserving
-  traceability to the conceptual model. Helps translate scientific models into
-  maintainable implementations, identify implementation risks, and delegate
-  platform-specific practices to specialized guidance.
+  Use this skill when planning or reviewing the implementation of a computational
+  model as research software. Helps translate scientific models into maintainable
+  implementations, preserve traceability to the conceptual model, identify
+  implementation risks, and delegate platform-specific practices to specialized
+  guidance.
 
   Expected output: implementation guidance, implementation review, implementation
   planning, and routing to platform-specific implementation guidance.
@@ -103,3 +104,10 @@ OMFB MUST NOT:
 - introduce implementation-driven behavior without documenting and justifying it.
 
 If implementation constraints require changes to scientific assumptions or conceptual structure, pause planning and recommend revising affected upstream artifact(s).
+
+## Gotchas
+
+- **Implementation can silently redefine the conceptual model.** Watch for data structures, scheduling logic, or approximation choices that change the scientific meaning of entities or relationships. Surface these explicitly rather than letting them become implicit behavior.
+- **OMFB is not a coding tutor.** It provides architecture and traceability guidance; language-specific implementation details belong in platform-specific guidance or the user's chosen tooling.
+- **Traceability without reviewability is insufficient.** A mapping from conceptual model to code is useful only if it is kept current and reviewed when either side changes.
+- **Do not duplicate OMFA's work.** Conceptual modeling, uncertainty analysis, and evaluation methodology remain OMFA responsibilities; OMFB consumes their outputs, not replace them.

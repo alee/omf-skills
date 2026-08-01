@@ -1,47 +1,92 @@
 {
+  "schema_version": "1.0.0",
   "skill_name": "omfb",
+  "description": "Evaluation cases for the OMFB model implementation guidance skill.",
+  "suite": "omfb",
   "evals": [
     {
       "id": 1,
+      "type": "core",
       "prompt": "I have a conceptual model for a disease spread simulation. Can you help me plan the implementation to ensure it stays true to the scientific assumptions?",
       "should_trigger": true,
-      "expected_output": "The agent should provide implementation planning guidance, focusing on traceability to the conceptual model.",
-      "success_criteria": ["Identifies mapping from conceptual entities to software", "Discusses preservation of scientific intent"]
+      "behavior": ["Produces implementation planning guidance", "Maps conceptual entities to implementation structures"],
+      "output": {
+        "description": "Implementation plan that preserves traceability to the conceptual model",
+        "must_include": ["conceptual model", "traceability", "implementation plan"],
+        "must_not_include": []
+      },
+      "success_criteria": ["Identifies mapping from conceptual entities to software", "Discusses preservation of scientific intent"],
+      "failure_modes": ["scope_creep"]
     },
     {
       "id": 2,
+      "type": "core",
       "prompt": "Review my model's architecture. I'm worried that my choice of data structures is redefining the model's logic.",
       "should_trigger": true,
-      "expected_output": "The agent should perform an implementation review, checking for 'implementation redefining the conceptual model'.",
-      "success_criteria": ["Analyzes architecture vs conceptual intent", "Identifies potential logic drift"]
+      "behavior": ["Reviews implementation architecture against conceptual intent", "Flags logic drift"],
+      "output": {
+        "description": "Implementation review highlighting architecture risks",
+        "must_include": ["architecture", "conceptual model", "logic drift"],
+        "must_not_include": []
+      },
+      "success_criteria": ["Analyzes architecture vs conceptual intent", "Identifies potential logic drift"],
+      "failure_modes": ["boundary_violation"]
     },
     {
       "id": 3,
+      "type": "core",
       "prompt": "I need to organize my model implementation for better maintainability and traceability. What should my architecture look like?",
       "should_trigger": true,
-      "expected_output": "The agent should provide guidance on organizing model architecture and maintaining traceability.",
-      "success_criteria": ["Suggests module boundaries", "Discusses separation of scientific logic from infrastructure"]
+      "behavior": ["Suggests modular architecture", "Separates scientific logic from infrastructure"],
+      "output": {
+        "description": "Architecture guidance for maintainable model implementation",
+        "must_include": ["module boundaries", "scientific logic", "infrastructure"],
+        "must_not_include": []
+      },
+      "success_criteria": ["Suggests module boundaries", "Discusses separation of scientific logic from infrastructure"],
+      "failure_modes": ["incomplete_execution"]
     },
     {
       "id": 4,
+      "type": "adversarial",
       "prompt": "How do I define the conceptual entities and relationships for a new urban growth model?",
       "should_trigger": false,
-      "expected_output": "Skill does not activate",
-      "success_criteria": ["Does not provide conceptual modeling guidance (which is OMFA's role)"]
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": ["implementation", "software architecture"]
+      },
+      "success_criteria": ["Does not provide conceptual modeling guidance (which is OMFA's role)"],
+      "failure_modes": ["over_trigger", "wrong_skill"]
     },
     {
       "id": 5,
+      "type": "adversarial",
       "prompt": "What is the best way to implement a fast Fourier transform in Python using NumPy?",
       "should_trigger": false,
-      "expected_output": "Skill does not activate",
-      "success_criteria": ["Does not provide language-specific coding advice"]
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": ["model implementation", "conceptual model"]
+      },
+      "success_criteria": ["Does not provide language-specific coding advice"],
+      "failure_modes": ["over_trigger", "wrong_skill"]
     },
     {
       "id": 6,
+      "type": "adversarial",
       "prompt": "Can you help me design a validation study to check if my model results are accurate?",
       "should_trigger": false,
-      "expected_output": "Skill does not activate",
-      "success_criteria": ["Does not provide evaluation methodology guidance"]
+      "behavior": ["Does not activate"],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": ["implementation", "software"]
+      },
+      "success_criteria": ["Does not provide evaluation methodology guidance"],
+      "failure_modes": ["over_trigger", "wrong_skill"]
     }
   ]
 }
