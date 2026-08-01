@@ -45,13 +45,11 @@ The only exception is when modifying the `Makefile` or container configuration i
 
 ---
 
-## Purpose
+## Agent handoffs
 
-A collection of [Agent Skills](https://agentskills.io) that augment AI coding agents and assistants with community-developed computational modeling methodology, research software practices, and scientific workflows.
+When a task spans multiple agent sessions or requires explicit transfer of context, place concise handoff notes under `docs/handoffs/`.
 
-Published skills live in `skills/`. A local, maintainer-only skill for updating / refreshing skill content and references lives in `.github/skills/update-skill/` and is **not** part of the published catalog.
-
----
+Handoffs are transient working documents, not project artifacts. Archive or remove them when no longer needed.
 
 ## Repository design principles
 
