@@ -4,6 +4,47 @@ Agent instructions for working in this repository. Every AI agent should read th
 
 ---
 
+## Preferred Commands
+
+Use documented `make` targets whenever possible.
+Do not invoke underlying tools directly when an equivalent `make` target exists.
+
+Before submitting changes, run:
+
+```
+make validate
+```
+
+This is the repository's canonical validation command. It runs the same checks as CI inside the supported container, so `make validate` is authoritative.
+
+Discover available targets with:
+
+```
+make help
+```
+
+---
+
+## Agent Guidance
+
+Coding agents working in this repository MUST:
+
+- Prefer documented `make` targets for validation, lint, format, test, and clean operations.
+- Treat the `Makefile` as the repository's public API and stable interface.
+- Run `make validate` before considering work complete.
+- Use `make help` when discovering repository capabilities.
+
+Coding agents SHOULD NOT:
+
+- Invent validation, lint, formatting, or container commands.
+- Bypass documented workflows with ad hoc shell commands.
+- Call `docker`, `python`, `pytest`, `npm`, or similar tools directly when a `make` target exists.
+- Duplicate CI logic in one-off terminal commands.
+
+The only exception is when modifying the `Makefile` or container configuration itself, where direct tool invocation may be required to verify the change.
+
+---
+
 ## Purpose
 
 A collection of [Agent Skills](https://agentskills.io) that augment AI coding agents and assistants with community-developed computational modeling methodology, research software practices, and scientific workflows.

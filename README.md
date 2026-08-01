@@ -39,6 +39,17 @@ Confirm your agent has loaded the skills:
 List all installed skills and summarize when each should be used.
 ```
 
+### Repository Workflow
+
+Use documented `make` targets for all repository operations:
+
+```bash
+make help       # list supported commands
+make validate   # run the canonical validation suite (CI-equivalent)
+```
+
+`make validate` is the single entry point for validation. It runs the same checks as CI inside the supported container. Do not invoke `docker`, `python`, `pytest`, `npm`, or similar tools directly when an equivalent `make` target exists.
+
 ## Example Workflow
 
 > An animated walkthrough will be added here in a future release.
