@@ -31,6 +31,56 @@ This skill is local to this repository workspace (`.github/skills/update-skill`)
    - eval expectations (`skills/*/evals.json`) when behavior changes
 6. Add a concise PR note using `assets/REFRESH-PR-NOTE-TEMPLATE.md`.
 
+## Architectural Invariant
+
+Changes to an authoritative artifact or interface contract SHOULD propagate to
+all dependent skills, guidance, templates, examples, evaluations, and
+documentation in the same change whenever practical.
+
+Flag dependencies rather than allowing repository drift.
+
+## Synchronize Repository State
+
+Treat repository documentation, skills, guidance, templates, examples, and
+evaluations as executable project state.
+
+When a change is made, identify every repository component that depends on the
+changed concept and keep those components synchronized.
+
+Verify that:
+
+- skill contracts match current behavior;
+- routing and activation logic remain consistent;
+- artifact names, locations, and schemas remain synchronized;
+- guidance references remain valid;
+- examples reflect the current architecture;
+- downstream consumers remain compatible with upstream artifact contracts.
+
+Treat every shared concept as having a single authoritative definition.
+
+Prefer updating dependent references over duplicating or redefining concepts.
+
+Do not silently reconcile architectural inconsistencies.
+
+Instead:
+
+- identify the authoritative source;
+- identify conflicting documents;
+- explain the inconsistency;
+- identify downstream components requiring review.
+
+Preserve repository terminology, ownership boundaries, interface contracts, and
+artifact dependencies.
+
+Avoid stylistic rewrites unless they improve consistency.
+
+Report:
+
+1. architectural inconsistencies;
+2. stale or inconsistent repository state;
+3. broken contracts between repository components;
+4. downstream components requiring synchronized review.
+
 ## Guardrails
 
 - Do not copy upstream pages verbatim.

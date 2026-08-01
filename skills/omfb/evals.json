@@ -1,0 +1,47 @@
+{
+  "skill_name": "omfb",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a conceptual model for a disease spread simulation. Can you help me plan the implementation to ensure it stays true to the scientific assumptions?",
+      "should_trigger": true,
+      "expected_output": "The agent should provide implementation planning guidance, focusing on traceability to the conceptual model.",
+      "success_criteria": ["Identifies mapping from conceptual entities to software", "Discusses preservation of scientific intent"]
+    },
+    {
+      "id": 2,
+      "prompt": "Review my model's architecture. I'm worried that my choice of data structures is redefining the model's logic.",
+      "should_trigger": true,
+      "expected_output": "The agent should perform an implementation review, checking for 'implementation redefining the conceptual model'.",
+      "success_criteria": ["Analyzes architecture vs conceptual intent", "Identifies potential logic drift"]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to organize my model implementation for better maintainability and traceability. What should my architecture look like?",
+      "should_trigger": true,
+      "expected_output": "The agent should provide guidance on organizing model architecture and maintaining traceability.",
+      "success_criteria": ["Suggests module boundaries", "Discusses separation of scientific logic from infrastructure"]
+    },
+    {
+      "id": 4,
+      "prompt": "How do I define the conceptual entities and relationships for a new urban growth model?",
+      "should_trigger": false,
+      "expected_output": "Skill does not activate",
+      "success_criteria": ["Does not provide conceptual modeling guidance (which is OMFA's role)"]
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best way to implement a fast Fourier transform in Python using NumPy?",
+      "should_trigger": false,
+      "expected_output": "Skill does not activate",
+      "success_criteria": ["Does not provide language-specific coding advice"]
+    },
+    {
+      "id": 6,
+      "prompt": "Can you help me design a validation study to check if my model results are accurate?",
+      "should_trigger": false,
+      "expected_output": "Skill does not activate",
+      "success_criteria": ["Does not provide evaluation methodology guidance"]
+    }
+  ]
+}
