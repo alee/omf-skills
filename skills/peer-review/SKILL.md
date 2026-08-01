@@ -23,6 +23,25 @@ metadata:
 
 # Computational Model Peer Review Skill
 
+## Routing Contract
+
+Every review request MUST resolve to exactly one outcome before producing a report:
+
+```yaml
+outcome: continue | route | block
+target: omfa | omfb | document | fair | peer-review | hpc | ospool | model-extractor
+from:
+  - peer-review
+missing_artifacts: []
+reason: <short explanation>
+```
+
+- `continue` when the request is a review or readiness assessment for a supplied artifact or repository.
+- `route` when the request is actually scientific redesign, implementation, documentation drafting, or execution setup and belongs to another skill.
+- `block` when core evidence is missing and the review cannot be completed fairly.
+
+If the request already contains `peer-review` in the routed-from trail, emit `block` with a responsibility-ambiguity note rather than routing again.
+
 ## When to Use This Skill
 
 Use this skill when:

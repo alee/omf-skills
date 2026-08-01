@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "skill_name": "omfb",
+  "description": "Evaluation cases for implementation and model-realization routing",
+  "evals": [
+    {
+      "id": 1,
+      "type": "core",
+      "prompt": "I have a conceptual model for an evacuation ABM. Implement the simulation in Python.",
+      "should_trigger": true,
+      "behavior": [
+        "Continues as the implementation specialist and proposes code structure or implementation steps"
+      ],
+      "routing": {
+        "outcome": "continue",
+        "target": "omfb",
+        "from": ["omfa"],
+        "missing_artifacts": [],
+        "reason": "Implementation is in scope for omfb"
+      },
+      "output": {
+        "description": "Implementation-oriented guidance",
+        "must_include": [],
+        "must_not_include": []
+      }
+    },
+    {
+      "id": 2,
+      "type": "core",
+      "prompt": "Help me decide whether the model should include learning behavior or a different scientific mechanism.",
+      "should_trigger": true,
+      "behavior": [
+        "Routes to omfa because the request is scientific design, not implementation"
+      ],
+      "routing": {
+        "outcome": "route",
+        "target": "omfa",
+        "from": ["omfb"],
+        "missing_artifacts": [],
+        "reason": "Scientific redesign belongs to omfa"
+      },
+      "output": {
+        "description": "Routes to omfa",
+        "must_include": [],
+        "must_not_include": []
+      }
+    },
+    {
+      "id": 3,
+      "type": "core",
+      "prompt": "I want to write the ODD narrative for my implemented ABM.",
+      "should_trigger": true,
+      "behavior": [
+        "Routes to document because the request is narrative documentation"
+      ],
+      "routing": {
+        "outcome": "route",
+        "target": "document",
+        "from": ["omfb"],
+        "missing_artifacts": [],
+        "reason": "Narrative documentation belongs to document"
+      },
+      "output": {
+        "description": "Routes to document",
+        "must_include": [],
+        "must_not_include": []
+      }
+    },
+    {
+      "id": 4,
+      "type": "core",
+      "prompt": "I need to package my code for release and create metadata.",
+      "should_trigger": true,
+      "behavior": [
+        "Routes to fair because release and metadata are stewardship concerns"
+      ],
+      "routing": {
+        "outcome": "route",
+        "target": "fair",
+        "from": ["omfb"],
+        "missing_artifacts": [],
+        "reason": "Release and metadata belong to fair"
+      },
+      "output": {
+        "description": "Routes to fair",
+        "must_include": [],
+        "must_not_include": []
+      }
+    },
+    {
+      "id": 5,
+      "type": "core",
+      "prompt": "Implement the model, but I have not yet produced a conceptual model or implementation scope.",
+      "should_trigger": true,
+      "behavior": [
+        "Blocks because the prerequisite artifact is missing"
+      ],
+      "routing": {
+        "outcome": "block",
+        "target": "omfb",
+        "from": ["omfa"],
+        "missing_artifacts": ["conceptual-model.md"],
+        "reason": "Implementation cannot proceed without a conceptual model"
+      },
+      "output": {
+        "description": "Blocks until prerequisites exist",
+        "must_include": [],
+        "must_not_include": []
+      }
+    },
+    {
+      "id": 101,
+      "type": "adversarial",
+      "prompt": "Please write a peer review report for my model implementation.",
+      "should_trigger": true,
+      "behavior": [
+        "Routes to peer-review rather than answering as implementation"
+      ],
+      "routing": {
+        "outcome": "route",
+        "target": "peer-review",
+        "from": ["omfb"],
+        "missing_artifacts": [],
+        "reason": "Peer review is a separate assessment responsibility"
+      },
+      "output": {
+        "description": "Routes to peer-review",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "wrong_skill",
+        "boundary_violation"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "adversarial",
+      "prompt": "Explain the difference between agent-based and system dynamics models.",
+      "should_trigger": false,
+      "behavior": [
+        "Does not activate; this is scientific explanation rather than implementation"
+      ],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "over_trigger",
+        "scope_creep"
+      ]
+    },
+    {
+      "id": 103,
+      "type": "adversarial",
+      "prompt": "Write a README for the model repository.",
+      "should_trigger": false,
+      "behavior": [
+        "Does not activate; documentation belongs to document"
+      ],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "over_trigger",
+        "boundary_violation"
+      ]
+    },
+    {
+      "id": 104,
+      "type": "adversarial",
+      "prompt": "Help me package my model for Zenodo and create citation metadata.",
+      "should_trigger": false,
+      "behavior": [
+        "Does not activate; release and stewardship belong to fair"
+      ],
+      "output": {
+        "description": "Skill does not activate",
+        "must_include": [],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "over_trigger",
+        "boundary_violation"
+      ]
+    }
+  ]
+}

@@ -190,6 +190,13 @@
       "type": "adversarial",
       "prompt": "Explain the ODD protocol briefly for a presentation slide",
       "should_trigger": false,
+      "routing": {
+        "outcome": "block",
+        "target": "document",
+        "from": ["document"],
+        "missing_artifacts": ["source-materials"],
+        "reason": "Informational explanation is out of scope and lacks drafting inputs"
+      },
       "behavior": [
         "Does not activate; informational only"
       ],

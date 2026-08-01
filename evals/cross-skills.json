@@ -146,6 +146,13 @@
       "id": 211,
       "type": "cross-adversarial",
       "should_trigger": true,
+      "routing": {
+        "outcome": "route",
+        "target": "omfa",
+        "from": ["omfa"],
+        "missing_artifacts": ["conceptual-model.md"],
+        "reason": "Composite requests must be decomposed and gated by prerequisites"
+      },
       "skills_expected": [
         "document",
         "fair",

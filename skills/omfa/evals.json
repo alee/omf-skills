@@ -123,6 +123,13 @@
       "behavior": [
         "Does not trigger; publication readiness should route to peer-review"
       ],
+      "routing": {
+        "outcome": "route",
+        "target": "peer-review",
+        "from": ["omfa"],
+        "missing_artifacts": [],
+        "reason": "Readiness assessment belongs to peer-review"
+      },
       "output": {
         "description": "Does not trigger; publication readiness should route to peer-review",
         "must_include": [],
@@ -141,6 +148,13 @@
       "behavior": [
         "Does not trigger; archival metadata and repository packaging belong to fair"
       ],
+      "routing": {
+        "outcome": "route",
+        "target": "fair",
+        "from": ["omfa"],
+        "missing_artifacts": [],
+        "reason": "Stewardship and packaging belong to fair"
+      },
       "output": {
         "description": "Does not trigger; archival metadata and repository packaging belong to fair",
         "must_include": [],
@@ -195,6 +209,13 @@
       "behavior": [
         "Does not trigger; formal ODD narrative generation belongs to the document skill"
       ],
+      "routing": {
+        "outcome": "route",
+        "target": "document",
+        "from": ["omfa"],
+        "missing_artifacts": [],
+        "reason": "Narrative documentation belongs to document"
+      },
       "output": {
         "description": "Does not trigger; formal ODD narrative generation belongs to the document skill",
         "must_include": [],

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMF Skills routing record",
+  "type": "object",
+  "required": ["outcome", "from", "reason"],
+  "properties": {
+    "outcome": {
+      "type": "string",
+      "enum": ["continue", "route", "block"]
+    },
+    "target": {
+      "type": "string",
+      "enum": ["omfa", "omfb", "document", "fair", "peer-review", "hpc", "ospool", "model-extractor"]
+    },
+    "from": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["omfa", "omfb", "document", "fair", "peer-review", "hpc", "ospool", "model-extractor"]
+      },
+      "uniqueItems": true
+    },
+    "missing_artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "outcome": { "const": "route" } } },
+      "then": { "required": ["target"] }
+    },
+    {
+      "if": { "properties": { "outcome": { "const": "block" } } },
+      "then": { "required": ["missing_artifacts"] }
+    }
+  ]
+}

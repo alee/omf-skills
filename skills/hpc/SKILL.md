@@ -21,6 +21,25 @@ metadata:
 
 # HPC Slurm Scaffolder Skill
 
+## Routing Contract
+
+Every request MUST resolve to exactly one outcome before generating a Slurm plan:
+
+```yaml
+outcome: continue | route | block
+target: omfa | omfb | document | fair | peer-review | hpc | ospool | model-extractor
+from:
+  - hpc
+missing_artifacts: []
+reason: <short explanation>
+```
+
+- `continue` when the request is about execution strategy for an already-existing model on an HPC cluster.
+- `route` to `omfb` when the request implies code redesign or model realization changes, to `omfa` for scientific redesign, and to `document` or `fair` for documentation or release needs.
+- `block` when required runtime or model details are missing and a safe job script cannot be produced.
+
+If the request already contains `hpc` in the routed-from trail, emit `block` with a responsibility-ambiguity note rather than routing again.
+
 ## When to Use This Skill
 
 Use this skill when:

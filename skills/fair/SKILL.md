@@ -37,9 +37,28 @@ This skill applies the FAIR principles across research software, computational m
 
 The FAIR Management Plan is the project's canonical, primary stewardship document. It is not a funder deliverable itself — it is the source of truth that funder-facing documents are disseminated from. When a funder requires a Data Management Plan (DMP) or Software Management Plan (SMP), generate that document as a derived extract, populated from `assets/DMP-TEMPLATE.md` using the relevant sections of the FAIR Management Plan. The DMP is a dissemination artifact, not an independent source of stewardship decisions — if a DMP requirement surfaces new information (e.g. a funder-mandated retention period), record it back in the FAIR Management Plan first, then re-derive the DMP.
 
-## What This Skill Owns
+## What This Skill Is Responsible For
 
-This skill owns lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` owns scientific reasoning, this skill owns stewardship, `document` owns communication, and `peer-review` owns assessment. Keep that boundary intact when extending any of the four.
+This skill is responsible for lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` is responsible for scientific reasoning, this skill is responsible for stewardship, `document` is responsible for communication, and `peer-review` is responsible for assessment. Keep that boundary intact when extending any of the four.
+
+## Routing Contract
+
+Before acting, resolve the request to one outcome:
+
+```yaml
+outcome: continue | route | block
+target: omfa | omfb | document | fair | peer-review | hpc | ospool | model-extractor
+from:
+  - fair
+missing_artifacts: []
+reason: <short explanation>
+```
+
+- `continue` when the request is clearly a stewardship, metadata, release, provenance, or packaging task.
+- `route` to `omfa` for scientific or methodological questions, to `omfb` for implementation or code-structure questions, to `document` for narrative documentation, to `peer-review` for assessment, and to `hpc` or `ospool` for execution environments.
+- `block` when the required research objects or repository evidence are missing and no safe stewardship output can be produced.
+
+If the request already contains `fair` in the routed-from trail, emit `block` with a responsibility-ambiguity note rather than routing again.
 
 Data or authority governance questions about populations whose data or knowledge a model draws on, including collective benefit, authority to control, accountability for use, or affected-population consent and legitimacy, are modeling ethics concerns. Route those to `omfa`'s `references/guidance/ethics.md`; do not treat them as resolved by FAIR packaging, metadata, or archival stewardship alone.
 

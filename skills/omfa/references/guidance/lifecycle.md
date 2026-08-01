@@ -198,7 +198,12 @@ Use this guidance to coordinate the overall computational modeling lifecycle and
 - Route to `abm.md` IF the model represents autonomous, interacting agents and agent-based design decisions (entity definition, interaction rules, emergence) are under discussion.
 - Route to `participatory.md` IF stakeholders are intended to influence model design, framing, calibration, or interpretation.
 - Route to the `fair` skill IF reproducibility, metadata, packaging, citation, release, or archival practices are being established or assessed.
+- Route to `omfb` for executable model realization, implementation architecture, or code structure changes once the conceptual model exists.
+- Route to `document` for narrative documentation and ODD-style write-ups once the relevant artifacts exist.
+- Route to `peer-review` for assessment against explicit readiness criteria.
 - Route to `ethics.md` IF the model has governance, policy, or societal implications, or affects vulnerable populations.
+
+Every handoff should resolve to one of the routing outcomes `continue`, `route`, or `block` and should stop after the record is emitted when the outcome is `route` or `block`.
 
 **Specialist execution skills**
 

@@ -212,6 +212,13 @@
       "type": "adversarial",
       "prompt": "Generate metadata for my dataset",
       "should_trigger": false,
+      "routing": {
+        "outcome": "route",
+        "target": "omfa",
+        "from": ["fair"],
+        "missing_artifacts": [],
+        "reason": "The request is scientific rather than stewardship-focused"
+      },
       "behavior": [
         "Does not trigger; data-only metadata is out of scope"
       ],

@@ -36,6 +36,27 @@ maturity: alpha
 
 Generate narrative documentation for computational models and research software, from source code, pseudocode, publications, or other supplied materials.
 
+## Routing Contract
+
+Every request MUST resolve to one routing outcome before generating prose:
+
+```yaml
+outcome: continue | route | block
+target: omfa | omfb | document | fair | peer-review | hpc | ospool | model-extractor
+from:
+  - document
+missing_artifacts: []
+reason: <short explanation>
+```
+
+- `continue` when the request is for narrative documentation and the required source artifacts exist.
+- `route` when the request is scientific design, implementation, release stewardship, execution strategy, or review assessment and belongs to another skill.
+- `block` when the source materials are missing or contradictory and no safe narrative can be produced.
+
+If the request already contains `document` in the routed-from trail, emit `block` with a responsibility-ambiguity note rather than routing again.
+
+Composite requests that mix narrative drafting with implementation or review work must be split into sub-requests before routing.
+
 The goal is accurate, reusable documentation that describes the model as implemented — not as it was intended or remembered to work.
 
 ---
@@ -58,15 +79,15 @@ When generating documentation:
 
 Use this skill to **generate or draft** documentation: new narratives, ODD/ODD+2 write-ups, model cards, mathematical specifications, workflow descriptions, or improvements to existing prose.
 
-This skill is commonly invoked downstream of `omfa`, which owns lifecycle guidance and required structured artifacts; `document` owns substantive narrative generation according to the OMF rubric. When invoked this way, use the model type, lifecycle stage, and target audience `omfa` provides rather than re-deriving them independently (see Workflow step 2 below).
+This skill is commonly invoked downstream of `omfa`, which is responsible for lifecycle guidance and required structured artifacts; `document` is responsible for substantive narrative generation according to the OMF rubric. When invoked this way, use the model type, lifecycle stage, and target audience `omfa` provides rather than re-deriving them independently (see Workflow step 2 below).
 
-Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `document-review` skill, which is intended to share this skill's `references/ODD-CHECKLIST.md` and `references/ODD-METHODOLOGY.md` but does not rewrite prose.
+Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `peer-review` skill, which assesses readiness rather than rewriting prose.
 
-Also out of scope: model calibration, sensitivity analysis, statistical analysis, software testing, code generation, peer review, FAIR assessment, and metadata validation.
+Also out of scope: model calibration, sensitivity analysis, statistical analysis, software testing, code generation, peer review, FAIR assessment, and metadata validation. Those tasks route to the relevant specialist skill.
 
 Do not draft omfa's required lifecycle artifacts — artifacts/model-card.md, artifacts/abm-spec.md, or any other file directly under the artifacts/ root. These are template-driven and owned by the omfa skill even when high prose quality is requested, and even though ODD+2 (this skill's default ABM framework) covers similar ground to abm-spec.md. If a user asks for one of these artifacts by name in the context of an omfa-governed project, defer to omfa rather than drafting it directly. Model-card-style documentation for non-omfa projects (e.g. the machine learning framework row below) is unaffected.
 
-This skill's own intermediate artifacts (see Workflow step 3 and Intermediate Artifacts below) live in artifacts/document/, a subdirectory this skill owns — distinct from omfa's files directly under artifacts/. Never write this skill's intermediate artifacts to the artifacts/ root itself.
+This skill's own intermediate artifacts (see Workflow step 3 and Intermediate Artifacts below) live in artifacts/document/, a subdirectory this skill is responsible for — distinct from omfa's files directly under artifacts/. Never write this skill's intermediate artifacts to the artifacts/ root itself.
 
 ---
 

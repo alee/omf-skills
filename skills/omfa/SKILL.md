@@ -46,9 +46,23 @@ Applicable domains: research workflows, decision support, computational social s
 
 ## Activation Logic
 
-If the request requires a more specific skill, emit only the handoff and stop.
-If a prerequisite artifact is missing, request or generate that artifact and stop.
-Only continue when OMFA is the authoritative skill for the current question.
+Resolve every request to exactly one routing outcome before acting:
+
+```yaml
+outcome: continue | route | block
+target: omfa | omfb | document | fair | peer-review | hpc | ospool | model-extractor
+from:
+  - omfa
+missing_artifacts: []
+reason: <short explanation>
+```
+
+- `continue` when OMFA is the authoritative skill for the current question.
+- `route` when the request belongs to another specialist or can be satisfied by a specialist artifact.
+- `block` when required artifacts or human input are missing and no specialist can proceed safely.
+
+If the request already contains `omfa` in the routed-from trail, emit `block` with a responsibility-ambiguity note rather than routing again.
+If a request touches multiple artifact responsibilities, decompose it into sub-requests before routing and emit one record per sub-request.
 
 Primary responsibilities:
 - classify request
@@ -60,10 +74,11 @@ Primary responsibilities:
 
 ## Skill Boundaries
 
-- For narrative documentation (model write-ups, methods narratives, publication-ready descriptions, README-style overviews) requiring sustained prose and rubric-driven fidelity to OMF standards and structure: use the `document` skill
-- For publication-readiness metadata, reproducibility, and archival: use the `fair` skill
-- For peer review assessment with pass/fail criteria: use the `peer-review` skill
-- For ongoing modeling practice guidance throughout the lifecycle: use this skill
+- For narrative documentation (model write-ups, methods narratives, publication-ready descriptions, README-style overviews) requiring sustained prose and rubric-driven fidelity to OMF standards and structure: `route` to the `document` skill
+- For publication-readiness metadata, reproducibility, and archival: `route` to the `fair` skill
+- For peer review assessment with pass/fail criteria: `route` to the `peer-review` skill
+- For executable model realization, implementation architecture, and code structure: `route` to the `omfb` skill
+- For ongoing modeling practice guidance throughout the lifecycle: `continue` in this skill
 
 This skill provides the foundational framework that the other skills assess against.
 

@@ -212,6 +212,13 @@
       "type": "adversarial",
       "prompt": "Review my code for performance optimizations",
       "should_trigger": false,
+      "routing": {
+        "outcome": "route",
+        "target": "omfb",
+        "from": ["peer-review"],
+        "missing_artifacts": [],
+        "reason": "Performance optimization is an implementation concern"
+      },
       "behavior": [
         "Does not activate; performance tuning is out of scope"
       ],
