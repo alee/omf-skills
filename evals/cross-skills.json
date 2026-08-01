@@ -146,13 +146,7 @@
       "id": 211,
       "type": "cross-adversarial",
       "should_trigger": true,
-      "skills_expected": [
-        "document",
-        "fair",
-        "hpc",
-        "ospool",
-        "peer-review"
-      ],
+      "skills_expected": ["document", "fair", "hpc", "ospool", "peer-review"],
       "prompt": "Do everything needed to make my model complete, scalable, publishable, and reviewed.",
       "behavior": ["multi-stage plan", "coordinated execution"],
       "output": {

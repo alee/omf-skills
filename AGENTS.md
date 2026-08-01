@@ -4,222 +4,133 @@ Agent instructions for working in this repository. Every AI agent should read th
 
 ---
 
-## What this repo is
+## Purpose
 
-A curated collection of [Agent Skills](https://agentskills.io) targeting computational modelers: provides agentic support for model lifecycle guidance, documentation, publication, execution on HPC / HTC / cloud compute, and peer review.
+A collection of [Agent Skills](https://agentskills.io) that augment AI coding agents and assistants with community-developed computational modeling methodology, research software practices, and scientific workflows.
 
 Published skills live in `skills/`. A local, maintainer-only skill for updating / refreshing skill content and references lives in `.github/skills/update-skill/` and is **not** part of the published catalog.
 
 ---
 
+## Repository design principles
+
+The repository prioritizes methodological correctness, transparency, reviewability, and maintainability. It exists to encode community methodological knowledge that foundation models do not consistently possess, not generic software engineering or modeling advice.
+
+As foundation models improve, this repository should become smaller, preserving only frontier community knowledge, standards, workflows, and practices that models do not consistently execute.
+
+---
+
 ## Required authoring reference (load when editing skills)
 
-When you are:
-
-- creating a new skill
-- modifying an existing skill
-- reviewing or debugging a skill
-
-**You must read:**
+When creating, modifying, or reviewing a skill, you **must read**:
 
 ```
-
 docs/agent-skills-creation-reference.md
-
 ```
 
-Use it as the canonical guide for:
-
-- SKILL.md structure and constraints
-- description (trigger) optimization
-- scoping and decomposition
-- progressive disclosure
-- evaluation and testing
-
-Do not rely on memory of best practices. Load the file when needed.
+Use it as the canonical guide for `SKILL.md` structure, frontmatter, description optimization, scoping, progressive disclosure, and evaluation.
 
 ---
 
-## Skill anatomy
+## Editing heuristics
 
-```
-
-skills/<kebab-case-name>/
-├── SKILL.md          ← required: YAML frontmatter + agent instructions
-├── assets/           ← output templates and starter files (copy/fill)
-├── references/       ← normative checklists, standards, compressed artifacts
-└── scripts/          ← deterministic automation helpers
-
-```
-
-Rules:
-
-- Folder name **must** match the `name:` frontmatter field exactly.
-- `SKILL.md` should stay under **500 lines / 5 000 tokens**.
-- Move deep detail to `references/` and explicitly instruct when to load each file.
-- All paths must be relative.
-- No secrets, absolute paths, or personal configuration.
+* Preserve routing boundaries.
+* Remove redundancy aggressively.
+* Prefer composition over duplication.
+* Keep guidance proportional to its value.
+* Justify consequential methodological recommendations.
+* Add references only when they materially support new guidance.
+* Preserve traceable intermediate artifacts.
+* Every instruction competes for context. If an agent would consistently succeed without it, remove it.
 
 ---
 
-## Required frontmatter
+## Scope discipline
 
-```yaml
----
-name: kebab-case-name
-description: |
-  Use this skill when...
-  Triggers: "phrase 1", "phrase 2"
-  Expected output: ...
-license: MIT
----
-```
-
-Optional: `compatibility`, `metadata.domain`, `metadata.maturity`, `metadata.audience`.
+Each skill should own a single methodological responsibility. Avoid duplicated guidance; overlapping functionality should route to the specialist skill instead of being copied. Many small composable skills are preferred over fewer comprehensive ones.
 
 ---
 
 ## Skill loading model (critical)
 
 Agents load skills in stages:
-
 1. Discovery → name + description
 2. Activation → full `SKILL.md`
 3. On-demand → `references/` and `scripts/`
 
 Implications:
-
-- If the description is weak, the skill will never activate
-- `SKILL.md` must work without references unless explicitly invoked
-- References must include **clear load conditions**
-
----
-
-## Local best practices (summary)
-
-This section is intentionally compressed. Full guidance lives in the authoring reference.
-
-### Start from real workflows
-
-Use actual runs, fixes, and artifacts. Avoid generic advice.
-
-### Add only missing knowledge
-
-Include only what the base model would get wrong.
-
-### One skill = one unit
-
-Ensure clear, composable scope.
-
-### Progressive disclosure
-
-Keep `SKILL.md` minimal. Push bulk to `references/` with explicit triggers.
-
-### Defaults over options
-
-Always choose a primary approach.
-
-### Gotchas are required
-
-Document real failure patterns the agent will hit.
-
-### Use templates and validation
-
-- Templates for outputs
-- Validation loops for correctness
-
-### Prefer scripts for repeated logic
-
-Move complex or repeated steps into `scripts/`.
-
-### Refine using execution traces
-
-Fix:
-
-- indecision → unclear instructions
-- branching → too many options
-- inefficiency → irrelevant content
+- Weak descriptions prevent activation.
+- `SKILL.md` must work without references unless explicitly invoked.
+- References must include clear load conditions.
 
 ---
 
-## OMF-specific conventions
+## Skill anatomy
 
-| Convention       | Rule                                           |
-| ---------------- | ---------------------------------------------- |
-| Naming           | `kebab-case`; folder name = `name:`; ≤48 chars |
-| Scripts          | `kebab-case.py`, `kebab.sh`                    |
-| References       | `UPPERCASE-TOPIC.md`                           |
-| Config/templates | YAML or JSON only                              |
-| Maturity         | `alpha`, `beta`, `stable`                      |
-| Evals            | ≥3 trigger + ≥3 non-trigger cases              |
-| License          | MIT default                                    |
+```
+skills/<kebab-case-name>/
+├── SKILL.md          ← required: YAML frontmatter + agent instructions
+├── assets/           ← output templates and starter files
+├── references/       ← normative checklists, standards, compressed artifacts
+└── scripts/          ← deterministic automation helpers
+```
+
+Rules:
+- Folder name **must** match the `name:` frontmatter field exactly.
+- Keep `SKILL.md` as small as practical; move detail to `references/` when it improves readability or reuse.
+- All paths must be relative.
+- No secrets, absolute paths, or personal configuration.
 
 ---
 
-## Skill semantic roles
+## Repository conventions
 
-- `SKILL.md` → orchestration, decisions, constraints
-- `assets/` → templates to fill
-- `references/` → standards and rules (load on demand)
-- `scripts/` → deterministic execution
-
-Do not duplicate logic across layers.
+* **Naming**: `kebab-case` by default
+* **Artifacts**: `kebab-case.md` 
+* **Scripts**: `snake_case.py`, `kebab.sh`
+* **References**: `UPPERCASE-TOPIC.md`
+* **Config/Templates**: YAML or JSON only
+* **Maturity**: `alpha`, `beta`, `stable`
+* **Evals**: ≥3 trigger + ≥3 non-trigger cases
+* **License**: MIT default
 
 ---
 
 ## Evaluation strategy
 
-Each skill must include:
+Each skill must include an evaluation JSON defining trigger and non-trigger cases.
 
-```json
-{
-  "skill_name": "example",
-  "evals": [
-    {
-      "id": 1,
-      "prompt": "realistic request",
-      "should_trigger": true
-    },
-    {
-      "id": 2,
-      "prompt": "non-trigger case",
-      "should_trigger": false
-    }
-  ]
-}
-```
-
-### Required evaluation behavior
-
-Test:
-
-- with the skill
-- without the skill
-
-Compare:
-
-- correctness
-- efficiency
-- failure modes
+**Required behavior**: Test with and without the skill using realistic prompts and artifacts. Compare correctness, efficiency, and failure modes.
 
 ---
 
 ## Key documentation
 
-| File                                    | Purpose                                      |
-| --------------------------------------- | -------------------------------------------- |
-| docs/agent-skills-creation-reference.md | Canonical skill design + specification guide |
-| CONTRIBUTING.md                         | Contribution workflow                        |
-| docs/SKILL-TEMPLATE.md                  | New skill template                           |
-| docs/VALIDATION.md                      | Validation rules                             |
-| docs/roadmap.md                         | Planned skills                               |
+* `docs/agent-skills-creation-reference.md`: Canonical skill design + specification guide.
+* `CONTRIBUTING.md`: Contribution workflow.
+* `docs/SKILL-TEMPLATE.md`: New skill template.
+* `docs/VALIDATION.md`: Validation rules.
+* `docs/roadmap.md`: Planned skills.
 
 ---
 
-## Gotchas
+## Review checklist
 
-- No `template/` directory exists. Copy an existing skill.
-- `name:` must exactly match folder name.
-- Weak descriptions prevent triggering.
-- Do not publish `.github/skills/update-skill/`.
-- Do not duplicate large guidance into `SKILL.md`; use references instead.
+* Does this duplicate another skill?
+* Does this belong in another skill?
+* Should this live in `references/` instead?
+* Is routing still unambiguous?
+* Can wording be shorter?
+* Does the change justify its context cost?
+* Does it improve reviewability?
+
+---
+
+## Common mistakes
+
+* No `template/` directory exists. Copy an existing skill.
+* `name:` does not match folder name.
+* Weak descriptions prevent triggering.
+* Publishing `.github/skills/update-skill/`.
+* Duplicating large guidance into `SKILL.md` instead of using references.
+* Extending a skill when routing to a specialist skill is more appropriate.

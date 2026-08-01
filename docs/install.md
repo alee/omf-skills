@@ -82,7 +82,6 @@ nvm install --lts --reinstall-packages-from=current
 nvm use --lts
 ```
 
-
 # Manual installation without npx
 
 If you can't run Node.js/npx in your environment, you can install the skills directly with git or by copying skill directories manually to `~/.agents/skills`. `~/.agents/skills` expects one flat directory per skill, so we clone the repo elsewhere and symlink each skill to `~/.agents/skills`.
