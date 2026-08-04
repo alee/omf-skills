@@ -58,7 +58,7 @@ The `/omfa` skill guides you through a structured modeling lifecycle and produce
 
 ```text
 .
-├── skills/            # Published agent skills (e.g., omfa, document, fair)
+├── skills/            # Published agent skills (e.g., omfa, omfb, document, fair)
 ├── docs/              # Contributor documentation
 ├── evals/             # Evaluation framework
 ├── scripts/           # Repository tooling
@@ -75,13 +75,15 @@ We welcome new skills, improvements to existing workflows, and evaluation cases.
 
 ## Roadmap
 
-| Available | Planned |
-| :--- | :--- |
-| Modeling Methodology (`/omfa`) | Statistical Analysis |
-| Narrative Documentation (`/document`) | Calibration & Validation |
-| FAIR Metadata (`/fair`) | Reproducibility Automation |
-| HPC/HTC Orchestration (`/hpc`, `/ospool`) | Domain-specific Modeling Templates |
-| Peer Review Readiness (`/peer-review`) | Visualization Standards |
+| Available                                      | Planned                             |
+| :--------------------------------------------- | :---------------------------------- |
+| OMF Assistant (Modeling Methodology) (`/omfa`) | Statistical Analysis                |
+| OMF Builder (Model Implementation) (`/omfb`)   | Calibration and Validation          |
+| Narrative Documentation (`/document`)          | Reproducibility Automation          |
+| FAIR Metadata (`/fair`)                        | Domain-specific Modeling Templates  |
+| HPC/HTC Orchestration (`/hpc`, `/ospool`)      | Visualization Standards             |
+| Peer Review Readiness (`/peer-review`)         | Workflow Automation and Integration |
+
 
 ## Links & References
 
