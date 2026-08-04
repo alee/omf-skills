@@ -18,7 +18,7 @@ The ultimate goal of these Agent Skills is to provide community-informed guidanc
 
 ### Prerequisites
 
-- A [coding-capable AI agent](https://agentskills.io/clients) (e.g., Cursor, Claude Code, Windsurf, etc.)
+- A [coding-capable AI agent](https://agentskills.io/clients) (e.g., Cursor, Claude Code, Warp, OpenCode, Cursor, etc.)
 - Node.js LTS (see [docs/install.md](docs/install.md))
 
 ### Install
