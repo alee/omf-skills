@@ -10,7 +10,9 @@ This repository is designed for researchers, research software engineers, studen
 
 ## Repository Philosophy
 
-Agent Skills capture specialized methodological knowledge that foundation models do not consistently possess. This repository follows a "shrink-to-fit" philosophy: as foundation models improve, skills are simplified or removed, preserving only frontier community knowledge, standards, workflows, and practices that models do not consistently possess or reliably execute.
+Agent Skills capture specialized methodological knowledge that foundation models do not consistently possess. This repository follows a "shrink-to-fit" philosophy: as foundation models improve, skills are simplified or removed, preserving only frontier community knowledge, standards, workflows, and practices beyond models' reliable capabilities. 
+
+The ultimate goal of these Agent Skills is to provide community-informed guidance that sharpens expertise, automates rote and boilerplate work, and fosters critical thinking and deeper engagement with the modeling process through structured workflows that encode best practices.
 
 ## Quick Start
 
