@@ -6,7 +6,7 @@ The ideas below remain relevant because they reinforce the repository's guiding 
 
 ---
 
-# Guiding Principles
+## Guiding Principles
 
 Future analysis skills should preserve the following characteristics.
 
@@ -16,11 +16,11 @@ Analytical workflows should preserve sufficient information for independent repr
 
 This includes:
 
-* software versions
-* execution parameters
-* input provenance
-* generated outputs
-* important defaults
+- software versions
+- execution parameters
+- input provenance
+- generated outputs
+- important defaults
 
 Analysis results should remain understandable without depending on conversational history.
 
@@ -32,12 +32,12 @@ Analysis skills should surface consequential analytical choices rather than sile
 
 Examples include:
 
-* statistical methods
-* uncertainty methods
-* calibration approaches
-* parameter selection
-* preprocessing decisions
-* visualization choices
+- statistical methods
+- uncertainty methods
+- calibration approaches
+- parameter selection
+- preprocessing decisions
+- visualization choices
 
 Whenever possible, record both the selected method and the rationale.
 
@@ -49,11 +49,11 @@ Long analytical workflows should externalize important intermediate reasoning.
 
 Examples include:
 
-* assumptions
-* analysis plans
-* experiment definitions
-* diagnostic summaries
-* validation results
+- assumptions
+- analysis plans
+- experiment definitions
+- diagnostic summaries
+- validation results
 
 Intermediate artifacts should remain reusable by downstream skills.
 
@@ -63,10 +63,10 @@ Intermediate artifacts should remain reusable by downstream skills.
 
 Analysis skills should distinguish:
 
-* informational observations
-* cautions
-* methodological limitations
-* execution failures
+- informational observations
+- cautions
+- methodological limitations
+- execution failures
 
 Diagnostics should remain machine-readable whenever practical to support downstream review and automation.
 
@@ -78,10 +78,10 @@ Analysis skills should remain independently usable.
 
 They should:
 
-* perform one analytical responsibility
-* consume reviewable artifacts produced upstream
-* produce artifacts useful to downstream skills
-* avoid duplicating methodological guidance
+- perform one analytical responsibility
+- consume reviewable artifacts produced upstream
+- produce artifacts useful to downstream skills
+- avoid duplicating methodological guidance
 
 Workflow coordination belongs to lifecycle coordination rather than individual analysis skills.
 
@@ -91,41 +91,41 @@ Workflow coordination belongs to lifecycle coordination rather than individual a
 
 Prefer:
 
-* open data formats
-* open statistical libraries
-* open provenance standards
-* open reproducibility tooling
+- open data formats
+- open statistical libraries
+- open provenance standards
+- open reproducibility tooling
 
 Avoid unnecessary dependence on proprietary ecosystems.
 
 ---
 
-# Relationship to OMF Architecture
+## Relationship to OMF Architecture
 
 These principles should be implemented within the existing OMF architecture rather than through a separate orchestration system.
 
 Specifically:
 
-* OMFA remains responsible for lifecycle coordination and routing.
-* Methodological guidance determines how analyses should be conducted.
-* Specialist execution skills implement analyses using the applicable guidance.
-* FAIR and research software skills remain responsible for publication, provenance, and long-term stewardship.
+- OMFA remains responsible for lifecycle coordination and routing.
+- Methodological guidance determines how analyses should be conducted.
+- Specialist execution skills implement analyses using the applicable guidance.
+- FAIR and research software skills remain responsible for publication, provenance, and long-term stewardship.
 
 Analysis skills should consume methodological guidance rather than embedding it.
 
 ---
 
-# Future Work
+## Future Work
 
 Potential specialist analysis skills include:
 
-* statistical analysis
-* sensitivity analysis
-* calibration
-* visualization
-* geospatial analysis
-* network analysis
-* text analysis
+- statistical analysis
+- sensitivity analysis
+- calibration
+- visualization
+- geospatial analysis
+- network analysis
+- text analysis
 
 These represent implementation opportunities rather than architectural commitments. Their eventual design should follow the repository's composable skill architecture and evolve through community feedback rather than a predetermined orchestration framework.
 
