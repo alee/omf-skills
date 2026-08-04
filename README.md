@@ -26,7 +26,9 @@ The ultimate goal of these Agent Skills is to provide community-informed guidanc
 #### Via Skills CLI (Recommended)
 
 ```bash
-npx skills add omf/skills
+npx skills add openmodelingfoundation/skills
+# or spell out the entire github repo
+npx skills add https://github.com/openmodelingfoundation/skills
 ```
 
 #### Via Coding Agent
