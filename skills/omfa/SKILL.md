@@ -147,6 +147,7 @@ Guidance modules encode expert methodological reasoning by helping agents:
 Required deliverables are reviewable scientific artifacts that externalize assumptions, decisions, evidence, and evaluation for downstream collaborators, tools, and reviewers. The following artifacts are REQUIRED unless explicitly justified otherwise:
 
 All reviewable artifacts MUST be stored under an `artifacts/` directory at the project root. Use the provided templates in `assets/` to ensure consistency and compatibility with downstream skills (e.g., `omfb`).
+All OMFA artifact filenames MUST use kebab-case. Do not create snake_case variants such as `model_card.md`, `research_questions.md`, or `provenance_manifest.json`. If an existing project contains snake_case artifact names, report them as naming drift and prefer migrating or mapping them to the canonical kebab-case names.
 
 When `artifacts/` is first created, add `artifacts/README.md` that states:
 

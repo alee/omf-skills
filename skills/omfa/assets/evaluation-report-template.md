@@ -2,7 +2,7 @@
 
 This report synthesizes the evidence supporting evaluation of the model. It documents how well the model is supported for its intended purpose.
 
-This report is a **living artifact**. Create it early and update it as verification, calibration, validation, uncertainty analyses, or model revisions produce new evidence. Summarize evaluation results and trace them to supporting artifacts here; do not duplicate detailed methods, tables, or logs that belong in dedicated artifacts such as `verification-report.md`, `calibration-report.md`, `validation-report.md`, `uncertainty-register.md`, or `sensitivity-plan.md`. For evaluation methodology guidance, see `references/guidance/evaluation.md`.
+This report is a **living artifact**. Create it early and update it as verification, calibration, validation, uncertainty analyses, or model revisions produce new evidence. Summarize evaluation results and trace them to supporting artifacts here; do not duplicate detailed methods, tables, or logs that belong in dedicated result artifacts such as `verification-report.md`, `calibration-report.md`, or `validation-report.md`, and do not duplicate planning details that belong in artifacts such as `uncertainty-register.md` or `sensitivity-analysis-plan.md`, or detailed sensitivity results that belong in `sensitivity-analysis-report.md`. For evaluation methodology guidance, see `references/guidance/evaluation.md`.
 
 ---
 
@@ -103,13 +103,13 @@ For each activity below, answer:
 1. Which uncertainty analyses informed this evaluation? (e.g., sensitivity analysis, scenario exploration, calibration ambiguity assessment.)
 2. Which uncertainty sources are most relevant to the model's credibility?
 3. How were uncertainty and robustness findings integrated into the evaluation conclusions?
-4. Where are the supporting uncertainty artifacts documented? (e.g., `artifacts/uncertainty-register.md`, `artifacts/sensitivity-plan.md`, calibration notes.)
+4. Where are the supporting uncertainty artifacts and reports documented? (e.g., `artifacts/uncertainty-register.md`, `artifacts/sensitivity-analysis-report.md`, calibration notes.)
 
 **Example:**
 - **Uncertainty source:** Fuel moisture strongly affects fire area.
 - **Informing analysis:** Sensitivity analysis showed that a 10% increase in `fuel_moisture` reduces predicted fire area by 40%.
 - **Implication:** Moisture data quality is a critical credibility constraint; conclusions should be accompanied by explicit moisture assumptions.
-- **Documentation:** `artifacts/uncertainty-register.md`, `artifacts/sensitivity-plan.md`.
+- **Documentation:** `artifacts/uncertainty-register.md`, `artifacts/sensitivity-analysis-report.md`.
 
 ---
 

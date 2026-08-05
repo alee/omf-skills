@@ -101,7 +101,7 @@ The computational modeling lifecycle is inherently iterative, not a waterfall. T
 | Verification | Does the implementation match the conceptual model/spec? | `verification-report.md` |
 | Calibration | Parameter fitting against the model's intended purpose | `calibration-report.md` |
 | Validation and evaluation | Does the model perform adequately for its stated purpose? | `validation-report.md` |
-| Sensitivity and uncertainty analysis | Parameter, structural, and scenario uncertainty | `uncertainty-register.md`, `sensitivity-analysis.md` |
+| Sensitivity and uncertainty analysis planning | Parameter, structural, and scenario uncertainty | `uncertainty-register.md`, `sensitivity-analysis-plan.md` |
 | Experimental analysis | Designed runs answering the research questions | `experiment-plan.md`, `results.md` |
 | Communication and stewardship | Limitations, appropriate use, provenance | `limitations.md` |
 
@@ -150,7 +150,7 @@ Expected intermediate artifacts include:
 - `calibration-report.md`
 - `validation-report.md`
 - `uncertainty-register.md`
-- `sensitivity-analysis.md`
+- `sensitivity-analysis-plan.md`
 - `experiment-plan.md`
 - `results.md`
 - `limitations.md`
@@ -163,7 +163,7 @@ Store these artifacts in `artifacts/` at the project root, and keep `artifacts/R
 
 - A change to `assumptions.md` MUST trigger a review of `validation-report.md` and `uncertainty-register.md` for continued consistency.
 - A change to `conceptual-model.md` MUST trigger a review of `implementation-plan.md`, `verification-report.md`, and any completed `calibration-report.md` or `validation-report.md`.
-- A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis.md`.
+- A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis-plan.md`.
 - A change to `calibration-report.md` MUST trigger a review of `validation-report.md`.
 
 When flagging a downstream review, name the specific artifact and the reason it may now be stale — do not flag broadly across all artifacts by default, as that erodes the signal value of the flag.

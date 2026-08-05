@@ -99,11 +99,11 @@ Generate or maintain, as appropriate:
 
 - `uncertainty-register.md`
 - `assumptions.md`
-- `sensitivity-plan.md`
+- `sensitivity-analysis-plan.md`
 - `calibration-notes.md`
 - `method-selection.md`
 
-Use predictable, semantic filenames under `artifacts/` at the project root. These artifacts should support downstream review, documentation, and reproducibility. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
+Use predictable, semantic kebab-case filenames under `artifacts/` at the project root. These artifacts should support downstream review, documentation, and reproducibility. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
 
 ---
 

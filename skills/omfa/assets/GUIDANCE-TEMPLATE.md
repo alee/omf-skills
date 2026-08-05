@@ -108,7 +108,7 @@ Document any consequential assumptions or defaults and generate intermediate art
 
 List reviewable artifacts this guidance expects to be produced or maintained. Use backtick-quoted filenames (e.g. `assumptions.md`) so they read as concrete deliverables, not abstract categories.
 
-Intermediate artifacts should use predictable, semantic filenames and be reusable by downstream skills where practical.
+Intermediate artifacts should use predictable, semantic kebab-case filenames and be reusable by downstream skills where practical. Do not create snake_case variants of OMFA artifacts.
 
 ---
 
