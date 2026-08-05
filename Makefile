@@ -85,7 +85,7 @@ ci: validate
 # ---- formatting ----
 .PHONY: format
 format:
-	$(TOOLS_EXEC) 'prettier --write **/*.{md,json}'
+	$(TOOLS_EXEC) 'prettier --write *.md **/*.{md,json}'
 
 # ---- linting ----
 LINT_GLOBS := docs/agent-skills-creation-reference.md docs/SKILL-TEMPLATE.md docs/SKILLS-ASSESSMENT.md docs/VALIDATION.md docs/data-analysis-skills.md docs/roadmap.md

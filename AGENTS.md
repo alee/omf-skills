@@ -73,14 +73,14 @@ Use it as the canonical guide for `SKILL.md` structure, frontmatter, description
 
 ## Editing heuristics
 
-* Preserve routing boundaries.
-* Remove redundancy aggressively.
-* Prefer composition over duplication.
-* Keep guidance proportional to its value.
-* Justify consequential methodological recommendations.
-* Add references only when they materially support new guidance.
-* Preserve traceable intermediate artifacts.
-* Every instruction competes for context. If an agent would consistently succeed without it, remove it.
+- Preserve routing boundaries.
+- Remove redundancy aggressively.
+- Prefer composition over duplication.
+- Keep guidance proportional to its value.
+- Justify consequential methodological recommendations.
+- Add references only when they materially support new guidance.
+- Preserve traceable intermediate artifacts.
+- Every instruction competes for context. If an agent would consistently succeed without it, remove it.
 
 ---
 
@@ -93,11 +93,13 @@ Each skill should own a single methodological responsibility. Avoid duplicated g
 ## Skill loading model (critical)
 
 Agents load skills in stages:
+
 1. Discovery → name + description
 2. Activation → full `SKILL.md`
 3. On-demand → `references/` and `scripts/`
 
 Implications:
+
 - Weak descriptions prevent activation.
 - `SKILL.md` must work without references unless explicitly invoked.
 - References must include clear load conditions.
@@ -115,6 +117,7 @@ skills/<kebab-case-name>/
 ```
 
 Rules:
+
 - Folder name **must** match the `name:` frontmatter field exactly.
 - Keep `SKILL.md` as small as practical; move detail to `references/` when it improves readability or reuse.
 - All paths must be relative.
@@ -124,14 +127,14 @@ Rules:
 
 ## Repository conventions
 
-* **Naming**: `kebab-case` by default
-* **Artifacts**: `kebab-case.md` 
-* **Scripts**: `snake_case.py`, `kebab.sh`
-* **References**: `UPPERCASE-TOPIC.md`
-* **Config/Templates**: YAML or JSON only
-* **Maturity**: `alpha`, `beta`, `stable`
-* **Evals**: ≥3 trigger + ≥3 non-trigger cases
-* **License**: MIT default
+- **Naming**: `kebab-case` by default
+- **Artifacts**: `kebab-case.md`
+- **Scripts**: `snake_case.py`, `kebab.sh`
+- **References**: `UPPERCASE-TOPIC.md`
+- **Config/Templates**: YAML or JSON only
+- **Maturity**: `alpha`, `beta`, `stable`
+- **Evals**: ≥3 trigger + ≥3 non-trigger cases
+- **License**: MIT default
 
 ---
 
@@ -145,31 +148,31 @@ Each skill must include an evaluation JSON defining trigger and non-trigger case
 
 ## Key documentation
 
-* `docs/agent-skills-creation-reference.md`: Canonical skill design + specification guide.
-* `CONTRIBUTING.md`: Contribution workflow.
-* `docs/SKILL-TEMPLATE.md`: New skill template.
-* `docs/VALIDATION.md`: Validation rules.
-* `docs/roadmap.md`: Planned skills.
+- `docs/agent-skills-creation-reference.md`: Canonical skill design + specification guide.
+- `CONTRIBUTING.md`: Contribution workflow.
+- `docs/SKILL-TEMPLATE.md`: New skill template.
+- `docs/VALIDATION.md`: Validation rules.
+- `docs/roadmap.md`: Planned skills.
 
 ---
 
 ## Review checklist
 
-* Does this duplicate another skill?
-* Does this belong in another skill?
-* Should this live in `references/` instead?
-* Is routing still unambiguous?
-* Can wording be shorter?
-* Does the change justify its context cost?
-* Does it improve reviewability?
+- Does this duplicate another skill?
+- Does this belong in another skill?
+- Should this live in `references/` instead?
+- Is routing still unambiguous?
+- Can wording be shorter?
+- Does the change justify its context cost?
+- Does it improve reviewability?
 
 ---
 
 ## Common mistakes
 
-* No `template/` directory exists. Copy an existing skill.
-* `name:` does not match folder name.
-* Weak descriptions prevent triggering.
-* Publishing `.github/skills/update-skill/`.
-* Duplicating large guidance into `SKILL.md` instead of using references.
-* Extending a skill when routing to a specialist skill is more appropriate.
+- No `template/` directory exists. Copy an existing skill.
+- `name:` does not match folder name.
+- Weak descriptions prevent triggering.
+- Publishing `.github/skills/update-skill/`.
+- Duplicating large guidance into `SKILL.md` instead of using references.
+- Extending a skill when routing to a specialist skill is more appropriate.

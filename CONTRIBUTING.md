@@ -49,7 +49,6 @@ Otherwise:
 | New reviewable artifact  | Skill     |
 | Deterministic automation | Tool      |
 
-
 - **Skills** are responsible for reviewable artifacts and the reasoning that produce and maintain them.
 - **Guidance** specializes reasoning within a skill.
 - **Tools** perform deterministic operations and produce structured outputs consumed by skills.
@@ -58,12 +57,12 @@ Each reviewable artifact should have a single responsible skill, and each skill 
 
 ### Examples
 
-| Proposal | Classification | Reason |
-|---|---|---|
-| `participatory.md` | Guidance (OMFA) | Specializes modeling methodology without changing artifact responsibility. |
-| `model-extractor` | Tool | Deterministically produces a model inventory for multiple skills. |
-| `Document` | Skill | Responsible for detailed narrative documentation artifacts. |
-| `FAIR` | Skill | Responsible for research software engineering artifacts, provenance, and release readiness. |
+| Proposal           | Classification  | Reason                                                                                      |
+| ------------------ | --------------- | ------------------------------------------------------------------------------------------- |
+| `participatory.md` | Guidance (OMFA) | Specializes modeling methodology without changing artifact responsibility.                  |
+| `model-extractor`  | Tool            | Deterministically produces a model inventory for multiple skills.                           |
+| `Document`         | Skill           | Responsible for detailed narrative documentation artifacts.                                 |
+| `FAIR`             | Skill           | Responsible for research software engineering artifacts, provenance, and release readiness. |
 
 ## Skill Anatomy
 
@@ -169,8 +168,8 @@ Include:
 
 ### Script Names in Bundled Resources
 
-- **Format:** `snake_case.py` filenames for Python, `kebab-case.sh` or `word.sh` for shell scripts and intermediate reviewable artifacts
-- **Examples:** `extract_metadata.py`, `validate-checklist.sh`, `generate_template.py`
+- **Format:** `snake_case.py` filenames for Python, `kebab-case.sh` or `word.sh` for shell scripts, `kebab-case.md` for intermediate reviewable artifacts
+- **Examples:** `extract_metadata.py`, `validate-checklist.sh`, `generate_template.py`, `artifact-planning.md`
 
 ### Reference & Asset File Names
 
