@@ -59,7 +59,7 @@ The `/omfa` skill guides you through a structured modeling lifecycle and produce
 ## Detailed omfa prompt
 
 ```markdown
-/omfa (create, synchronize, audit) the project's reviewable modeling artifacts.
+/omfa (create, synchronize, audit) this project's reviewable modeling artifacts.
 
 Treat the project's narrative documentation, existing artifacts, source code, review comments, and user instructions as the available evidence.
 
@@ -98,12 +98,14 @@ Be explicit about uncertainty, distinguish evidence from inference, preserve pro
 ## example omfb prompt
 
 ```text
-/omfb (develop, review, update) the implementation plan for a computational model. Preserve traceability between OMFA scientific artifacts, implementation artifacts, source code, and verification activities. Prefer small, reviewable implementation increments over monolithic code generation.
+/omfb (develop, review, update) the implementation plan. Preserve traceability between OMFA scientific artifacts, implementation artifacts, source code, and verification activities. Prefer small, reviewable implementation increments over monolithic code generation. If OMFA artifacts do not exist, stop and request that the user run `/omfa` first to generate them.
 
 * **Plan**: create the initial implementation artifacts from OMFA artifacts before coding.
 * **Update**: synchronize implementation artifacts as scientific artifacts, code, or constraints evolve.
 * **Audit**: assess whether implementation and code remain faithful to the scientific artifacts without modifying code unless explicitly requested.
 ```
+
+After the plan has been created, run `/omfb create a (NetLogo, Python, Julia) implementation in src/(netlogo|python|julia)`.
 
 ## Repository Structure
 
