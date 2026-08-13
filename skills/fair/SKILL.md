@@ -1,27 +1,21 @@
 ---
 name: fair
 description: |
-  Use this skill when you need FAIR stewardship support for research
-  objects — computational models, research software, datasets, workflows,
-  and their metadata and documentation: findability, accessibility,
-  interoperability, reusability, provenance, dependency and environment
-  management, packaging, portability, citation, release readiness,
-  archival guidance, and repository organization.
+  Support FAIR stewardship of digital research objects, including research
+  software, datasets, computational models, and workflows. Use for FAIR
+  metadata, provenance, persistent identifiers, citation, repository
+  organization, dependency and environment management, packaging,
+  portability, archival preparation, preservation, and management planning.
 
-  Triggers: "prepare for publication", "make my code citable",
-  "create FAIR metadata", "package my repository", "prepare a release",
-  "archive my software", "archive my dataset", "write codemeta",
-  "generate CITATION.cff", "make this reproducible", "make my data FAIR",
-  "write a data management plan", "write a FAIR management plan",
-  "prepare my model for archival", "document my workflow for reuse".
+  Triggers include making research objects FAIR, reproducible, citable,
+  reusable, publication- or archive-ready; creating FAIR metadata (e.g.
+  codemeta.json, CITATION.cff, RO-Crate); packaging or archiving
+  a repository, dataset, or model; and developing FAIR, data, or software
+  management plans.
 
   Expected output: a FAIR Management Plan as the canonical stewardship
-  document, canonical metadata appropriate to each research object
-  (codemeta.json for software, CITATION.cff derived from it, DataCite
-  metadata for datasets, OMF metadata/model cards for models, RO-Crate for
-  workflows), release-readiness guidance, packaging and environment notes,
-  provenance guidance, archival guidance, and a concise checklist for reuse
-  and maintenance.
+  document, with appropriate metadata, provenance, packaging, and archival
+  artifacts, plus a DMP or SMP when required.
 license: MIT
 compatibility: Works with any project managing research software, datasets, computational models, or workflows
 metadata:
@@ -37,9 +31,9 @@ This skill applies the FAIR principles across research software, computational m
 
 The FAIR Management Plan is the project's canonical, primary stewardship document. It is not a funder deliverable itself — it is the source of truth that funder-facing documents are disseminated from. When a funder requires a Data Management Plan (DMP) or Software Management Plan (SMP), generate that document as a derived extract, populated from `assets/DMP-TEMPLATE.md` using the relevant sections of the FAIR Management Plan. The DMP is a dissemination artifact, not an independent source of stewardship decisions — if a DMP requirement surfaces new information (e.g. a funder-mandated retention period), record it back in the FAIR Management Plan first, then re-derive the DMP.
 
-## What This Skill Owns
+## Responsibility
 
-This skill owns lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` owns scientific reasoning, this skill owns stewardship, `document` owns communication, and `peer-review` owns assessment. Keep that boundary intact when extending any of the four.
+This skill is responsible for lifecycle stewardship of digital research objects — findability, accessibility, interoperability, and reusability across whatever mix of software, data, models, and workflows a project has. It is deliberately one of four orthogonal responsibilities: `omfa` is responsible for scientific reasoning, this skill is responsible for stewardship, `document` is responsible for narrative communication, and `peer-review` is responsible for human assessment. Keep that boundary intact when extending any of the four.
 
 Data or authority governance questions about populations whose data or knowledge a model draws on, including collective benefit, authority to control, accountability for use, or affected-population consent and legitimacy, are modeling ethics concerns. Route those to `omfa`'s `references/guidance/ethics.md`; do not treat them as resolved by FAIR packaging, metadata, or archival stewardship alone.
 
@@ -120,9 +114,9 @@ Separate observed facts from inferred assumptions. Mark missing information as `
 
 The Research Object Inventory is the canonical inventory of all managed research objects in the project. Every other FAIR artifact (`fair-assessment.md`, `provenance-manifest.json`, `license-inventory.md`, and any metadata records) should reference inventory entries by name or identifier rather than re-listing or re-describing them. If an artifact needs to say something about a research object that isn't in the inventory, add it to the inventory first.
 
-Every managed research object MUST appear exactly once in the Research Object Inventory. Other FAIR artifacts reference inventory entries rather than redefining them.
+Every managed research object MUST appear exactly once in the Research Object Inventory. Other FAIR artifacts reference inventory entries rather than redefining them. The Research Object Inventory contains research objects being stewarded, not the supporting FAIR artifacts used to describe or assess them.
 
-**Choose the canonical metadata path.** Choose canonical metadata appropriate for each artifact:
+**Choose the canonical metadata representation.** Choose canonical metadata appropriate for each artifact:
 
 - Software: codemeta.json
 - Citation: CITATION.cff
@@ -207,11 +201,11 @@ Load additional material only when needed:
 - `references/FAIR-RELEASE-REFRESH-POLICY.md` when checking refresh cadence and maintenance expectations
 - `assets/FAIR-MP-TEMPLATE.md` when drafting or refreshing the living FAIR Management Plan
 - `assets/DMP-TEMPLATE.md` when disseminating a funder-facing DMP from the FAIR Management Plan
-- `assets/SMP-TEMPLATE.md` when disseminating a funder-facing DMP from the FAIR Management Plan
+- `assets/SMP-TEMPLATE.md` when disseminating a funder-facing SMP from the FAIR Management Plan
 
 ## Practical Outputs
 
-Unless explicitly requested otherwise, all reviewable outputs FAIR stewardship artifacts generated by this skill MUST be stored under `artifacts/fair`
+All FAIR stewardship review artifacts generated by this skill MUST be stored under artifacts/fair/. Research-object metadata and other files that conventionally live with the research object SHOULD remain in their appropriate project location and be referenced from the FAIR Management Plan.
 
 The FAIR Management Plan is the project's living stewardship document and MUST be maintained at `artifacts/fair/fair-management-plan.md`. Update it whenever research objects, metadata, repositories, identifiers, preservation strategies, or stewardship responsibilities change.
 
@@ -221,7 +215,7 @@ Depending on the task, generate or update one or more of the following under `ar
 
 - `fair-management-plan.md`: **REQUIRED**
 - FAIR metadata records appropriate to the research objects (e.g. `codemeta.json`, `CITATION.cff`, DataCite metadata, RO-Crate metadata)
-- `fair-assessment-report.md`: **REQUIRED** FAIR status assessed per research object, not per project; a single project routinely has FAIR software alongside non-FAIR datasets and draft workflows, and each needs its own status. Reflect the current status of each object in a status column on the Research Object Inventory table, and use this file for the backing detail (what's missing, what's planned) behind each status. Update both together.
+- `fair-assessment-report.md`: generate for project-level FAIR assessments or stewardship reviews; not required for narrow metadata, citation, or packaging tasks. Assess FAIR status per research object, not per project; a single project routinely has FAIR software alongside non-FAIR datasets and draft workflows, and each needs its own status. Reflect the current status of each object in a status column on the Research Object Inventory table, and use this file for the backing detail (what's missing, what's planned) behind each status. Update both together.
 - `provenance-manifest.json`
 - `license-inventory.md`
 - `stewardship-checklist.md` — a general readiness checklist for whatever milestone applies (release, archival deposit, or ongoing curation); rename to `release-checklist.md` only for projects where a software release is specifically the milestone in question
@@ -234,7 +228,7 @@ Depending on the task, generate or update one or more of the following under `ar
 - List only contributors to the cited object as its authors/creators.
 - Cite related research objects separately.
 - Explicitly describe relationships (e.g., "implements", "derived from", "extends", "replicates", "uses", or "documents").
-- Include a persistent identifier (DOI preferred), version, title, publisher/repository, and license where applicable.
+- Include an appropriate persistent identifier (DOI, SWHID, trusted repository identifier), version, title, publisher/repository, and license where applicable.
 - Document provenance, including transformations, assumptions, and modifications.
 - Prefer community citation metadata standards (e.g., CITATION.cff, CodeMeta, DataCite).
 - Follow the applicable FORCE11 citation principles.
