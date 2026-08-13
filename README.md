@@ -110,20 +110,26 @@ or
 
 NOTE: current coding agents tend to be better at generating code in Python as opposed to Julia, NetLogo, or other languages. Ask your own coding agent which language(s) it is proficient in, and/or if it will be proficient in your choice of language and framework. This will determine to some degree how much intervention effort it will take on your end for model development and implementation.
 
+## Trusting genAI-generated code
+
+Failure modes differ by language and ecosystem: some errors are caught early, while others compile or run and produce plausible but incorrect results. Review effort should scale with those failure modes and their observability.
+
+See [genAI code review guidance](docs/genai-code-review.md) for some programming language and framework specific risks and review guidance.
 
 ## Useful prompts
 
-After completing an implementation session with a coding agent, it is often useful to run a cleanup pass. Here's a prebuilt prompt to do so, _within the same context window you did your work in, if possible_:
+After completing an implementation session with a coding agent, it is often useful to run a cleanup pass. Here's a prebuilt prompt to do so, within the _same context window you did your work in_ so that the agent still has all of the work it did in its working memory:
 
 ```markdown
 Run a final consistency and cleanup pass across code, tests, config, and docs. Sync docs to the implemented state, remove stale/dead references, simplify duplication introduced or exposed by this work, and fix low-risk inconsistencies. Flag larger refactors separately. Run the full relevant validation.
 ```
 
-If you want a second sanity check and have the tokens to spare, a second pass in a fresh context window can be useful:
+For a second sanity check, an adversarial pass in a fresh chat / context window can be useful:
 
 ```markdown
 Review the current repository state as an independent maintainer. Identify correctness issues, unnecessary complexity, stale documentation, inconsistent abstractions, and high-value simplifications. Do not assume existing design choices are correct. Separate low-risk cleanup from larger architectural recommendations.
 ```
+For maximum safety, run both of these using the `/plan` skill so the agent just generates a detailed plan for you to verify before proceeding with any file level changes.
 
 ## Repository Structure
 
