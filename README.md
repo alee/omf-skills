@@ -56,56 +56,53 @@ The `/omfa` skill guides you through a structured modeling lifecycle and produce
 3. **Implementation plan**: modular structure with validation activities.
 4. **Recommendations**: when to use specialist skills for documentation, FAIR metadata, HPC orchestration, or peer-review readiness.
 
-## Detailed omfa prompt
+## Example omfa prompt
 
-```markdown
-/omfa (create, synchronize, audit) this project's reviewable modeling artifacts.
+````markdown
+```text
+/omfa Review this project and create or update its modeling artifacts.
 
-Treat the project's narrative documentation, existing artifacts, source code, review comments, and user instructions as the available evidence.
+Evidence: documentation, existing artifacts, source code, review comments.
 
-Determine the appropriate operating mode:
+Determine the project's lifecycle state and apply relevant OMFA
+guidance. Create or update only the artifacts the evidence justifies. Where
+evidence is missing, conflicting, or uncertain, say so explicitly rather than
+inventing scientific commitments.
 
-- **Bootstrap**: initialize the artifact set for a new project.
-- **Update** (default): synchronize existing artifacts with available evidence.
-- **Audit**: assess artifacts without modifying them.
+Store artifacts under `artifacts/` using OMFA canonical filenames.
 
-When an expected artifact is missing:
-
-- generate it if sufficient evidence exists;
-- otherwise create a scaffold that clearly distinguishes available evidence, missing evidence, unresolved questions, and assumptions requiring user confirmation;
-- never invent scientific commitments.
-
-Store all artifacts under `artifacts/` using the canonical filenames defined by OMFA. Do not invent alternative filenames or repository structures.
-
-When updating artifacts:
-
-- preserve traceability between evidence, assumptions, decisions, implementation, evaluation, and conclusions;
-- update only artifacts affected by new evidence;
-- identify downstream artifacts that should be reviewed because they may now be stale;
-- never silently reconcile conflicting evidence.
-
-Report:
-
-1. current lifecycle stage;
-2. loaded guidance modules;
-3. artifacts created, updated, reviewed, or flagged;
-4. unresolved deficiencies and missing evidence;
-5. recommended next actions and any additional OMFA guidance that should be loaded.
-
-Be explicit about uncertainty, distinguish evidence from inference, preserve project terminology where possible, and prefer the simplest defensible interpretation supported by the available evidence.
+Report: what was created, updated, reviewed, or flagged; unresolved
+deficiencies; recommended next steps.
 ```
+````
 
 ## example omfb prompt
 
 ```text
-/omfb (develop, review, update) the implementation plan. Preserve traceability between OMFA scientific artifacts, implementation artifacts, source code, and verification activities. Prefer small, reviewable implementation increments over monolithic code generation. If OMFA artifacts do not exist, stop and request that the user run `/omfa` first to generate them.
+/omfb Review this project and create or update its implementation artifacts.
 
-* **Plan**: create the initial implementation artifacts from OMFA artifacts before coding.
-* **Update**: synchronize implementation artifacts as scientific artifacts, code, or constraints evolve.
-* **Audit**: assess whether implementation and code remain faithful to the scientific artifacts without modifying code unless explicitly requested.
+Evidence: OMFA artifacts, existing implementation artifacts, source code,
+tests, review comments.
+
+Develop the implementation plan from the scientific artifacts and apply the
+relevant OMFB guidance. Create or update only the artifacts the evidence
+justifies. Where evidence is missing, conflicting, or uncertain, say so
+explicitly rather than inventing implementation or scientific commitments.
+
+Preserve traceability from scientific artifacts through implementation
+decisions, source code, and verification.
+
+Report: what was created, updated, reviewed, or flagged; unresolved
+deficiencies; recommended next steps.
 ```
 
-After the plan has been created, run `/omfb create a (NetLogo, Python, Julia) implementation in src/(netlogo|python|julia)`.
+Once an implementation plan has been created and reviewed carefully by you, try running
+
+`/omfb implement the reviewed implementation plan using the latest stable version of Python Mesa in src/python/`
+
+or
+
+`/omfb implement the reviewed implementation plan using NetLogo 7.0.4 in src/netlogo/`
 
 ## Repository Structure
 
