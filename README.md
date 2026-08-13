@@ -104,6 +104,27 @@ or
 
 `/omfb implement the reviewed implementation plan using NetLogo 7.0.4 in src/netlogo/`
 
+or
+
+`/omfb implement the reviewed implementation plan using Agents.jl v7.0.3 in src/julia/`
+
+NOTE: current coding agents tend to be better at generating code in Python as opposed to Julia, NetLogo, or other languages. Ask your own coding agent which language(s) it is proficient in, and/or if it will be proficient in your choice of language and framework. This will determine to some degree how much intervention effort it will take on your end for model development and implementation.
+
+
+## Useful prompts
+
+After completing an implementation session with a coding agent, it is often useful to run a cleanup pass. Here's a prebuilt prompt to do so, _within the same context window you did your work in, if possible_:
+
+```markdown
+Run a final consistency and cleanup pass across code, tests, config, and docs. Sync docs to the implemented state, remove stale/dead references, simplify duplication introduced or exposed by this work, and fix low-risk inconsistencies. Flag larger refactors separately. Run the full relevant validation.
+```
+
+If you want a second sanity check and have the tokens to spare, a second pass in a fresh context window can be useful:
+
+```markdown
+Review the current repository state as an independent maintainer. Identify correctness issues, unnecessary complexity, stale documentation, inconsistent abstractions, and high-value simplifications. Do not assume existing design choices are correct. Separate low-risk cleanup from larger architectural recommendations.
+```
+
 ## Repository Structure
 
 ```text
