@@ -19,6 +19,7 @@ help:
 	@echo "  make help              Show this help message"
 	@echo "  make validate          Run the canonical repository validation suite (CI-equivalent)"
 	@echo "  make container-validate  Run the full validation suite inside the supported container"
+	@echo "  make validate-citation  Validate the repository CITATION.cff metadata"
 	@echo "  make test              Run repository tests / evals only (no lint or format)"
 	@echo "  make lint              Run static analysis (markdown lint)"
 	@echo "  make format            Apply repository formatting (prettier on md/json)"
@@ -39,7 +40,14 @@ container-validate:
 	@echo "=== Running containerized validation ==="
 	@$(MAKE) lint
 	@$(MAKE) test
+	@$(MAKE) validate-citation
 	@echo "=== Container validation completed ==="
+
+# ---- citation validation ----
+.PHONY: validate-citation
+validate-citation:
+	@echo "=== Validating CITATION.cff ==="
+	@$(TOOLS_EXEC) 'cd /app && PATH="/opt/venv/bin:$$PATH" cffconvert --validate'
 
 # ---- tests (no lint, no format) ----
 .PHONY: test
