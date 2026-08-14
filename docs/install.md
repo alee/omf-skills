@@ -1,5 +1,31 @@
 # Installing OMF Skills
 
+## Quick Start
+
+Agent Skills can be installed for a specific project or globally on your user account. Here's what that usually looks
+like:
+
+```text
+Project-local                         Global
+
+my-model/                             ~/
+├── .agents/                          ├── .agents/
+│   └── skills/                       │   └── skills/
+│       ├── omfa/                     │       ├── omfa/
+│       ├── omfb/                     │       ├── omfb/
+│       └── ...                       │       └── ...
+├── artifacts/                        └── projects/
+└── src/                                  └── my-model/
+```
+
+where `~` is your home directory.
+
+For most users of these skills, global installation is best because these skills depend on each other and it makes it
+easy to update your skills as they evolve which will be frequent.
+
+Please remember to cite the specific version of these skills you used in your research (see CITATION.cff). It is also a
+good idea to record the specific coding agents and LLM versions they used if possible in your provenance trail.
+
 ## Prerequisites
 
 - A coding-capable AI agent
@@ -88,10 +114,11 @@ If you can't run Node.js/npx in your environment, you can install the skills dir
 
 ```bash
 # 1. Clone the collection somewhere out of the way
+mkdir -p ~/.cache/omf-skills
 git clone https://github.com/openmodelingfoundation/skills.git ~/.cache/omf-skills
 
 # 2. (Optional) Pin to a release/tag
-cd ~/.cache/omf-skills && git checkout v1.0.0
+cd ~/.cache/omf-skills && git checkout v2026.08
 
 # 3. Symlink each skill into ~/.agents/skills
 mkdir -p ~/.agents/skills
@@ -103,5 +130,6 @@ done
 You may need to restart your agent session to pick up the new skills.
 
 Update all: `cd ~/.cache/omf-skills && git pull (symlinks stay in sync automatically)`
+Update to a specific version: `git -C ~/.cache/omf-skills fetch --tags && git -C ~/.cache/omf-skills checkout v3000.c0c0`
 Remove one: `rm ~/.agents/skills/<skill-name>`
 Remove all: `rm ~/.cache/omf-skills/*/ -exec rm ~/.agents/skills/{} \;` or simpler, rm each symlink individually and then `rm -rf ~/.cache/omf-skills`

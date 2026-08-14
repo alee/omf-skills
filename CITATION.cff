@@ -1,0 +1,39 @@
+cff-version: 1.3.0
+message: If you use these skills, please cite them using these metadata.
+title: Open Modeling Foundation Agent Skills
+abstract: >
+  A community-developed collection of Agent Skills that augment AI coding and
+  research agents with methodological guidance for transparent, reviewable,
+  reproducible computational modeling across the modeling lifecycle.
+
+authors:
+  - family-names: Allen
+    given-names: Lee
+    orcid: "https://orcid.org/0000-0002-6523-6079"
+    affiliation:
+      - name: Arizona State University
+        ror: "https://ror.org/03efmqc40"
+  - name: The Open Modeling Foundation
+	website: "https://www.openmodelingfoundation.org"
+
+version: 2026.08
+date-released: "2026-08-14"
+
+identifiers:
+  - description: >
+      All versions of Open Modeling Foundation Agent Skills on Zenodo.
+    type: doi
+    value: "10.5281/zenodo.21938269"
+
+license: MIT
+repository-code: "https://github.com/openmodelingfoundation/skills"
+
+keywords:
+  - computational modeling
+  - agent skills
+  - agent-based modeling
+  - complex adaptive systems
+  - reproducible research
+  - scientific software
+  - good modeling practice
+  - artificial intelligence

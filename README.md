@@ -1,5 +1,7 @@
 # OMF Skills Repository
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21938270.svg)](https://doi.org/10.5281/zenodo.21938270)
+
 Computational modeling requires scientific and methodological judgment that extends beyond software engineering, but general-purpose AI coding agents do not consistently apply established modeling practices. OMF Skills encode community-developed modeling methodology, research software practices, and scientific workflows, helping computational modelers at any career stage build models that are transparent, reviewable, reproducible, and FAIR-aligned.
 
 **Status**: `Alpha` — We are actively seeking community feedback to refine these workflows.
@@ -132,6 +134,7 @@ refactors separately. Run the full relevant validation.
 ```
 
 For a second sanity check, open a fresh chat and context window for an adversarial pass:
+
 ```markdown
 Review the current repository state as an independent maintainer. Identify correctness issues,
 unnecessary complexity, stale documentation, inconsistent abstractions, and high-value simplifications.
@@ -176,6 +179,11 @@ We welcome new skills, improvements to existing workflows, and evaluation cases.
 - **Open Modeling Foundation**: [openmodelingfoundation.org](https://www.openmodelingfoundation.org)
 - **Agent Skills Specification**: [agentskills.io](https://agentskills.io)
 - **Skills CLI**: [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
+
+## Citing
+
+If you use these skills in research, please cite the archived release. Citation metadata is available in
+[`CITATION.cff`](CITATION.cff).
 
 ## License
 
