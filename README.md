@@ -58,8 +58,7 @@ The `/omfa` skill guides you through a structured modeling lifecycle and produce
 
 ## Example omfa prompt
 
-````markdown
-```text
+```markdown
 /omfa Review this project and create or update its modeling artifacts.
 
 Evidence: documentation, existing artifacts, source code, review comments.
@@ -74,11 +73,10 @@ Store artifacts under `artifacts/` using OMFA canonical filenames.
 Report: what was created, updated, reviewed, or flagged; unresolved
 deficiencies; recommended next steps.
 ```
-````
 
 ## example omfb prompt
 
-```text
+```markdown
 /omfb Review this project and create or update its implementation artifacts.
 
 Evidence: OMFA artifacts, existing implementation artifacts, source code,
@@ -96,7 +94,7 @@ Report: what was created, updated, reviewed, or flagged; unresolved
 deficiencies; recommended next steps.
 ```
 
-Once an implementation plan has been created and reviewed carefully by you, try running
+Once an implementation plan has been **carefully reviewed**, try:
 
 `/omfb implement the reviewed implementation plan using the latest stable version of Python Mesa in src/python/`
 
@@ -108,7 +106,13 @@ or
 
 `/omfb implement the reviewed implementation plan using Agents.jl v7.0.3 in src/julia/`
 
-NOTE: current coding agents tend to be better at generating code in Python as opposed to Julia, NetLogo, or other languages. Ask your own coding agent which language(s) it is proficient in, and/or if it will be proficient in your choice of language and framework. This will determine to some degree how much intervention effort it will take on your end for model development and implementation.
+> [!NOTE]
+> Coding-agent proficiency varies by language and framework, with widely used
+> ecosystems such as Python often better represented than more specialized
+> alternatives. Ask your coding agent to assess its proficiency with both your
+> chosen language and framework. Lower confidence generally means more
+> documentation checks, testing, review, and hands-on intervention during model
+> development.
 
 ## Trusting genAI-generated code
 
@@ -121,15 +125,21 @@ See [genAI code review guidance](docs/genai-code-review.md) for some programming
 After completing an implementation session with a coding agent, it is often useful to run a cleanup pass. Here's a prebuilt prompt to do so, within the _same context window you did your work in_ so that the agent still has all of the work it did in its working memory:
 
 ```markdown
-Run a final consistency and cleanup pass across code, tests, config, and docs. Sync docs to the implemented state, remove stale/dead references, simplify duplication introduced or exposed by this work, and fix low-risk inconsistencies. Flag larger refactors separately. Run the full relevant validation.
+Run a final consistency and cleanup pass across code, tests, config, and docs.
+Sync docs to the implemented state, remove stale/dead references, simplify duplication
+introduced or exposed by this work, and fix low-risk inconsistencies. Flag larger
+refactors separately. Run the full relevant validation.
 ```
 
-For a second sanity check, an adversarial pass in a fresh chat / context window can be useful:
-
+For a second sanity check, open a fresh chat and context window for an adversarial pass:
 ```markdown
-Review the current repository state as an independent maintainer. Identify correctness issues, unnecessary complexity, stale documentation, inconsistent abstractions, and high-value simplifications. Do not assume existing design choices are correct. Separate low-risk cleanup from larger architectural recommendations.
+Review the current repository state as an independent maintainer. Identify correctness issues,
+unnecessary complexity, stale documentation, inconsistent abstractions, and high-value simplifications.
+Do not assume existing design choices are correct. Separate low-risk cleanup from larger architectural
+recommendations.
 ```
-For maximum safety, run both of these using the `/plan` skill so the agent just generates a detailed plan for you to verify before proceeding with any file level changes.
+
+For maximum safety, run these prompts using the `/plan` skill so the agent generates a detailed plan for you to verify before proceeding with any file level changes.
 
 ## Repository Structure
 
