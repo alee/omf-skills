@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "provenance_manifest": {
+    "model_name": "<Model Name>",
+    "version": "<Version>",
+    "created_at": "<ISO-8601 Timestamp>",
+    "inputs": [
+      {
+        "name": "<Dataset/Source Name>",
+        "uri": "<URI/Path>",
+        "version": "<Version/Hash>",
+        "description": "<Description of input>"
+      }
+    ],
+    "workflow": [
+      {
+        "step": "<Step Name>",
+        "tool": "<Tool/Script Name>",
+        "parameters": {
+          "<param>": "<value>"
+        },
+        "output": "<Output File Path>"
+      }
+    ],
+    "environment": {
+      "python_version": "<Version>",
+      "dependencies": "<Link to requirements.txt or environment.yml>",
+      "os": "<OS/Container Image>"
+    },
+    "related_artifacts": [
+      "artifacts/conceptual-model.md",
+      "artifacts/assumptions.md",
+      "artifacts/uncertainty-register.md"
+    ]
+  }
+}

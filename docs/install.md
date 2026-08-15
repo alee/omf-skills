@@ -61,7 +61,7 @@ We recommend using the node version manager `nvm` to flexibly install and manage
    Choose the latest release tag from: <https://github.com/nvm-sh/nvm/releases>
 
    ```bash
-   export NVM_VERSION="v0.40.5" # change to latest release
+   export NVM_VERSION="v0.40.6" # change to latest release
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh | bash
    ```
 
@@ -104,7 +104,7 @@ We recommend using the node version manager `nvm` to flexibly install and manage
 1. Keep Node LTS current (maintenance)
 
    ```bash
-   nvm install --lts --reinstall-packages-from=current
+   nvm install --lts --reinstall-packages-from=current --latest-npm
    nvm use --lts
    ```
 

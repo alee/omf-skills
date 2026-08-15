@@ -1,4 +1,4 @@
-# Model Card
+# Model Card (Guidance Template)
 
 The Model Card provides a concise, high-level summary of the computational model, its purpose, evaluation, intended use, and limitations.
 

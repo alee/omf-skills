@@ -6,7 +6,7 @@ This report is a **living artifact**. Create it early and update it as verificat
 
 ---
 
-## 1. Evaluation Context
+## Evaluation Context
 
 **Goal:** Define the purpose and claims against which the model is evaluated. You cannot assess credibility without a defined purpose.
 
@@ -23,7 +23,7 @@ This report is a **living artifact**. Create it early and update it as verificat
 
 ---
 
-## 2. Scope of Evaluation
+## Scope of Evaluation
 
 **Goal:** Make explicit what has and has not been evaluated. Evaluation establishes credibility only within the evaluated scope.
 
@@ -42,7 +42,7 @@ This report is a **living artifact**. Create it early and update it as verificat
 
 ---
 
-## 3. Evaluation Evidence
+## Evaluation Evidence
 
 **Goal:** Summarize the evidence produced by each major evaluation activity and trace it to supporting artifacts.
 
@@ -76,7 +76,7 @@ For each activity below, answer:
 
 ---
 
-## 4. Credibility & Evidence Synthesis
+## Credibility & Evidence Synthesis
 
 **Goal:** Integrate the evidence into an assessment of model credibility, without relying on predefined maturity tiers.
 
@@ -95,7 +95,7 @@ For each activity below, answer:
 
 ---
 
-## 5. How Uncertainty Informed the Evaluation
+## How Uncertainty Informed the Evaluation
 
 **Goal:** Summarize the role of uncertainty in shaping the evaluation and its conclusions.
 
@@ -103,7 +103,7 @@ For each activity below, answer:
 1. Which uncertainty analyses informed this evaluation? (e.g., sensitivity analysis, scenario exploration, calibration ambiguity assessment.)
 2. Which uncertainty sources are most relevant to the model's credibility?
 3. How were uncertainty and robustness findings integrated into the evaluation conclusions?
-4. Where are the supporting uncertainty artifacts and reports documented? (e.g., `artifacts/uncertainty-register.md`, `artifacts/sensitivity-analysis-report.md`, calibration notes.)
+4. Where are the supporting uncertainty artifacts and reports documented? (e.g., `artifacts/uncertainty-register.md`, `artifacts/sensitivity-analysis-report.md`.)
 
 **Example:**
 - **Uncertainty source:** Fuel moisture strongly affects fire area.
@@ -113,7 +113,7 @@ For each activity below, answer:
 
 ---
 
-## 6. Fitness for Purpose
+## Fitness for Purpose
 
 **Goal:** Communicate the conditions under which the model can be relied upon, without making a binary pass/fail recommendation.
 

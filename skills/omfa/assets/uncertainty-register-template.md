@@ -6,7 +6,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 1. Parameter Uncertainty
+## Parameter Uncertainty
 
 **Goal:** Distinguish between "we don't know the value" (epistemic) and "the value varies naturally" (aleatory).
 
@@ -24,7 +24,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 2. Structural Uncertainty
+## Structural Uncertainty
 
 **Goal:** Justify the "map" you chose to represent the "territory."
 
@@ -41,7 +41,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 3. Scenario Uncertainty
+## Scenario Uncertainty
 
 **Goal:** Prevent "over-precision" in forecasting by documenting the fragility of future assumptions.
 
@@ -57,7 +57,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 4. Data Limitations
+## Data Limitations
 
 **Goal:** Make explicit how input and observational data constrain or weaken model claims.
 
@@ -76,7 +76,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 5. Calibration Ambiguity & Equifinality
+## Calibration Ambiguity & Equifinality
 
 **Goal:** Admit when different parameter combinations produce indistinguishable results.
 
@@ -92,7 +92,7 @@ Entries should reference supporting analyses (e.g., sensitivity analysis, calibr
 
 ---
 
-## 6. Interpretation Guidance (Key Caveats)
+## Interpretation Guidance (Key Caveats)
 
 **Goal:** Translate the uncertainties above into clear, actionable limits on how results should be interpreted.
 
