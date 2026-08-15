@@ -48,6 +48,7 @@ evals/**/eval-*/
 evals/**/*.html
 feedback.json
 results.json
+results_cross.json
 
 # Transient skill development
 *-workspace/

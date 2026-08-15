@@ -7,8 +7,8 @@ abstract: >
   reproducible computational modeling across the modeling lifecycle.
 
 authors:
-  - family-names: Allen
-    given-names: Lee
+  - family-names: Lee
+    given-names: Allen
     orcid: "https://orcid.org/0000-0002-6523-6079"
     affiliation: "Arizona State University"
   - name: The Open Modeling Foundation

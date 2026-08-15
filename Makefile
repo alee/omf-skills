@@ -21,7 +21,7 @@ help:
 	@echo "  make container-validate  Run the full validation suite inside the supported container"
 	@echo "  make validate-citation  Validate the repository CITATION.cff metadata"
 	@echo "  make test              Run repository tests / evals only (no lint or format)"
-	@echo "  make lint              Run static analysis (markdown lint)"
+	@echo "  make lint              Run static analysis (markdown lint on all *.md)"
 	@echo "  make format            Apply repository formatting (prettier on md/json)"
 	@echo "  make clean             Remove generated artifacts"
 	@echo "  make report            Aggregate failure report from evals"
@@ -66,17 +66,6 @@ validate-evals:
 cross:
 	@$(TOOLS_RUN) $(SCRIPTS)/validate_cross_skills.py $(CROSS_EVAL)
 
-# ---- per-skill evals (placeholder) ----
-SKILLS := document fair hpc omfa ospool peer-review
-
-.PHONY: skills
-skills: $(SKILLS)
-
-.PHONY: $(SKILLS)
-$(SKILLS):
-	@echo "Running evals for $@"
-	$(PYTHON) $(SCRIPTS)/run_skill_evals.py $@
-
 # ---- aggregate report ----
 .PHONY: report
 report:
@@ -96,14 +85,8 @@ format:
 	$(TOOLS_EXEC) 'prettier --write *.md **/*.{md,json}'
 
 # ---- linting ----
-LINT_GLOBS := docs/agent-skills-creation-reference.md docs/SKILL-TEMPLATE.md docs/SKILLS-ASSESSMENT.md docs/VALIDATION.md docs/data-analysis-skills.md docs/roadmap.md
-
 .PHONY: lint
 lint:
-	$(TOOLS_EXEC) 'markdownlint-cli2 $(LINT_GLOBS)'
-
-.PHONY: lint-all
-lint-all:
 	$(TOOLS_EXEC) 'markdownlint-cli2 **/*.md'
 
 # ---- clean ----

@@ -1,11 +1,12 @@
 ---
 name: fair
 description: |
-  Support FAIR stewardship of digital research objects, including research
-  software, datasets, computational models, and workflows. Use for FAIR
-  metadata, provenance, persistent identifiers, citation, repository
-  organization, dependency and environment management, packaging,
-  portability, archival preparation, preservation, and management planning.
+  Use this skill when planning or reviewing FAIR stewardship of digital
+  research objects, including research software, datasets, computational
+  models, and workflows. Use it for FAIR metadata, provenance, persistent
+  identifiers, citation, repository organization, dependency and environment
+  management, packaging, portability, archival preparation, preservation,
+  and management planning.
 
   Triggers include making research objects FAIR, reproducible, citable,
   reusable, publication- or archive-ready; creating FAIR metadata (e.g.

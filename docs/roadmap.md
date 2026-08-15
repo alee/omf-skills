@@ -18,8 +18,6 @@ The current alpha release provides foundational support for computational modeli
 
 **OMFB** (Model Implementation Guidance) translates reviewable conceptual models into maintainable research software architectures while preserving scientific intent and traceability.
 
-OMFB (Model Implementation Guidance) provides methodological guidance for translating reviewable conceptual models into maintainable research software while preserving scientific intent and traceability.
-
 Future methodological guidance will expand to additional domains such as experimentation, calibration, visualization, and documentation methodology.
 
 ## Specialist Skills
