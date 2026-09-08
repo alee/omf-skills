@@ -8,7 +8,7 @@ The Model Card provides a concise, high-level summary of the computational model
 
 - **Name:** <Model Name>
 - **Version:** <Version>
-- **Status:** <Conceptual | Prototype | Under Evaluation | Validated for Intended Purpose | Archived>
+- **Status:** <Conceptual | Prototype | Under Evaluation | Evaluated for Intended Purpose | Archived>
 - **Authors:** <Authors or Organization>
 - **License:** <License>
 - **Repository / DOI:** <Repository, archive, or publication>

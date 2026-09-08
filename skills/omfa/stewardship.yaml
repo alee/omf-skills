@@ -4,7 +4,7 @@ skill:
   repository: https://github.com/openmodelingfoundation/skills
 subject-revision:
   algorithm: sha256-manifest-v1
-  digest: sha256:afdd4d46a1ad3c2dd824848da79c3507037e62182b98192d775fc4201f232e96
+  digest: sha256:b7092457da795d01ae854c2fc62b5b363c91f78b5d7ed6d8ce9fe681844d8740
   manifest:
   - path: SKILL.md
     digest: sha256:215ffd170e59ca0ebef4419d40bb0cf1e0c7941033f66814adcc9a102866e23d
@@ -21,7 +21,7 @@ subject-revision:
   - path: assets/evaluation-report-template.md
     digest: sha256:d5e39f9316f0d3aba4779a3e5fdf24bb1244611679452b0a4e2ccb1477a7ac50
   - path: assets/model-card-template.md
-    digest: sha256:831d66e4f643b7b3709bb32cfb3db1f62957899459068a05edd162ab9def0ffc
+    digest: sha256:898ba926b9ff97219e19c77c8968c51711170568e2d122909a70a62feb7791bf
   - path: assets/stakeholder-register-template.md
     digest: sha256:6f42b40ca7f2c22a3cabe0843df18dc256182caf2f5379c2f32c813a7d25b401
   - path: assets/uncertainty-register-template.md

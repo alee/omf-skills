@@ -9,8 +9,9 @@ description: |
   "peer review my model", "is this model submission ready", "review codebase quality",
   "check reproducibility", "review ODD documentation", "assess FAIR/research software quality".
 
-  Expected output: structured peer review report with binary pass/fail recommendation,
-  criterion-by-criterion findings, prioritized fixes, and an evidence-based checklist mapped to the baseline review criteria and
+  Expected output: structured peer review report with a binary recommendation
+  limited to named baseline submission criteria, criterion-by-criterion findings,
+  prioritized fixes, and an evidence-based checklist mapped to those criteria and
   key EVERSE research software quality indicators.
 license: MIT
 compatibility: Works with Python, R, NetLogo, Julia, C/C++, and mixed-language model repositories
@@ -43,6 +44,9 @@ Use this skill when:
 - A repository needs a structured research software engineering quality assessment
 
 Do not use this skill to judge scientific novelty, theoretical validity, or whether conclusions are correct.
+Its binary recommendation reports whether three named submission criteria were
+observed as satisfied from available evidence; it is not scientific
+certification or a guarantee of reproducibility in untested conditions.
 Focus on software and documentation quality for reproducibility and reuse.
 
 ## Key Inputs

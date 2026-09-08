@@ -308,6 +308,12 @@ Note: Evals must validate against `evals/schema/schema.json`. Do not add custom 
 
 The current automated suite validates eval structure and runs a deterministic cross-skill routing smoke test. It does not execute skills or establish behavioral contract conformance. To gather behavioral evidence, run the skill with and without its instructions against fixture repositories and grade the resulting trace, filesystem diff, authority boundaries, provenance, privacy, failure behavior, and implied-surety risks.
 
+Keep the evaluated object explicit. A skill eval grades the agent's behavior and
+the task outputs it produces. Evidence about the skill belongs in evaluation
+results and stewardship records; it must not be used as evidence about the
+computational model or another generated artifact. Evidence about those task
+artifacts likewise does not establish the skill's reliability.
+
 After you've defined evals, run your skill manually against each test case and
 record the model, runtime, inputs, grader, date, and relevant limitations:
 

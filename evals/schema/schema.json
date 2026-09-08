@@ -139,6 +139,7 @@
                 "redundant_actions",
                 "missing_provenance",
                 "privacy_leak",
+                "evidence_scope_conflation",
                 "implied_surety"
               ]
             }

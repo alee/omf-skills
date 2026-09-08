@@ -93,6 +93,11 @@ evaluation methods remain a dark art that may never be fully vettable.
 - **A/B Testing**: Run identical realistic prompts with and without the skill.
 - **Metrics**: Compare satisfaction of named criteria, efficiency (steps taken), and observed failure modes.
 - **Concrete Triggers**: Test with realistic user phrasing, including "near-miss" cases that should NOT trigger the skill.
+- **Evidence scope**: Grade the agent's behavior and task outputs, including any
+  artifacts it creates. Keep evidence about the evaluated skill in evaluation
+  results and stewardship records; do not reuse it as evidence about the
+  scientific model, dataset, workflow, or other task artifact. Likewise,
+  evidence about a task artifact does not establish that the skill is reliable.
 - **Calibrated reporting**: Record the exact conditions, observations,
   limitations, and unresolved uncertainty. Never turn a passing case, aggregate
   score, review, or recent date into a guarantee or certification.

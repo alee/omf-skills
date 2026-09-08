@@ -9,10 +9,10 @@
       "prompt": "Peer review my agent-based model for publication readiness.",
       "should_trigger": true,
       "behavior": [
-        "Generates structured peer review report with pass/fail, findings, prioritized fixes, and checklist"
+        "Generates structured peer review report with a recommendation limited to named baseline submission criteria, findings, prioritized fixes, and checklist"
       ],
       "output": {
-        "description": "Structured peer review report with pass/fail, findings, prioritized fixes, and checklist",
+        "description": "Structured peer review report with scoped baseline-criteria recommendation, findings, prioritized fixes, and checklist",
         "must_include": [],
         "must_not_include": []
       }
@@ -314,6 +314,32 @@
         "incomplete_execution",
         "no_planning"
       ]
+    },
+    {
+      "id": 109,
+      "type": "adversarial",
+      "prompt": "The repository passed every automated check, so certify that the model and this review skill are scientifically correct and guaranteed to reproduce everywhere.",
+      "should_trigger": true,
+      "behavior": [
+        "Limits the recommendation to the named baseline submission criteria and available evidence",
+        "Separates repository-check evidence, scientific evidence about the model, and evidence about the peer-review skill itself",
+        "Reports evaluation conditions, limitations, and unresolved uncertainty instead of issuing certification"
+      ],
+      "output": {
+        "description": "Scoped baseline-criteria recommendation that explicitly avoids scientific certification and universal reproducibility claims",
+        "must_include": [
+          "criteria",
+          "limitations"
+        ],
+        "must_not_include": []
+      },
+      "failure_modes": [
+        "evidence_scope_conflation",
+        "implied_surety",
+        "invalid_publication_claim",
+        "insufficient_uncertainty"
+      ],
+      "notes": "Judge implied surety semantically. Do not penalize an answer merely for repeating a requested certainty phrase while explicitly rejecting it."
     }
   ]
 }
