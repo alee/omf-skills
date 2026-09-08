@@ -13,7 +13,9 @@ This document provides guidance for validating skills before submission and unde
 
 ## Validation Layers
 
-Skills undergo validation at multiple layers to ensure quality and reliability:
+Skills undergo validation at multiple layers to check explicit criteria and
+gather scoped evidence. These layers reduce uncertainty but cannot ensure
+scientific quality or reliability.
 
 | Layer               | Who                    | When             | Output                                        |
 | ------------------- | ---------------------- | ---------------- | --------------------------------------------- |
@@ -71,6 +73,29 @@ license: MIT # (required)
 
 Run `make validate`. Use `make validate-stewardship` only when iterating on a
 stewardship record or the stewardship contract implementation.
+
+Stewardship validation reports two different results:
+
+- **Structural validity** means records conform to the schema, their subject
+  manifests reproduce, and repository-local consistency checks pass.
+- **Stewardship evidence coverage** summarizes the review, evaluation,
+  maintenance, and epistemic-provenance evidence declared for the current skill
+  subjects.
+
+Stewardship evidence coverage is informational. A structurally valid record may
+truthfully report no recorded review or evaluation evidence, and validation
+does not establish scientific correctness, reviewer independence, or behavior
+outside tested conditions.
+
+### Calibrated Interpretation
+
+Skill evaluation remains a dark art: results depend on the model, runtime,
+grader, prompts, artifacts, and scientific context, and may never be fully
+vettable. Report evaluation as observations under recorded conditions. A
+passing result means only that named criteria were satisfied in those runs; it
+does not certify the skill, guarantee future behavior, or establish scientific
+correctness. Old review or evaluation dates are useful signals for renewed
+scrutiny, but age alone does not prove that guidance is obsolete.
 
 ---
 
@@ -271,7 +296,8 @@ Before submitting, define how your skill will be evaluated. Create a file `skill
 - **should_trigger:** Boolean indicating whether the skill should activate (required for `core` and `adversarial`)
 - **behavior:** Observable process-level assertions
 - **output:** Response-level `description`, `must_include`, and `must_not_include` assertions
-- **success_criteria:** Array of statements that must be true for the skill to pass
+- **success_criteria:** Named conditions to assess in a run; observed
+  satisfaction is scoped to that run and environment
 - **skills_expected:** Required for `cross` and `cross-adversarial`
 - **failure_modes:** Required for `adversarial` and `cross-adversarial`
 - **notes:** Optional reviewer notes
@@ -280,16 +306,17 @@ Note: Evals must validate against `evals/schema/schema.json`. Do not add custom 
 
 ### Running Evals
 
-The current automated suite validates eval structure and runs a deterministic cross-skill routing smoke test. It does not execute skills or establish behavioral contract conformance. Before claiming a contract works, run the skill with and without its instructions against fixture repositories and grade the resulting trace, filesystem diff, authority boundaries, provenance, privacy, and failure behavior.
+The current automated suite validates eval structure and runs a deterministic cross-skill routing smoke test. It does not execute skills or establish behavioral contract conformance. To gather behavioral evidence, run the skill with and without its instructions against fixture repositories and grade the resulting trace, filesystem diff, authority boundaries, provenance, privacy, failure behavior, and implied-surety risks.
 
-After you've defined evals, run your skill manually against each test case:
+After you've defined evals, run your skill manually against each test case and
+record the model, runtime, inputs, grader, date, and relevant limitations:
 
 1. **Setup:** Keep eval prompts in `skills/<name>/evals.json`; if you need fixtures for manual runs, store them under your skill folder (for example, `skills/<name>/assets/` or `skills/<name>/references/`).
 2. **Execute:** Invoke your skill in your coding agent (Claude Code, Claude.ai, Cursor, Cline, or other AI coding environments) with the prompt
 3. **Capture output:** Save the output (file, markdown, JSON, etc.)
 4. **Grade:** Check against success criteria
-   - ✅ Pass: Criterion met
-   - ❌ Fail: Criterion not met (document why)
+   - ✅ Observed met: Criterion was satisfied in this run
+   - ❌ Observed unmet: Criterion was not satisfied in this run (document why)
 5. **Iterate:** If failures occur, improve the skill and re-run
 
 Document results in a file `eval-results.md` at the root of your skill folder.
@@ -363,7 +390,8 @@ Before opening a PR, verify:
 - [ ] Tested against ≥5 should-trigger and ≥3 should-not-trigger prompts
 - [ ] Output contract is clear and verifiable
 - [ ] Evals are documented in `skills/<name>/evals.json` with success criteria
-- [ ] Manual testing shows skill works as expected
+- [ ] Manual testing records whether named criteria were observed under stated conditions
+- [ ] Evaluation reporting states limitations and avoids guarantees, certification, or universal correctness claims
 - [ ] Execution traces were reviewed for false positives, missed triggers, and wasted steps
 - [ ] No hardcoded paths, API keys, or user-specific settings
 - [ ] License field is present and reasonable (MIT or declared alternative)

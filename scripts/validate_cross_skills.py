@@ -116,6 +116,8 @@ def evaluate_case(e):
 def main(path):
     data = json.loads(Path(path).read_text())
 
+    print("Deterministic routing smoke test; this does not execute or certify skill behavior.")
+
     results = []
     passed = 0
 
@@ -130,16 +132,16 @@ def main(path):
         print(f"Failures: {r['failure_modes']}")
 
         if r["passed"]:
-            print("✅ PASS")
+            print("✅ DECLARED ROUTING CRITERIA MET")
             passed += 1
         else:
-            print("❌ FAIL")
+            print("❌ DECLARED ROUTING CRITERIA UNMET")
 
     # write results for aggregation
     Path(OUTPUT_FILE).write_text(json.dumps(results, indent=2))
 
     total = len(results)
-    print(f"\nSummary: {passed}/{total} passed")
+    print(f"\nSummary: declared routing criteria met in {passed}/{total} cases")
 
     # fail CI if any fail
     if passed < total:

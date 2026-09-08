@@ -8,7 +8,11 @@ Release readiness is evaluated against the repository's own documented standards
 
 A release should present a coherent, internally consistent repository that is usable by both contributors and coding agents.
 
-Release quality depends on methodological correctness, documentation quality, workflow reliability, and repository consistency rather than feature completeness alone.
+Release quality depends on methodological care, transparent evidence,
+documentation quality, workflow reliability, and repository consistency rather
+than feature completeness alone. Release readiness is an operational decision,
+not certification that skill guidance is scientifically correct or guaranteed
+to work.
 
 ---
 
@@ -107,6 +111,14 @@ Repository evaluation assets MUST:
 Repository evaluation assets SHOULD:
 
 - include boundary-condition and adversarial cases where appropriate.
+- record the evaluated model, runtime, suite, inputs, grader, date, observations,
+  and limitations;
+- describe satisfied criteria as scoped observations rather than proof of
+  scientific correctness or future behavior.
+
+Skill evaluation remains an incompletely understood, context-dependent
+practice. More evidence can reduce uncertainty and expose failures, but cannot
+make a skill fully vettable across all scientific uses and agent environments.
 
 ---
 
@@ -189,4 +201,7 @@ One or more MUST release criteria are Not Satisfied.
 
 This document defines the release standard.
 
-The release assessment procedure evaluates these criteria, records evidence for each assessment, and produces an evidence-based release recommendation.
+The release assessment procedure evaluates these criteria, records evidence
+for each assessment, and produces an evidence-based release recommendation.
+That recommendation concerns repository release readiness only; it is not a
+scientific certification of the included skills.

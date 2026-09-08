@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Skill Evaluation Schema",
-  "description": "Schema for evaluating agent skill routing, behavior, outputs, and boundary conditions.",
+  "description": "Schema for defining scoped evaluation cases for agent skill routing, behavior, outputs, and boundary conditions. Schema conformance is structural and does not certify scientific correctness or future behavior.",
   "type": "object",
   "required": [
     "schema_version",
@@ -99,7 +99,7 @@
           },
           "success_criteria": {
             "type": "array",
-            "description": "Evaluable conditions spanning both process and output, used when checkable assertions alone are insufficient.",
+            "description": "Named conditions to assess in a run. Observed satisfaction is evidence about that run and environment, not a universal guarantee.",
             "items": {
               "type": "string"
             }
@@ -138,7 +138,8 @@
                 "no_planning",
                 "redundant_actions",
                 "missing_provenance",
-                "privacy_leak"
+                "privacy_leak",
+                "implied_surety"
               ]
             }
           },

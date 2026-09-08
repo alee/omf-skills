@@ -132,7 +132,8 @@ Rules:
 - **Scripts**: `snake_case.py`, `kebab.sh`
 - **References**: `UPPERCASE-TOPIC.md`
 - **Config/Templates**: YAML or JSON only
-- **Maturity**: `alpha`, `beta`, `stable`
+- **Development stability**: `experimental`, `evolving`, `stable` (development
+  and compatibility status only)
 - **Evals**: ≥3 trigger + ≥3 non-trigger cases
 - **License**: MIT default
 
@@ -140,9 +141,42 @@ Rules:
 
 ## Evaluation strategy
 
-Each skill must include an evaluation JSON defining trigger and non-trigger cases.
+Each skill must include an evaluation JSON defining trigger and non-trigger
+cases.
 
-**Required behavior**: Test with and without the skill using realistic prompts and artifacts. Compare correctness, efficiency, and failure modes.
+**Required behavior**: Test with and without the skill using realistic prompts
+and artifacts. Compare observed criterion satisfaction, efficiency, and failure
+modes across the recorded model, runtime, suite, and inputs.
+
+## ⚠️ Gotcha: calibrated transparency, not implied surety
+
+Skill review and evaluation are empirical, incomplete, and dependent on the
+model, runtime, grader, prompts, artifacts, and scientific context. Skill
+evaluation remains a dark art and may never be fully vettable. Pursue the
+strongest practical scientific rigor and transparency, but never present a
+recent review, passing evaluation, validation command, or `stable` label as a
+guarantee, certification, or proof of scientific correctness or future
+behavior. Strong claims about directly observed process facts remain
+appropriate: prefer “On `<date>`, under `<model/runtime/suite/inputs>`, criteria
+`<A–C>` were observed as satisfied” over “the skill passes” or “the skill is
+validated.”
+
+Report what was examined, by whom, when, under which exact conditions, what was
+observed, and what remains uncertain. Use pass/fail only for explicitly named
+criteria. For an in-scope criterion lacking evidence, report `unknown` or `not
+assessed` with the reason. Label relevant findings outside the named criteria as
+exploratory observations; do not silently omit them or let them alter pass/fail
+unless the criteria are explicitly revised. Treat review or evaluation age as
+a reason for renewed scrutiny, not as proof that guidance is either correct or
+obsolete. Treat `stable` as a development and compatibility commitment, not an
+epistemic status.
+
+Scope every review or evaluation claim to the `subject-revision` containing the
+behavior-affecting skill content. Recording or updating that claim changes the
+`record-revision`, not the `subject-revision`; do not make the stewardship
+record part of the content identity it describes. Follow
+[`docs/skill-stewardship-contract.md`](docs/skill-stewardship-contract.md#revision-identity)
+rather than inventing another revision scheme.
 
 ---
 

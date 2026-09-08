@@ -21,7 +21,7 @@ class Report:
 
     def print(self):
         if not self.errors and not self.warnings:
-            print("🎉 All skills validated successfully")
+            print("🎉 All skill files passed the declared structural checks")
             return
 
         def fmt(entries, label):

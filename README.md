@@ -120,6 +120,13 @@ or
 
 Failure modes differ by language and ecosystem: some errors are caught early, while others compile or run and produce plausible but incorrect results. Review effort should scale with those failure modes and their observability.
 
+Repository validation, review, and skill evaluations provide scoped evidence,
+not guarantees of scientific correctness or future behavior. Skill evaluation
+is still a dark art: outcomes depend on the model, runtime, grader, prompts,
+artifacts, and scientific context, and may never be fully vettable. OMF aims for
+the strongest practical rigor and transparency by recording those conditions,
+observations, limitations, and unresolved uncertainties.
+
 See [genAI code review guidance](docs/genai-code-review.md) for some programming language and framework specific risks and review guidance.
 
 ## Useful prompts

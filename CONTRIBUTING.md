@@ -288,6 +288,23 @@ The description is your **primary triggering mechanism**. Make it:
 
 ## Testing Your Skill
 
+Testing produces scoped observations, not certification. Skill behavior varies
+with the model, runtime, grader, prompt, artifacts, and scientific context, and
+evaluation methods remain a dark art that may never be fully vettable. Record
+those conditions and limitations. Use pass/fail only for named criteria, and do
+not describe a skill as scientifically correct or guaranteed because an
+evaluation or review was recent or successful.
+
+Prefer a concrete statement such as “On `<date>`, under
+`<model/runtime/suite/inputs>`, criteria `<A–C>` were observed as satisfied.”
+Report unevaluated in-scope criteria as `unknown` or `not assessed`, and label
+relevant findings outside the rubric as exploratory observations. Strong claims
+about the recorded evaluation process are appropriate; do not generalize them
+into claims about scientific correctness or untested behavior. Attach claims to
+the evaluated `subject-revision`; stewardship-only updates change the
+`record-revision`. See the
+[stewardship revision rules](docs/skill-stewardship-contract.md#revision-identity).
+
 ### Manual Testing
 
 1. **Should-trigger cases** (5–10 prompts that SHOULD activate your skill):
@@ -338,6 +355,8 @@ Notes:
 - Individual skill evals live next to the skill, for example `skills/document/evals.json`.
 - The repository schema accepts fields such as `type`, `should_trigger`, `behavior`, `output`, `success_criteria`, `skills_expected`, `failure_modes`, and `notes`.
 - Do not add ad hoc fields unless you also update the schema in `evals/schema/schema.json`.
+- Evaluation reports must identify their model, runtime, suite, inputs, grader,
+  date, observed results, and limitations before supporting stewardship claims.
 
 ## Submission Checklist
 
@@ -353,6 +372,7 @@ Before submitting, verify:
 - [ ] README/CONTRIBUTING sections are consistent with repository guidelines
 - [ ] `skills/<name>/evals.json` exists and validates against `evals/schema/schema.json`
 - [ ] Tested skill against ≥5 should-trigger and ≥3 should-not-trigger prompts
+- [ ] Reported evaluation conditions, observations, limitations, and unresolved uncertainty without implying certification
 - [ ] No hardcoded paths or user-specific settings
 - [ ] Scripts have clear usage documentation (docstrings, help text, or references/SCRIPT.md)
 - [ ] No credentials, API keys, or personal data in examples

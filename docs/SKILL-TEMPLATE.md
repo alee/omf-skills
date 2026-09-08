@@ -147,6 +147,7 @@ with something real when refining the skill.>
     outputs, handoffs, completion, failure, and provenance
   □ stewardship.yaml validates and its subject manifest includes all execution content
   □ evals.json has ≥3 should-trigger + ≥3 should-not-trigger cases
+  □ Evaluation reports identify conditions and limitations without implying scientific surety
   □ No hardcoded paths, API keys, or personal settings
   □ Tested against ≥5 should-trigger prompts in a real coding agent session
   See CONTRIBUTING.md and docs/VALIDATION.md for full submission requirements.

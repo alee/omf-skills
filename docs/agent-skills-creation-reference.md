@@ -85,11 +85,17 @@ Skill identity follows the repository release when installed from a release. Rec
 
 ### Evaluation
 
-Quality is verified through comparative testing:
+Evaluation gathers scoped evidence about observed skill behavior; it does not
+verify universal quality or scientific correctness. Agent behavior depends on
+the model, runtime, grader, prompts, artifacts, and context, and the available
+evaluation methods remain a dark art that may never be fully vettable.
 
 - **A/B Testing**: Run identical realistic prompts with and without the skill.
-- **Metrics**: Compare correctness, efficiency (steps taken), and failure modes.
+- **Metrics**: Compare satisfaction of named criteria, efficiency (steps taken), and observed failure modes.
 - **Concrete Triggers**: Test with realistic user phrasing, including "near-miss" cases that should NOT trigger the skill.
+- **Calibrated reporting**: Record the exact conditions, observations,
+  limitations, and unresolved uncertainty. Never turn a passing case, aggregate
+  score, review, or recent date into a guarantee or certification.
 
 ---
 
