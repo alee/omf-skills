@@ -69,6 +69,7 @@
       "properties": {
         "supported-environments": {
           "type": "array",
+          "description": "Exact environments selected as evaluation targets. This field does not guarantee skill behavior in those environments.",
           "items": { "$ref": "#/$defs/supportedEnvironment" }
         },
         "claims": {
@@ -374,7 +375,10 @@
           "required": ["evaluated-at", "outcome", "evidence"],
           "properties": {
             "evaluated-at": { "$ref": "#/$defs/date" },
-            "outcome": { "enum": ["passed", "failed", "inconclusive"] },
+            "outcome": {
+              "description": "Whether named acceptance criteria were observed as satisfied in the recorded runs; passed is not scientific certification.",
+              "enum": ["passed", "failed", "inconclusive"]
+            },
             "evidence": { "$ref": "#/$defs/evidence" }
           }
         },

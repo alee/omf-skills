@@ -47,7 +47,120 @@ class Problems:
             for item in self.items:
                 print(f"  - {item}")
             raise SystemExit(1)
-        print("All skill stewardship records are valid")
+        print("All skill stewardship records are structurally valid")
+
+
+class StewardshipEvidenceSummary:
+    """Report declared stewardship evidence without implying scientific surety."""
+
+    def __init__(self) -> None:
+        self.records: list[dict] = []
+
+    def add(self, record: dict) -> None:
+        self.records.append(record)
+
+    @staticmethod
+    def matching_review_claims(record: dict, kind: str) -> list[dict]:
+        subject = record["subject-revision"]["digest"]
+        return [
+            claim
+            for claim in record["reviews"][kind]["claims"]
+            if claim.get("outcome") == "reviewed"
+            and claim["subject-revision"] == subject
+        ]
+
+    @staticmethod
+    def evaluation_target_keys(record: dict) -> set[tuple]:
+        return {
+            (
+                environment_key(environment),
+                environment["required-suite-revision"],
+                criteria_key(environment["acceptance-criteria"]),
+            )
+            for environment in record["evaluation"]["supported-environments"]
+        }
+
+    @staticmethod
+    def criterion_satisfying_evaluation_keys(record: dict) -> set[tuple]:
+        subject = record["subject-revision"]["digest"]
+        return {
+            (
+                environment_key(claim["environment"]),
+                claim["suite-revision"],
+                criteria_key(claim["acceptance-criteria"]),
+            )
+            for claim in record["evaluation"]["claims"]
+            if claim.get("outcome") != "invalidated"
+            and claim["subject-revision"] == subject
+            and claim["result"]["outcome"] == "passed"
+        }
+
+    def print(self) -> None:
+        total = len(self.records)
+        maintained = sum(
+            record["maintenance"]["status"] == "maintained"
+            for record in self.records
+        )
+        structural = sum(
+            bool(self.matching_review_claims(record, "structural"))
+            for record in self.records
+        )
+        domain = 0
+        targets_declared = 0
+        targets_with_results = 0
+        provenance_gaps = 0
+
+        for record in self.records:
+            consequential = {
+                item["guidance-id"]
+                for item in record["guidance-provenance"]
+                if item["consequential"]
+            }
+            covered = {
+                guidance_id
+                for claim in self.matching_review_claims(record, "domain")
+                for guidance_id in claim["scope"]["guidance-ids"]
+            }
+            if consequential and consequential.issubset(covered):
+                domain += 1
+
+            target_keys = self.evaluation_target_keys(record)
+            if target_keys:
+                targets_declared += 1
+                if target_keys.issubset(
+                    self.criterion_satisfying_evaluation_keys(record)
+                ):
+                    targets_with_results += 1
+
+            if any(
+                item["consequential"]
+                and (not item["bases"] or "provenance-gap" in item)
+                for item in record["guidance-provenance"]
+            ):
+                provenance_gaps += 1
+
+        print("\nStewardship evidence coverage (informational; not a certification):")
+        print(f"  Structurally valid stewardship records: {total}/{total}")
+        print(f"  Skills declaring active maintenance: {maintained}/{total}")
+        print(
+            "  Skills with recorded structural-review evidence for this subject: "
+            f"{structural}/{total}"
+        )
+        print(
+            "  Skills with recorded domain review covering consequential guidance: "
+            f"{domain}/{total}"
+        )
+        print(f"  Skills declaring evaluation targets: {targets_declared}/{total}")
+        print(
+            "  Skills with recorded criterion-satisfying results for all targets: "
+            f"{targets_with_results}/{total}"
+        )
+        print(
+            "  Skills with unresolved consequential guidance-provenance gaps: "
+            f"{provenance_gaps}/{total}"
+        )
+        print("  Reviews and evaluations are scoped observations, not guarantees of scientific")
+        print("  correctness, reviewer independence, or behavior in other conditions.")
 
 
 def frontmatter(path: Path) -> dict:
@@ -259,17 +372,17 @@ def validate_semantics(skill_dir: Path, record: dict, problems: Problems) -> Non
             if kind == "structural" and not (claim["scope"]["files"] or claim["scope"]["concerns"]):
                 problems.add(skill, "structural review scope needs files or concerns")
 
-    supported: dict[tuple, dict] = {}
+    evaluation_targets: dict[tuple, dict] = {}
     environments: list[dict] = []
     for environment in record["evaluation"]["supported-environments"]:
         environments.append(environment)
         criteria = criteria_key(environment["acceptance-criteria"])
         if len(criteria) != len(set(criteria)):
-            problems.add(skill, "supported environment contains duplicate acceptance criteria")
+            problems.add(skill, "evaluation target contains duplicate acceptance criteria")
         key = (environment_key(environment), environment["required-suite-revision"], criteria)
-        if key in supported:
-            problems.add(skill, "duplicate supported environment")
-        supported[key] = environment
+        if key in evaluation_targets:
+            problems.add(skill, "duplicate evaluation target environment")
+        evaluation_targets[key] = environment
     for claim in record["evaluation"]["claims"]:
         if claim.get("outcome") == "invalidated":
             continue
@@ -278,8 +391,8 @@ def validate_semantics(skill_dir: Path, record: dict, problems: Problems) -> Non
         if len(criteria) != len(set(criteria)):
             problems.add(skill, "evaluation claim contains duplicate acceptance criteria")
         key = (environment_key(claim["environment"]), claim["suite-revision"], criteria)
-        if key not in supported:
-            problems.add(skill, "evaluation claim does not exactly match a supported environment")
+        if key not in evaluation_targets:
+            problems.add(skill, "evaluation claim does not exactly match a declared target environment")
 
     components = []
     for environment in environments:
@@ -301,7 +414,7 @@ def validate_semantics(skill_dir: Path, record: dict, problems: Problems) -> Non
         if "compatibility" not in record or "migration" not in record["distribution"]:
             problems.add(skill, "stable skill needs compatibility and migration statements")
         if not record["evaluation"]["supported-environments"]:
-            problems.add(skill, "stable skill needs at least one supported environment")
+            problems.add(skill, "stable skill needs at least one evaluation target environment")
         subject = record["subject-revision"]["digest"]
         today = date.today().isoformat()
         review_claims = [
@@ -340,12 +453,16 @@ def validate_semantics(skill_dir: Path, record: dict, problems: Problems) -> Non
             and claim["result"]["outcome"] == "passed"
             and claim.get("valid-until", today) >= today
         }
-        if not set(supported).issubset(accepted):
-            problems.add(skill, "stable skill lacks accepted evaluation coverage")
+        if not set(evaluation_targets).issubset(accepted):
+            problems.add(
+                skill,
+                "stable skill lacks recorded criterion-satisfying evaluation coverage",
+            )
 
 
 def main() -> None:
     problems = Problems()
+    summary = StewardshipEvidenceSummary()
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
     jsonschema.Draft7Validator.check_schema(schema)
     validator = jsonschema.Draft7Validator(schema, format_checker=jsonschema.FormatChecker())
@@ -379,8 +496,10 @@ def main() -> None:
         paths = validate_paths(skill_dir, record, problems)
         validate_manifest(skill_dir, record, paths, problems)
         validate_semantics(skill_dir, record, problems)
+        summary.add(record)
         print(f"Checked stewardship for {skill}")
     problems.finish()
+    summary.print()
 
 
 if __name__ == "__main__":

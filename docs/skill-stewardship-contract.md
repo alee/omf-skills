@@ -13,6 +13,13 @@ Treat each scientific skill as a maintained, reviewable knowledge artifact.
 The contract makes stewardship claims inspectable without duplicating Git
 history, releases, licenses, citations, review evidence, or evaluation output.
 
+The contract follows calibrated transparency: it records what was reviewed or
+evaluated, by whom, when, under which conditions, and with which limitations.
+It does not certify scientific correctness or guarantee that a skill will work
+in future or unobserved contexts. Skill evaluation remains a dark art and may
+never be fully vettable across models, runtimes, graders, inputs, and scientific
+uses.
+
 This contract addresses [issue #16](https://github.com/openmodelingfoundation/skills/issues/16)
 and extends the portable [Agent Skills specification](https://agentskills.io/specification).
 
@@ -177,7 +184,7 @@ Do not use a single lifecycle field for unrelated states.
 | --- | --- |
 | `experimental` | Interfaces or guidance may change without migration support. |
 | `evolving` | Suitable for stated uses, but consequential changes remain expected. |
-| `stable` | Compatibility and migration expectations apply, and the stable release gates are satisfied. |
+| `stable` | Development interfaces carry compatibility and migration expectations; this is not a scientific-validity status. |
 
 ### Distribution status
 
@@ -365,9 +372,12 @@ reviewers:
 ## Review claims
 
 Structural and domain review claims are recorded separately. `reviewed` means
-a concluded review was accepted. `changes-requested` is a distinct concluded
-outcome, not a reviewed claim. `not-reviewed` means no applicable concluded
-review exists. `stale` means an earlier accepted review no longer applies.
+a concluded review record was accepted as evidence for its stated scope; it
+does not mean the guidance was proven correct. `changes-requested` is a
+distinct concluded outcome, not a reviewed claim. `not-reviewed` means no
+applicable concluded review exists. `stale` means an earlier accepted review
+no longer applies. An old review date is a reason for renewed scrutiny even
+when no specific invalidating event is known.
 
 An accepted claim becomes stale after `review-due`, when its subject changes
 materially within scope, or when maintainers record another applicability
@@ -414,15 +424,20 @@ claim reference. Do not rewrite a published historical record.
 
 An evaluation result records what happened in a run. A qualifying evaluation
 claim records that maintainers accept a particular result as evidence for a
-subject revision and supported environment. There is no singular latest
-result, and evidence for one environment does not supersede evidence for
-another.
+subject revision and declared evaluation target. There is no singular latest
+result, and evidence for one target does not supersede evidence for another.
+
+`supported-environments` is the serialized version 0.1 field name for declared
+evaluation targets. It does not mean the skill is guaranteed to behave
+correctly in those environments. Likewise, `result.outcome: passed` means only
+that the named acceptance criteria were observed as satisfied in the recorded
+runs. It is not a certification of the skill or its scientific guidance.
 
 Version 0.1 requires exact model, runtime, tool, and material dependency
-versions or immutable snapshots in both evaluation evidence and
-supported-environment declarations. Version ranges and mutable aliases such as
-`latest` are not permitted. A future non-evidentiary compatibility declaration
-could express broader maintainer intent, but version 0.1 does not define one.
+versions or immutable snapshots in both evaluation evidence and declared
+evaluation targets. Version ranges and mutable aliases such as `latest` are not
+permitted. A future non-evidentiary compatibility declaration could express
+broader maintainer intent, but version 0.1 does not define one.
 
 ```yaml
 evaluation:
@@ -475,8 +490,8 @@ evaluation:
 ```
 
 A claim is current only while its subject, exact environment, suite, and
-acceptance criteria match the corresponding supported-environment declaration
-and optional `valid-until` has not passed. Failed or inconclusive results remain
+acceptance criteria match the corresponding declared evaluation target and
+optional `valid-until` has not passed. Failed or inconclusive results remain
 evaluation evidence but do not become qualifying claims unless the claim
 explicitly limits what they support.
 
@@ -493,8 +508,8 @@ Environment matching uses these normalization rules:
   invalid rather than equivalent to `[]`.
 
 Two environments match only when their normalized model, runtime, tools, and
-dependencies are equal. A claim matches a supported environment only when its
-normalized acceptance criteria and suite revision are also equal.
+dependencies are equal. A claim matches a declared evaluation target only when
+its normalized acceptance criteria and suite revision are also equal.
 
 ## Compatibility and migration
 
@@ -537,7 +552,7 @@ YAML may be mapped to PROV later if an interoperability use case emerges.
 | Governance record or evidence changes only | Produce a new record revision; preserve the subject revision. |
 | Consequential guidance changes | Reassess affected domain-review and evaluation coverage. |
 | Normative source changes materially | Reassess affected modules and record stale claims when applicability changed. |
-| Supported model, runtime, tool, or dependency changes | Require a new exact environment-scoped evaluation result and accepted claim. |
+| Evaluation-target model, runtime, tool, or dependency changes | Require a new exact environment-scoped evaluation result and accepted claim. |
 | User reports a failure | Preserve potential incident evidence; do not automatically alter claims or status. |
 | Maintainers confirm a critical or major incident | Invalidate affected current claims immediately and open review or evaluation. |
 | Maintainers confirm a minor incident | Preserve incident evidence and escalate according to the review policy. |
@@ -551,24 +566,28 @@ when maintainers judge them non-behavioral. Carrying a prior claim forward to
 the new digest requires an explicit new claim; never silently reuse the old
 subject revision.
 
-## Stable release gates
+## Stable development and compatibility gates
 
-A skill may declare `development.stability: stable` only when review and
-validation establish at its assessment date that:
+A skill may declare `development.stability: stable` only when the following
+development, compatibility, and evidence-recording conditions hold at its
+assessment date:
 
 - maintenance is `maintained` and distribution is `current`;
 - the subject manifest and digest reproduce;
 - a current accepted structural-review claim covers the subject revision;
 - every consequential guidance module is covered by a current accepted
   domain-review claim for the subject revision;
-- every declared supported environment has a current accepted evaluation claim
+- every declared evaluation target has a current accepted evaluation claim
   for the exact subject, environment, suite, and acceptance criteria;
 - required evidence resolves and no maintainer-confirmed critical or major
   incident invalidates an applicable claim; and
 - compatibility and migration expectations are documented.
 
-An empty supported-environment list cannot satisfy the stable gate. Stable is
-a mechanically assessable current claim, not permanent certification.
+An empty `supported-environments` list cannot satisfy the stable gate. The field
+contains evaluation targets, as defined above. These gates govern development
+and compatibility status. They do not establish scientific validity, guarantee
+skill behavior, or convert review and evaluation evidence into epistemic
+certainty.
 
 ## Historical integrity
 
@@ -594,7 +613,7 @@ consistency, including:
 - normalized exact-environment matching and acceptance criteria;
 - stable compatibility and migration statements;
 - provenance coverage for consequential guidance modules;
-- mechanically assessable stable release gates.
+- mechanically assessable stable development and compatibility gates.
 
 Validation establishes record consistency and evidence coverage, not
 scientific correctness, authenticated identity, reviewer independence, or
@@ -602,6 +621,11 @@ performance beyond declared exact environments. The validator does not
 dereference remote evidence or reconstruct claim history across Git revisions;
 maintainers review those properties when accepting evidence or a stable
 release.
+
+The validator prints structural validity separately from an informational
+stewardship-evidence summary. Empty review, evaluation, or
+guidance-provenance evidence can therefore remain structurally valid without
+being presented as a scientific-validity claim.
 
 ## Sources of truth
 
