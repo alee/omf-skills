@@ -149,10 +149,10 @@
       "prompt": "Validate this ODD description against the ODD+2 checklist and tell me what's missing.",
       "should_trigger": false,
       "behavior": [
-        "Routes to document-review"
+        "Routes to peer-review"
       ],
       "output": {
-        "description": "Routes to document-review for completeness assessment and checklist validation",
+        "description": "Routes to peer-review for completeness assessment and checklist validation",
         "must_include": [],
         "must_not_include": []
       }

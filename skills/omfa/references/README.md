@@ -38,7 +38,7 @@ Current guidance includes:
 - `project-bootstrap.md`
 - `conceptual-modeling.md`
 - `project-planning.md`
-- `implementation-planning.md`
+- `implementation-planning.md` (scientific handoff readiness only; OMFB owns the plan)
 - `analysis-planning.md`
 - `abm.md`
 - `uncertainty.md`

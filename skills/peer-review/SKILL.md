@@ -118,7 +118,7 @@ Assess narrative documentation quality:
 - Includes enough detail for independent replication
 - Uses figures, equations, or diagrams when needed for clarity
 
-If ODD documentation is provided or expected, use the `document` skill to assess ODD structure and completeness against its checklist. If a non-ODD framework is used, evaluate it for equivalent coverage (purpose, entities/components, processes, assumptions, parameters, initialization, inputs/outputs, and stochasticity where relevant).
+If ODD documentation is provided or expected, assess ODD structure and completeness against `../document/references/ODD-CHECKLIST.md`; route narrative revisions to `document`. If a non-ODD framework is used, evaluate it for equivalent coverage (purpose, entities/components, processes, assumptions, parameters, initialization, inputs/outputs, and stochasticity where relevant).
 
 Decision point:
 

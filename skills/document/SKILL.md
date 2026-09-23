@@ -14,8 +14,8 @@ description: |
 
   The skill classifies the model type, selects a framework, extracts model
   structure from supplied materials, and drafts documentation. It does not
-  assess or score existing documentation — use the document-review skill for
-  completeness assessment, gap analysis, or structured review output. For
+  assess or score existing documentation — use peer-review for
+  submission assessment and structured review output. For
   model-card requests or scientific model specifications, route to omfa.
 
   Inputs may include source code, pseudocode, READMEs, publications,
@@ -69,7 +69,7 @@ This skill is commonly invoked downstream of `omfa`, which owns lifecycle guidan
 
 If the request is for `omf-artifacts/model-card.md`, a model card, or any other scientific model specification, route to `omfa` instead of drafting it here.
 
-Do not use this skill for documentation **review or assessment** — gap analysis, completeness scoring, or structured critique of existing docs belongs to the `document-review` skill, which is intended to share this skill's `references/ODD-CHECKLIST.md` and `references/ODD-METHODOLOGY.md` but does not rewrite prose.
+Do not use this skill for documentation **review or assessment**. Route submission readiness or structured critique to `peer-review`, which can use this skill's `references/ODD-CHECKLIST.md` without rewriting prose. For a narrow checklist-only question, report that it is outside this drafting skill and provide the checklist as a reference.
 
 Also out of scope: model calibration, sensitivity analysis, statistical analysis, software testing, code generation, peer review, FAIR assessment, and metadata validation.
 
@@ -125,7 +125,7 @@ When operating downstream of the `omfa` skill, also check for an `omf-artifacts/
 
 # Workflow
 
-1. **Identify the goal.** New documentation, or improvement of an existing draft. (For assessment instead of generation, redirect to `document-review`.)
+1. **Identify the goal.** New documentation, or improvement of an existing draft. (For assessment instead of generation, route submission assessment to `peer-review`.)
 2. **Classify the model type** using the table above. If a model type has already been supplied by an upstream skill (e.g. `omfa`), use it directly rather than reclassifying, unless the source materials clearly contradict it — in which case flag the discrepancy rather than silently overriding it. Otherwise, if uncertain, explain alternatives, why one was selected, and identify any assumptions made rather than forcing a fit.
 3. **Select the framework** and record the rationale as an intermediate artifact in `omf-artifacts/document/` before drafting.
 4. **Inventory the implemented structure before writing prose.** Extract entity types, state variables (per entity type), parameters/constants, spatial and temporal scales, main processes and update order, outputs, input data, and stochastic elements — directly from the source materials, not from the modeler's narrative description of them. This step exists specifically to catch the "narrative describes intended mechanisms, not implemented ones" gotcha above.
@@ -147,7 +147,7 @@ Generate these before drafting documentation:
 - identified documentation gaps
 - inferred vs observed information summary
 
-These artifacts support transparency, review, and reuse and may be consumed by downstream skills like document-review or fair. Prefer predictable, semantic names that describe the artifact's role in the workflow.
+These artifacts support transparency, review, and reuse and may be consumed by downstream skills like `peer-review` or `fair`. Prefer predictable, semantic names that describe the artifact's role in the workflow.
 
 # Worked Example: Extraction Before Prose
 

@@ -4,7 +4,7 @@ skill:
   repository: https://github.com/openmodelingfoundation/skills
 subject-revision:
   algorithm: sha256-manifest-v1
-  digest: sha256:b7092457da795d01ae854c2fc62b5b363c91f78b5d7ed6d8ce9fe681844d8740
+  digest: sha256:8260f3a068e2c4cf702eddd1875d5d55eb5c42f0ff1abd4f00bb0e82f5a79317
   manifest:
   - path: SKILL.md
     digest: sha256:215ffd170e59ca0ebef4419d40bb0cf1e0c7941033f66814adcc9a102866e23d
@@ -27,13 +27,13 @@ subject-revision:
   - path: assets/uncertainty-register-template.md
     digest: sha256:1cd7af9d88e389c60e9b407e46a5e66ff33ee34f608b532ed8cd74f3dfc4f79e
   - path: references/README.md
-    digest: sha256:bcc8d6bbacd4f1ee6f3e46cc2161bfed3c223b25454152f8a79f025864da08c9
+    digest: sha256:6bb84750790a5e270bb2bb937cc5aed6e5f8cfabd202156fc1e9096498d3251c
   - path: references/REFERENCES.md
     digest: sha256:5f5d41bbeec741b02bcca6a9288f8152be66fef09cf5f2ec02c0f51706624cf9
   - path: references/guidance/abm.md
-    digest: sha256:9564c06127e0381f9e890547a1580642cddcc0c6bb0356bd5ae30fc6a382f231
+    digest: sha256:f8f0eb243b911e2898cf73ae6fcec46812daf6758c524922677e54f95416bfa3
   - path: references/guidance/analysis-planning.md
-    digest: sha256:308e2aab22811a32832e1de18e2a036a0aaf3bea6a6501c562aa3ddbcaa1dedb
+    digest: sha256:5ed4736b66f0f66ff7e4cb669d8916bb862aba86f2f6c73edc066fa036d4bd3b
   - path: references/guidance/conceptual-modeling.md
     digest: sha256:12d5b06cd8098b3bd87f59da8b53661e9946cd9a45ef94344016a672d334540b
   - path: references/guidance/deep-uncertainty.md
@@ -41,13 +41,13 @@ subject-revision:
   - path: references/guidance/ethics.md
     digest: sha256:e19d55650340be58493939d4c8db3a3ad9d047110c95b29b05a8609c89a2ca0e
   - path: references/guidance/evaluation.md
-    digest: sha256:41346e9df82084c03aa5af355c71770dab9c5db820dc4a614ba6a89e6799a742
+    digest: sha256:d06d00498ecfca787177ec9136deb1afe94c62fddfd4471b1affc93bb7b0e63f
   - path: references/guidance/implementation-planning.md
     digest: sha256:11323f98b8f80ea35e20b798b82f32ea6b8259de3891ab80141da10b79771e2d
   - path: references/guidance/lifecycle.md
     digest: sha256:52a9f74ee80570710fd205b41cadceca240f032a6881a1f46f01fa22915b9b7b
   - path: references/guidance/participatory.md
-    digest: sha256:11a02f82a6565eddd81d6de76252cfa019d5f685d671c7095722fe88307f0fa1
+    digest: sha256:deebc2055156b9944b0ed7638c3e809a9e97da98880d7032921240f79dc047b5
   - path: references/guidance/project-bootstrap.md
     digest: sha256:8a61acb50e221819ccd9bfd30fee600b00a7e7b4d6c5816d49ab055e2283e43d
   - path: references/guidance/project-planning.md

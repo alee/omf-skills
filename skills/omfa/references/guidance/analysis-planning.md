@@ -30,7 +30,7 @@ The analysis plan should specify how evidence will be generated, interpreted, an
 **Do not use this guidance when:**
 
 - developing the conceptual representation of the system (use `conceptual-modeling.md`)
-- planning software architecture or implementation (use `implementation-planning.md`)
+- planning software architecture or implementation (route to `omfb`)
 - selecting uncertainty characterization approaches (use `uncertainty.md`)
 - determining model credibility (use `evaluation.md`)
 
@@ -169,7 +169,7 @@ Watch for:
 
 Describe how this guidance relates to the rest of the guidance library and specialist skills.
 
-- **Primary entry point** — Apply this guidance after `implementation-planning.md` and before computational experiments. It complements `uncertainty.md` and `evaluation.md` by defining how evidence will be generated and analyzed.
+- **Primary entry point** — Apply this guidance after the relevant scientific framing and OMFB implementation plan are available, and before computational experiments. It complements `uncertainty.md` and `evaluation.md` by defining how evidence will be generated and analyzed.
 - **Specialist execution skills** — `uncertainty`, `evaluation`, future `statistical-analysis`, `sensitivity-analysis`, `calibration`, and experiment execution skills.
 - **Downstream consumer skills** — `document`, `peer-review`, and `fair`, which consume experiment designs, analytical methods, and supporting evidence.
 

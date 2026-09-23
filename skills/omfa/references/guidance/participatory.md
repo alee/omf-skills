@@ -24,7 +24,7 @@ Participatory modeling is a process of knowledge co-production. Participants con
 **Do not use this guidance when:**
 
 - the primary challenge is developing the conceptual representation of a system independent of stakeholder engagement (use `conceptual-modeling.md`);
-- the primary task is selecting modeling methods or implementation strategies (use `implementation-planning.md`);
+- the primary task is implementation strategy or architecture (route to `omfb`); for scientific method choice, use the relevant OMFA guidance;
 - participation consists only of communicating completed modeling results without influencing the modeling process.
 
 Participatory modeling complements conceptual modeling and project planning by defining how knowledge from multiple participants should be incorporated into those activities.
