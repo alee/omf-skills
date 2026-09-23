@@ -14,14 +14,19 @@ authors:
   - name: The Open Modeling Foundation
     website: "https://www.openmodelingfoundation.org"
 
-version: 2026.08
-date-released: "2026-08-14"
+version: "2026.09"
+date-released: "2026-09-23"
 
 identifiers:
   - description: >
       All versions of Open Modeling Foundation Agent Skills on Zenodo.
     type: doi
     value: "10.5281/zenodo.21938269"
+  - description: >
+      The specific version of these OMF skills on Zenodo.
+    type: doi
+    value: "10.5281/zenodo.22930330"
+
 
 license: MIT
 repository-code: "https://github.com/openmodelingfoundation/skills"

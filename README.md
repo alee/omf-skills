@@ -33,6 +33,10 @@ npx skills add openmodelingfoundation/skills
 npx skills add https://github.com/openmodelingfoundation/skills
 ```
 
+The `v2026.09` tag will be available after publication. For a pinned checkout,
+see [manual installation](docs/install.md#manual-git-installation). For projects using
+older artifact paths, follow the [migration guide](docs/artifact-migration.md).
+
 #### Via Coding Agent
 
 Ask your agent: _"Install all skills from https://github.com/openmodelingfoundation/skills"_
@@ -55,8 +59,8 @@ The `/omfa` skill guides you through a structured modeling lifecycle and produce
 
 1. **Conceptual model**: entities, processes, and system boundaries.
 2. **Assumptions list**: explicit, reviewable modeling choices.
-3. **Implementation plan**: modular structure with validation activities.
-4. **Recommendations**: when to use specialist skills for documentation, FAIR metadata, HPC orchestration, or peer-review readiness.
+3. **Handoff readiness**: scientific prerequisites and unresolved decisions for OMFB.
+4. **Recommendations**: when to use specialist skills for implementation, documentation, FAIR metadata, HPC orchestration, or peer-review readiness.
 
 ## Example omfa prompt
 
@@ -165,6 +169,7 @@ For maximum safety, run these prompts using the `/plan` skill so the agent gener
 ## Contributing
 
 We welcome new skills, improvements to existing workflows, and evaluation cases.
+See the [documentation index](docs/README.md) to find current contracts and guides.
 
 - **Contribution Workflow**: [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Authoring Reference**: [docs/agent-skills-creation-reference.md](docs/agent-skills-creation-reference.md)
@@ -189,8 +194,10 @@ We welcome new skills, improvements to existing workflows, and evaluation cases.
 
 ## Citing
 
-If you use these skills in research, please cite the archived release. Citation metadata is available in
-[`CITATION.cff`](CITATION.cff).
+If you use these skills in research, cite the specific archived release and exact
+revision used. [`CITATION.cff`](CITATION.cff) carries the all-versions Zenodo
+concept DOI; the badge above points to an earlier archived version until the
+September release receives its own DOI. The `v2026.09` publication date is pending.
 
 ## License
 
